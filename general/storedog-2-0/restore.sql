@@ -1,182 +1,13 @@
---
--- PostgreSQL database cluster dump
---
-
-SET default_transaction_read_only = off;
-
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-
---
--- Create/update roles
---
-
-
-ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS;
-
---
--- Create DD role: https://docs.datadoghq.com/integrations/postgres/?tab=host#configuration
---
-
 create user datadog with password 'datadog';
 grant pg_monitor to datadog;
 grant SELECT ON pg_stat_database to datadog;
 
 --
--- Databases
---
-
---
--- Database "template1" dump
---
-
---
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.7
--- Dumped by pg_dump version 13.7
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-UPDATE pg_catalog.pg_database SET datistemplate = false WHERE datname = 'template1';
-DROP DATABASE template1;
---
--- Name: template1; Type: DATABASE; Schema: -; Owner: postgres
---
-
-CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE template1 OWNER TO postgres;
-
-\connect template1
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: DATABASE template1; Type: COMMENT; Schema: -; Owner: postgres
---
-
-COMMENT ON DATABASE template1 IS 'default template for new databases';
-
-
---
--- Name: template1; Type: DATABASE PROPERTIES; Schema: -; Owner: postgres
---
-
-ALTER DATABASE template1 IS_TEMPLATE = true;
-
-
-\connect template1
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: DATABASE template1; Type: ACL; Schema: -; Owner: postgres
---
-
-REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
-GRANT CONNECT ON DATABASE template1 TO PUBLIC;
-
-
---
--- PostgreSQL database dump complete
---
-
---
--- Database "postgres" dump
---
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 13.7
--- Dumped by pg_dump version 13.7
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-DROP DATABASE postgres;
---
--- Name: postgres; Type: DATABASE; Schema: -; Owner: postgres
---
-
-CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE postgres OWNER TO postgres;
-
-\connect postgres
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: postgres
---
-
-COMMENT ON DATABASE postgres IS 'default administrative connection database';
-
-
---
--- PostgreSQL database dump complete
---
-
---
--- Database "spree_starter_development" dump
---
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 13.7
--- Dumped by pg_dump version 13.7
+-- Dumped from database version 13.8
+-- Dumped by pg_dump version 13.8
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -4860,8 +4691,65 @@ COPY public.action_text_rich_texts (id, name, body, record_type, record_id, crea
 --
 
 COPY public.active_storage_attachments (id, name, record_type, record_id, blob_id, created_at) FROM stdin;
-1	attachment	Spree::Asset	1	1	2022-07-12 18:21:47.406351
-2	image	ActiveStorage::VariantRecord	1	2	2022-07-12 18:21:49.007215
+9	attachment	Spree::Asset	2	9	2022-09-02 17:04:42.618915
+10	image	ActiveStorage::VariantRecord	6	10	2022-09-02 17:04:43.834442
+11	image	ActiveStorage::VariantRecord	7	11	2022-09-02 17:07:36.677759
+12	attachment	Spree::Asset	3	12	2022-09-02 17:12:23.68051
+13	image	ActiveStorage::VariantRecord	8	13	2022-09-02 17:12:24.593819
+14	image	ActiveStorage::VariantRecord	9	14	2022-09-02 17:12:44.54298
+15	image	ActiveStorage::VariantRecord	10	15	2022-09-02 17:13:38.607574
+16	image	ActiveStorage::VariantRecord	11	16	2022-09-02 17:13:40.066821
+17	image	ActiveStorage::VariantRecord	12	17	2022-09-02 17:18:47.376468
+18	attachment	Spree::Asset	4	18	2022-09-02 17:22:59.541988
+19	image	ActiveStorage::VariantRecord	13	19	2022-09-02 17:23:00.417303
+20	image	ActiveStorage::VariantRecord	14	20	2022-09-02 17:23:10.290435
+21	image	ActiveStorage::VariantRecord	15	21	2022-09-02 17:30:07.259923
+22	image	ActiveStorage::VariantRecord	16	22	2022-09-02 17:30:58.121756
+23	attachment	Spree::Asset	5	23	2022-09-02 17:36:28.631573
+24	image	ActiveStorage::VariantRecord	17	24	2022-09-02 17:36:29.62463
+25	image	ActiveStorage::VariantRecord	18	25	2022-09-02 17:36:53.437153
+26	image	ActiveStorage::VariantRecord	19	26	2022-09-02 17:36:59.863254
+27	image	ActiveStorage::VariantRecord	20	27	2022-09-02 17:37:09.951175
+28	attachment	Spree::Asset	6	28	2022-09-02 18:30:57.994045
+29	image	ActiveStorage::VariantRecord	21	29	2022-09-02 18:30:58.939093
+30	image	ActiveStorage::VariantRecord	22	30	2022-09-02 18:31:40.663095
+31	image	ActiveStorage::VariantRecord	23	31	2022-09-02 18:33:03.592745
+32	image	ActiveStorage::VariantRecord	24	32	2022-09-02 18:33:09.037875
+33	attachment	Spree::Asset	7	33	2022-09-02 18:39:42.413766
+34	image	ActiveStorage::VariantRecord	25	34	2022-09-02 18:39:43.311487
+35	image	ActiveStorage::VariantRecord	26	35	2022-09-02 18:40:17.550299
+36	image	ActiveStorage::VariantRecord	27	36	2022-09-02 18:40:36.17104
+49	image	ActiveStorage::VariantRecord	37	49	2022-09-02 18:46:54.434274
+77	image	ActiveStorage::VariantRecord	60	77	2022-09-13 20:45:20.994954
+78	attachment	Spree::Asset	8	78	2022-09-13 20:55:14.204373
+79	image	ActiveStorage::VariantRecord	61	79	2022-09-13 20:55:15.559455
+80	image	ActiveStorage::VariantRecord	62	80	2022-09-13 20:55:19.220519
+81	image	ActiveStorage::VariantRecord	63	81	2022-09-13 20:56:01.27318
+82	attachment	Spree::Asset	9	82	2022-09-13 20:56:26.336847
+83	image	ActiveStorage::VariantRecord	64	83	2022-09-13 20:56:27.643058
+84	image	ActiveStorage::VariantRecord	65	84	2022-09-13 20:57:15.231813
+85	attachment	Spree::Asset	10	85	2022-09-13 20:57:51.310359
+86	attachment	Spree::Asset	12	86	2022-09-13 20:58:02.736356
+87	attachment	Spree::Asset	11	87	2022-09-13 20:58:22.800752
+88	image	ActiveStorage::VariantRecord	66	88	2022-09-13 20:58:23.694078
+89	image	ActiveStorage::VariantRecord	67	89	2022-09-13 20:58:25.308738
+90	attachment	Spree::Asset	14	90	2022-09-13 20:58:36.663073
+91	image	ActiveStorage::VariantRecord	68	91	2022-09-13 20:58:38.29224
+92	attachment	Spree::Asset	13	92	2022-09-13 20:58:51.555379
+93	image	ActiveStorage::VariantRecord	69	93	2022-09-13 20:58:52.720018
+94	image	ActiveStorage::VariantRecord	70	94	2022-09-13 20:58:55.871559
+95	image	ActiveStorage::VariantRecord	71	95	2022-09-13 20:58:55.886657
+96	image	ActiveStorage::VariantRecord	72	96	2022-09-13 20:58:56.006781
+97	image	ActiveStorage::VariantRecord	73	97	2022-09-13 20:58:56.226471
+98	image	ActiveStorage::VariantRecord	74	98	2022-09-13 20:58:56.321614
+99	image	ActiveStorage::VariantRecord	75	99	2022-09-13 20:58:56.390544
+100	attachment	Spree::Asset	15	100	2022-09-13 20:59:13.185735
+101	image	ActiveStorage::VariantRecord	76	101	2022-09-13 20:59:14.23223
+102	image	ActiveStorage::VariantRecord	78	102	2022-09-13 20:59:35.309674
+103	image	ActiveStorage::VariantRecord	77	103	2022-09-13 20:59:35.415531
+104	image	ActiveStorage::VariantRecord	79	104	2022-09-13 20:59:35.512547
+105	image	ActiveStorage::VariantRecord	80	105	2022-09-13 20:59:35.586156
+106	image	ActiveStorage::VariantRecord	81	106	2022-09-13 20:59:35.592875
 \.
 
 
@@ -4870,8 +4758,65 @@ COPY public.active_storage_attachments (id, name, record_type, record_id, blob_i
 --
 
 COPY public.active_storage_blobs (id, key, filename, content_type, metadata, service_name, byte_size, checksum, created_at) FROM stdin;
-1	k7hrw0msrvsspxi698amx5kmh2wg	tshirt1.webp	image/webp	{"identified":true,"width":550,"height":550,"analyzed":true}	local	7818	gdHiPmHbJtKciParA33KUA==	2022-07-12 18:21:47.40187
-2	o5d9h8s1hih1gihezeeu73fgwa88	tshirt1.png	image/png	{"identified":true,"width":240,"height":240,"analyzed":true}	local	15720	4DjzOhPvmyWH2L6mFXTJ/A==	2022-07-12 18:21:49.001953
+9	2ooru1xgcss6d2qeg4iwmjjgz2c9	cool-bits.jpeg	image/jpeg	{"identified":true}	local	248149	ul8ihFjoVa/dcMgvaiIr1g==	2022-09-02 17:04:42.612189
+10	d7k8l52o2ji9tkor07sqd25wpxdk	cool-bits.jpeg	image/jpeg	{"identified":true}	local	47777	k88PNqNP9KalnrRGGGCEWg==	2022-09-02 17:04:43.827676
+11	f5xr4qy5dtulhpe8kgazjo2x7ubz	cool-bits.jpeg	image/jpeg	{"identified":true}	local	40109	Ynud5dEmvQR/uQ/7TtWDdQ==	2022-09-02 17:07:36.67155
+12	f1f6rz6nuf57ryix259yxq7j3tje	bits-by-dre.jpeg	image/jpeg	{"identified":true}	local	234993	+NqcIyZzTw2n9pWG+kLilw==	2022-09-02 17:12:23.675719
+13	fsipi7gdrjs2mxhgop0etbuwsfu2	bits-by-dre.jpeg	image/jpeg	{"identified":true}	local	49646	i/8OhqiJvH5Tfbhwwxkpmg==	2022-09-02 17:12:24.58817
+14	nx9dapm2zhd2kh991ompea29775m	bits-by-dre.jpeg	image/jpeg	{"identified":true}	local	38898	/p3ijEdp9nhaLD1N1/Rydg==	2022-09-02 17:12:44.537643
+15	ltmc7z2yt5ozwpuqmoz2uw98xylf	cool-bits.jpeg	image/jpeg	{"identified":true}	local	100545	8Ib3bBPtuwjsKX6ELNQ2Aw==	2022-09-02 17:13:38.598918
+16	b095fsshrfwmoexn8czq2m3aiqbe	bits-by-dre.jpeg	image/jpeg	{"identified":true}	local	101081	SSaVHNcWNpYrSUdIJC68UQ==	2022-09-02 17:13:40.059544
+17	6mb7uh60to9dg7fvpjljjmqdnyfw	bits-by-dre.jpeg	image/jpeg	{"identified":true}	local	41004	yGcO9plltZhFPqbpBXeUSw==	2022-09-02 17:18:47.370307
+18	p80jyh6ws8gqmfrp8kcjcgctdieh	hockey-bits.jpeg	image/jpeg	{"identified":true}	local	210279	7ZrEj+kayH0gSXcBBG/B4Q==	2022-09-02 17:22:59.537118
+19	ir5thn1x7rn9legliqvjh23qg1bl	hockey-bits.jpeg	image/jpeg	{"identified":true}	local	44698	HjGe/x67xFTEh5NodOLiaA==	2022-09-02 17:23:00.410808
+20	l81gft3rnuphlp36xw4q33p4r1cs	hockey-bits.jpeg	image/jpeg	{"identified":true}	local	87716	n3vIGT//d9+y6zglmVzq/Q==	2022-09-02 17:23:10.283814
+21	un6xvbm6l3ecxwxwuxffc6b6pksy	hockey-bits.jpeg	image/jpeg	{"identified":true}	local	35863	Ov4CUgp/5UYrkdaWuqoZkw==	2022-09-02 17:30:07.252332
+22	m6sbj199y5b8id0eg6dvktm1nbyu	hockey-bits.jpeg	image/jpeg	{"identified":true}	local	37690	VkJEwpH/dudnAOEkCT4nsQ==	2022-09-02 17:30:58.116025
+23	1ks2veug3cveel5c0eeyaq0m647s	learning-bits.jpeg	image/jpeg	{"identified":true}	local	1197149	TgyzBURlYl80yCI+9ouxUg==	2022-09-02 17:36:28.626212
+24	xp7a6l2hhtrp4ow3oo2e8ozqzuz1	learning-bits.jpeg	image/jpeg	{"identified":true}	local	1014802	Fh+PlRSqDZIWIbckSk9UAQ==	2022-09-02 17:36:29.61502
+25	3lsqhzqyca5o90l7ek5lcic5ge8z	learning-bits.jpeg	image/jpeg	{"identified":true}	local	1002362	6ObEwVp7EOsRMtv78F5IAw==	2022-09-02 17:36:53.431309
+26	h3ump7vjqudll390ky1rdss0xdb4	learning-bits.jpeg	image/jpeg	{"identified":true}	local	1004850	uaX8QLaSQky4BV0bo0QUdQ==	2022-09-02 17:36:59.857098
+27	kru2kfqkml3mwkuhmc2w0uvtp4x1	learning-bits.jpeg	image/jpeg	{"identified":true}	local	1071981	I09nvy18aBcaVMARVMEBiw==	2022-09-02 17:37:09.944468
+28	14zj5sb9no7mevm8vtzjcym71vy1	money-bits.jpeg	image/jpeg	{"identified":true}	local	1100898	YghoZn3prrKQ5yQtZbDK7Q==	2022-09-02 18:30:57.989354
+29	0k8uufd4279o44gzgz5efagsqteu	money-bits.jpeg	image/jpeg	{"identified":true}	local	939468	aNVNfHCzp1R8trPKW0LXiQ==	2022-09-02 18:30:58.93293
+30	vdhfjqfz88rsidepmoygmvmzuory	money-bits.jpeg	image/jpeg	{"identified":true}	local	927913	1iDbHbeEqFL5qloXcbnSzg==	2022-09-02 18:31:40.657526
+31	hvlm8gb3nktx69eteqqt7atj9qrs	money-bits.jpeg	image/jpeg	{"identified":true}	local	930216	GDQRFyc+9JP2t4jYJHi7EQ==	2022-09-02 18:33:03.586501
+32	bz2awto4gfx6t6udd7k5gjvke8i7	money-bits.jpeg	image/jpeg	{"identified":true}	local	986590	M+ek08qj38Ji7feazaiO8Q==	2022-09-02 18:33:09.031386
+33	0r42dufnbi6rctn4vap71d1urqk9	octo-bits.jpeg	image/jpeg	{"identified":true}	local	241272	NuxNL0YyHeKIF1sASRT97A==	2022-09-02 18:39:42.409353
+34	dbagqumqgq1z6319o338j7bmt5pq	octo-bits.jpeg	image/jpeg	{"identified":true}	local	49159	sqkjHyWt2rPAY5q7ruUqgQ==	2022-09-02 18:39:43.304605
+35	msm81dgmxk4ggqiud2bv4j9waoie	octo-bits.jpeg	image/jpeg	{"identified":true}	local	38361	oeUTnZsxghMF1aO5O7v+KQ==	2022-09-02 18:40:17.543007
+36	pk18k7l7xvz7fcz9ecz20m01mbg1	octo-bits.jpeg	image/jpeg	{"identified":true}	local	40567	SrFwtDhvXJzhWls05pzdzw==	2022-09-02 18:40:36.165326
+49	77of4hptz6t0rf0gn04v0kqjt4dm	octo-bits.jpeg	image/jpeg	{"identified":true}	local	100180	VZ6BkQVMlbvYs4EqLM/Auw==	2022-09-02 18:46:54.428156
+77	tcuywtfa5bo7iswkbmocinkv4obn	bits-by-dre.jpeg	image/jpeg	{"identified":true}	local	51236	EfpZWM2xmoj7MQuE71RIyQ==	2022-09-13 20:45:20.984736
+78	tq3q5lsbdzh1hfwfto2ub0dwuuul	og-bits.jpeg	image/jpeg	{"identified":true}	local	1151702	0Yuvf2ntSpa0Gb5VGtepzw==	2022-09-13 20:55:14.197795
+79	rcp1c0ffcrahrxl6ddwdj502lrzh	og-bits.jpeg	image/jpeg	{"identified":true}	local	972140	/hpLInzJskGPWV9QIVLLQQ==	2022-09-13 20:55:15.55344
+80	vn912gigj022zdj21b018id2vb0h	og-bits.jpeg	image/jpeg	{"identified":true}	local	1024852	m8dJdUhVnmZxI7oDBj56eg==	2022-09-13 20:55:19.207845
+81	fk0o9nsutjpswot205kna7pdoj02	og-bits.jpeg	image/jpeg	{"identified":true}	local	962633	zQSTI0DGiSAJC+4llwmG4w==	2022-09-13 20:56:01.257696
+82	ox4iruasiwuftdu71u98l5t4rpgm	rainbow-bits.jpeg	image/jpeg	{"identified":true}	local	259193	efsoMAdOKxIbVSCwg2/YFA==	2022-09-13 20:56:26.329573
+83	v2d6kiibpmi2n5wei0zvfmgcrcp6	rainbow-bits.jpeg	image/jpeg	{"identified":true}	local	50906	hzjMyPp7yLnGK08HEKI4+w==	2022-09-13 20:56:27.635727
+84	6f852pkntrw16c0w9wzpdx2rnmud	rainbow-bits.jpeg	image/jpeg	{"identified":true}	local	110174	Mr9AnVJZuwi+NMzBR409mQ==	2022-09-13 20:57:15.200353
+85	rp62efuo0c81qrdzczbw9vbu1eih	space-bits.jpeg	image/jpeg	{"identified":true}	local	204816	v5mgn8jlxaBVDDh8LeBNyg==	2022-09-13 20:57:51.289216
+86	azwswza6kecyh2bmfnlpr7besvvb	stonk-bits.jpeg	image/jpeg	{"identified":true}	local	211078	PB5hl6/YiHQKDvQmpvH8/w==	2022-09-13 20:58:02.72886
+87	l0idqd59oxu5iz00z9m3iep48pjm	student-bits.jpeg	image/jpeg	{"identified":true}	local	1092884	wklF2uDWboHOf4qkukL3Gg==	2022-09-13 20:58:22.795426
+88	t2gbiuwefu2cu69nx6ef7mxvlkyf	stonk-bits.jpeg	image/jpeg	{"identified":true}	local	47293	Vqnn8/ONG6Qzb1/s1FFEMw==	2022-09-13 20:58:23.685776
+89	1cn3v98qnmqwts7m6l5xkbhzvffn	student-bits.jpeg	image/jpeg	{"identified":true}	local	934184	Ur0hmwkICrISUfpSgAVzcw==	2022-09-13 20:58:25.299251
+90	ziae3tzvaen6pm7pdzsya7rv46l3	sunset-bits.jpeg	image/jpeg	{"identified":true}	local	216353	aXoMYGfRJSfhcGrhVRbMnQ==	2022-09-13 20:58:36.655123
+91	oifpdmfenjck5p39s91m8ij5ya5a	sunset-bits.jpeg	image/jpeg	{"identified":true}	local	46938	lHVXqqxJgx6PoGGedTHq3A==	2022-09-13 20:58:38.271792
+92	8drwmhakoag0ra8a1myjdr80mt57	summit-denver.jpeg	image/jpeg	{"identified":true}	local	265693	0yTT+jLLPh/PFOEHlfEgcg==	2022-09-13 20:58:51.549532
+93	q869nghoropy7vm31r30cgs85x0d	summit-denver.jpeg	image/jpeg	{"identified":true}	local	48059	CXWmqZ1vH06pKaFssa5s8w==	2022-09-13 20:58:52.713025
+94	5beayoc679qsbk1udyydvujp3tuv	summit-denver.jpeg	image/jpeg	{"identified":true}	local	38249	KIpZ6xWcIwScorOuJILSVQ==	2022-09-13 20:58:55.863754
+95	j4j2wb67ekv1hle6t5z2aq19gstf	space-bits.jpeg	image/jpeg	{"identified":true}	local	8347	AiFsjCezMe9MF+xL73BFvg==	2022-09-13 20:58:55.87748
+96	wpik6q4kgdlnd8zy9vxfayze9bxl	stonk-bits.jpeg	image/jpeg	{"identified":true}	local	40088	fdq55rYupPV6x9aLfruPXw==	2022-09-13 20:58:55.995317
+97	osvherjecbdx3ezy3jvar6vvfwrk	rainbow-bits.jpeg	image/jpeg	{"identified":true}	local	41520	7VX0r/Epk4dnKEc+Y+7Lbw==	2022-09-13 20:58:56.197497
+98	niywd6phcjdfuxw97lxi1y8t1sya	student-bits.jpeg	image/jpeg	{"identified":true}	local	924503	pu5jsJqi/HYNK0LTZ4rcEg==	2022-09-13 20:58:56.312249
+99	bfkgrq99dea00vq7i74ludx4q31l	sunset-bits.jpeg	image/jpeg	{"identified":true}	local	39803	VzZgZrPB82opPBFfJq8MOg==	2022-09-13 20:58:56.382249
+100	97xen0j7t6ketkwt4l8vobq14qq9	aapihm-bits.jpeg	image/jpeg	{"identified":true}	local	343741	eZTuAgNrYgfLggtJUa1c/w==	2022-09-13 20:59:13.18072
+101	dqc7t23uxsm5axhesoap039wqjeb	aapihm-bits.jpeg	image/jpeg	{"identified":true}	local	54179	N+Kdai0kqbj/tKP/g2CnAw==	2022-09-13 20:59:14.224158
+102	x0j50n6qwk4g0p72hy9h9gmz9l41	summit-denver.jpeg	image/jpeg	{"identified":true}	local	114428	xxurWrUOWSTgyBbYeJTC0w==	2022-09-13 20:59:35.288053
+103	bbxn5vhfqpqdykae8z2cdf5x3dgs	space-bits.jpeg	image/jpeg	{"identified":true}	local	76325	C5b9U36Azm+17rksRdyRmw==	2022-09-13 20:59:35.303957
+104	89to0ymiqabe72nctvgrgqzyrk0o	student-bits.jpeg	image/jpeg	{"identified":true}	local	979837	s8S7lz63WqubLuwyZkUlvQ==	2022-09-13 20:59:35.466817
+105	z8lp9oe5quoqzkewjtvj14rubeg0	aapihm-bits.jpeg	image/jpeg	{"identified":true}	local	110578	tyOLd68VxrlORI9USR6TnA==	2022-09-13 20:59:35.559995
+106	169tp3memt7id57sh22o8ejtcblg	sunset-bits.jpeg	image/jpeg	{"identified":true}	local	91553	l8Bed84NaeR7ZnrBeZ+OMg==	2022-09-13 20:59:35.559872
 \.
 
 
@@ -4880,7 +4825,51 @@ COPY public.active_storage_blobs (id, key, filename, content_type, metadata, ser
 --
 
 COPY public.active_storage_variant_records (id, blob_id, variation_digest) FROM stdin;
-1	1	RkNOtddX8gz2EmUvtnjomvn0rac=
+6	9	fwVpW23gRniI1V/Mq72agowuN5s=
+7	9	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+8	12	fwVpW23gRniI1V/Mq72agowuN5s=
+9	12	bBI9nAYRWRjVu1pk9y6xAFWlb5I=
+10	9	xKmKND+TjDHsG4nik8rAoillPTg=
+11	12	xKmKND+TjDHsG4nik8rAoillPTg=
+12	12	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+13	18	fwVpW23gRniI1V/Mq72agowuN5s=
+14	18	xKmKND+TjDHsG4nik8rAoillPTg=
+15	18	bBI9nAYRWRjVu1pk9y6xAFWlb5I=
+16	18	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+17	23	fwVpW23gRniI1V/Mq72agowuN5s=
+18	23	bBI9nAYRWRjVu1pk9y6xAFWlb5I=
+19	23	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+20	23	xKmKND+TjDHsG4nik8rAoillPTg=
+21	28	fwVpW23gRniI1V/Mq72agowuN5s=
+22	28	bBI9nAYRWRjVu1pk9y6xAFWlb5I=
+23	28	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+24	28	xKmKND+TjDHsG4nik8rAoillPTg=
+25	33	fwVpW23gRniI1V/Mq72agowuN5s=
+26	33	bBI9nAYRWRjVu1pk9y6xAFWlb5I=
+27	33	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+37	33	xKmKND+TjDHsG4nik8rAoillPTg=
+60	12	LMY3gm7ksOYX5XlHmCdPt9vS3Xk=
+61	78	fwVpW23gRniI1V/Mq72agowuN5s=
+62	78	xKmKND+TjDHsG4nik8rAoillPTg=
+63	78	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+64	82	fwVpW23gRniI1V/Mq72agowuN5s=
+65	82	xKmKND+TjDHsG4nik8rAoillPTg=
+66	86	fwVpW23gRniI1V/Mq72agowuN5s=
+67	87	fwVpW23gRniI1V/Mq72agowuN5s=
+68	90	fwVpW23gRniI1V/Mq72agowuN5s=
+69	92	fwVpW23gRniI1V/Mq72agowuN5s=
+70	92	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+71	85	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+72	86	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+73	82	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+74	87	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+75	90	d3LOd3YXIQx0J6s9ItQoFa4APBo=
+76	100	fwVpW23gRniI1V/Mq72agowuN5s=
+77	85	xKmKND+TjDHsG4nik8rAoillPTg=
+78	92	xKmKND+TjDHsG4nik8rAoillPTg=
+79	87	xKmKND+TjDHsG4nik8rAoillPTg=
+80	100	xKmKND+TjDHsG4nik8rAoillPTg=
+81	90	xKmKND+TjDHsG4nik8rAoillPTg=
 \.
 
 
@@ -4899,147 +4888,166 @@ environment	development	2022-07-12 18:09:53.552384	2022-07-12 18:09:53.552384
 
 COPY public.friendly_id_slugs (id, slug, sluggable_id, sluggable_type, scope, created_at, deleted_at) FROM stdin;
 1	categories	1	Spree::Taxon	\N	2022-07-12 18:13:13.083664	\N
-2	categories/men	2	Spree::Taxon	\N	2022-07-12 18:13:14.080667	\N
-3	categories/women	3	Spree::Taxon	\N	2022-07-12 18:13:14.272231	\N
-4	categories/sportswear	4	Spree::Taxon	\N	2022-07-12 18:13:14.523262	\N
-5	categories/men/shirts	5	Spree::Taxon	\N	2022-07-12 18:13:14.68329	\N
-6	categories/men/t-shirts	6	Spree::Taxon	\N	2022-07-12 18:13:14.786199	\N
-7	categories/men/sweaters	7	Spree::Taxon	\N	2022-07-12 18:13:14.896758	\N
-8	categories/men/jackets-and-coats	8	Spree::Taxon	\N	2022-07-12 18:13:15.007581	\N
-9	categories/women/skirts	9	Spree::Taxon	\N	2022-07-12 18:13:15.113846	\N
-10	categories/women/dresses	10	Spree::Taxon	\N	2022-07-12 18:13:15.2217	\N
-11	categories/women/shirts-and-blouses	11	Spree::Taxon	\N	2022-07-12 18:13:15.332583	\N
-12	categories/women/sweaters	12	Spree::Taxon	\N	2022-07-12 18:13:15.440709	\N
-13	categories/women/tops-and-t-shirts	13	Spree::Taxon	\N	2022-07-12 18:13:15.544872	\N
-14	categories/women/jackets-and-coats	14	Spree::Taxon	\N	2022-07-12 18:13:15.653372	\N
-15	categories/sportswear/tops	15	Spree::Taxon	\N	2022-07-12 18:13:15.759122	\N
-16	categories/sportswear/sweatshirts	16	Spree::Taxon	\N	2022-07-12 18:13:15.872582	\N
-17	categories/sportswear/pants	17	Spree::Taxon	\N	2022-07-12 18:13:15.980192	\N
 18	categories/new	18	Spree::Taxon	\N	2022-07-12 18:13:16.078291	\N
 19	categories/bestsellers	19	Spree::Taxon	\N	2022-07-12 18:13:16.175428	\N
 20	categories/trending	20	Spree::Taxon	\N	2022-07-12 18:13:16.278428	\N
-21	categories/streetstyle	21	Spree::Taxon	\N	2022-07-12 18:13:16.38138	\N
-22	categories/summer-sale	22	Spree::Taxon	\N	2022-07-12 18:13:16.481395	\N
-23	categories/new-collection	23	Spree::Taxon	\N	2022-07-12 18:13:16.576708	\N
-24	categories/new-collection/summer-2022	24	Spree::Taxon	\N	2022-07-12 18:13:16.677109	\N
-25	categories/special-offers	25	Spree::Taxon	\N	2022-07-12 18:13:16.783992	\N
-26	categories/special-offers/30-percent-off	26	Spree::Taxon	\N	2022-07-12 18:13:16.885386	\N
-27	denim-shirt	1	Spree::Product	\N	2022-07-12 18:13:17.391548	\N
-28	checked-shirt	2	Spree::Product	\N	2022-07-12 18:13:17.875797	\N
-29	covered-placket-shirt	3	Spree::Product	\N	2022-07-12 18:13:18.212175	\N
-30	slim-fit-shirt	4	Spree::Product	\N	2022-07-12 18:13:18.551534	\N
-31	short-sleeve-shirt	5	Spree::Product	\N	2022-07-12 18:13:18.886327	\N
-32	printed-short-sleeve-shirt	6	Spree::Product	\N	2022-07-12 18:13:19.225018	\N
-33	regular-shirt	7	Spree::Product	\N	2022-07-12 18:13:19.566485	\N
-34	checked-slim-fit-shirt	8	Spree::Product	\N	2022-07-12 18:13:19.902246	\N
-35	dotted-shirt	9	Spree::Product	\N	2022-07-12 18:13:20.250901	\N
-36	linen-shirt	10	Spree::Product	\N	2022-07-12 18:13:20.597271	\N
-37	regular-shirt-with-rolled-up-sleeves	11	Spree::Product	\N	2022-07-12 18:13:20.921038	\N
-38	polo-t-shirt	12	Spree::Product	\N	2022-07-12 18:13:21.257287	\N
-39	long-sleeve-t-shirt	13	Spree::Product	\N	2022-07-12 18:13:21.593241	\N
-40	3-4-sleeve-t-shirt	14	Spree::Product	\N	2022-07-12 18:13:21.937549	\N
-41	t-shirt-with-holes	15	Spree::Product	\N	2022-07-12 18:13:22.284972	\N
-42	raw-edge-t-shirt	16	Spree::Product	\N	2022-07-12 18:13:22.637858	\N
-43	v-neck-t-shirt	17	Spree::Product	\N	2022-07-12 18:13:23.125292	\N
-44	tank-top	18	Spree::Product	\N	2022-07-12 18:13:23.476906	\N
-45	basic-t-shirt	19	Spree::Product	\N	2022-07-12 18:13:23.840223	\N
-46	high-neck-sweater	20	Spree::Product	\N	2022-07-12 18:13:24.21039	\N
-47	stripped-jumper	21	Spree::Product	\N	2022-07-12 18:13:24.56147	\N
-48	long-sleeve-jumper-with-pocket	22	Spree::Product	\N	2022-07-12 18:13:24.918844	\N
-49	jumper	23	Spree::Product	\N	2022-07-12 18:13:25.27837	\N
-50	long-sleeve-sweatshirt	24	Spree::Product	\N	2022-07-12 18:13:25.619472	\N
-51	hoodie	25	Spree::Product	\N	2022-07-12 18:13:26.059903	\N
-52	zipped-high-neck-sweater	26	Spree::Product	\N	2022-07-12 18:13:26.437851	\N
-53	long-sleeve-jumper	27	Spree::Product	\N	2022-07-12 18:13:26.796275	\N
-54	suede-biker-jacket	28	Spree::Product	\N	2022-07-12 18:13:27.254036	\N
-55	hooded-jacket	29	Spree::Product	\N	2022-07-12 18:13:27.656624	\N
-56	anorak-with-hood	30	Spree::Product	\N	2022-07-12 18:13:28.064217	\N
-57	denim-jacket	31	Spree::Product	\N	2022-07-12 18:13:28.498678	\N
-58	wool-blend-short-coat	32	Spree::Product	\N	2022-07-12 18:13:28.998576	\N
-59	down-jacket-with-hood	33	Spree::Product	\N	2022-07-12 18:13:29.374519	\N
-60	wool-blend-coat	34	Spree::Product	\N	2022-07-12 18:13:29.724248	\N
-61	jacket-with-liner	35	Spree::Product	\N	2022-07-12 18:13:30.092724	\N
-62	flared-midi-skirt	36	Spree::Product	\N	2022-07-12 18:13:30.464192	\N
-63	midi-skirt-with-bottoms	37	Spree::Product	\N	2022-07-12 18:13:30.823182	\N
-64	fitted-skirt	38	Spree::Product	\N	2022-07-12 18:13:31.192728	\N
-65	a-line-suede-skirt	39	Spree::Product	\N	2022-07-12 18:13:31.562211	\N
-66	leather-skirt-with-lacing	40	Spree::Product	\N	2022-07-12 18:13:31.910474	\N
-67	flared-skirt	41	Spree::Product	\N	2022-07-12 18:13:32.266387	\N
-68	skater-skirt	42	Spree::Product	\N	2022-07-12 18:13:32.636966	\N
-69	skater-short-skirt	43	Spree::Product	\N	2022-07-12 18:13:33.000338	\N
-70	floral-flared-skirt	44	Spree::Product	\N	2022-07-12 18:13:33.367018	\N
-71	pleated-skirt-2	45	Spree::Product	\N	2022-07-12 18:13:33.741768	\N
-72	floral-wrap-dress	46	Spree::Product	\N	2022-07-12 18:13:34.267159	\N
-73	v-neck-floral-maxi-dress	47	Spree::Product	\N	2022-07-12 18:13:34.648966	\N
-74	flared-dress	48	Spree::Product	\N	2022-07-12 18:13:35.007832	\N
-75	elegant-flared-dress	49	Spree::Product	\N	2022-07-12 18:13:35.36242	\N
-76	long-sleeve-knitted-dress	50	Spree::Product	\N	2022-07-12 18:13:35.72999	\N
-77	striped-shirt-dress	51	Spree::Product	\N	2022-07-12 18:13:36.104067	\N
-78	printed-dress	52	Spree::Product	\N	2022-07-12 18:13:36.478442	\N
-79	printed-slit-sleeves-dress	53	Spree::Product	\N	2022-07-12 18:13:36.843434	\N
-80	dress-with-belt	54	Spree::Product	\N	2022-07-12 18:13:37.20395	\N
-81	v-neck-floral-dress	55	Spree::Product	\N	2022-07-12 18:13:37.588042	\N
-82	flounced-dress	56	Spree::Product	\N	2022-07-12 18:13:37.942049	\N
-83	slit-maxi-dress	57	Spree::Product	\N	2022-07-12 18:13:38.296968	\N
-84	semi-sheer-shirt-with-floral-cuffs	58	Spree::Product	\N	2022-07-12 18:13:38.637894	\N
-85	striped-shirt	59	Spree::Product	\N	2022-07-12 18:13:38.984475	\N
-86	v-neck-wide-shirt	60	Spree::Product	\N	2022-07-12 18:13:39.482443	\N
-87	printed-wrapped-blouse	61	Spree::Product	\N	2022-07-12 18:13:39.831363	\N
-88	pleated-sleeve-v-neck-shirt	62	Spree::Product	\N	2022-07-12 18:13:40.17749	\N
-89	cotton-shirt	63	Spree::Product	\N	2022-07-12 18:13:40.519858	\N
-90	blouse-with-wide-flounced-sleeve	64	Spree::Product	\N	2022-07-12 18:13:40.857366	\N
-91	elegant-blouse-with-chocker	65	Spree::Product	\N	2022-07-12 18:13:41.235558	\N
-92	floral-shirt	66	Spree::Product	\N	2022-07-12 18:13:41.583424	\N
-93	semi-sheer-shirt-with-pockets	67	Spree::Product	\N	2022-07-12 18:13:41.953205	\N
-94	v-neck-shirt	68	Spree::Product	\N	2022-07-12 18:13:42.329942	\N
-95	printed-shirt	69	Spree::Product	\N	2022-07-12 18:13:42.727813	\N
-96	asymmetric-sweater-with-wide-sleeves	70	Spree::Product	\N	2022-07-12 18:13:43.081179	\N
-97	oversized-knitted-sweater	71	Spree::Product	\N	2022-07-12 18:13:43.435431	\N
-98	oversized-sweatshirt	72	Spree::Product	\N	2022-07-12 18:13:43.788205	\N
-99	knitted-high-neck-sweater	73	Spree::Product	\N	2022-07-12 18:13:44.174709	\N
-100	knitted-v-neck-sweater	74	Spree::Product	\N	2022-07-12 18:13:44.56209	\N
-101	cropped-fitted-sweater	75	Spree::Product	\N	2022-07-12 18:13:45.103196	\N
-102	crop-top-with-tie	76	Spree::Product	\N	2022-07-12 18:13:45.515237	\N
-103	printed-t-shirt	77	Spree::Product	\N	2022-07-12 18:13:46.039057	\N
-104	scrappy-top	78	Spree::Product	\N	2022-07-12 18:13:46.678373	\N
-105	pleated-sleeve-t-shirt	79	Spree::Product	\N	2022-07-12 18:13:47.128416	\N
-106	scrappy-crop-top-with-tie	80	Spree::Product	\N	2022-07-12 18:13:47.481286	\N
-107	crop-top	81	Spree::Product	\N	2022-07-12 18:13:47.838767	\N
-108	loose-t-shirt-with-pocket-imitation	82	Spree::Product	\N	2022-07-12 18:13:48.187155	\N
-109	sleeveless-loose-top	83	Spree::Product	\N	2022-07-12 18:13:48.562812	\N
-110	basic-loose-t-shirt	84	Spree::Product	\N	2022-07-12 18:13:48.956844	\N
-111	coat-with-pockets	85	Spree::Product	\N	2022-07-12 18:13:49.331533	\N
-112	long-wool-blend-coat-with-belt	86	Spree::Product	\N	2022-07-12 18:13:49.685374	\N
-113	asymmetric-coat	87	Spree::Product	\N	2022-07-12 18:13:50.069067	\N
-114	long-coat-with-belt	88	Spree::Product	\N	2022-07-12 18:13:50.457509	\N
-115	down-jacket	89	Spree::Product	\N	2022-07-12 18:13:50.996822	\N
-116	zipped-jacket	90	Spree::Product	\N	2022-07-12 18:13:51.469815	\N
-117	loose-fitted-jacket	91	Spree::Product	\N	2022-07-12 18:13:51.85172	\N
-118	double-breasted-jacket	92	Spree::Product	\N	2022-07-12 18:13:52.344577	\N
-119	leather-biker-jacket	93	Spree::Product	\N	2022-07-12 18:13:52.708819	\N
-120	wool-blend-coat-with-belt	94	Spree::Product	\N	2022-07-12 18:13:53.105882	\N
-121	denim-hooded-jacket	95	Spree::Product	\N	2022-07-12 18:13:53.472548	\N
-122	bomber-jacket	96	Spree::Product	\N	2022-07-12 18:13:53.902506	\N
-123	sports-bra-low-support	97	Spree::Product	\N	2022-07-12 18:13:54.256842	\N
-124	long-sleeves-yoga-crop-top	98	Spree::Product	\N	2022-07-12 18:13:54.609189	\N
-125	oversize-t-shirt-wrapped-on-back	99	Spree::Product	\N	2022-07-12 18:13:54.955027	\N
-126	long-sleeves-crop-top	100	Spree::Product	\N	2022-07-12 18:13:55.308272	\N
-127	laced-crop-top	101	Spree::Product	\N	2022-07-12 18:13:55.662217	\N
-128	sports-bra-medium-support	102	Spree::Product	\N	2022-07-12 18:13:56.078907	\N
-129	sports-bra	103	Spree::Product	\N	2022-07-12 18:13:56.47307	\N
-130	sport-cropp-top	104	Spree::Product	\N	2022-07-12 18:13:56.965012	\N
-131	running-sweatshirt	105	Spree::Product	\N	2022-07-12 18:13:57.350003	\N
-132	lightweight-running-jacket	106	Spree::Product	\N	2022-07-12 18:13:57.718611	\N
-133	oversize-sweatshirt	107	Spree::Product	\N	2022-07-12 18:13:58.092111	\N
-134	sport-windproof-jacket	108	Spree::Product	\N	2022-07-12 18:13:58.451411	\N
-135	sport-waistcoat	109	Spree::Product	\N	2022-07-12 18:13:58.844993	\N
-136	shined-pants	110	Spree::Product	\N	2022-07-12 18:13:59.195099	\N
-137	short-pants	111	Spree::Product	\N	2022-07-12 18:13:59.544369	\N
-138	printed-pants-with-holes	112	Spree::Product	\N	2022-07-12 18:13:59.940315	\N
-139	pants	113	Spree::Product	\N	2022-07-12 18:14:00.340149	\N
-140	printed-pants	114	Spree::Product	\N	2022-07-12 18:14:00.781607	\N
-141	high-waist-pants-with-pockets	115	Spree::Product	\N	2022-07-12 18:14:01.121957	\N
-142	high-waist-pants	116	Spree::Product	\N	2022-07-12 18:14:01.470925	\N
+63	midi-skirt-with-bottoms	37	Spree::Product	\N	2022-07-12 18:13:30.823182	2022-09-02 16:28:29.055025
+71	pleated-skirt-2	45	Spree::Product	\N	2022-07-12 18:13:33.741768	2022-09-02 16:28:32.708205
+33	regular-shirt	7	Spree::Product	\N	2022-07-12 18:13:19.566485	2022-09-02 16:28:35.26686
+42	raw-edge-t-shirt	16	Spree::Product	\N	2022-07-12 18:13:22.637858	2022-09-02 16:28:35.912895
+87	printed-wrapped-blouse	61	Spree::Product	\N	2022-07-12 18:13:39.831363	2022-09-02 16:28:36.646095
+32	printed-short-sleeve-shirt	6	Spree::Product	\N	2022-07-12 18:13:19.225018	2022-09-02 16:28:39.146282
+78	printed-dress	52	Spree::Product	\N	2022-07-12 18:13:36.478442	2022-09-02 16:28:42.251783
+38	polo-t-shirt	12	Spree::Product	\N	2022-07-12 18:13:21.257287	2022-09-02 16:28:43.046868
+88	pleated-sleeve-v-neck-shirt	62	Spree::Product	\N	2022-07-12 18:13:40.17749	2022-09-02 16:28:44.135869
+65	a-line-suede-skirt	39	Spree::Product	\N	2022-07-12 18:13:31.562211	2022-09-02 14:33:31.850158
+56	anorak-with-hood	30	Spree::Product	\N	2022-07-12 18:13:28.064217	2022-09-02 14:33:33.896846
+28	checked-shirt	2	Spree::Product	\N	2022-07-12 18:13:17.875797	2022-09-02 16:25:46.959859
+34	checked-slim-fit-shirt	8	Spree::Product	\N	2022-07-12 18:13:19.902246	2022-09-02 16:25:48.491309
+89	cotton-shirt	63	Spree::Product	\N	2022-07-12 18:13:40.519858	2022-09-02 16:25:51.869278
+62	flared-midi-skirt	36	Spree::Product	\N	2022-07-12 18:13:30.464192	2022-09-02 16:26:03.119669
+74	flared-dress	48	Spree::Product	\N	2022-07-12 18:13:35.007832	2022-09-02 16:26:03.89484
+75	elegant-flared-dress	49	Spree::Product	\N	2022-07-12 18:13:35.36242	2022-09-02 16:26:04.827718
+80	dress-with-belt	54	Spree::Product	\N	2022-07-12 18:13:37.20395	2022-09-02 16:26:06.075147
+59	down-jacket-with-hood	33	Spree::Product	\N	2022-07-12 18:13:29.374519	2022-09-02 16:26:06.827193
+35	dotted-shirt	9	Spree::Product	\N	2022-07-12 18:13:20.250901	2022-09-02 16:26:08.712587
+27	denim-shirt	1	Spree::Product	\N	2022-07-12 18:13:17.391548	2022-09-02 16:26:09.422832
+57	denim-jacket	31	Spree::Product	\N	2022-07-12 18:13:28.498678	2022-09-02 16:26:10.059145
+67	flared-skirt	41	Spree::Product	\N	2022-07-12 18:13:32.266387	2022-09-02 16:26:59.6843
+70	floral-flared-skirt	44	Spree::Product	\N	2022-07-12 18:13:33.367018	2022-09-02 16:27:01.002974
+82	flounced-dress	56	Spree::Product	\N	2022-07-12 18:13:37.942049	2022-09-02 16:27:02.430326
+55	hooded-jacket	29	Spree::Product	\N	2022-07-12 18:13:27.656624	2022-09-02 16:27:04.026367
+61	jacket-with-liner	35	Spree::Product	\N	2022-07-12 18:13:30.092724	2022-09-02 16:27:05.133601
+36	linen-shirt	10	Spree::Product	\N	2022-07-12 18:13:20.597271	2022-09-02 16:27:09.651986
+53	long-sleeve-jumper	27	Spree::Product	\N	2022-07-12 18:13:26.796275	2022-09-02 16:27:10.393769
+39	long-sleeve-t-shirt	13	Spree::Product	\N	2022-07-12 18:13:21.593241	2022-09-02 16:27:12.682961
+76	long-sleeve-knitted-dress	50	Spree::Product	\N	2022-07-12 18:13:35.72999	2022-09-02 16:27:13.786225
+48	long-sleeve-jumper-with-pocket	22	Spree::Product	\N	2022-07-12 18:13:24.918844	2022-09-02 16:27:14.593762
+49	jumper	23	Spree::Product	\N	2022-07-12 18:13:25.27837	2022-09-02 16:27:18.207794
+51	hoodie	25	Spree::Product	\N	2022-07-12 18:13:26.059903	2022-09-02 16:27:21.243482
+46	high-neck-sweater	20	Spree::Product	\N	2022-07-12 18:13:24.21039	2022-09-02 16:27:23.108076
+72	floral-wrap-dress	46	Spree::Product	\N	2022-07-12 18:13:34.267159	2022-09-02 16:27:23.809729
+37	regular-shirt-with-rolled-up-sleeves	11	Spree::Product	\N	2022-07-12 18:13:20.921038	2022-09-02 16:27:31.394288
+69	skater-short-skirt	43	Spree::Product	\N	2022-07-12 18:13:33.000338	2022-09-02 16:27:36.455511
+84	semi-sheer-shirt-with-floral-cuffs	58	Spree::Product	\N	2022-07-12 18:13:38.637894	2022-09-02 16:27:41.235812
+31	short-sleeve-shirt	5	Spree::Product	\N	2022-07-12 18:13:18.886327	2022-09-02 16:27:42.480717
+30	slim-fit-shirt	4	Spree::Product	\N	2022-07-12 18:13:18.551534	2022-09-02 16:27:43.070848
+41	t-shirt-with-holes	15	Spree::Product	\N	2022-07-12 18:13:22.284972	2022-09-02 16:27:45.27874
+54	suede-biker-jacket	28	Spree::Product	\N	2022-07-12 18:13:27.254036	2022-09-02 16:27:45.913157
+47	stripped-jumper	21	Spree::Product	\N	2022-07-12 18:13:24.56147	2022-09-02 16:27:46.504259
+85	striped-shirt	59	Spree::Product	\N	2022-07-12 18:13:38.984475	2022-09-02 16:27:47.893673
+83	slit-maxi-dress	57	Spree::Product	\N	2022-07-12 18:13:38.296968	2022-09-02 16:27:53.239001
+68	skater-skirt	42	Spree::Product	\N	2022-07-12 18:13:32.636966	2022-09-02 16:27:53.776979
+52	zipped-high-neck-sweater	26	Spree::Product	\N	2022-07-12 18:13:26.437851	2022-09-02 16:28:00.940544
+58	wool-blend-short-coat	32	Spree::Product	\N	2022-07-12 18:13:28.998576	2022-09-02 16:28:01.53455
+60	wool-blend-coat	34	Spree::Product	\N	2022-07-12 18:13:29.724248	2022-09-02 16:28:02.839935
+86	v-neck-wide-shirt	60	Spree::Product	\N	2022-07-12 18:13:39.482443	2022-09-02 16:28:03.493133
+73	v-neck-floral-maxi-dress	47	Spree::Product	\N	2022-07-12 18:13:34.648966	2022-09-02 16:28:06.015972
+81	v-neck-floral-dress	55	Spree::Product	\N	2022-07-12 18:13:37.588042	2022-09-02 16:28:06.681009
+44	tank-top	18	Spree::Product	\N	2022-07-12 18:13:23.476906	2022-09-02 16:28:07.230612
+117	loose-fitted-jacket	91	Spree::Product	\N	2022-07-12 18:13:51.85172	2022-09-02 16:28:28.237147
+125	oversize-t-shirt-wrapped-on-back	99	Spree::Product	\N	2022-07-12 18:13:54.955027	2022-09-02 16:28:31.060241
+97	oversized-knitted-sweater	71	Spree::Product	\N	2022-07-12 18:13:43.435431	2022-09-02 16:28:31.560588
+3	categories/women	3	Spree::Taxon	\N	2022-07-12 18:13:14.272231	2022-09-08 15:34:52.819141
+9	categories/women/skirts	9	Spree::Taxon	\N	2022-07-12 18:13:15.113846	2022-09-08 15:34:52.835567
+10	categories/women/dresses	10	Spree::Taxon	\N	2022-07-12 18:13:15.2217	2022-09-08 15:34:52.907897
+11	categories/women/shirts-and-blouses	11	Spree::Taxon	\N	2022-07-12 18:13:15.332583	2022-09-08 15:34:52.939048
+4	categories/sportswear	4	Spree::Taxon	\N	2022-07-12 18:13:14.523262	2022-09-08 15:34:54.460201
+15	categories/sportswear/tops	15	Spree::Taxon	\N	2022-07-12 18:13:15.759122	2022-09-08 15:34:54.480126
+16	categories/sportswear/sweatshirts	16	Spree::Taxon	\N	2022-07-12 18:13:15.872582	2022-09-08 15:34:54.537832
+17	categories/sportswear/pants	17	Spree::Taxon	\N	2022-07-12 18:13:15.980192	2022-09-08 15:34:54.567141
+21	categories/streetstyle	21	Spree::Taxon	\N	2022-07-12 18:13:16.38138	2022-09-08 15:34:58.105786
+22	categories/summer-sale	22	Spree::Taxon	\N	2022-07-12 18:13:16.481395	2022-09-08 15:35:00.062536
+23	categories/new-collection	23	Spree::Taxon	\N	2022-07-12 18:13:16.576708	2022-09-08 15:35:01.679377
+24	categories/new-collection/summer-2022	24	Spree::Taxon	\N	2022-07-12 18:13:16.677109	2022-09-08 15:35:01.696286
+25	categories/special-offers	25	Spree::Taxon	\N	2022-07-12 18:13:16.783992	2022-09-08 15:35:03.037446
+26	categories/special-offers/30-percent-off	26	Spree::Taxon	\N	2022-07-12 18:13:16.885386	2022-09-08 15:35:03.054373
+98	oversized-sweatshirt	72	Spree::Product	\N	2022-07-12 18:13:43.788205	2022-09-02 16:28:32.150322
+103	printed-t-shirt	77	Spree::Product	\N	2022-07-12 18:13:46.039057	2022-09-02 16:28:37.805941
+79	printed-slit-sleeves-dress	53	Spree::Product	\N	2022-07-12 18:13:36.843434	2022-09-02 16:28:38.422272
+95	printed-shirt	69	Spree::Product	\N	2022-07-12 18:13:42.727813	2022-09-02 16:28:39.83849
+138	printed-pants-with-holes	112	Spree::Product	\N	2022-07-12 18:13:59.940315	2022-09-02 16:28:41.009839
+140	printed-pants	114	Spree::Product	\N	2022-07-12 18:14:00.781607	2022-09-02 16:28:41.618543
+105	pleated-sleeve-t-shirt	79	Spree::Product	\N	2022-07-12 18:13:47.128416	2022-09-02 16:28:44.852538
+139	pants	113	Spree::Product	\N	2022-07-12 18:14:00.340149	2022-09-02 16:28:46.728787
+40	3-4-sleeve-t-shirt	14	Spree::Product	\N	2022-07-12 18:13:21.937549	2022-09-02 14:33:28.47632
+113	asymmetric-coat	87	Spree::Product	\N	2022-07-12 18:13:50.069067	2022-09-02 14:33:39.315698
+96	asymmetric-sweater-with-wide-sleeves	70	Spree::Product	\N	2022-07-12 18:13:43.081179	2022-09-02 14:33:48.805744
+110	basic-loose-t-shirt	84	Spree::Product	\N	2022-07-12 18:13:48.956844	2022-09-02 16:25:39.662708
+45	basic-t-shirt	19	Spree::Product	\N	2022-07-12 18:13:23.840223	2022-09-02 16:25:41.699458
+90	blouse-with-wide-flounced-sleeve	64	Spree::Product	\N	2022-07-12 18:13:40.857366	2022-09-02 16:25:43.54228
+122	bomber-jacket	96	Spree::Product	\N	2022-07-12 18:13:53.902506	2022-09-02 16:25:45.237334
+111	coat-with-pockets	85	Spree::Product	\N	2022-07-12 18:13:49.331533	2022-09-02 16:25:50.229757
+29	covered-placket-shirt	3	Spree::Product	\N	2022-07-12 18:13:18.212175	2022-09-02 16:25:53.853856
+107	crop-top	81	Spree::Product	\N	2022-07-12 18:13:47.838767	2022-09-02 16:25:55.83698
+102	crop-top-with-tie	76	Spree::Product	\N	2022-07-12 18:13:45.515237	2022-09-02 16:25:57.651034
+101	cropped-fitted-sweater	75	Spree::Product	\N	2022-07-12 18:13:45.103196	2022-09-02 16:25:59.308128
+121	denim-hooded-jacket	95	Spree::Product	\N	2022-07-12 18:13:53.472548	2022-09-02 16:26:01.087577
+64	fitted-skirt	38	Spree::Product	\N	2022-07-12 18:13:31.192728	2022-09-02 16:26:04.320074
+91	elegant-blouse-with-chocker	65	Spree::Product	\N	2022-07-12 18:13:41.235558	2022-09-02 16:26:05.519245
+115	down-jacket	89	Spree::Product	\N	2022-07-12 18:13:50.996822	2022-09-02 16:26:07.319952
+118	double-breasted-jacket	92	Spree::Product	\N	2022-07-12 18:13:52.344577	2022-09-02 16:26:07.938081
+92	floral-shirt	66	Spree::Product	\N	2022-07-12 18:13:41.583424	2022-09-02 16:27:01.793663
+142	high-waist-pants	116	Spree::Product	\N	2022-07-12 18:14:01.470925	2022-09-02 16:27:03.199042
+100	knitted-v-neck-sweater	74	Spree::Product	\N	2022-07-12 18:13:44.56209	2022-09-02 16:27:06.983492
+127	laced-crop-top	101	Spree::Product	\N	2022-07-12 18:13:55.662217	2022-09-02 16:27:07.853505
+66	leather-skirt-with-lacing	40	Spree::Product	\N	2022-07-12 18:13:31.910474	2022-09-02 16:27:08.792747
+50	long-sleeve-sweatshirt	24	Spree::Product	\N	2022-07-12 18:13:25.619472	2022-09-02 16:27:13.228068
+114	long-coat-with-belt	88	Spree::Product	\N	2022-07-12 18:13:50.457509	2022-09-02 16:27:15.211718
+132	lightweight-running-jacket	106	Spree::Product	\N	2022-07-12 18:13:57.718611	2022-09-02 16:27:15.915888
+119	leather-biker-jacket	93	Spree::Product	\N	2022-07-12 18:13:52.708819	2022-09-02 16:27:16.727687
+99	knitted-high-neck-sweater	73	Spree::Product	\N	2022-07-12 18:13:44.174709	2022-09-02 16:27:17.24782
+141	high-waist-pants-with-pockets	115	Spree::Product	\N	2022-07-12 18:14:01.121957	2022-09-02 16:27:22.384356
+131	running-sweatshirt	105	Spree::Product	\N	2022-07-12 18:13:57.350003	2022-09-02 16:27:33.456304
+106	scrappy-crop-top-with-tie	80	Spree::Product	\N	2022-07-12 18:13:47.481286	2022-09-02 16:27:34.018458
+104	scrappy-top	78	Spree::Product	\N	2022-07-12 18:13:46.678373	2022-09-02 16:27:34.551231
+93	semi-sheer-shirt-with-pockets	67	Spree::Product	\N	2022-07-12 18:13:41.953205	2022-09-02 16:27:35.237365
+137	short-pants	111	Spree::Product	\N	2022-07-12 18:13:59.544369	2022-09-02 16:27:35.727347
+109	sleeveless-loose-top	83	Spree::Product	\N	2022-07-12 18:13:48.562812	2022-09-02 16:27:37.929657
+136	shined-pants	110	Spree::Product	\N	2022-07-12 18:13:59.195099	2022-09-02 16:27:41.885035
+77	striped-shirt-dress	51	Spree::Product	\N	2022-07-12 18:13:36.104067	2022-09-02 16:27:47.226898
+128	sports-bra-medium-support	102	Spree::Product	\N	2022-07-12 18:13:56.078907	2022-09-02 16:27:48.452709
+123	sports-bra-low-support	97	Spree::Product	\N	2022-07-12 18:13:54.256842	2022-09-02 16:27:49.304381
+129	sports-bra	103	Spree::Product	\N	2022-07-12 18:13:56.47307	2022-09-02 16:27:49.783414
+134	sport-windproof-jacket	108	Spree::Product	\N	2022-07-12 18:13:58.451411	2022-09-02 16:27:50.496978
+135	sport-waistcoat	109	Spree::Product	\N	2022-07-12 18:13:58.844993	2022-09-02 16:27:51.084328
+130	sport-cropp-top	104	Spree::Product	\N	2022-07-12 18:13:56.965012	2022-09-02 16:27:52.526309
+116	zipped-jacket	90	Spree::Product	\N	2022-07-12 18:13:51.469815	2022-09-02 16:28:00.290683
+120	wool-blend-coat-with-belt	94	Spree::Product	\N	2022-07-12 18:13:53.105882	2022-09-02 16:28:02.269597
+43	v-neck-t-shirt	17	Spree::Product	\N	2022-07-12 18:13:23.125292	2022-09-02 16:28:04.199333
+94	v-neck-shirt	68	Spree::Product	\N	2022-07-12 18:13:42.329942	2022-09-02 16:28:04.769093
+126	long-sleeves-crop-top	100	Spree::Product	\N	2022-07-12 18:13:55.308272	2022-09-02 16:28:18.523906
+124	long-sleeves-yoga-crop-top	98	Spree::Product	\N	2022-07-12 18:13:54.609189	2022-09-02 16:28:19.075653
+112	long-wool-blend-coat-with-belt	86	Spree::Product	\N	2022-07-12 18:13:49.685374	2022-09-02 16:28:19.723758
+108	loose-t-shirt-with-pocket-imitation	82	Spree::Product	\N	2022-07-12 18:13:48.187155	2022-09-02 16:28:20.274588
+133	oversize-sweatshirt	107	Spree::Product	\N	2022-07-12 18:13:58.092111	2022-09-02 16:28:20.679522
+143	cool-bits	117	Spree::Product	\N	2022-09-02 16:33:37.973746	\N
+144	bits-by-dre	118	Spree::Product	\N	2022-09-02 17:09:21.875584	\N
+145	hockey-bits	119	Spree::Product	\N	2022-09-02 17:19:14.023568	\N
+146	learning-bits	120	Spree::Product	\N	2022-09-02 17:31:19.87545	\N
+147	money-bits	121	Spree::Product	\N	2022-09-02 18:30:31.112102	\N
+148	octo-bits	122	Spree::Product	\N	2022-09-02 18:38:46.537239	\N
+149	og-bits	123	Spree::Product	\N	2022-09-02 18:41:05.477631	\N
+150	rainbow-bits	124	Spree::Product	\N	2022-09-02 18:42:26.69742	\N
+151	space-bits	125	Spree::Product	\N	2022-09-02 18:44:36.270215	\N
+152	student-bits	126	Spree::Product	\N	2022-09-02 18:50:49.35208	\N
+153	stonk-bits	127	Spree::Product	\N	2022-09-02 18:52:56.405091	\N
+154	april-2022-summit-denver-sticker	128	Spree::Product	\N	2022-09-02 18:57:21.707566	\N
+155	sunset-bits	129	Spree::Product	\N	2022-09-02 18:59:14.783891	\N
+156	asian-american-pacific-islander-heritage-month-bits	130	Spree::Product	\N	2022-09-02 19:01:55.426845	\N
+2	categories/men	2	Spree::Taxon	\N	2022-07-12 18:13:14.080667	2022-09-08 15:34:50.391933
+5	categories/men/shirts	5	Spree::Taxon	\N	2022-07-12 18:13:14.68329	2022-09-08 15:34:50.411443
+6	categories/men/t-shirts	6	Spree::Taxon	\N	2022-07-12 18:13:14.786199	2022-09-08 15:34:50.468818
+7	categories/men/sweaters	7	Spree::Taxon	\N	2022-07-12 18:13:14.896758	2022-09-08 15:34:50.505046
+8	categories/men/jackets-and-coats	8	Spree::Taxon	\N	2022-07-12 18:13:15.007581	2022-09-08 15:34:50.530938
+12	categories/women/sweaters	12	Spree::Taxon	\N	2022-07-12 18:13:15.440709	2022-09-08 15:34:52.967938
+13	categories/women/tops-and-t-shirts	13	Spree::Taxon	\N	2022-07-12 18:13:15.544872	2022-09-08 15:34:52.996035
+14	categories/women/jackets-and-coats	14	Spree::Taxon	\N	2022-07-12 18:13:15.653372	2022-09-08 15:34:53.025033
+157	categories/events	20	Spree::Taxon	\N	2022-09-08 15:35:17.890243	\N
+158	brands	27	Spree::Taxon	\N	2022-09-08 15:35:27.741904	\N
+159	brands/datadog	28	Spree::Taxon	\N	2022-09-08 15:35:34.002604	\N
+160	categories/stickers	29	Spree::Taxon	\N	2022-09-08 15:37:54.657045	\N
+161	aapi-heritage-month-bits	130	Spree::Product	\N	2022-09-08 15:40:49.280758	\N
 \.
 
 
@@ -5115,8 +5123,7 @@ COPY public.spree_addresses (id, firstname, lastname, address1, address2, city, 
 --
 
 COPY public.spree_adjustments (id, source_type, source_id, adjustable_type, adjustable_id, amount, label, mandatory, eligible, created_at, updated_at, state, order_id, included) FROM stdin;
-1	Spree::TaxRate	1	Spree::Order	1	2.50	Tax	t	t	2022-07-12 18:15:53.329841	2022-07-12 18:15:53.580333	open	1	f
-2	Spree::TaxRate	1	Spree::Order	2	2.50	Tax	t	t	2022-07-12 18:15:53.394824	2022-07-12 18:15:53.83852	open	2	f
+2	Spree::TaxRate	1	Spree::Order	2	0.00	Tax	t	t	2022-07-12 18:15:53.394824	2022-09-02 16:14:11.43712	open	2	f
 \.
 
 
@@ -5125,7 +5132,20 @@ COPY public.spree_adjustments (id, source_type, source_id, adjustable_type, adju
 --
 
 COPY public.spree_assets (id, viewable_type, viewable_id, attachment_width, attachment_height, attachment_file_size, "position", attachment_content_type, attachment_file_name, type, attachment_updated_at, alt, created_at, updated_at, public_metadata, private_metadata) FROM stdin;
-1	Spree::Variant	14	\N	\N	\N	1	\N	\N	\N	\N		2022-07-12 18:21:47.373784	2022-07-12 18:21:47.411008	\N	\N
+2	Spree::Variant	233	\N	\N	\N	1	\N	\N	\N	\N	Cool Bits sticker	2022-09-02 16:34:35.494874	2022-09-02 17:04:42.62459	\N	\N
+3	Spree::Variant	234	\N	\N	\N	1	\N	\N	\N	\N	Bits by Dre sticker	2022-09-02 17:12:23.644569	2022-09-02 17:12:23.684878	\N	\N
+4	Spree::Variant	235	\N	\N	\N	1	\N	\N	\N	\N	Hockey Bits sticker	2022-09-02 17:22:59.508172	2022-09-02 17:22:59.547485	\N	\N
+5	Spree::Variant	236	\N	\N	\N	1	\N	\N	\N	\N	Learning bits sticker	2022-09-02 17:36:28.595446	2022-09-02 17:36:28.63616	\N	\N
+6	Spree::Variant	237	\N	\N	\N	1	\N	\N	\N	\N	Money Bits sticker	2022-09-02 18:30:57.959969	2022-09-02 18:30:57.998578	\N	\N
+7	Spree::Variant	238	\N	\N	\N	1	\N	\N	\N	\N	Octo Bits sticker	2022-09-02 18:39:42.383161	2022-09-02 18:39:42.417844	\N	\N
+8	Spree::Variant	239	\N	\N	\N	1	\N	\N	\N	\N	OG Bits sticker	2022-09-02 18:41:29.371737	2022-09-13 20:55:14.211482	\N	\N
+9	Spree::Variant	240	\N	\N	\N	1	\N	\N	\N	\N	Rainbow Bits sticker	2022-09-02 18:43:39.165283	2022-09-13 20:56:26.343792	\N	\N
+10	Spree::Variant	241	\N	\N	\N	1	\N	\N	\N	\N	Space Bits sticker	2022-09-02 18:45:13.006084	2022-09-13 20:57:51.32745	\N	\N
+12	Spree::Variant	243	\N	\N	\N	1	\N	\N	\N	\N	Stonk Bits sticker	2022-09-02 18:53:24.824158	2022-09-13 20:58:02.744495	\N	\N
+11	Spree::Variant	242	\N	\N	\N	1	\N	\N	\N	\N	Student Bits sticker	2022-09-02 18:51:15.601178	2022-09-13 20:58:22.806642	\N	\N
+14	Spree::Variant	245	\N	\N	\N	1	\N	\N	\N	\N	Sunset Bits sticker	2022-09-02 18:59:30.607167	2022-09-13 20:58:36.669417	\N	\N
+13	Spree::Variant	244	\N	\N	\N	1	\N	\N	\N	\N	Summit Denver stickers	2022-09-02 18:58:02.91531	2022-09-13 20:58:51.560572	\N	\N
+15	Spree::Variant	246	\N	\N	\N	1	\N	\N	\N	\N	AAPIHM Bits sticker	2022-09-02 19:02:32.264095	2022-09-13 20:59:13.191025	\N	\N
 \.
 
 
@@ -5170,6 +5190,7 @@ COPY public.spree_cms_pages (id, title, meta_title, content, meta_description, v
 12	Rückgaberecht	\N	Aliquid accusamus sequi explicabo totam error. Facilis maxime eveniet sapiente ipsam nemo tenetur. Iusto porro necessitatibus beatae numquam cumque. Illum nesciunt cupiditate corrupti hic ducimus voluptatum aut odio. Porro id magni ipsam voluptatibus voluptates. Culpa quos beatae aliquam quibusdam corporis rem et. Odit dolorem enim praesentium esse ratione officia. Fugiat maxime alias consectetur placeat doloremque deserunt. Minus harum doloribus id maxime eveniet eius quisquam. Error nostrum veritatis architecto facere voluptatem optio aperiam.	\N	t	ruckgaberecht	Spree::Cms::Pages::StandardPage	de	\N	2	2022-07-12 18:15:54.82804	2022-07-12 18:15:54.82804
 30	Feature Page	\N	\N	\N	t	feature-page	Spree::Cms::Pages::FeaturePage	en	\N	3	2022-07-12 18:15:55.296624	2022-07-12 18:15:58.584345
 31	Homepage (English)	\N	\N	\N	t	\N	Spree::Cms::Pages::Homepage	en	\N	1	2022-07-12 18:15:55.337838	2022-07-12 18:15:58.63349
+25	Feature Page	\N	\N	\N	t	feature-page	Spree::Cms::Pages::FeaturePage	en	\N	1	2022-07-12 18:15:55.17607	2022-07-12 18:15:58.682065
 13	Sobre nosotros	\N	Tenetur error minima nam tempora sit voluptates nesciunt perferendis. Neque maiores nemo tempora eaque dolore odio fugit impedit. Saepe consectetur aliquam alias nesciunt nostrum quam ratione delectus. Minima veniam placeat explicabo accusamus cum voluptatum officiis. Aspernatur ipsam fugiat impedit placeat error nihil exercitationem pariatur. Recusandae voluptatibus et assumenda modi odit ipsum veniam nam. Magnam laborum iusto dolorem hic veniam magni quod commodi. Vel numquam doloremque soluta aspernatur. Possimus dolor minus inventore architecto.	\N	t	sobre-nosotros	Spree::Cms::Pages::StandardPage	es	\N	2	2022-07-12 18:15:54.850831	2022-07-12 18:15:54.850831
 14	Política de privacidad	\N	Recusandae perspiciatis a quo occaecati laudantium exercitationem ratione. Quas ipsam assumenda distinctio occaecati. Id sapiente laboriosam libero assumenda unde perferendis. Esse cum error nisi minus officiis. Laborum deleniti necessitatibus ipsam repellat dolorum eaque. Est at vel tempore fugiat adipisci animi. Perferendis totam recusandae voluptas quidem. Odit error quae consequuntur iusto ea itaque. Temporibus voluptatem iusto delectus itaque quia quo. Blanditiis ratione illum quasi ex corrupti officiis libero.	\N	t	politica-de-privacidad	Spree::Cms::Pages::StandardPage	es	\N	2	2022-07-12 18:15:54.889774	2022-07-12 18:15:54.889774
 15	Politica de envios	\N	Vitae at adipisci quasi provident temporibus odio. Est sapiente suscipit consequuntur optio perferendis. Libero repellat natus eius ducimus amet explicabo. Illo ducimus blanditiis quae quasi eum mollitia provident. Suscipit ipsum inventore consequatur ullam voluptatum unde ducimus. Accusamus adipisci omnis impedit eos. Illum consectetur quo culpa aperiam assumenda ipsum cupiditate. Hic quaerat fugit quia tenetur perferendis rerum perspiciatis.	\N	t	politica-de-envios	Spree::Cms::Pages::StandardPage	es	\N	2	2022-07-12 18:15:54.915987	2022-07-12 18:15:54.915987
@@ -5186,7 +5207,6 @@ COPY public.spree_cms_pages (id, title, meta_title, content, meta_description, v
 27	Feature-Seite	\N	\N	\N	t	feature-seite	Spree::Cms::Pages::FeaturePage	de	\N	2	2022-07-12 18:15:55.22675	2022-07-12 18:15:58.777897
 28	Página de características	\N	\N	\N	t	pagina-de-caracteristicas	Spree::Cms::Pages::FeaturePage	es	\N	2	2022-07-12 18:15:55.250857	2022-07-12 18:15:58.825561
 29	Page de fonctionnalité	\N	\N	\N	t	page-de-fonctionnalite	Spree::Cms::Pages::FeaturePage	fr	\N	2	2022-07-12 18:15:55.273745	2022-07-12 18:15:58.537818
-25	Feature Page	\N	\N	\N	t	feature-page	Spree::Cms::Pages::FeaturePage	en	\N	1	2022-07-12 18:15:55.17607	2022-07-12 18:15:58.682065
 32	Page d'accueil (Français)	\N	\N	\N	t	\N	Spree::Cms::Pages::Homepage	fr	\N	1	2022-07-12 18:15:55.362441	2022-07-12 18:15:58.870774
 33	Startseite (Deutsche)	\N	\N	\N	t	\N	Spree::Cms::Pages::Homepage	de	\N	2	2022-07-12 18:15:55.384683	2022-07-12 18:15:58.91885
 34	Página principal (Español)	\N	\N	\N	t	\N	Spree::Cms::Pages::Homepage	es	\N	2	2022-07-12 18:15:55.407121	2022-07-12 18:15:58.970005
@@ -5569,8 +5589,6 @@ COPY public.spree_gateways (id, type, name, description, active, environment, se
 --
 
 COPY public.spree_inventory_units (id, state, variant_id, order_id, shipment_id, created_at, updated_at, pending, line_item_id, quantity, original_return_item_id) FROM stdin;
-1	on_hand	1	1	1	2022-07-12 18:15:53.041315	2022-07-12 18:15:53.041315	t	1	1	\N
-2	on_hand	2	2	2	2022-07-12 18:15:53.231479	2022-07-12 18:15:53.231479	t	2	1	\N
 \.
 
 
@@ -5579,8 +5597,89 @@ COPY public.spree_inventory_units (id, state, variant_id, order_id, shipment_id,
 --
 
 COPY public.spree_line_items (id, variant_id, order_id, quantity, price, created_at, updated_at, currency, cost_price, tax_category_id, adjustment_total, additional_tax_total, promo_total, included_tax_total, pre_tax_amount, taxable_adjustment_total, non_taxable_adjustment_total, public_metadata, private_metadata) FROM stdin;
-1	1	1	1	24.99	2022-07-12 18:15:52.695273	2022-07-12 18:15:52.763734	USD	\N	1	0.00	0.00	0.00	0.00	24.9900	0.00	0.00	\N	\N
-2	2	2	1	24.99	2022-07-12 18:15:52.80378	2022-07-12 18:15:52.855931	USD	\N	1	0.00	0.00	0.00	0.00	24.9900	0.00	0.00	\N	\N
+3	233	3	1	20.00	2022-09-02 17:23:28.931907	2022-09-02 17:23:29.334969	USD	\N	\N	0.00	0.00	0.00	0.00	20.0000	0.00	0.00	\N	\N
+4	235	4	1	5.00	2022-09-02 18:42:33.838861	2022-09-02 18:42:34.186913	USD	\N	\N	0.00	0.00	0.00	0.00	5.0000	0.00	0.00	\N	\N
+23	234	19	1	14.99	2022-09-13 20:44:51.628683	2022-09-13 20:44:52.019666	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+30	236	18	1	9.99	2022-09-13 20:45:22.613275	2022-09-13 20:45:23.516742	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+38	236	25	1	9.99	2022-09-13 20:47:18.625578	2022-09-13 20:47:18.991186	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+31	236	21	1	9.99	2022-09-13 20:45:22.830553	2022-09-13 20:45:24.020033	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+36	236	23	1	9.99	2022-09-13 20:47:13.042276	2022-09-13 20:47:13.326648	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+12	234	16	1	14.99	2022-09-13 20:42:57.546979	2022-09-13 20:42:58.21849	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+28	236	19	1	9.99	2022-09-13 20:45:22.020959	2022-09-13 20:45:22.4028	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+6	234	7	1	14.99	2022-09-13 20:41:04.241214	2022-09-13 20:41:05.140195	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+18	236	14	1	9.99	2022-09-13 20:43:28.276	2022-09-13 20:43:29.740885	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+5	234	10	1	14.99	2022-09-13 20:41:04.209604	2022-09-13 20:41:05.174027	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+7	234	11	1	14.99	2022-09-13 20:41:04.343489	2022-09-13 20:41:05.205564	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+13	234	14	1	14.99	2022-09-13 20:42:57.888629	2022-09-13 20:42:58.701566	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+8	234	12	1	14.99	2022-09-13 20:41:04.609584	2022-09-13 20:41:05.441235	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+15	234	17	1	14.99	2022-09-13 20:42:57.952481	2022-09-13 20:42:58.732567	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+20	236	16	1	9.99	2022-09-13 20:43:28.615427	2022-09-13 20:43:30.035119	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+22	234	20	1	14.99	2022-09-13 20:44:51.579162	2022-09-13 20:44:53.190626	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+14	234	13	1	14.99	2022-09-13 20:42:57.905112	2022-09-13 20:42:58.927906	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+41	234	30	1	14.99	2022-09-13 20:48:42.744139	2022-09-13 20:48:43.914163	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+21	236	15	1	9.99	2022-09-13 20:43:28.756594	2022-09-13 20:43:30.1031	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+16	234	15	1	14.99	2022-09-13 20:42:58.46677	2022-09-13 20:42:59.614915	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+19	236	17	1	9.99	2022-09-13 20:43:28.407091	2022-09-13 20:43:30.123097	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+10	236	11	1	9.99	2022-09-13 20:41:34.804127	2022-09-13 20:41:35.123113	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+42	234	31	1	14.99	2022-09-13 20:48:42.961563	2022-09-13 20:48:44.07321	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+11	236	12	1	9.99	2022-09-13 20:41:34.872687	2022-09-13 20:41:35.482082	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+9	236	10	1	9.99	2022-09-13 20:41:34.733022	2022-09-13 20:41:35.500638	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+33	234	25	1	14.99	2022-09-13 20:46:47.776578	2022-09-13 20:46:48.108889	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+17	236	13	1	9.99	2022-09-13 20:43:27.96608	2022-09-13 20:43:28.307589	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+24	234	22	1	14.99	2022-09-13 20:44:51.870759	2022-09-13 20:44:53.43091	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+27	236	20	1	9.99	2022-09-13 20:45:21.971254	2022-09-13 20:45:22.81613	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+25	234	18	1	14.99	2022-09-13 20:44:51.970477	2022-09-13 20:44:53.65498	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+34	234	27	1	14.99	2022-09-13 20:46:47.874037	2022-09-13 20:46:48.560334	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+26	234	21	1	14.99	2022-09-13 20:44:52.001684	2022-09-13 20:44:53.849221	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+32	234	23	1	14.99	2022-09-13 20:46:42.742771	2022-09-13 20:46:43.043268	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+35	234	26	1	14.99	2022-09-13 20:46:47.935215	2022-09-13 20:46:48.624158	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+29	236	22	1	9.99	2022-09-13 20:45:22.22858	2022-09-13 20:45:23.324954	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+43	234	32	1	14.99	2022-09-13 20:48:45.037503	2022-09-13 20:48:46.463152	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+37	236	26	1	9.99	2022-09-13 20:47:18.511908	2022-09-13 20:47:19.243035	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+39	236	27	1	9.99	2022-09-13 20:47:18.638282	2022-09-13 20:47:19.313414	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+40	234	28	1	14.99	2022-09-13 20:48:42.352813	2022-09-13 20:48:43.146383	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+45	236	31	1	9.99	2022-09-13 20:49:13.453841	2022-09-13 20:49:13.811563	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+46	236	30	1	9.99	2022-09-13 20:49:13.510551	2022-09-13 20:49:14.179381	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+44	236	28	1	9.99	2022-09-13 20:49:13.285772	2022-09-13 20:49:14.296414	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+56	234	42	1	14.99	2022-09-13 20:52:31.139324	2022-09-13 20:52:32.412199	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+75	234	50	1	14.99	2022-09-13 20:56:20.142008	2022-09-13 20:56:21.642173	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+47	236	32	1	9.99	2022-09-13 20:49:14.359853	2022-09-13 20:49:15.606806	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+61	236	42	1	9.99	2022-09-13 20:53:01.45346	2022-09-13 20:53:02.095736	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+57	234	38	1	14.99	2022-09-13 20:52:31.386917	2022-09-13 20:52:32.748613	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+65	234	45	1	14.99	2022-09-13 20:54:22.566046	2022-09-13 20:54:23.163103	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+60	236	39	1	9.99	2022-09-13 20:53:01.361555	2022-09-13 20:53:02.179532	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+48	234	33	1	14.99	2022-09-13 20:50:33.662894	2022-09-13 20:50:33.947669	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+64	234	43	1	14.99	2022-09-13 20:54:22.523549	2022-09-13 20:54:23.405786	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+62	236	41	1	9.99	2022-09-13 20:53:01.602896	2022-09-13 20:53:02.45003	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+81	236	52	1	9.99	2022-09-13 20:56:51.127219	2022-09-13 20:56:51.554956	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+59	234	40	1	14.99	2022-09-13 20:52:31.5348	2022-09-13 20:52:32.755039	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+63	236	38	1	9.99	2022-09-13 20:53:01.850918	2022-09-13 20:53:02.64684	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+55	234	41	1	14.99	2022-09-13 20:52:31.119837	2022-09-13 20:52:31.748556	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+74	234	48	1	14.99	2022-09-13 20:56:20.118571	2022-09-13 20:56:21.668928	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+49	234	35	1	14.99	2022-09-13 20:50:39.226287	2022-09-13 20:50:40.055416	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+79	236	50	1	9.99	2022-09-13 20:56:50.721588	2022-09-13 20:56:51.807577	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+50	234	36	1	14.99	2022-09-13 20:50:39.473184	2022-09-13 20:50:40.282371	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+73	234	49	1	14.99	2022-09-13 20:56:20.003682	2022-09-13 20:56:20.416573	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+51	234	34	1	14.99	2022-09-13 20:50:39.480747	2022-09-13 20:50:40.334234	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+66	234	44	1	14.99	2022-09-13 20:54:22.743446	2022-09-13 20:54:23.578999	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+69	236	45	1	9.99	2022-09-13 20:54:53.036372	2022-09-13 20:54:53.655685	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+84	236	54	1	9.99	2022-09-13 20:58:44.226183	2022-09-13 20:58:44.487666	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+70	236	44	1	9.99	2022-09-13 20:54:53.180092	2022-09-13 20:54:53.770228	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+52	236	35	1	9.99	2022-09-13 20:51:09.744356	2022-09-13 20:51:10.666085	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+53	236	34	1	9.99	2022-09-13 20:51:09.937982	2022-09-13 20:51:10.813828	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+54	236	36	1	9.99	2022-09-13 20:51:10.005167	2022-09-13 20:51:10.890725	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+58	234	39	1	14.99	2022-09-13 20:52:31.529798	2022-09-13 20:52:32.397012	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+67	234	46	1	14.99	2022-09-13 20:54:26.822761	2022-09-13 20:54:27.422543	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+82	234	54	1	14.99	2022-09-13 20:58:14.094521	2022-09-13 20:58:14.35307	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+71	236	46	1	9.99	2022-09-13 20:54:57.395904	2022-09-13 20:54:57.759013	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+72	236	47	1	9.99	2022-09-13 20:54:57.421686	2022-09-13 20:54:57.935448	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+68	234	47	1	14.99	2022-09-13 20:54:26.866765	2022-09-13 20:54:27.468938	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+77	234	51	1	14.99	2022-09-13 20:56:20.759088	2022-09-13 20:56:22.105599	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+85	236	55	1	9.99	2022-09-13 20:58:47.233066	2022-09-13 20:58:47.527631	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+83	234	55	1	14.99	2022-09-13 20:58:16.463383	2022-09-13 20:58:16.723359	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+80	236	48	1	9.99	2022-09-13 20:56:50.845036	2022-09-13 20:56:52.044859	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
+76	234	52	1	14.99	2022-09-13 20:56:20.705899	2022-09-13 20:56:22.31521	USD	1.14	\N	0.00	0.00	0.00	0.00	14.9900	0.00	0.00	\N	\N
+78	236	49	1	9.99	2022-09-13 20:56:50.35591	2022-09-13 20:56:50.963731	USD	1.10	\N	0.00	0.00	0.00	0.00	9.9900	0.00	0.00	\N	\N
 \.
 
 
@@ -5910,6 +6009,7 @@ COPY public.spree_oauth_access_grants (id, resource_owner_id, application_id, to
 
 COPY public.spree_oauth_access_tokens (id, resource_owner_id, application_id, token, refresh_token, expires_in, revoked_at, created_at, scopes, previous_refresh_token, resource_owner_type) FROM stdin;
 1	1	1	b84602d1aee3f43be73c5de6d8b9e5eb5bb5100aaf6bcbaa04e430d043fd7947	\N	\N	\N	2022-07-12 18:19:31.696499	admin		Spree::User
+2	2	1	67a069f660192e3ee50211a2380902ff9bc0f9fbc1d77bddd76cad619a02c794	\N	\N	\N	2022-09-02 16:11:18.640547	admin		Spree::User
 \.
 
 
@@ -5946,260 +6046,6 @@ COPY public.spree_option_types (id, name, presentation, "position", created_at, 
 --
 
 COPY public.spree_option_value_variants (id, variant_id, option_value_id, created_at, updated_at) FROM stdin;
-1	117	12	2022-07-12 18:15:12.979482	2022-07-12 18:15:12.979482
-2	117	23	2022-07-12 18:15:12.987028	2022-07-12 18:15:12.987028
-3	118	3	2022-07-12 18:15:13.201192	2022-07-12 18:15:13.201192
-4	118	23	2022-07-12 18:15:13.207859	2022-07-12 18:15:13.207859
-5	119	13	2022-07-12 18:15:13.359325	2022-07-12 18:15:13.359325
-6	119	23	2022-07-12 18:15:13.365618	2022-07-12 18:15:13.365618
-7	120	13	2022-07-12 18:15:13.520376	2022-07-12 18:15:13.520376
-8	120	23	2022-07-12 18:15:13.525949	2022-07-12 18:15:13.525949
-9	121	9	2022-07-12 18:15:13.690659	2022-07-12 18:15:13.690659
-10	121	23	2022-07-12 18:15:13.697108	2022-07-12 18:15:13.697108
-11	122	5	2022-07-12 18:15:13.819589	2022-07-12 18:15:13.819589
-12	122	23	2022-07-12 18:15:13.825841	2022-07-12 18:15:13.825841
-13	123	12	2022-07-12 18:15:13.948333	2022-07-12 18:15:13.948333
-14	123	23	2022-07-12 18:15:13.954526	2022-07-12 18:15:13.954526
-15	124	4	2022-07-12 18:15:14.082075	2022-07-12 18:15:14.082075
-16	124	23	2022-07-12 18:15:14.089015	2022-07-12 18:15:14.089015
-17	125	1	2022-07-12 18:15:14.218372	2022-07-12 18:15:14.218372
-18	125	23	2022-07-12 18:15:14.224649	2022-07-12 18:15:14.224649
-19	126	16	2022-07-12 18:15:14.358585	2022-07-12 18:15:14.358585
-20	126	23	2022-07-12 18:15:14.364553	2022-07-12 18:15:14.364553
-21	127	16	2022-07-12 18:15:14.51066	2022-07-12 18:15:14.51066
-22	127	23	2022-07-12 18:15:14.517014	2022-07-12 18:15:14.517014
-23	128	16	2022-07-12 18:15:14.652267	2022-07-12 18:15:14.652267
-24	128	23	2022-07-12 18:15:14.658961	2022-07-12 18:15:14.658961
-25	129	7	2022-07-12 18:15:14.840499	2022-07-12 18:15:14.840499
-26	129	23	2022-07-12 18:15:14.846616	2022-07-12 18:15:14.846616
-27	130	1	2022-07-12 18:15:14.971931	2022-07-12 18:15:14.971931
-28	130	23	2022-07-12 18:15:14.978395	2022-07-12 18:15:14.978395
-29	131	7	2022-07-12 18:15:15.110196	2022-07-12 18:15:15.110196
-30	131	23	2022-07-12 18:15:15.116108	2022-07-12 18:15:15.116108
-31	132	5	2022-07-12 18:15:15.246805	2022-07-12 18:15:15.246805
-32	132	23	2022-07-12 18:15:15.25294	2022-07-12 18:15:15.25294
-33	133	7	2022-07-12 18:15:15.423172	2022-07-12 18:15:15.423172
-34	133	23	2022-07-12 18:15:15.429125	2022-07-12 18:15:15.429125
-35	134	17	2022-07-12 18:15:15.571691	2022-07-12 18:15:15.571691
-36	134	23	2022-07-12 18:15:15.578203	2022-07-12 18:15:15.578203
-37	135	7	2022-07-12 18:15:15.705341	2022-07-12 18:15:15.705341
-38	135	23	2022-07-12 18:15:15.711501	2022-07-12 18:15:15.711501
-39	136	4	2022-07-12 18:15:15.89117	2022-07-12 18:15:15.89117
-40	136	23	2022-07-12 18:15:15.897571	2022-07-12 18:15:15.897571
-41	137	5	2022-07-12 18:15:16.03184	2022-07-12 18:15:16.03184
-42	137	23	2022-07-12 18:15:16.038066	2022-07-12 18:15:16.038066
-43	138	19	2022-07-12 18:15:16.164402	2022-07-12 18:15:16.164402
-44	138	23	2022-07-12 18:15:16.17081	2022-07-12 18:15:16.17081
-45	139	7	2022-07-12 18:15:16.302188	2022-07-12 18:15:16.302188
-46	139	23	2022-07-12 18:15:16.308587	2022-07-12 18:15:16.308587
-47	140	11	2022-07-12 18:15:16.442561	2022-07-12 18:15:16.442561
-48	140	23	2022-07-12 18:15:16.449222	2022-07-12 18:15:16.449222
-49	141	7	2022-07-12 18:15:16.629814	2022-07-12 18:15:16.629814
-50	141	23	2022-07-12 18:15:16.6357	2022-07-12 18:15:16.6357
-51	142	6	2022-07-12 18:15:16.759307	2022-07-12 18:15:16.759307
-52	142	23	2022-07-12 18:15:16.76538	2022-07-12 18:15:16.76538
-53	143	13	2022-07-12 18:15:16.887438	2022-07-12 18:15:16.887438
-54	143	23	2022-07-12 18:15:16.893475	2022-07-12 18:15:16.893475
-55	144	5	2022-07-12 18:15:17.056103	2022-07-12 18:15:17.056103
-56	144	23	2022-07-12 18:15:17.064964	2022-07-12 18:15:17.064964
-57	145	10	2022-07-12 18:15:17.252366	2022-07-12 18:15:17.252366
-58	145	23	2022-07-12 18:15:17.258495	2022-07-12 18:15:17.258495
-59	146	15	2022-07-12 18:15:17.384235	2022-07-12 18:15:17.384235
-60	146	23	2022-07-12 18:15:17.39024	2022-07-12 18:15:17.39024
-61	147	16	2022-07-12 18:15:17.540375	2022-07-12 18:15:17.540375
-62	147	23	2022-07-12 18:15:17.546154	2022-07-12 18:15:17.546154
-63	148	5	2022-07-12 18:15:17.678253	2022-07-12 18:15:17.678253
-64	148	23	2022-07-12 18:15:17.684346	2022-07-12 18:15:17.684346
-65	149	13	2022-07-12 18:15:17.811697	2022-07-12 18:15:17.811697
-66	149	23	2022-07-12 18:15:17.818636	2022-07-12 18:15:17.818636
-67	150	10	2022-07-12 18:15:18.041696	2022-07-12 18:15:18.041696
-68	150	23	2022-07-12 18:15:18.048431	2022-07-12 18:15:18.048431
-69	151	4	2022-07-12 18:15:18.176163	2022-07-12 18:15:18.176163
-70	151	23	2022-07-12 18:15:18.182177	2022-07-12 18:15:18.182177
-71	152	9	2022-07-12 18:15:18.322009	2022-07-12 18:15:18.322009
-72	152	20	2022-07-12 18:15:18.328515	2022-07-12 18:15:18.328515
-73	152	23	2022-07-12 18:15:18.33418	2022-07-12 18:15:18.33418
-74	153	6	2022-07-12 18:15:18.483198	2022-07-12 18:15:18.483198
-75	153	20	2022-07-12 18:15:18.488868	2022-07-12 18:15:18.488868
-76	153	23	2022-07-12 18:15:18.494156	2022-07-12 18:15:18.494156
-77	154	8	2022-07-12 18:15:18.753394	2022-07-12 18:15:18.753394
-78	154	20	2022-07-12 18:15:18.760356	2022-07-12 18:15:18.760356
-79	154	23	2022-07-12 18:15:18.767558	2022-07-12 18:15:18.767558
-80	155	13	2022-07-12 18:15:18.927909	2022-07-12 18:15:18.927909
-81	155	20	2022-07-12 18:15:18.933801	2022-07-12 18:15:18.933801
-82	155	23	2022-07-12 18:15:18.939982	2022-07-12 18:15:18.939982
-83	156	4	2022-07-12 18:15:19.141932	2022-07-12 18:15:19.141932
-84	156	20	2022-07-12 18:15:19.147431	2022-07-12 18:15:19.147431
-85	156	23	2022-07-12 18:15:19.153284	2022-07-12 18:15:19.153284
-86	157	8	2022-07-12 18:15:19.312046	2022-07-12 18:15:19.312046
-87	157	20	2022-07-12 18:15:19.319107	2022-07-12 18:15:19.319107
-88	157	23	2022-07-12 18:15:19.325442	2022-07-12 18:15:19.325442
-89	158	5	2022-07-12 18:15:19.491177	2022-07-12 18:15:19.491177
-90	158	20	2022-07-12 18:15:19.496718	2022-07-12 18:15:19.496718
-91	158	23	2022-07-12 18:15:19.503251	2022-07-12 18:15:19.503251
-92	159	1	2022-07-12 18:15:19.658239	2022-07-12 18:15:19.658239
-93	159	20	2022-07-12 18:15:19.664487	2022-07-12 18:15:19.664487
-94	159	23	2022-07-12 18:15:19.670282	2022-07-12 18:15:19.670282
-95	160	16	2022-07-12 18:15:19.850358	2022-07-12 18:15:19.850358
-96	160	20	2022-07-12 18:15:19.856557	2022-07-12 18:15:19.856557
-97	160	23	2022-07-12 18:15:19.862413	2022-07-12 18:15:19.862413
-98	161	6	2022-07-12 18:15:20.055618	2022-07-12 18:15:20.055618
-99	161	20	2022-07-12 18:15:20.065638	2022-07-12 18:15:20.065638
-100	161	23	2022-07-12 18:15:20.071952	2022-07-12 18:15:20.071952
-101	162	4	2022-07-12 18:15:20.445748	2022-07-12 18:15:20.445748
-102	162	20	2022-07-12 18:15:20.45164	2022-07-12 18:15:20.45164
-103	162	23	2022-07-12 18:15:20.45815	2022-07-12 18:15:20.45815
-104	163	17	2022-07-12 18:15:20.611639	2022-07-12 18:15:20.611639
-105	163	20	2022-07-12 18:15:20.617739	2022-07-12 18:15:20.617739
-106	163	23	2022-07-12 18:15:20.623667	2022-07-12 18:15:20.623667
-107	164	3	2022-07-12 18:15:20.857789	2022-07-12 18:15:20.857789
-108	164	20	2022-07-12 18:15:20.863218	2022-07-12 18:15:20.863218
-109	164	23	2022-07-12 18:15:20.868904	2022-07-12 18:15:20.868904
-110	165	4	2022-07-12 18:15:21.065893	2022-07-12 18:15:21.065893
-111	165	20	2022-07-12 18:15:21.071611	2022-07-12 18:15:21.071611
-112	165	23	2022-07-12 18:15:21.076957	2022-07-12 18:15:21.076957
-113	166	7	2022-07-12 18:15:21.266413	2022-07-12 18:15:21.266413
-114	166	20	2022-07-12 18:15:21.272362	2022-07-12 18:15:21.272362
-115	166	23	2022-07-12 18:15:21.278332	2022-07-12 18:15:21.278332
-116	167	16	2022-07-12 18:15:21.523801	2022-07-12 18:15:21.523801
-117	167	20	2022-07-12 18:15:21.530153	2022-07-12 18:15:21.530153
-118	167	23	2022-07-12 18:15:21.535648	2022-07-12 18:15:21.535648
-119	168	16	2022-07-12 18:15:21.735126	2022-07-12 18:15:21.735126
-120	168	20	2022-07-12 18:15:21.741279	2022-07-12 18:15:21.741279
-121	168	23	2022-07-12 18:15:21.746799	2022-07-12 18:15:21.746799
-122	169	16	2022-07-12 18:15:21.941615	2022-07-12 18:15:21.941615
-123	169	20	2022-07-12 18:15:21.947939	2022-07-12 18:15:21.947939
-124	169	23	2022-07-12 18:15:21.953659	2022-07-12 18:15:21.953659
-125	170	3	2022-07-12 18:15:22.219144	2022-07-12 18:15:22.219144
-126	170	20	2022-07-12 18:15:22.226389	2022-07-12 18:15:22.226389
-127	170	23	2022-07-12 18:15:22.233206	2022-07-12 18:15:22.233206
-128	171	16	2022-07-12 18:15:22.651112	2022-07-12 18:15:22.651112
-129	171	20	2022-07-12 18:15:22.65896	2022-07-12 18:15:22.65896
-130	171	23	2022-07-12 18:15:22.66671	2022-07-12 18:15:22.66671
-131	172	10	2022-07-12 18:15:23.223661	2022-07-12 18:15:23.223661
-132	172	20	2022-07-12 18:15:23.230534	2022-07-12 18:15:23.230534
-133	172	23	2022-07-12 18:15:23.237246	2022-07-12 18:15:23.237246
-134	173	3	2022-07-12 18:15:23.415019	2022-07-12 18:15:23.415019
-135	173	20	2022-07-12 18:15:23.421267	2022-07-12 18:15:23.421267
-136	173	23	2022-07-12 18:15:23.427089	2022-07-12 18:15:23.427089
-137	174	5	2022-07-12 18:15:23.580473	2022-07-12 18:15:23.580473
-138	174	23	2022-07-12 18:15:23.587083	2022-07-12 18:15:23.587083
-139	175	12	2022-07-12 18:15:23.728041	2022-07-12 18:15:23.728041
-140	175	23	2022-07-12 18:15:23.734446	2022-07-12 18:15:23.734446
-141	176	13	2022-07-12 18:15:23.885685	2022-07-12 18:15:23.885685
-142	176	23	2022-07-12 18:15:23.891636	2022-07-12 18:15:23.891636
-143	177	1	2022-07-12 18:15:24.065669	2022-07-12 18:15:24.065669
-144	177	23	2022-07-12 18:15:24.073677	2022-07-12 18:15:24.073677
-145	178	8	2022-07-12 18:15:24.209662	2022-07-12 18:15:24.209662
-146	178	23	2022-07-12 18:15:24.216296	2022-07-12 18:15:24.216296
-147	179	16	2022-07-12 18:15:24.338929	2022-07-12 18:15:24.338929
-148	179	23	2022-07-12 18:15:24.345094	2022-07-12 18:15:24.345094
-149	180	17	2022-07-12 18:15:24.466919	2022-07-12 18:15:24.466919
-150	180	23	2022-07-12 18:15:24.472601	2022-07-12 18:15:24.472601
-151	181	11	2022-07-12 18:15:24.602243	2022-07-12 18:15:24.602243
-152	181	23	2022-07-12 18:15:24.608	2022-07-12 18:15:24.608
-153	182	17	2022-07-12 18:15:24.775618	2022-07-12 18:15:24.775618
-154	182	23	2022-07-12 18:15:24.782591	2022-07-12 18:15:24.782591
-155	183	1	2022-07-12 18:15:24.945176	2022-07-12 18:15:24.945176
-156	183	23	2022-07-12 18:15:24.952317	2022-07-12 18:15:24.952317
-157	184	17	2022-07-12 18:15:25.077682	2022-07-12 18:15:25.077682
-158	184	23	2022-07-12 18:15:25.083973	2022-07-12 18:15:25.083973
-159	185	6	2022-07-12 18:15:25.240577	2022-07-12 18:15:25.240577
-160	185	23	2022-07-12 18:15:25.246936	2022-07-12 18:15:25.246936
-161	186	12	2022-07-12 18:15:25.386647	2022-07-12 18:15:25.386647
-162	186	23	2022-07-12 18:15:25.393564	2022-07-12 18:15:25.393564
-163	187	3	2022-07-12 18:15:25.603056	2022-07-12 18:15:25.603056
-164	187	23	2022-07-12 18:15:25.609006	2022-07-12 18:15:25.609006
-165	188	5	2022-07-12 18:15:25.740555	2022-07-12 18:15:25.740555
-166	188	23	2022-07-12 18:15:25.746577	2022-07-12 18:15:25.746577
-167	189	12	2022-07-12 18:15:25.869288	2022-07-12 18:15:25.869288
-168	189	23	2022-07-12 18:15:25.87543	2022-07-12 18:15:25.87543
-169	190	12	2022-07-12 18:15:26.075343	2022-07-12 18:15:26.075343
-170	190	23	2022-07-12 18:15:26.085144	2022-07-12 18:15:26.085144
-171	191	3	2022-07-12 18:15:26.291383	2022-07-12 18:15:26.291383
-172	191	23	2022-07-12 18:15:26.297469	2022-07-12 18:15:26.297469
-173	192	3	2022-07-12 18:15:26.443743	2022-07-12 18:15:26.443743
-174	192	23	2022-07-12 18:15:26.450196	2022-07-12 18:15:26.450196
-175	193	1	2022-07-12 18:15:26.571533	2022-07-12 18:15:26.571533
-176	193	23	2022-07-12 18:15:26.57738	2022-07-12 18:15:26.57738
-177	194	4	2022-07-12 18:15:26.734685	2022-07-12 18:15:26.734685
-178	194	23	2022-07-12 18:15:26.740541	2022-07-12 18:15:26.740541
-179	195	10	2022-07-12 18:15:26.858823	2022-07-12 18:15:26.858823
-180	195	23	2022-07-12 18:15:26.864298	2022-07-12 18:15:26.864298
-181	196	7	2022-07-12 18:15:27.004572	2022-07-12 18:15:27.004572
-182	196	23	2022-07-12 18:15:27.011472	2022-07-12 18:15:27.011472
-183	197	4	2022-07-12 18:15:27.153274	2022-07-12 18:15:27.153274
-184	197	23	2022-07-12 18:15:27.159434	2022-07-12 18:15:27.159434
-185	198	1	2022-07-12 18:15:27.29244	2022-07-12 18:15:27.29244
-186	198	23	2022-07-12 18:15:27.299614	2022-07-12 18:15:27.299614
-187	199	1	2022-07-12 18:15:27.435164	2022-07-12 18:15:27.435164
-188	199	23	2022-07-12 18:15:27.440644	2022-07-12 18:15:27.440644
-189	200	6	2022-07-12 18:15:27.562642	2022-07-12 18:15:27.562642
-190	200	23	2022-07-12 18:15:27.568733	2022-07-12 18:15:27.568733
-191	201	17	2022-07-12 18:15:27.82506	2022-07-12 18:15:27.82506
-192	201	23	2022-07-12 18:15:27.832002	2022-07-12 18:15:27.832002
-193	202	13	2022-07-12 18:15:28.012675	2022-07-12 18:15:28.012675
-194	202	23	2022-07-12 18:15:28.02025	2022-07-12 18:15:28.02025
-195	203	1	2022-07-12 18:15:28.175519	2022-07-12 18:15:28.175519
-196	203	23	2022-07-12 18:15:28.181272	2022-07-12 18:15:28.181272
-197	204	10	2022-07-12 18:15:28.304977	2022-07-12 18:15:28.304977
-198	204	23	2022-07-12 18:15:28.310655	2022-07-12 18:15:28.310655
-199	205	1	2022-07-12 18:15:28.428922	2022-07-12 18:15:28.428922
-200	205	23	2022-07-12 18:15:28.43436	2022-07-12 18:15:28.43436
-201	206	12	2022-07-12 18:15:28.550237	2022-07-12 18:15:28.550237
-202	206	23	2022-07-12 18:15:28.560057	2022-07-12 18:15:28.560057
-203	207	16	2022-07-12 18:15:28.689225	2022-07-12 18:15:28.689225
-204	207	23	2022-07-12 18:15:28.695367	2022-07-12 18:15:28.695367
-205	208	1	2022-07-12 18:15:28.835382	2022-07-12 18:15:28.835382
-206	208	23	2022-07-12 18:15:28.841489	2022-07-12 18:15:28.841489
-207	209	4	2022-07-12 18:15:28.971043	2022-07-12 18:15:28.971043
-208	209	23	2022-07-12 18:15:28.976522	2022-07-12 18:15:28.976522
-209	210	9	2022-07-12 18:15:29.105057	2022-07-12 18:15:29.105057
-210	210	23	2022-07-12 18:15:29.111977	2022-07-12 18:15:29.111977
-211	211	12	2022-07-12 18:15:29.273063	2022-07-12 18:15:29.273063
-212	211	23	2022-07-12 18:15:29.279824	2022-07-12 18:15:29.279824
-213	212	14	2022-07-12 18:15:29.411389	2022-07-12 18:15:29.411389
-214	212	23	2022-07-12 18:15:29.417503	2022-07-12 18:15:29.417503
-215	213	7	2022-07-12 18:15:29.540342	2022-07-12 18:15:29.540342
-216	213	23	2022-07-12 18:15:29.546491	2022-07-12 18:15:29.546491
-217	214	11	2022-07-12 18:15:29.698317	2022-07-12 18:15:29.698317
-218	214	23	2022-07-12 18:15:29.705027	2022-07-12 18:15:29.705027
-219	215	17	2022-07-12 18:15:29.88163	2022-07-12 18:15:29.88163
-220	215	23	2022-07-12 18:15:29.887999	2022-07-12 18:15:29.887999
-221	216	4	2022-07-12 18:15:30.039713	2022-07-12 18:15:30.039713
-222	216	23	2022-07-12 18:15:30.046279	2022-07-12 18:15:30.046279
-223	217	4	2022-07-12 18:15:30.180371	2022-07-12 18:15:30.180371
-224	217	23	2022-07-12 18:15:30.186041	2022-07-12 18:15:30.186041
-225	218	4	2022-07-12 18:15:30.309106	2022-07-12 18:15:30.309106
-226	218	23	2022-07-12 18:15:30.314984	2022-07-12 18:15:30.314984
-227	219	6	2022-07-12 18:15:30.439984	2022-07-12 18:15:30.439984
-228	219	23	2022-07-12 18:15:30.446223	2022-07-12 18:15:30.446223
-229	220	9	2022-07-12 18:15:30.620958	2022-07-12 18:15:30.620958
-230	220	23	2022-07-12 18:15:30.626982	2022-07-12 18:15:30.626982
-231	221	16	2022-07-12 18:15:30.78341	2022-07-12 18:15:30.78341
-232	221	23	2022-07-12 18:15:30.789472	2022-07-12 18:15:30.789472
-233	222	7	2022-07-12 18:15:30.9091	2022-07-12 18:15:30.9091
-234	222	23	2022-07-12 18:15:30.915092	2022-07-12 18:15:30.915092
-235	223	17	2022-07-12 18:15:31.038576	2022-07-12 18:15:31.038576
-236	223	23	2022-07-12 18:15:31.044516	2022-07-12 18:15:31.044516
-237	224	12	2022-07-12 18:15:31.1723	2022-07-12 18:15:31.1723
-238	224	23	2022-07-12 18:15:31.178106	2022-07-12 18:15:31.178106
-239	225	2	2022-07-12 18:15:31.320601	2022-07-12 18:15:31.320601
-240	225	23	2022-07-12 18:15:31.326731	2022-07-12 18:15:31.326731
-241	226	16	2022-07-12 18:15:31.453761	2022-07-12 18:15:31.453761
-242	226	23	2022-07-12 18:15:31.460209	2022-07-12 18:15:31.460209
-243	227	4	2022-07-12 18:15:31.635345	2022-07-12 18:15:31.635345
-244	227	23	2022-07-12 18:15:31.641251	2022-07-12 18:15:31.641251
-245	228	4	2022-07-12 18:15:31.778017	2022-07-12 18:15:31.778017
-246	228	23	2022-07-12 18:15:31.784515	2022-07-12 18:15:31.784515
-247	229	4	2022-07-12 18:15:31.925613	2022-07-12 18:15:31.925613
-248	229	23	2022-07-12 18:15:31.931674	2022-07-12 18:15:31.931674
-249	230	7	2022-07-12 18:15:32.0531	2022-07-12 18:15:32.0531
-250	230	23	2022-07-12 18:15:32.058733	2022-07-12 18:15:32.058733
-251	231	17	2022-07-12 18:15:32.182224	2022-07-12 18:15:32.182224
-252	231	23	2022-07-12 18:15:32.188476	2022-07-12 18:15:32.188476
-253	232	12	2022-07-12 18:15:32.335519	2022-07-12 18:15:32.335519
-254	232	23	2022-07-12 18:15:32.341117	2022-07-12 18:15:32.341117
 \.
 
 
@@ -6251,8 +6097,68 @@ COPY public.spree_order_promotions (id, order_id, promotion_id, created_at, upda
 --
 
 COPY public.spree_orders (id, number, item_total, total, state, adjustment_total, user_id, completed_at, bill_address_id, ship_address_id, payment_total, shipment_state, payment_state, email, special_instructions, created_at, updated_at, currency, last_ip_address, created_by_id, shipment_total, additional_tax_total, promo_total, channel, included_tax_total, item_count, approver_id, approved_at, confirmation_delivered, considered_risky, token, canceled_at, canceler_id, store_id, state_lock_version, taxable_adjustment_total, non_taxable_adjustment_total, store_owner_notification_delivered, public_metadata, private_metadata) FROM stdin;
-1	R123456789	24.99	27.49	complete	2.50	\N	2022-07-11 18:15:53.267702	\N	\N	0.00	pending	balance_due	spree@example.com	\N	2022-07-12 18:15:52.595288	2022-07-12 18:15:53.745168	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	6kwqk1CtUk2kXQ-eZ_8gNQ1657649752595	\N	\N	1	0	0.00	0.00	\N	\N	\N
-2	R987654321	24.99	32.49	complete	2.50	\N	2022-07-11 18:15:53.281705	2	1	0.00	pending	balance_due	spree@example.com	\N	2022-07-12 18:15:52.636207	2022-07-12 18:15:54.144021	USD	\N	\N	5.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	poKaeWdp_inQUfj83neBvA1657649752636	\N	\N	1	0	0.00	0.00	\N	\N	\N
+2	R987654321	0.00	0.00	canceled	0.00	\N	2022-07-11 18:15:53.281705	2	1	0.00	\N	void	spree@example.com	\N	2022-07-12 18:15:52.636207	2022-09-02 16:14:11.491892	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	poKaeWdp_inQUfj83neBvA1657649752636	2022-09-02 16:14:11.496515	2	1	0	0.00	0.00	\N	\N	\N
+3	R691665949	20.00	20.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-02 16:37:05.152169	2022-09-02 17:23:28.937959	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	UCMORL6RsgD5KSCfX1ccUA1662136625088	\N	\N	1	0	0.00	0.00	\N	\N	\N
+1	R123456789	0.00	0.00	canceled	0.00	\N	2022-07-11 18:15:53.267702	\N	\N	0.00	\N	void	spree@example.com	\N	2022-07-12 18:15:52.595288	2022-09-02 18:27:34.308335	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	6kwqk1CtUk2kXQ-eZ_8gNQ1657649752595	2022-09-02 16:15:04.926634	2	1	0	0.00	0.00	\N	\N	\N
+4	R346838356	5.00	5.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-02 18:24:21.981797	2022-09-02 18:42:33.844218	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	hq9AnjpYeNJMsEOsENgKow1662143061896	\N	\N	1	0	0.00	0.00	\N	\N	\N
+5	R204709928	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-08 15:30:50.413539	2022-09-08 15:30:50.413539	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	HiSmJq5m74bASbPgs9hKzg1662651050359	\N	\N	1	0	0.00	0.00	\N	\N	\N
+6	R927290377	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-08 18:46:13.239791	2022-09-08 18:46:13.239791	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	tOproEPa7Tg_egjcghuBuA1662662773144	\N	\N	1	0	0.00	0.00	\N	\N	\N
+8	R216180865	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:40:39.537857	2022-09-13 20:40:39.537857	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	WAdND3JbK2OWo0hSSfR9PQ1663101639463	\N	\N	1	0	0.00	0.00	\N	\N	\N
+9	R709661596	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:40:39.762272	2022-09-13 20:40:39.762272	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	WWWk5s-DvvV5FIIHTU3eLA1663101639628	\N	\N	1	0	0.00	0.00	\N	\N	\N
+24	R035858575	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:46:23.250422	2022-09-13 20:46:23.250422	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	OoyVku4wMIEdkc97j0poww1663101983113	\N	\N	1	0	0.00	0.00	\N	\N	\N
+14	R114707512	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:42:37.176246	2022-09-13 20:43:28.302536	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	jsu3Rw2WAHmGWoLQOHvTFw1663101757144	\N	\N	1	0	0.00	0.00	\N	\N	\N
+19	R741717240	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:44:32.048317	2022-09-13 20:45:22.032435	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	kUky6yRrdse2KgnIY_zUeg1663101871967	\N	\N	1	0	0.00	0.00	\N	\N	\N
+16	R848546931	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:42:38.168432	2022-09-13 20:43:28.639448	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	XaB3s8LiapCQJAlj7MhRNA1663101758092	\N	\N	1	0	0.00	0.00	\N	\N	\N
+7	R390334667	14.99	14.99	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:40:39.456166	2022-09-13 20:41:04.250772	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	CnMT62wvwWCbZu3dOVn_Rg1663101639207	\N	\N	1	0	0.00	0.00	\N	\N	\N
+15	R255191158	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:42:38.11464	2022-09-13 20:43:28.783291	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	wOR-iN7YNFOhyEC2H2b7qA1663101758041	\N	\N	1	0	0.00	0.00	\N	\N	\N
+29	R787811537	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:48:22.46273	2022-09-13 20:48:22.46273	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	Hl6Ljr5p4rANMBxef6lE9w1663102102302	\N	\N	1	0	0.00	0.00	\N	\N	\N
+20	R419288521	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:44:32.236312	2022-09-13 20:45:21.980026	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	CIgK0fBkGeTaaTT40O-jqw1663101872187	\N	\N	1	0	0.00	0.00	\N	\N	\N
+17	R847096189	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:42:38.809459	2022-09-13 20:43:28.474413	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	OFk8MRGtK2lSvOvQb29x1w1663101758777	\N	\N	1	0	0.00	0.00	\N	\N	\N
+11	R840723731	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:40:40.242559	2022-09-13 20:41:34.811024	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	aaQwC1swzSxillt95Z9U-Q1663101640049	\N	\N	1	0	0.00	0.00	\N	\N	\N
+12	R552721805	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:40:40.410356	2022-09-13 20:41:34.885387	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	sOSjPvDn_4SVm1ODygyB2w1663101640340	\N	\N	1	0	0.00	0.00	\N	\N	\N
+10	R442325408	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:40:40.262394	2022-09-13 20:41:34.745041	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	kc0nVrRKOAIaSVbX1l7N8g1663101639848	\N	\N	1	0	0.00	0.00	\N	\N	\N
+13	R075587510	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:42:36.837657	2022-09-13 20:43:27.970977	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	tUjHW5ZklQ-YWswl7e-M2w1663101756810	\N	\N	1	0	0.00	0.00	\N	\N	\N
+26	R005638160	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:46:28.758835	2022-09-13 20:47:18.536939	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	eghZAxpzP9ZF-79b2TLUqw1663101988724	\N	\N	1	0	0.00	0.00	\N	\N	\N
+23	R123653711	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:46:23.137053	2022-09-13 20:47:13.047994	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	6K9qzvpJWhJZSILd0b9XRA1663101983035	\N	\N	1	0	0.00	0.00	\N	\N	\N
+22	R124150150	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:44:32.869556	2022-09-13 20:45:22.247319	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	0-Kb1UqsxqCwPoUnUF6Jnw1663101872834	\N	\N	1	0	0.00	0.00	\N	\N	\N
+18	R276779589	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:44:31.867248	2022-09-13 20:45:22.630709	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	Q8d7eCTpl8hURcVQ13u_kw1663101871824	\N	\N	1	0	0.00	0.00	\N	\N	\N
+32	R805165245	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:48:25.538708	2022-09-13 20:49:14.374306	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	WJbh-8HUtQU9Q_2w19gB-w1663102105498	\N	\N	1	0	0.00	0.00	\N	\N	\N
+21	R487927726	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:44:32.238569	2022-09-13 20:45:22.852748	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	VWxfagS9M-othhNGGhdbYg1663101872146	\N	\N	1	0	0.00	0.00	\N	\N	\N
+27	R689531836	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:46:28.861055	2022-09-13 20:47:18.653873	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	B3xGVyUzmqwQDdt8XpBBfA1663101988817	\N	\N	1	0	0.00	0.00	\N	\N	\N
+25	R469727062	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:46:28.225082	2022-09-13 20:47:18.636142	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	IMTOga4JFry9gZbZCZ5InA1663101988194	\N	\N	1	0	0.00	0.00	\N	\N	\N
+31	R918936651	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:48:24.377543	2022-09-13 20:49:13.460962	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	oFetZmmPbKEgp65ZmPKXTA1663102104314	\N	\N	1	0	0.00	0.00	\N	\N	\N
+34	R999519556	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:50:19.305181	2022-09-13 20:51:09.962408	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	Mabl_1Azd_Og6nu21PMeww1663102219258	\N	\N	1	0	0.00	0.00	\N	\N	\N
+30	R404535964	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:48:23.120556	2022-09-13 20:49:13.524533	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	QintnT3ioOgN_HjlDv8_Sw1663102103069	\N	\N	1	0	0.00	0.00	\N	\N	\N
+28	R782062766	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:48:22.199099	2022-09-13 20:49:13.29202	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	52PGI5HOOZ8o4TwhQGn99Q1663102102025	\N	\N	1	0	0.00	0.00	\N	\N	\N
+37	R157365849	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:50:19.951978	2022-09-13 20:50:19.951978	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	MHvj7GIMgQoWSCuO9levtg1663102219924	\N	\N	1	0	0.00	0.00	\N	\N	\N
+51	R380396795	14.99	14.99	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:56:00.983842	2022-09-13 20:56:20.790026	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	-fczciKKzou470GRdTcBmg1663102560923	\N	\N	1	0	0.00	0.00	\N	\N	\N
+40	R977050395	14.99	14.99	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:52:12.099499	2022-09-13 20:52:31.556158	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	bV5XprPbqOMzjaVfJLSLDQ1663102332061	\N	\N	1	0	0.00	0.00	\N	\N	\N
+33	R619989406	14.99	14.99	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:50:13.522459	2022-09-13 20:50:33.669029	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	m2v3_sm11feeJhUt-UEz_A1663102213496	\N	\N	1	0	0.00	0.00	\N	\N	\N
+46	R942455379	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:54:07.804113	2022-09-13 20:54:57.40555	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	beL5LxYTxktnXDfD_KcGrA1663102447773	\N	\N	1	0	0.00	0.00	\N	\N	\N
+53	R163749863	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:57:54.037515	2022-09-13 20:57:54.037515	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	vGzlnFRg7GIXQAXK5o2srA1663102673965	\N	\N	1	0	0.00	0.00	\N	\N	\N
+47	R919350832	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:54:08.242242	2022-09-13 20:54:57.427924	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	5K0c6NNThPxX5HdgNnKk2A1663102448208	\N	\N	1	0	0.00	0.00	\N	\N	\N
+43	R702931003	14.99	14.99	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:54:03.216732	2022-09-13 20:54:22.531404	USD	\N	\N	0.00	0.00	0.00	spree	0.00	1	\N	\N	f	f	IEiRkYakl_lqd71lBJ_sHg1663102443181	\N	\N	1	0	0.00	0.00	\N	\N	\N
+42	R251855715	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:52:12.935808	2022-09-13 20:53:01.462396	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	IN_fT1XvJ89V3I9C5BBAPQ1663102332895	\N	\N	1	0	0.00	0.00	\N	\N	\N
+39	R121101079	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:52:11.780082	2022-09-13 20:53:01.369656	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	Yw3uqe6EFMnbPE9PBSR5eA1663102331702	\N	\N	1	0	0.00	0.00	\N	\N	\N
+35	R454858211	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:50:19.408387	2022-09-13 20:51:09.753958	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	nzd04T10DGTH8vgcacTCUw1663102219344	\N	\N	1	0	0.00	0.00	\N	\N	\N
+41	R175818178	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:52:12.33814	2022-09-13 20:53:01.614702	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	2fRdrWj2jgdZqrRXghkP_g1663102332276	\N	\N	1	0	0.00	0.00	\N	\N	\N
+36	R813463955	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:50:19.613804	2022-09-13 20:51:10.02892	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	4GXX8bvaO1TkJJsfXzWEfw1663102219529	\N	\N	1	0	0.00	0.00	\N	\N	\N
+38	R790389214	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:52:11.645945	2022-09-13 20:53:01.87249	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	AS_thu3KZ7np_YyT76tGbg1663102331614	\N	\N	1	0	0.00	0.00	\N	\N	\N
+56	R227725774	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:57:57.553134	2022-09-13 20:57:57.553134	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	WPsT4tWCYNgQQgn4mpVZuQ1663102677500	\N	\N	1	0	0.00	0.00	\N	\N	\N
+49	R630607112	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:56:00.753713	2022-09-13 20:56:50.362021	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	gt_KsmYAtc-p3YwlWRv1Uw1663102560640	\N	\N	1	0	0.00	0.00	\N	\N	\N
+57	R809829761	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:57:58.409555	2022-09-13 20:57:58.409555	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	8hWA5kBCnXxS3sXkPuMa5Q1663102678374	\N	\N	1	0	0.00	0.00	\N	\N	\N
+59	R413562029	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:59:50.013503	2022-09-13 20:59:50.013503	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	eIOJZSic0r5wkSFtgEikZA1663102789969	\N	\N	1	0	0.00	0.00	\N	\N	\N
+45	R884650335	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:54:04.725441	2022-09-13 20:54:53.046874	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	-c86IosJv_oWOdDNYqWPwA1663102444692	\N	\N	1	0	0.00	0.00	\N	\N	\N
+60	R481040826	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:59:50.313256	2022-09-13 20:59:50.313256	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	WVRrNglck1NF9CIr7oiqbw1663102790270	\N	\N	1	0	0.00	0.00	\N	\N	\N
+61	R228396864	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:59:53.865872	2022-09-13 20:59:53.865872	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	ESP1i8ZuJCX2-Hpc86tlsw1663102793842	\N	\N	1	0	0.00	0.00	\N	\N	\N
+62	R105697463	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:59:54.243963	2022-09-13 20:59:54.243963	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	G2PioUiSHiJ0nlLj2xR0Uw1663102794213	\N	\N	1	0	0.00	0.00	\N	\N	\N
+44	R428557957	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:54:03.570992	2022-09-13 20:54:53.192396	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	2C16kXLPyEHygUbkJz3Ynw1663102443532	\N	\N	1	0	0.00	0.00	\N	\N	\N
+52	R306200982	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:56:02.207068	2022-09-13 20:56:51.134566	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	_oSakoLE6W3vDIPmqOkfIQ1663102562162	\N	\N	1	0	0.00	0.00	\N	\N	\N
+54	R566260232	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:57:54.219118	2022-09-13 20:58:44.231271	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	Xma4hmQTnewPUayW9KGVvg1663102674167	\N	\N	1	0	0.00	0.00	\N	\N	\N
+50	R754500801	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:56:00.812035	2022-09-13 20:56:50.742709	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	B7EBl-2KLKIB6SkQrEkWtQ1663102560718	\N	\N	1	0	0.00	0.00	\N	\N	\N
+48	R399669374	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:55:59.659483	2022-09-13 20:56:50.865579	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	mSCMrawCu6sEr6_0FCgefw1663102559627	\N	\N	1	0	0.00	0.00	\N	\N	\N
+55	R136591560	24.98	24.98	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:57:57.302156	2022-09-13 20:58:47.238481	USD	\N	\N	0.00	0.00	0.00	spree	0.00	2	\N	\N	f	f	aGVqHvNNHC3tFScoAI91uw1663102677257	\N	\N	1	0	0.00	0.00	\N	\N	\N
+58	R283485621	0.00	0.00	cart	0.00	\N	\N	\N	\N	0.00	\N	\N	\N	\N	2022-09-13 20:59:49.372146	2022-09-13 20:59:49.372146	USD	\N	\N	0.00	0.00	0.00	spree	0.00	0	\N	\N	f	f	b8s-7S3PJJthFjAATl56kg1663102789324	\N	\N	1	0	0.00	0.00	\N	\N	\N
 \.
 
 
@@ -6312,238 +6218,252 @@ COPY public.spree_preferences (id, value, key, created_at, updated_at) FROM stdi
 --
 
 COPY public.spree_prices (id, variant_id, amount, currency, deleted_at, created_at, updated_at, compare_at_amount) FROM stdin;
-1	1	24.99	USD	\N	2022-07-12 18:13:17.286374	2022-07-12 18:13:17.286374	\N
-2	2	65.99	USD	\N	2022-07-12 18:13:17.736961	2022-07-12 18:13:17.736961	\N
-3	3	99.99	USD	\N	2022-07-12 18:13:18.112647	2022-07-12 18:13:18.112647	\N
-4	4	17.99	USD	\N	2022-07-12 18:13:18.451869	2022-07-12 18:13:18.451869	\N
-5	5	55.99	USD	\N	2022-07-12 18:13:18.781473	2022-07-12 18:13:18.781473	\N
-6	6	74.99	USD	\N	2022-07-12 18:13:19.124775	2022-07-12 18:13:19.124775	\N
-7	7	94.99	USD	\N	2022-07-12 18:13:19.465214	2022-07-12 18:13:19.465214	\N
-8	8	27.99	USD	\N	2022-07-12 18:13:19.80268	2022-07-12 18:13:19.80268	\N
-9	9	33.99	USD	\N	2022-07-12 18:13:20.149861	2022-07-12 18:13:20.149861	\N
-10	10	87.99	USD	\N	2022-07-12 18:13:20.495717	2022-07-12 18:13:20.495717	\N
-11	11	98.99	USD	\N	2022-07-12 18:13:20.824971	2022-07-12 18:13:20.824971	\N
-12	12	52.99	USD	\N	2022-07-12 18:13:21.159619	2022-07-12 18:13:21.159619	\N
-13	13	28.99	USD	\N	2022-07-12 18:13:21.49581	2022-07-12 18:13:21.49581	\N
-14	14	18.99	USD	\N	2022-07-12 18:13:21.825212	2022-07-12 18:13:21.825212	\N
-15	15	34.99	USD	\N	2022-07-12 18:13:22.181922	2022-07-12 18:13:22.181922	\N
-16	16	84.99	USD	\N	2022-07-12 18:13:22.535499	2022-07-12 18:13:22.535499	\N
-17	17	47.99	USD	\N	2022-07-12 18:13:23.025133	2022-07-12 18:13:23.025133	\N
-18	18	10.99	USD	\N	2022-07-12 18:13:23.372619	2022-07-12 18:13:23.372619	\N
-19	19	23.99	USD	\N	2022-07-12 18:13:23.729611	2022-07-12 18:13:23.729611	\N
-20	20	45.99	USD	\N	2022-07-12 18:13:24.105405	2022-07-12 18:13:24.105405	\N
-21	21	88.99	USD	\N	2022-07-12 18:13:24.458189	2022-07-12 18:13:24.458189	\N
-22	22	93.99	USD	\N	2022-07-12 18:13:24.816942	2022-07-12 18:13:24.816942	\N
-23	23	61.99	USD	\N	2022-07-12 18:13:25.164782	2022-07-12 18:13:25.164782	\N
-24	24	73.99	USD	\N	2022-07-12 18:13:25.518936	2022-07-12 18:13:25.518936	\N
-25	25	24.99	USD	\N	2022-07-12 18:13:25.88228	2022-07-12 18:13:25.88228	\N
-26	26	67.99	USD	\N	2022-07-12 18:13:26.322382	2022-07-12 18:13:26.322382	\N
-27	27	64.99	USD	\N	2022-07-12 18:13:26.688125	2022-07-12 18:13:26.688125	\N
-28	28	33.99	USD	\N	2022-07-12 18:13:27.121417	2022-07-12 18:13:27.121417	\N
-29	29	11.99	USD	\N	2022-07-12 18:13:27.526966	2022-07-12 18:13:27.526966	\N
-30	30	44.99	USD	\N	2022-07-12 18:13:27.913244	2022-07-12 18:13:27.913244	\N
-31	31	76.99	USD	\N	2022-07-12 18:13:28.376818	2022-07-12 18:13:28.376818	\N
-32	32	27.99	USD	\N	2022-07-12 18:13:28.891353	2022-07-12 18:13:28.891353	\N
-33	33	64.99	USD	\N	2022-07-12 18:13:29.259237	2022-07-12 18:13:29.259237	\N
-34	34	35.99	USD	\N	2022-07-12 18:13:29.618661	2022-07-12 18:13:29.618661	\N
-35	35	73.99	USD	\N	2022-07-12 18:13:29.987904	2022-07-12 18:13:29.987904	\N
-36	36	21.99	USD	\N	2022-07-12 18:13:30.35196	2022-07-12 18:13:30.35196	\N
-37	37	40.99	USD	\N	2022-07-12 18:13:30.719021	2022-07-12 18:13:30.719021	\N
-38	38	62.99	USD	\N	2022-07-12 18:13:31.087147	2022-07-12 18:13:31.087147	\N
-39	39	30.99	USD	\N	2022-07-12 18:13:31.451936	2022-07-12 18:13:31.451936	\N
-40	40	46.99	USD	\N	2022-07-12 18:13:31.810158	2022-07-12 18:13:31.810158	\N
-41	41	74.99	USD	\N	2022-07-12 18:13:32.167724	2022-07-12 18:13:32.167724	\N
-42	42	17.99	USD	\N	2022-07-12 18:13:32.53143	2022-07-12 18:13:32.53143	\N
-43	43	67.99	USD	\N	2022-07-12 18:13:32.889484	2022-07-12 18:13:32.889484	\N
-44	44	10.99	USD	\N	2022-07-12 18:13:33.264063	2022-07-12 18:13:33.264063	\N
-45	45	17.99	USD	\N	2022-07-12 18:13:33.63484	2022-07-12 18:13:33.63484	\N
-46	46	14.99	USD	\N	2022-07-12 18:13:34.156174	2022-07-12 18:13:34.156174	\N
-47	47	31.99	USD	\N	2022-07-12 18:13:34.535422	2022-07-12 18:13:34.535422	\N
-48	48	81.99	USD	\N	2022-07-12 18:13:34.906575	2022-07-12 18:13:34.906575	\N
-49	49	55.99	USD	\N	2022-07-12 18:13:35.261318	2022-07-12 18:13:35.261318	\N
-50	50	23.99	USD	\N	2022-07-12 18:13:35.619038	2022-07-12 18:13:35.619038	\N
-51	51	87.99	USD	\N	2022-07-12 18:13:36.000691	2022-07-12 18:13:36.000691	\N
-52	52	83.99	USD	\N	2022-07-12 18:13:36.368909	2022-07-12 18:13:36.368909	\N
-53	53	76.99	USD	\N	2022-07-12 18:13:36.732905	2022-07-12 18:13:36.732905	\N
-54	54	36.99	USD	\N	2022-07-12 18:13:37.103462	2022-07-12 18:13:37.103462	\N
-55	55	73.99	USD	\N	2022-07-12 18:13:37.459553	2022-07-12 18:13:37.459553	\N
-56	56	32.99	USD	\N	2022-07-12 18:13:37.840251	2022-07-12 18:13:37.840251	\N
-57	57	26.99	USD	\N	2022-07-12 18:13:38.192576	2022-07-12 18:13:38.192576	\N
-58	58	91.99	USD	\N	2022-07-12 18:13:38.53718	2022-07-12 18:13:38.53718	\N
-59	59	60.99	USD	\N	2022-07-12 18:13:38.883514	2022-07-12 18:13:38.883514	\N
-60	60	68.99	USD	\N	2022-07-12 18:13:39.371884	2022-07-12 18:13:39.371884	\N
-61	61	15.99	USD	\N	2022-07-12 18:13:39.727827	2022-07-12 18:13:39.727827	\N
-62	62	28.99	USD	\N	2022-07-12 18:13:40.078491	2022-07-12 18:13:40.078491	\N
-63	63	17.99	USD	\N	2022-07-12 18:13:40.411896	2022-07-12 18:13:40.411896	\N
-64	64	90.99	USD	\N	2022-07-12 18:13:40.760013	2022-07-12 18:13:40.760013	\N
-65	65	19.99	USD	\N	2022-07-12 18:13:41.100294	2022-07-12 18:13:41.100294	\N
-66	66	72.99	USD	\N	2022-07-12 18:13:41.473148	2022-07-12 18:13:41.473148	\N
-67	67	36.99	USD	\N	2022-07-12 18:13:41.834376	2022-07-12 18:13:41.834376	\N
-68	68	87.99	USD	\N	2022-07-12 18:13:42.220764	2022-07-12 18:13:42.220764	\N
-69	69	46.99	USD	\N	2022-07-12 18:13:42.605527	2022-07-12 18:13:42.605527	\N
-70	70	34.99	USD	\N	2022-07-12 18:13:42.977034	2022-07-12 18:13:42.977034	\N
-71	71	24.99	USD	\N	2022-07-12 18:13:43.333021	2022-07-12 18:13:43.333021	\N
-72	72	86.99	USD	\N	2022-07-12 18:13:43.684172	2022-07-12 18:13:43.684172	\N
-73	73	86.99	USD	\N	2022-07-12 18:13:44.056071	2022-07-12 18:13:44.056071	\N
-74	74	17.99	USD	\N	2022-07-12 18:13:44.44715	2022-07-12 18:13:44.44715	\N
-75	75	92.99	USD	\N	2022-07-12 18:13:44.993484	2022-07-12 18:13:44.993484	\N
-76	76	96.99	USD	\N	2022-07-12 18:13:45.370241	2022-07-12 18:13:45.370241	\N
-77	77	30.99	USD	\N	2022-07-12 18:13:45.775796	2022-07-12 18:13:45.775796	\N
-78	78	40.99	USD	\N	2022-07-12 18:13:46.542221	2022-07-12 18:13:46.542221	\N
-79	79	83.99	USD	\N	2022-07-12 18:13:46.984358	2022-07-12 18:13:46.984358	\N
-80	80	46.99	USD	\N	2022-07-12 18:13:47.379139	2022-07-12 18:13:47.379139	\N
-81	81	60.99	USD	\N	2022-07-12 18:13:47.733697	2022-07-12 18:13:47.733697	\N
-82	82	37.99	USD	\N	2022-07-12 18:13:48.080211	2022-07-12 18:13:48.080211	\N
-83	83	58.99	USD	\N	2022-07-12 18:13:48.454432	2022-07-12 18:13:48.454432	\N
-84	84	25.99	USD	\N	2022-07-12 18:13:48.847159	2022-07-12 18:13:48.847159	\N
-85	85	27.99	USD	\N	2022-07-12 18:13:49.215908	2022-07-12 18:13:49.215908	\N
-86	86	43.99	USD	\N	2022-07-12 18:13:49.577379	2022-07-12 18:13:49.577379	\N
-87	87	19.99	USD	\N	2022-07-12 18:13:49.956057	2022-07-12 18:13:49.956057	\N
-88	88	47.99	USD	\N	2022-07-12 18:13:50.32564	2022-07-12 18:13:50.32564	\N
-89	89	59.99	USD	\N	2022-07-12 18:13:50.875825	2022-07-12 18:13:50.875825	\N
-90	90	28.99	USD	\N	2022-07-12 18:13:51.289975	2022-07-12 18:13:51.289975	\N
-91	91	43.99	USD	\N	2022-07-12 18:13:51.741777	2022-07-12 18:13:51.741777	\N
-92	92	50.99	USD	\N	2022-07-12 18:13:52.225622	2022-07-12 18:13:52.225622	\N
-93	93	26.99	USD	\N	2022-07-12 18:13:52.603502	2022-07-12 18:13:52.603502	\N
-94	94	13.99	USD	\N	2022-07-12 18:13:52.995319	2022-07-12 18:13:52.995319	\N
-95	95	88.99	USD	\N	2022-07-12 18:13:53.358158	2022-07-12 18:13:53.358158	\N
-96	96	30.99	USD	\N	2022-07-12 18:13:53.792165	2022-07-12 18:13:53.792165	\N
-97	97	41.99	USD	\N	2022-07-12 18:13:54.153524	2022-07-12 18:13:54.153524	\N
-98	98	37.99	USD	\N	2022-07-12 18:13:54.498676	2022-07-12 18:13:54.498676	\N
-99	99	76.99	USD	\N	2022-07-12 18:13:54.853936	2022-07-12 18:13:54.853936	\N
-100	100	34.99	USD	\N	2022-07-12 18:13:55.208567	2022-07-12 18:13:55.208567	\N
-101	101	11.99	USD	\N	2022-07-12 18:13:55.562831	2022-07-12 18:13:55.562831	\N
-102	102	29.99	USD	\N	2022-07-12 18:13:55.947975	2022-07-12 18:13:55.947975	\N
-103	103	79.99	USD	\N	2022-07-12 18:13:56.371448	2022-07-12 18:13:56.371448	\N
-104	104	47.99	USD	\N	2022-07-12 18:13:56.865802	2022-07-12 18:13:56.865802	\N
-105	105	17.99	USD	\N	2022-07-12 18:13:57.223869	2022-07-12 18:13:57.223869	\N
-106	106	52.99	USD	\N	2022-07-12 18:13:57.61041	2022-07-12 18:13:57.61041	\N
-107	107	67.99	USD	\N	2022-07-12 18:13:57.984621	2022-07-12 18:13:57.984621	\N
-108	108	54.99	USD	\N	2022-07-12 18:13:58.342501	2022-07-12 18:13:58.342501	\N
-109	109	71.99	USD	\N	2022-07-12 18:13:58.742053	2022-07-12 18:13:58.742053	\N
-110	110	73.99	USD	\N	2022-07-12 18:13:59.089122	2022-07-12 18:13:59.089122	\N
-111	111	14.99	USD	\N	2022-07-12 18:13:59.442118	2022-07-12 18:13:59.442118	\N
-112	112	45.99	USD	\N	2022-07-12 18:13:59.793393	2022-07-12 18:13:59.793393	\N
-113	113	50.99	USD	\N	2022-07-12 18:14:00.227416	2022-07-12 18:14:00.227416	\N
-114	114	45.99	USD	\N	2022-07-12 18:14:00.669118	2022-07-12 18:14:00.669118	\N
-115	115	92.99	USD	\N	2022-07-12 18:14:01.024129	2022-07-12 18:14:01.024129	\N
-116	116	20.99	USD	\N	2022-07-12 18:14:01.372852	2022-07-12 18:14:01.372852	\N
-117	117	24.99	USD	\N	2022-07-12 18:15:12.960719	2022-07-12 18:15:12.960719	\N
-118	118	65.99	USD	\N	2022-07-12 18:15:13.186012	2022-07-12 18:15:13.186012	\N
-119	119	99.99	USD	\N	2022-07-12 18:15:13.346261	2022-07-12 18:15:13.346261	\N
-120	120	17.99	USD	\N	2022-07-12 18:15:13.507181	2022-07-12 18:15:13.507181	\N
-121	121	55.99	USD	\N	2022-07-12 18:15:13.677462	2022-07-12 18:15:13.677462	\N
-122	122	74.99	USD	\N	2022-07-12 18:15:13.806607	2022-07-12 18:15:13.806607	\N
-123	123	94.99	USD	\N	2022-07-12 18:15:13.93513	2022-07-12 18:15:13.93513	\N
-124	124	27.99	USD	\N	2022-07-12 18:15:14.067412	2022-07-12 18:15:14.067412	\N
-125	125	33.99	USD	\N	2022-07-12 18:15:14.205045	2022-07-12 18:15:14.205045	\N
-126	126	87.99	USD	\N	2022-07-12 18:15:14.345429	2022-07-12 18:15:14.345429	\N
-127	127	98.99	USD	\N	2022-07-12 18:15:14.498576	2022-07-12 18:15:14.498576	\N
-128	128	52.99	USD	\N	2022-07-12 18:15:14.638	2022-07-12 18:15:14.638	\N
-129	129	28.99	USD	\N	2022-07-12 18:15:14.825812	2022-07-12 18:15:14.825812	\N
-130	130	18.99	USD	\N	2022-07-12 18:15:14.959508	2022-07-12 18:15:14.959508	\N
-131	131	34.99	USD	\N	2022-07-12 18:15:15.095985	2022-07-12 18:15:15.095985	\N
-132	132	84.99	USD	\N	2022-07-12 18:15:15.233638	2022-07-12 18:15:15.233638	\N
-133	133	47.99	USD	\N	2022-07-12 18:15:15.409697	2022-07-12 18:15:15.409697	\N
-134	134	10.99	USD	\N	2022-07-12 18:15:15.559491	2022-07-12 18:15:15.559491	\N
-135	135	23.99	USD	\N	2022-07-12 18:15:15.69268	2022-07-12 18:15:15.69268	\N
-136	136	45.99	USD	\N	2022-07-12 18:15:15.876406	2022-07-12 18:15:15.876406	\N
-137	137	88.99	USD	\N	2022-07-12 18:15:16.018652	2022-07-12 18:15:16.018652	\N
-138	138	93.99	USD	\N	2022-07-12 18:15:16.151105	2022-07-12 18:15:16.151105	\N
-139	139	61.99	USD	\N	2022-07-12 18:15:16.287059	2022-07-12 18:15:16.287059	\N
-140	140	73.99	USD	\N	2022-07-12 18:15:16.428215	2022-07-12 18:15:16.428215	\N
-141	141	24.99	USD	\N	2022-07-12 18:15:16.617447	2022-07-12 18:15:16.617447	\N
-142	142	67.99	USD	\N	2022-07-12 18:15:16.746654	2022-07-12 18:15:16.746654	\N
-143	143	64.99	USD	\N	2022-07-12 18:15:16.874714	2022-07-12 18:15:16.874714	\N
-144	144	33.99	USD	\N	2022-07-12 18:15:17.036703	2022-07-12 18:15:17.036703	\N
-145	145	11.99	USD	\N	2022-07-12 18:15:17.239865	2022-07-12 18:15:17.239865	\N
-146	146	44.99	USD	\N	2022-07-12 18:15:17.37049	2022-07-12 18:15:17.37049	\N
-147	147	76.99	USD	\N	2022-07-12 18:15:17.526736	2022-07-12 18:15:17.526736	\N
-148	148	27.99	USD	\N	2022-07-12 18:15:17.664591	2022-07-12 18:15:17.664591	\N
-149	149	64.99	USD	\N	2022-07-12 18:15:17.798727	2022-07-12 18:15:17.798727	\N
-150	150	35.99	USD	\N	2022-07-12 18:15:18.029427	2022-07-12 18:15:18.029427	\N
-151	151	73.99	USD	\N	2022-07-12 18:15:18.162718	2022-07-12 18:15:18.162718	\N
-152	152	21.99	USD	\N	2022-07-12 18:15:18.30946	2022-07-12 18:15:18.30946	\N
-153	153	40.99	USD	\N	2022-07-12 18:15:18.470723	2022-07-12 18:15:18.470723	\N
-154	154	62.99	USD	\N	2022-07-12 18:15:18.738551	2022-07-12 18:15:18.738551	\N
-155	155	30.99	USD	\N	2022-07-12 18:15:18.914183	2022-07-12 18:15:18.914183	\N
-156	156	46.99	USD	\N	2022-07-12 18:15:19.128858	2022-07-12 18:15:19.128858	\N
-157	157	74.99	USD	\N	2022-07-12 18:15:19.298692	2022-07-12 18:15:19.298692	\N
-158	158	17.99	USD	\N	2022-07-12 18:15:19.477131	2022-07-12 18:15:19.477131	\N
-159	159	67.99	USD	\N	2022-07-12 18:15:19.644646	2022-07-12 18:15:19.644646	\N
-160	160	10.99	USD	\N	2022-07-12 18:15:19.838121	2022-07-12 18:15:19.838121	\N
-161	161	17.99	USD	\N	2022-07-12 18:15:20.043471	2022-07-12 18:15:20.043471	\N
-162	162	14.99	USD	\N	2022-07-12 18:15:20.431809	2022-07-12 18:15:20.431809	\N
-163	163	31.99	USD	\N	2022-07-12 18:15:20.599504	2022-07-12 18:15:20.599504	\N
-164	164	81.99	USD	\N	2022-07-12 18:15:20.845072	2022-07-12 18:15:20.845072	\N
-165	165	55.99	USD	\N	2022-07-12 18:15:21.05346	2022-07-12 18:15:21.05346	\N
-166	166	23.99	USD	\N	2022-07-12 18:15:21.253212	2022-07-12 18:15:21.253212	\N
-167	167	87.99	USD	\N	2022-07-12 18:15:21.5108	2022-07-12 18:15:21.5108	\N
-168	168	83.99	USD	\N	2022-07-12 18:15:21.721701	2022-07-12 18:15:21.721701	\N
-169	169	76.99	USD	\N	2022-07-12 18:15:21.928713	2022-07-12 18:15:21.928713	\N
-170	170	36.99	USD	\N	2022-07-12 18:15:22.205239	2022-07-12 18:15:22.205239	\N
-171	171	73.99	USD	\N	2022-07-12 18:15:22.634971	2022-07-12 18:15:22.634971	\N
-172	172	32.99	USD	\N	2022-07-12 18:15:23.208666	2022-07-12 18:15:23.208666	\N
-173	173	26.99	USD	\N	2022-07-12 18:15:23.400434	2022-07-12 18:15:23.400434	\N
-174	174	91.99	USD	\N	2022-07-12 18:15:23.567534	2022-07-12 18:15:23.567534	\N
-175	175	60.99	USD	\N	2022-07-12 18:15:23.715842	2022-07-12 18:15:23.715842	\N
-176	176	68.99	USD	\N	2022-07-12 18:15:23.872604	2022-07-12 18:15:23.872604	\N
-177	177	15.99	USD	\N	2022-07-12 18:15:24.049359	2022-07-12 18:15:24.049359	\N
-178	178	28.99	USD	\N	2022-07-12 18:15:24.195663	2022-07-12 18:15:24.195663	\N
-179	179	17.99	USD	\N	2022-07-12 18:15:24.327215	2022-07-12 18:15:24.327215	\N
-180	180	90.99	USD	\N	2022-07-12 18:15:24.453558	2022-07-12 18:15:24.453558	\N
-181	181	19.99	USD	\N	2022-07-12 18:15:24.589367	2022-07-12 18:15:24.589367	\N
-182	182	72.99	USD	\N	2022-07-12 18:15:24.761767	2022-07-12 18:15:24.761767	\N
-183	183	36.99	USD	\N	2022-07-12 18:15:24.930517	2022-07-12 18:15:24.930517	\N
-184	184	87.99	USD	\N	2022-07-12 18:15:25.06461	2022-07-12 18:15:25.06461	\N
-185	185	46.99	USD	\N	2022-07-12 18:15:25.225801	2022-07-12 18:15:25.225801	\N
-186	186	34.99	USD	\N	2022-07-12 18:15:25.372289	2022-07-12 18:15:25.372289	\N
-187	187	24.99	USD	\N	2022-07-12 18:15:25.589456	2022-07-12 18:15:25.589456	\N
-188	188	86.99	USD	\N	2022-07-12 18:15:25.727523	2022-07-12 18:15:25.727523	\N
-189	189	86.99	USD	\N	2022-07-12 18:15:25.857124	2022-07-12 18:15:25.857124	\N
-190	190	17.99	USD	\N	2022-07-12 18:15:26.053565	2022-07-12 18:15:26.053565	\N
-191	191	92.99	USD	\N	2022-07-12 18:15:26.278103	2022-07-12 18:15:26.278103	\N
-192	192	96.99	USD	\N	2022-07-12 18:15:26.430962	2022-07-12 18:15:26.430962	\N
-193	193	30.99	USD	\N	2022-07-12 18:15:26.558662	2022-07-12 18:15:26.558662	\N
-194	194	40.99	USD	\N	2022-07-12 18:15:26.721093	2022-07-12 18:15:26.721093	\N
-195	195	83.99	USD	\N	2022-07-12 18:15:26.846472	2022-07-12 18:15:26.846472	\N
-196	196	46.99	USD	\N	2022-07-12 18:15:26.992713	2022-07-12 18:15:26.992713	\N
-197	197	60.99	USD	\N	2022-07-12 18:15:27.138298	2022-07-12 18:15:27.138298	\N
-198	198	37.99	USD	\N	2022-07-12 18:15:27.277117	2022-07-12 18:15:27.277117	\N
-199	199	58.99	USD	\N	2022-07-12 18:15:27.422325	2022-07-12 18:15:27.422325	\N
-200	200	25.99	USD	\N	2022-07-12 18:15:27.549985	2022-07-12 18:15:27.549985	\N
-201	201	27.99	USD	\N	2022-07-12 18:15:27.812312	2022-07-12 18:15:27.812312	\N
-202	202	43.99	USD	\N	2022-07-12 18:15:27.999891	2022-07-12 18:15:27.999891	\N
-203	203	19.99	USD	\N	2022-07-12 18:15:28.161836	2022-07-12 18:15:28.161836	\N
-204	204	47.99	USD	\N	2022-07-12 18:15:28.292114	2022-07-12 18:15:28.292114	\N
-205	205	59.99	USD	\N	2022-07-12 18:15:28.415842	2022-07-12 18:15:28.415842	\N
-206	206	28.99	USD	\N	2022-07-12 18:15:28.538204	2022-07-12 18:15:28.538204	\N
-207	207	43.99	USD	\N	2022-07-12 18:15:28.673484	2022-07-12 18:15:28.673484	\N
-208	208	50.99	USD	\N	2022-07-12 18:15:28.822309	2022-07-12 18:15:28.822309	\N
-209	209	26.99	USD	\N	2022-07-12 18:15:28.959356	2022-07-12 18:15:28.959356	\N
-210	210	13.99	USD	\N	2022-07-12 18:15:29.092132	2022-07-12 18:15:29.092132	\N
-211	211	88.99	USD	\N	2022-07-12 18:15:29.258049	2022-07-12 18:15:29.258049	\N
-212	212	30.99	USD	\N	2022-07-12 18:15:29.397477	2022-07-12 18:15:29.397477	\N
-213	213	41.99	USD	\N	2022-07-12 18:15:29.526761	2022-07-12 18:15:29.526761	\N
-214	214	37.99	USD	\N	2022-07-12 18:15:29.685775	2022-07-12 18:15:29.685775	\N
-215	215	76.99	USD	\N	2022-07-12 18:15:29.861263	2022-07-12 18:15:29.861263	\N
-216	216	34.99	USD	\N	2022-07-12 18:15:30.025218	2022-07-12 18:15:30.025218	\N
-217	217	11.99	USD	\N	2022-07-12 18:15:30.167086	2022-07-12 18:15:30.167086	\N
-218	218	29.99	USD	\N	2022-07-12 18:15:30.295849	2022-07-12 18:15:30.295849	\N
-219	219	79.99	USD	\N	2022-07-12 18:15:30.427769	2022-07-12 18:15:30.427769	\N
-220	220	47.99	USD	\N	2022-07-12 18:15:30.606701	2022-07-12 18:15:30.606701	\N
-221	221	17.99	USD	\N	2022-07-12 18:15:30.770882	2022-07-12 18:15:30.770882	\N
-222	222	52.99	USD	\N	2022-07-12 18:15:30.896837	2022-07-12 18:15:30.896837	\N
-223	223	67.99	USD	\N	2022-07-12 18:15:31.026023	2022-07-12 18:15:31.026023	\N
-224	224	54.99	USD	\N	2022-07-12 18:15:31.157706	2022-07-12 18:15:31.157706	\N
-225	225	71.99	USD	\N	2022-07-12 18:15:31.307011	2022-07-12 18:15:31.307011	\N
-226	226	73.99	USD	\N	2022-07-12 18:15:31.440126	2022-07-12 18:15:31.440126	\N
-227	227	14.99	USD	\N	2022-07-12 18:15:31.622854	2022-07-12 18:15:31.622854	\N
-228	228	45.99	USD	\N	2022-07-12 18:15:31.765392	2022-07-12 18:15:31.765392	\N
-229	229	50.99	USD	\N	2022-07-12 18:15:31.912612	2022-07-12 18:15:31.912612	\N
-230	230	45.99	USD	\N	2022-07-12 18:15:32.040412	2022-07-12 18:15:32.040412	\N
-231	231	92.99	USD	\N	2022-07-12 18:15:32.16885	2022-07-12 18:15:32.16885	\N
-232	232	20.99	USD	\N	2022-07-12 18:15:32.323075	2022-07-12 18:15:32.323075	\N
+46	46	14.99	USD	2022-09-02 16:27:23.992547	2022-07-12 18:13:34.156174	2022-09-02 16:27:23.992574	\N
+11	11	98.99	USD	2022-09-02 16:27:31.546241	2022-07-12 18:13:20.824971	2022-09-02 16:27:31.546264	\N
+105	105	17.99	USD	2022-09-02 16:27:33.604611	2022-07-12 18:13:57.223869	2022-09-02 16:27:33.60463	\N
+80	80	46.99	USD	2022-09-02 16:27:34.211882	2022-07-12 18:13:47.379139	2022-09-02 16:27:34.211899	\N
+78	78	40.99	USD	2022-09-02 16:27:34.714724	2022-07-12 18:13:46.542221	2022-09-02 16:27:34.714743	\N
+43	43	67.99	USD	2022-09-02 16:27:36.598966	2022-07-12 18:13:32.889484	2022-09-02 16:27:36.598981	\N
+83	83	58.99	USD	2022-09-02 16:27:38.083399	2022-07-12 18:13:48.454432	2022-09-02 16:27:38.083416	\N
+58	58	91.99	USD	2022-09-02 16:27:41.373336	2022-07-12 18:13:38.53718	2022-09-02 16:27:41.373354	\N
+5	5	55.99	USD	2022-09-02 16:27:42.644647	2022-07-12 18:13:18.781473	2022-09-02 16:27:42.644664	\N
+4	4	17.99	USD	2022-09-02 16:27:43.226298	2022-07-12 18:13:18.451869	2022-09-02 16:27:43.226316	\N
+15	15	34.99	USD	2022-09-02 16:27:45.4408	2022-07-12 18:13:22.181922	2022-09-02 16:27:45.440816	\N
+28	28	33.99	USD	2022-09-02 16:27:46.051597	2022-07-12 18:13:27.121417	2022-09-02 16:27:46.051614	\N
+21	21	88.99	USD	2022-09-02 16:27:46.632736	2022-07-12 18:13:24.458189	2022-09-02 16:27:46.632753	\N
+51	51	87.99	USD	2022-09-02 16:27:47.352524	2022-07-12 18:13:36.000691	2022-09-02 16:27:47.352539	\N
+102	102	29.99	USD	2022-09-02 16:27:48.574566	2022-07-12 18:13:55.947975	2022-09-02 16:27:48.574582	\N
+97	97	41.99	USD	2022-09-02 16:27:49.428951	2022-07-12 18:13:54.153524	2022-09-02 16:27:49.428967	\N
+103	103	79.99	USD	2022-09-02 16:27:49.920578	2022-07-12 18:13:56.371448	2022-09-02 16:27:49.920596	\N
+108	108	54.99	USD	2022-09-02 16:27:50.627853	2022-07-12 18:13:58.342501	2022-09-02 16:27:50.627871	\N
+109	109	71.99	USD	2022-09-02 16:27:51.215091	2022-07-12 18:13:58.742053	2022-09-02 16:27:51.215108	\N
+104	104	47.99	USD	2022-09-02 16:27:52.683277	2022-07-12 18:13:56.865802	2022-09-02 16:27:52.683293	\N
+57	57	26.99	USD	2022-09-02 16:27:53.395253	2022-07-12 18:13:38.192576	2022-09-02 16:27:53.395272	\N
+42	42	17.99	USD	2022-09-02 16:27:53.912691	2022-07-12 18:13:32.53143	2022-09-02 16:27:53.912708	\N
+90	90	28.99	USD	2022-09-02 16:28:00.432425	2022-07-12 18:13:51.289975	2022-09-02 16:28:00.432441	\N
+32	32	27.99	USD	2022-09-02 16:28:01.680351	2022-07-12 18:13:28.891353	2022-09-02 16:28:01.680367	\N
+94	94	13.99	USD	2022-09-02 16:28:02.405696	2022-07-12 18:13:52.995319	2022-09-02 16:28:02.405712	\N
+34	34	35.99	USD	2022-09-02 16:28:02.986991	2022-07-12 18:13:29.618661	2022-09-02 16:28:02.98701	\N
+60	60	68.99	USD	2022-09-02 16:28:03.668434	2022-07-12 18:13:39.371884	2022-09-02 16:28:03.668451	\N
+17	17	47.99	USD	2022-09-02 16:28:04.36759	2022-07-12 18:13:23.025133	2022-09-02 16:28:04.367606	\N
+68	68	87.99	USD	2022-09-02 16:28:04.894173	2022-07-12 18:13:42.220764	2022-09-02 16:28:04.894189	\N
+47	47	31.99	USD	2022-09-02 16:28:06.144942	2022-07-12 18:13:34.535422	2022-09-02 16:28:06.144959	\N
+55	55	73.99	USD	2022-09-02 16:28:06.842343	2022-07-12 18:13:37.459553	2022-09-02 16:28:06.84236	\N
+18	18	10.99	USD	2022-09-02 16:28:07.379812	2022-07-12 18:13:23.372619	2022-09-02 16:28:07.379833	\N
+98	98	37.99	USD	2022-09-02 16:28:19.214116	2022-07-12 18:13:54.498676	2022-09-02 16:28:19.214131	\N
+86	86	43.99	USD	2022-09-02 16:28:19.847822	2022-07-12 18:13:49.577379	2022-09-02 16:28:19.847836	\N
+82	82	37.99	USD	2022-09-02 16:28:20.435754	2022-07-12 18:13:48.080211	2022-09-02 16:28:20.435771	\N
+107	107	67.99	USD	2022-09-02 16:28:20.813168	2022-07-12 18:13:57.984621	2022-09-02 16:28:20.813186	\N
+91	91	43.99	USD	2022-09-02 16:28:28.358199	2022-07-12 18:13:51.741777	2022-09-02 16:28:28.358215	\N
+37	37	40.99	USD	2022-09-02 16:28:29.168915	2022-07-12 18:13:30.719021	2022-09-02 16:28:29.168934	\N
+99	99	76.99	USD	2022-09-02 16:28:31.180523	2022-07-12 18:13:54.853936	2022-09-02 16:28:31.180539	\N
+71	71	24.99	USD	2022-09-02 16:28:31.708454	2022-07-12 18:13:43.333021	2022-09-02 16:28:31.708468	\N
+72	72	86.99	USD	2022-09-02 16:28:32.277891	2022-07-12 18:13:43.684172	2022-09-02 16:28:32.277906	\N
+7	7	94.99	USD	2022-09-02 16:28:35.389037	2022-07-12 18:13:19.465214	2022-09-02 16:28:35.389055	\N
+16	16	84.99	USD	2022-09-02 16:28:36.070044	2022-07-12 18:13:22.535499	2022-09-02 16:28:36.070061	\N
+61	61	15.99	USD	2022-09-02 16:28:36.758713	2022-07-12 18:13:39.727827	2022-09-02 16:28:36.75873	\N
+77	77	30.99	USD	2022-09-02 16:28:37.955926	2022-07-12 18:13:45.775796	2022-09-02 16:28:37.955956	\N
+53	53	76.99	USD	2022-09-02 16:28:38.570306	2022-07-12 18:13:36.732905	2022-09-02 16:28:38.57032	\N
+6	6	74.99	USD	2022-09-02 16:28:39.269051	2022-07-12 18:13:19.124775	2022-09-02 16:28:39.269068	\N
+39	39	30.99	USD	2022-09-02 14:33:31.974234	2022-07-12 18:13:31.451936	2022-09-02 14:33:31.974248	\N
+30	30	44.99	USD	2022-09-02 14:33:34.196694	2022-07-12 18:13:27.913244	2022-09-02 14:33:34.196719	\N
+87	87	19.99	USD	2022-09-02 14:33:39.440806	2022-07-12 18:13:49.956057	2022-09-02 14:33:39.440819	\N
+19	19	23.99	USD	2022-09-02 16:25:41.896563	2022-07-12 18:13:23.729611	2022-09-02 16:25:41.896614	\N
+96	96	30.99	USD	2022-09-02 16:25:45.373651	2022-07-12 18:13:53.792165	2022-09-02 16:25:45.373668	\N
+2	2	65.99	USD	2022-09-02 16:25:47.086317	2022-07-12 18:13:17.736961	2022-09-02 16:25:47.086335	\N
+8	8	27.99	USD	2022-09-02 16:25:48.622167	2022-07-12 18:13:19.80268	2022-09-02 16:25:48.622181	\N
+85	85	27.99	USD	2022-09-02 16:25:50.35368	2022-07-12 18:13:49.215908	2022-09-02 16:25:50.353722	\N
+63	63	17.99	USD	2022-09-02 16:25:51.996156	2022-07-12 18:13:40.411896	2022-09-02 16:25:51.996174	\N
+3	3	99.99	USD	2022-09-02 16:25:54.013207	2022-07-12 18:13:18.112647	2022-09-02 16:25:54.013222	\N
+76	76	96.99	USD	2022-09-02 16:25:57.800513	2022-07-12 18:13:45.370241	2022-09-02 16:25:57.80053	\N
+75	75	92.99	USD	2022-09-02 16:25:59.445415	2022-07-12 18:13:44.993484	2022-09-02 16:25:59.445431	\N
+95	95	88.99	USD	2022-09-02 16:26:01.212235	2022-07-12 18:13:53.358158	2022-09-02 16:26:01.212251	\N
+36	36	21.99	USD	2022-09-02 16:26:03.269878	2022-07-12 18:13:30.35196	2022-09-02 16:26:03.269896	\N
+48	48	81.99	USD	2022-09-02 16:26:04.063886	2022-07-12 18:13:34.906575	2022-09-02 16:26:04.063902	\N
+38	38	62.99	USD	2022-09-02 16:26:04.590275	2022-07-12 18:13:31.087147	2022-09-02 16:26:04.59029	\N
+65	65	19.99	USD	2022-09-02 16:26:05.692952	2022-07-12 18:13:41.100294	2022-09-02 16:26:05.692967	\N
+54	54	36.99	USD	2022-09-02 16:26:06.297008	2022-07-12 18:13:37.103462	2022-09-02 16:26:06.297025	\N
+33	33	64.99	USD	2022-09-02 16:26:06.970603	2022-07-12 18:13:29.259237	2022-09-02 16:26:06.970622	\N
+89	89	59.99	USD	2022-09-02 16:26:07.468923	2022-07-12 18:13:50.875825	2022-09-02 16:26:07.468941	\N
+92	92	50.99	USD	2022-09-02 16:26:08.088793	2022-07-12 18:13:52.225622	2022-09-02 16:26:08.088808	\N
+9	9	33.99	USD	2022-09-02 16:26:08.858659	2022-07-12 18:13:20.149861	2022-09-02 16:26:08.858694	\N
+31	31	76.99	USD	2022-09-02 16:26:10.221736	2022-07-12 18:13:28.376818	2022-09-02 16:26:10.221752	\N
+41	41	74.99	USD	2022-09-02 16:26:59.826212	2022-07-12 18:13:32.167724	2022-09-02 16:26:59.826228	\N
+44	44	10.99	USD	2022-09-02 16:27:01.14406	2022-07-12 18:13:33.264063	2022-09-02 16:27:01.144078	\N
+66	66	72.99	USD	2022-09-02 16:27:01.917817	2022-07-12 18:13:41.473148	2022-09-02 16:27:01.917836	\N
+56	56	32.99	USD	2022-09-02 16:27:02.586476	2022-07-12 18:13:37.840251	2022-09-02 16:27:02.586517	\N
+29	29	11.99	USD	2022-09-02 16:27:04.177687	2022-07-12 18:13:27.526966	2022-09-02 16:27:04.177705	\N
+74	74	17.99	USD	2022-09-02 16:27:07.128932	2022-07-12 18:13:44.44715	2022-09-02 16:27:07.128945	\N
+101	101	11.99	USD	2022-09-02 16:27:07.987154	2022-07-12 18:13:55.562831	2022-09-02 16:27:07.987172	\N
+40	40	46.99	USD	2022-09-02 16:27:08.952101	2022-07-12 18:13:31.810158	2022-09-02 16:27:08.952116	\N
+10	10	87.99	USD	2022-09-02 16:27:09.792613	2022-07-12 18:13:20.495717	2022-09-02 16:27:09.79263	\N
+27	27	64.99	USD	2022-09-02 16:27:10.528373	2022-07-12 18:13:26.688125	2022-09-02 16:27:10.528388	\N
+13	13	28.99	USD	2022-09-02 16:27:12.862735	2022-07-12 18:13:21.49581	2022-09-02 16:27:12.862758	\N
+50	50	23.99	USD	2022-09-02 16:27:14.076003	2022-07-12 18:13:35.619038	2022-09-02 16:27:14.076025	\N
+22	22	93.99	USD	2022-09-02 16:27:14.749695	2022-07-12 18:13:24.816942	2022-09-02 16:27:14.749711	\N
+88	88	47.99	USD	2022-09-02 16:27:15.343517	2022-07-12 18:13:50.32564	2022-09-02 16:27:15.343534	\N
+106	106	52.99	USD	2022-09-02 16:27:16.063467	2022-07-12 18:13:57.61041	2022-09-02 16:27:16.063481	\N
+93	93	26.99	USD	2022-09-02 16:27:16.867353	2022-07-12 18:13:52.603502	2022-09-02 16:27:16.867371	\N
+73	73	86.99	USD	2022-09-02 16:27:17.36977	2022-07-12 18:13:44.056071	2022-09-02 16:27:17.369787	\N
+25	25	24.99	USD	2022-09-02 16:27:21.371785	2022-07-12 18:13:25.88228	2022-09-02 16:27:21.371802	\N
+20	20	45.99	USD	2022-09-02 16:27:23.243362	2022-07-12 18:13:24.105405	2022-09-02 16:27:23.243379	\N
+69	69	46.99	USD	2022-09-02 16:28:39.986129	2022-07-12 18:13:42.605527	2022-09-02 16:28:39.986152	\N
+52	52	83.99	USD	2022-09-02 16:28:42.405525	2022-07-12 18:13:36.368909	2022-09-02 16:28:42.405539	\N
+62	62	28.99	USD	2022-09-02 16:28:44.2851	2022-07-12 18:13:40.078491	2022-09-02 16:28:44.285118	\N
+79	79	83.99	USD	2022-09-02 16:28:45.005029	2022-07-12 18:13:46.984358	2022-09-02 16:28:45.005747	\N
+162	162	14.99	USD	2022-09-02 16:27:24.068422	2022-07-12 18:15:20.431809	2022-09-02 16:27:24.068437	\N
+127	127	98.99	USD	2022-09-02 16:27:31.615618	2022-07-12 18:15:14.498576	2022-09-02 16:27:31.61563	\N
+196	196	46.99	USD	2022-09-02 16:27:34.29832	2022-07-12 18:15:26.992713	2022-09-02 16:27:34.298335	\N
+194	194	40.99	USD	2022-09-02 16:27:34.796435	2022-07-12 18:15:26.721093	2022-09-02 16:27:34.796449	\N
+111	111	14.99	USD	2022-09-02 16:27:35.879034	2022-07-12 18:13:59.442118	2022-09-02 16:27:35.879051	\N
+159	159	67.99	USD	2022-09-02 16:27:36.669524	2022-07-12 18:15:19.644646	2022-09-02 16:27:36.669538	\N
+199	199	58.99	USD	2022-09-02 16:27:38.151322	2022-07-12 18:15:27.422325	2022-09-02 16:27:38.151336	\N
+174	174	91.99	USD	2022-09-02 16:27:41.464135	2022-07-12 18:15:23.567534	2022-09-02 16:27:41.464149	\N
+110	110	73.99	USD	2022-09-02 16:27:42.024018	2022-07-12 18:13:59.089122	2022-09-02 16:27:42.024036	\N
+121	121	55.99	USD	2022-09-02 16:27:42.736033	2022-07-12 18:15:13.677462	2022-09-02 16:27:42.736049	\N
+120	120	17.99	USD	2022-09-02 16:27:43.299093	2022-07-12 18:15:13.507181	2022-09-02 16:27:43.299107	\N
+131	131	34.99	USD	2022-09-02 16:27:45.51127	2022-07-12 18:15:15.095985	2022-09-02 16:27:45.511284	\N
+144	144	33.99	USD	2022-09-02 16:27:46.121073	2022-07-12 18:15:17.036703	2022-09-02 16:27:46.121086	\N
+167	167	87.99	USD	2022-09-02 16:27:47.423088	2022-07-12 18:15:21.5108	2022-09-02 16:27:47.423106	\N
+175	175	60.99	USD	2022-09-02 16:27:48.104255	2022-07-12 18:15:23.715842	2022-09-02 16:27:48.104271	\N
+218	218	29.99	USD	2022-09-02 16:27:48.664982	2022-07-12 18:15:30.295849	2022-09-02 16:27:48.664996	\N
+213	213	41.99	USD	2022-09-02 16:27:49.493815	2022-07-12 18:15:29.526761	2022-09-02 16:27:49.493828	\N
+173	173	26.99	USD	2022-09-02 16:27:53.47259	2022-07-12 18:15:23.400434	2022-09-02 16:27:53.472604	\N
+158	158	17.99	USD	2022-09-02 16:27:54.001072	2022-07-12 18:15:19.477131	2022-09-02 16:27:54.001087	\N
+206	206	28.99	USD	2022-09-02 16:28:00.500054	2022-07-12 18:15:28.538204	2022-09-02 16:28:00.500067	\N
+142	142	67.99	USD	2022-09-02 16:28:01.133558	2022-07-12 18:15:16.746654	2022-09-02 16:28:01.133572	\N
+148	148	27.99	USD	2022-09-02 16:28:01.755354	2022-07-12 18:15:17.664591	2022-09-02 16:28:01.755379	\N
+150	150	35.99	USD	2022-09-02 16:28:03.057356	2022-07-12 18:15:18.029427	2022-09-02 16:28:03.057371	\N
+176	176	68.99	USD	2022-09-02 16:28:03.75193	2022-07-12 18:15:23.872604	2022-09-02 16:28:03.751945	\N
+133	133	47.99	USD	2022-09-02 16:28:04.436821	2022-07-12 18:15:15.409697	2022-09-02 16:28:04.436835	\N
+184	184	87.99	USD	2022-09-02 16:28:04.999872	2022-07-12 18:15:25.06461	2022-09-02 16:28:04.999894	\N
+163	163	31.99	USD	2022-09-02 16:28:06.235653	2022-07-12 18:15:20.599504	2022-09-02 16:28:06.235667	\N
+171	171	73.99	USD	2022-09-02 16:28:06.906441	2022-07-12 18:15:22.634971	2022-09-02 16:28:06.906458	\N
+134	134	10.99	USD	2022-09-02 16:28:07.448635	2022-07-12 18:15:15.559491	2022-09-02 16:28:07.448648	\N
+216	216	34.99	USD	2022-09-02 16:28:18.699041	2022-07-12 18:15:30.025218	2022-09-02 16:28:18.699054	\N
+214	214	37.99	USD	2022-09-02 16:28:19.281111	2022-07-12 18:15:29.685775	2022-09-02 16:28:19.281123	\N
+198	198	37.99	USD	2022-09-02 16:28:20.50323	2022-07-12 18:15:27.277117	2022-09-02 16:28:20.503244	\N
+207	207	43.99	USD	2022-09-02 16:28:28.423727	2022-07-12 18:15:28.673484	2022-09-02 16:28:28.42374	\N
+153	153	40.99	USD	2022-09-02 16:28:29.248266	2022-07-12 18:15:18.470723	2022-09-02 16:28:29.248279	\N
+215	215	76.99	USD	2022-09-02 16:28:31.242639	2022-07-12 18:15:29.861263	2022-09-02 16:28:31.242652	\N
+187	187	24.99	USD	2022-09-02 16:28:31.791388	2022-07-12 18:15:25.589456	2022-09-02 16:28:31.791402	\N
+188	188	86.99	USD	2022-09-02 16:28:32.349006	2022-07-12 18:15:25.727523	2022-09-02 16:28:32.34902	\N
+161	161	17.99	USD	2022-09-02 16:28:32.987192	2022-07-12 18:15:20.043471	2022-09-02 16:28:32.987207	\N
+123	123	94.99	USD	2022-09-02 16:28:35.478084	2022-07-12 18:15:13.93513	2022-09-02 16:28:35.478098	\N
+132	132	84.99	USD	2022-09-02 16:28:36.138677	2022-07-12 18:15:15.233638	2022-09-02 16:28:36.13869	\N
+193	193	30.99	USD	2022-09-02 16:28:38.027171	2022-07-12 18:15:26.558662	2022-09-02 16:28:38.027192	\N
+169	169	76.99	USD	2022-09-02 16:28:38.642916	2022-07-12 18:15:21.928713	2022-09-02 16:28:38.64293	\N
+122	122	74.99	USD	2022-09-02 16:28:39.331406	2022-07-12 18:15:13.806607	2022-09-02 16:28:39.331419	\N
+185	185	46.99	USD	2022-09-02 16:28:40.0568	2022-07-12 18:15:25.225801	2022-09-02 16:28:40.056813	\N
+112	112	45.99	USD	2022-09-02 16:28:41.139954	2022-07-12 18:13:59.793393	2022-09-02 16:28:41.139968	\N
+114	114	45.99	USD	2022-09-02 16:28:41.760542	2022-07-12 18:14:00.669118	2022-09-02 16:28:41.76056	\N
+168	168	83.99	USD	2022-09-02 16:28:42.47917	2022-07-12 18:15:21.721701	2022-09-02 16:28:42.479185	\N
+155	155	30.99	USD	2022-09-02 14:33:32.04121	2022-07-12 18:15:18.914183	2022-09-02 14:33:32.041223	\N
+146	146	44.99	USD	2022-09-02 14:33:34.326379	2022-07-12 18:15:17.37049	2022-09-02 14:33:34.326392	\N
+203	203	19.99	USD	2022-09-02 14:33:39.503374	2022-07-12 18:15:28.161836	2022-09-02 14:33:39.503388	\N
+128	128	52.99	USD	2022-09-02 16:28:43.285527	2022-07-12 18:15:14.638	2022-09-02 16:28:43.285541	\N
+135	135	23.99	USD	2022-09-02 16:25:41.987255	2022-07-12 18:15:15.69268	2022-09-02 16:25:41.98727	\N
+212	212	30.99	USD	2022-09-02 16:25:45.44356	2022-07-12 18:15:29.397477	2022-09-02 16:25:45.443574	\N
+118	118	65.99	USD	2022-09-02 16:25:47.149371	2022-07-12 18:15:13.186012	2022-09-02 16:25:47.149385	\N
+124	124	27.99	USD	2022-09-02 16:25:48.689197	2022-07-12 18:15:14.067412	2022-09-02 16:25:48.68921	\N
+201	201	27.99	USD	2022-09-02 16:25:50.422281	2022-07-12 18:15:27.812312	2022-09-02 16:25:50.422299	\N
+179	179	17.99	USD	2022-09-02 16:25:52.064981	2022-07-12 18:15:24.327215	2022-09-02 16:25:52.064995	\N
+119	119	99.99	USD	2022-09-02 16:25:54.08296	2022-07-12 18:15:13.346261	2022-09-02 16:25:54.082974	\N
+192	192	96.99	USD	2022-09-02 16:25:57.870471	2022-07-12 18:15:26.430962	2022-09-02 16:25:57.870486	\N
+191	191	92.99	USD	2022-09-02 16:25:59.512418	2022-07-12 18:15:26.278103	2022-09-02 16:25:59.512432	\N
+211	211	88.99	USD	2022-09-02 16:26:01.284515	2022-07-12 18:15:29.258049	2022-09-02 16:26:01.284531	\N
+152	152	21.99	USD	2022-09-02 16:26:03.382064	2022-07-12 18:15:18.30946	2022-09-02 16:26:03.382112	\N
+164	164	81.99	USD	2022-09-02 16:26:04.162602	2022-07-12 18:15:20.845072	2022-09-02 16:26:04.162617	\N
+154	154	62.99	USD	2022-09-02 16:26:04.760867	2022-07-12 18:15:18.738551	2022-09-02 16:26:04.760886	\N
+181	181	19.99	USD	2022-09-02 16:26:05.767033	2022-07-12 18:15:24.589367	2022-09-02 16:26:05.767047	\N
+170	170	36.99	USD	2022-09-02 16:26:06.444483	2022-07-12 18:15:22.205239	2022-09-02 16:26:06.4445	\N
+149	149	64.99	USD	2022-09-02 16:26:07.058668	2022-07-12 18:15:17.798727	2022-09-02 16:26:07.058682	\N
+205	205	59.99	USD	2022-09-02 16:26:07.539591	2022-07-12 18:15:28.415842	2022-09-02 16:26:07.539607	\N
+208	208	50.99	USD	2022-09-02 16:26:08.159257	2022-07-12 18:15:28.822309	2022-09-02 16:26:08.15927	\N
+125	125	33.99	USD	2022-09-02 16:26:08.934111	2022-07-12 18:15:14.205045	2022-09-02 16:26:08.934125	\N
+147	147	76.99	USD	2022-09-02 16:26:10.324819	2022-07-12 18:15:17.526736	2022-09-02 16:26:10.324843	\N
+157	157	74.99	USD	2022-09-02 16:26:59.918146	2022-07-12 18:15:19.298692	2022-09-02 16:26:59.918161	\N
+160	160	10.99	USD	2022-09-02 16:27:01.216338	2022-07-12 18:15:19.838121	2022-09-02 16:27:01.216353	\N
+182	182	72.99	USD	2022-09-02 16:27:02.01627	2022-07-12 18:15:24.761767	2022-09-02 16:27:02.016292	\N
+172	172	32.99	USD	2022-09-02 16:27:02.666818	2022-07-12 18:15:23.208666	2022-09-02 16:27:02.666843	\N
+116	116	20.99	USD	2022-09-02 16:27:03.388322	2022-07-12 18:14:01.372852	2022-09-02 16:27:03.388337	\N
+151	151	73.99	USD	2022-09-02 16:27:05.341127	2022-07-12 18:15:18.162718	2022-09-02 16:27:05.341141	\N
+190	190	17.99	USD	2022-09-02 16:27:07.197189	2022-07-12 18:15:26.053565	2022-09-02 16:27:07.197202	\N
+217	217	11.99	USD	2022-09-02 16:27:08.066445	2022-07-12 18:15:30.167086	2022-09-02 16:27:08.066465	\N
+156	156	46.99	USD	2022-09-02 16:27:09.03037	2022-07-12 18:15:19.128858	2022-09-02 16:27:09.030385	\N
+126	126	87.99	USD	2022-09-02 16:27:09.861247	2022-07-12 18:15:14.345429	2022-09-02 16:27:09.861273	\N
+143	143	64.99	USD	2022-09-02 16:27:10.600641	2022-07-12 18:15:16.874714	2022-09-02 16:27:10.600656	\N
+140	140	73.99	USD	2022-09-02 16:27:13.498343	2022-07-12 18:15:16.428215	2022-09-02 16:27:13.498358	\N
+166	166	23.99	USD	2022-09-02 16:27:14.161134	2022-07-12 18:15:21.253212	2022-09-02 16:27:14.161148	\N
+138	138	93.99	USD	2022-09-02 16:27:14.824335	2022-07-12 18:15:16.151105	2022-09-02 16:27:14.824348	\N
+204	204	47.99	USD	2022-09-02 16:27:15.41094	2022-07-12 18:15:28.292114	2022-09-02 16:27:15.410954	\N
+209	209	26.99	USD	2022-09-02 16:27:16.933308	2022-07-12 18:15:28.959356	2022-09-02 16:27:16.93332	\N
+189	189	86.99	USD	2022-09-02 16:27:17.452728	2022-07-12 18:15:25.857124	2022-09-02 16:27:17.452744	\N
+141	141	24.99	USD	2022-09-02 16:27:21.43599	2022-07-12 18:15:16.617447	2022-09-02 16:27:21.436002	\N
+115	115	92.99	USD	2022-09-02 16:27:22.533128	2022-07-12 18:14:01.024129	2022-09-02 16:27:22.533141	\N
+136	136	45.99	USD	2022-09-02 16:27:23.312246	2022-07-12 18:15:15.876406	2022-09-02 16:27:23.31226	\N
+178	178	28.99	USD	2022-09-02 16:28:44.377808	2022-07-12 18:15:24.195663	2022-09-02 16:28:44.377824	\N
+113	113	50.99	USD	2022-09-02 16:28:46.84677	2022-07-12 18:14:00.227416	2022-09-02 16:28:46.846787	\N
+221	221	17.99	USD	2022-09-02 16:27:33.685841	2022-07-12 18:15:30.770882	2022-09-02 16:27:33.685856	\N
+67	67	36.99	USD	2022-09-02 16:27:35.415154	2022-07-12 18:13:41.834376	2022-09-02 16:27:35.415173	\N
+183	183	36.99	USD	2022-09-02 16:27:35.48795	2022-07-12 18:15:24.930517	2022-09-02 16:27:35.487963	\N
+14	14	18.99	USD	2022-09-02 14:33:28.75648	2022-07-12 18:13:21.825212	2022-09-02 14:33:28.756522	\N
+130	130	18.99	USD	2022-09-02 14:33:28.916128	2022-07-12 18:15:14.959508	2022-09-02 14:33:28.916141	\N
+70	70	34.99	USD	2022-09-02 14:33:48.926528	2022-07-12 18:13:42.977034	2022-09-02 14:33:48.926543	\N
+186	186	34.99	USD	2022-09-02 14:33:48.997348	2022-07-12 18:15:25.372289	2022-09-02 14:33:48.997361	\N
+84	84	25.99	USD	2022-09-02 16:25:39.919401	2022-07-12 18:13:48.847159	2022-09-02 16:25:39.919446	\N
+200	200	25.99	USD	2022-09-02 16:25:40.025711	2022-07-12 18:15:27.549985	2022-09-02 16:25:40.025725	\N
+64	64	90.99	USD	2022-09-02 16:25:43.69808	2022-07-12 18:13:40.760013	2022-09-02 16:25:43.698094	\N
+180	180	90.99	USD	2022-09-02 16:25:43.792832	2022-07-12 18:15:24.453558	2022-09-02 16:25:43.792856	\N
+81	81	60.99	USD	2022-09-02 16:25:55.977783	2022-07-12 18:13:47.733697	2022-09-02 16:25:55.9778	\N
+197	197	60.99	USD	2022-09-02 16:25:56.063072	2022-07-12 18:15:27.138298	2022-09-02 16:25:56.063087	\N
+49	49	55.99	USD	2022-09-02 16:26:05.000703	2022-07-12 18:13:35.261318	2022-09-02 16:26:05.000722	\N
+165	165	55.99	USD	2022-09-02 16:26:05.122363	2022-07-12 18:15:21.05346	2022-09-02 16:26:05.122385	\N
+1	1	24.99	USD	2022-09-02 16:26:09.569675	2022-07-12 18:13:17.286374	2022-09-02 16:26:09.569694	\N
+117	117	24.99	USD	2022-09-02 16:26:09.638537	2022-07-12 18:15:12.960719	2022-09-02 16:26:09.638555	\N
+232	232	20.99	USD	2022-09-02 16:27:03.470721	2022-07-12 18:15:32.323075	2022-09-02 16:27:03.470736	\N
+145	145	11.99	USD	2022-09-02 16:27:04.249833	2022-07-12 18:15:17.239865	2022-09-02 16:27:04.249848	\N
+35	35	73.99	USD	2022-09-02 16:27:05.268878	2022-07-12 18:13:29.987904	2022-09-02 16:27:05.268897	\N
+129	129	28.99	USD	2022-09-02 16:27:12.939646	2022-07-12 18:15:14.825812	2022-09-02 16:27:12.93967	\N
+24	24	73.99	USD	2022-09-02 16:27:13.394662	2022-07-12 18:13:25.518936	2022-09-02 16:27:13.394683	\N
+222	222	52.99	USD	2022-09-02 16:27:16.143687	2022-07-12 18:15:30.896837	2022-09-02 16:27:16.1437	\N
+23	23	61.99	USD	2022-09-02 16:27:18.341535	2022-07-12 18:13:25.164782	2022-09-02 16:27:18.341561	\N
+139	139	61.99	USD	2022-09-02 16:27:18.416782	2022-07-12 18:15:16.287059	2022-09-02 16:27:18.416794	\N
+231	231	92.99	USD	2022-09-02 16:27:22.609731	2022-07-12 18:15:32.16885	2022-09-02 16:27:22.609746	\N
+227	227	14.99	USD	2022-09-02 16:27:35.957028	2022-07-12 18:15:31.622854	2022-09-02 16:27:35.95705	\N
+226	226	73.99	USD	2022-09-02 16:27:42.099154	2022-07-12 18:15:31.440126	2022-09-02 16:27:42.099167	\N
+137	137	88.99	USD	2022-09-02 16:27:46.697104	2022-07-12 18:15:16.018652	2022-09-02 16:27:46.697117	\N
+59	59	60.99	USD	2022-09-02 16:27:48.034468	2022-07-12 18:13:38.883514	2022-09-02 16:27:48.034486	\N
+219	219	79.99	USD	2022-09-02 16:27:49.984931	2022-07-12 18:15:30.427769	2022-09-02 16:27:49.984944	\N
+224	224	54.99	USD	2022-09-02 16:27:50.70351	2022-07-12 18:15:31.157706	2022-09-02 16:27:50.703525	\N
+225	225	71.99	USD	2022-09-02 16:27:51.281004	2022-07-12 18:15:31.307011	2022-09-02 16:27:51.281016	\N
+220	220	47.99	USD	2022-09-02 16:27:52.77747	2022-07-12 18:15:30.606701	2022-09-02 16:27:52.777486	\N
+26	26	67.99	USD	2022-09-02 16:28:01.06417	2022-07-12 18:13:26.322382	2022-09-02 16:28:01.064189	\N
+210	210	13.99	USD	2022-09-02 16:28:02.483025	2022-07-12 18:15:29.092132	2022-09-02 16:28:02.483039	\N
+100	100	34.99	USD	2022-09-02 16:28:18.63523	2022-07-12 18:13:55.208567	2022-09-02 16:28:18.635256	\N
+202	202	43.99	USD	2022-09-02 16:28:19.91035	2022-07-12 18:15:27.999891	2022-09-02 16:28:19.910364	\N
+223	223	67.99	USD	2022-09-02 16:28:20.882839	2022-07-12 18:15:31.026023	2022-09-02 16:28:20.882852	\N
+45	45	17.99	USD	2022-09-02 16:28:32.89768	2022-07-12 18:13:33.63484	2022-09-02 16:28:32.897693	\N
+177	177	15.99	USD	2022-09-02 16:28:36.827354	2022-07-12 18:15:24.049359	2022-09-02 16:28:36.827368	\N
+228	228	45.99	USD	2022-09-02 16:28:41.210546	2022-07-12 18:15:31.765392	2022-09-02 16:28:41.210561	\N
+230	230	45.99	USD	2022-09-02 16:28:41.827732	2022-07-12 18:15:32.040412	2022-09-02 16:28:41.827744	\N
+12	12	52.99	USD	2022-09-02 16:28:43.206714	2022-07-12 18:13:21.159619	2022-09-02 16:28:43.206748	\N
+195	195	83.99	USD	2022-09-02 16:28:45.072259	2022-07-12 18:15:26.846472	2022-09-02 16:28:45.072271	\N
+229	229	50.99	USD	2022-09-02 16:28:46.915714	2022-07-12 18:15:31.912612	2022-09-02 16:28:46.915727	\N
+235	235	5.00	USD	\N	2022-09-02 17:19:13.898033	2022-09-02 17:22:37.181036	0.00
+236	236	9.99	USD	\N	2022-09-02 17:31:19.73153	2022-09-02 17:34:10.222761	0.00
+237	237	3.50	USD	\N	2022-09-02 18:30:30.914999	2022-09-02 18:35:26.41429	0.00
+238	238	18.99	USD	\N	2022-09-02 18:38:46.429923	2022-09-02 18:38:58.141292	0.00
+239	239	5.99	USD	\N	2022-09-02 18:41:05.391227	2022-09-02 18:43:46.889711	0.00
+240	240	12.99	USD	\N	2022-09-02 18:42:26.510932	2022-09-02 18:47:09.257375	0.00
+241	241	10.00	USD	\N	2022-09-02 18:44:36.13454	2022-09-02 18:51:13.348137	0.00
+243	243	27.00	USD	\N	2022-09-02 18:52:56.275064	2022-09-02 18:54:07.980522	0.00
+242	242	11.01	USD	\N	2022-09-02 18:50:49.24075	2022-09-02 19:08:03.808077	0.00
+246	246	19.92	USD	\N	2022-09-02 19:01:55.300375	2022-09-02 19:11:43.128342	0.00
+245	245	19.84	USD	\N	2022-09-02 18:59:14.668431	2022-09-02 19:12:38.331011	0.00
+244	244	4.13	USD	\N	2022-09-02 18:57:21.60154	2022-09-02 19:16:00.923316	0.00
+234	234	14.99	USD	\N	2022-09-02 17:09:21.565303	2022-09-08 15:41:32.979885	0.00
+233	233	19.99	USD	\N	2022-09-02 16:33:37.735865	2022-09-08 15:42:11.75696	0.00
 \.
 
 
@@ -6552,260 +6472,6 @@ COPY public.spree_prices (id, variant_id, amount, currency, deleted_at, created_
 --
 
 COPY public.spree_product_option_types (id, "position", product_id, option_type_id, created_at, updated_at) FROM stdin;
-1	1	1	1	2022-07-12 18:13:17.240294	2022-07-12 18:13:17.240294
-2	2	1	3	2022-07-12 18:13:17.249369	2022-07-12 18:13:17.249369
-3	1	2	1	2022-07-12 18:13:17.575853	2022-07-12 18:13:17.575853
-4	2	2	3	2022-07-12 18:13:17.584452	2022-07-12 18:13:17.584452
-5	1	3	1	2022-07-12 18:13:18.068747	2022-07-12 18:13:18.068747
-6	2	3	3	2022-07-12 18:13:18.076967	2022-07-12 18:13:18.076967
-7	1	4	1	2022-07-12 18:13:18.406911	2022-07-12 18:13:18.406911
-8	2	4	3	2022-07-12 18:13:18.415201	2022-07-12 18:13:18.415201
-9	1	5	1	2022-07-12 18:13:18.739097	2022-07-12 18:13:18.739097
-10	2	5	3	2022-07-12 18:13:18.746864	2022-07-12 18:13:18.746864
-11	1	6	1	2022-07-12 18:13:19.080283	2022-07-12 18:13:19.080283
-12	2	6	3	2022-07-12 18:13:19.088764	2022-07-12 18:13:19.088764
-13	1	7	1	2022-07-12 18:13:19.412902	2022-07-12 18:13:19.412902
-14	2	7	3	2022-07-12 18:13:19.427039	2022-07-12 18:13:19.427039
-15	1	8	1	2022-07-12 18:13:19.757682	2022-07-12 18:13:19.757682
-16	2	8	3	2022-07-12 18:13:19.766098	2022-07-12 18:13:19.766098
-17	1	9	1	2022-07-12 18:13:20.104158	2022-07-12 18:13:20.104158
-18	2	9	3	2022-07-12 18:13:20.112254	2022-07-12 18:13:20.112254
-19	1	10	1	2022-07-12 18:13:20.443642	2022-07-12 18:13:20.443642
-20	2	10	3	2022-07-12 18:13:20.451802	2022-07-12 18:13:20.451802
-21	1	11	1	2022-07-12 18:13:20.782602	2022-07-12 18:13:20.782602
-22	2	11	3	2022-07-12 18:13:20.790267	2022-07-12 18:13:20.790267
-23	1	12	1	2022-07-12 18:13:21.115523	2022-07-12 18:13:21.115523
-24	2	12	3	2022-07-12 18:13:21.12359	2022-07-12 18:13:21.12359
-25	1	13	1	2022-07-12 18:13:21.452604	2022-07-12 18:13:21.452604
-26	2	13	3	2022-07-12 18:13:21.460967	2022-07-12 18:13:21.460967
-27	1	14	1	2022-07-12 18:13:21.780338	2022-07-12 18:13:21.780338
-28	2	14	3	2022-07-12 18:13:21.789033	2022-07-12 18:13:21.789033
-29	1	15	1	2022-07-12 18:13:22.135591	2022-07-12 18:13:22.135591
-30	2	15	3	2022-07-12 18:13:22.1442	2022-07-12 18:13:22.1442
-31	1	16	1	2022-07-12 18:13:22.490686	2022-07-12 18:13:22.490686
-32	2	16	3	2022-07-12 18:13:22.499411	2022-07-12 18:13:22.499411
-33	1	17	1	2022-07-12 18:13:22.978329	2022-07-12 18:13:22.978329
-34	2	17	3	2022-07-12 18:13:22.986575	2022-07-12 18:13:22.986575
-35	1	18	1	2022-07-12 18:13:23.323486	2022-07-12 18:13:23.323486
-36	2	18	3	2022-07-12 18:13:23.331971	2022-07-12 18:13:23.331971
-37	1	19	1	2022-07-12 18:13:23.683221	2022-07-12 18:13:23.683221
-38	2	19	3	2022-07-12 18:13:23.691861	2022-07-12 18:13:23.691861
-39	1	20	1	2022-07-12 18:13:24.052873	2022-07-12 18:13:24.052873
-40	2	20	3	2022-07-12 18:13:24.061288	2022-07-12 18:13:24.061288
-41	1	21	1	2022-07-12 18:13:24.411452	2022-07-12 18:13:24.411452
-42	2	21	3	2022-07-12 18:13:24.420037	2022-07-12 18:13:24.420037
-43	1	22	1	2022-07-12 18:13:24.770248	2022-07-12 18:13:24.770248
-44	2	22	3	2022-07-12 18:13:24.778664	2022-07-12 18:13:24.778664
-45	1	23	1	2022-07-12 18:13:25.111248	2022-07-12 18:13:25.111248
-46	2	23	3	2022-07-12 18:13:25.119679	2022-07-12 18:13:25.119679
-47	1	24	1	2022-07-12 18:13:25.474632	2022-07-12 18:13:25.474632
-48	2	24	3	2022-07-12 18:13:25.482735	2022-07-12 18:13:25.482735
-49	1	25	1	2022-07-12 18:13:25.829354	2022-07-12 18:13:25.829354
-50	2	25	3	2022-07-12 18:13:25.838854	2022-07-12 18:13:25.838854
-51	1	26	1	2022-07-12 18:13:26.269111	2022-07-12 18:13:26.269111
-52	2	26	3	2022-07-12 18:13:26.278405	2022-07-12 18:13:26.278405
-53	1	27	1	2022-07-12 18:13:26.64196	2022-07-12 18:13:26.64196
-54	2	27	3	2022-07-12 18:13:26.650964	2022-07-12 18:13:26.650964
-55	1	28	1	2022-07-12 18:13:27.064254	2022-07-12 18:13:27.064254
-56	2	28	3	2022-07-12 18:13:27.073988	2022-07-12 18:13:27.073988
-57	1	29	1	2022-07-12 18:13:27.479938	2022-07-12 18:13:27.479938
-58	2	29	3	2022-07-12 18:13:27.488848	2022-07-12 18:13:27.488848
-59	1	30	1	2022-07-12 18:13:27.863717	2022-07-12 18:13:27.863717
-60	2	30	3	2022-07-12 18:13:27.872557	2022-07-12 18:13:27.872557
-61	1	31	1	2022-07-12 18:13:28.326217	2022-07-12 18:13:28.326217
-62	2	31	3	2022-07-12 18:13:28.336239	2022-07-12 18:13:28.336239
-63	1	32	1	2022-07-12 18:13:28.841249	2022-07-12 18:13:28.841249
-64	2	32	3	2022-07-12 18:13:28.850445	2022-07-12 18:13:28.850445
-65	1	33	1	2022-07-12 18:13:29.213002	2022-07-12 18:13:29.213002
-66	2	33	3	2022-07-12 18:13:29.221322	2022-07-12 18:13:29.221322
-67	1	34	1	2022-07-12 18:13:29.573259	2022-07-12 18:13:29.573259
-68	2	34	3	2022-07-12 18:13:29.581775	2022-07-12 18:13:29.581775
-69	1	35	1	2022-07-12 18:13:29.941187	2022-07-12 18:13:29.941187
-70	2	35	3	2022-07-12 18:13:29.950144	2022-07-12 18:13:29.950144
-71	1	36	1	2022-07-12 18:13:30.295935	2022-07-12 18:13:30.295935
-72	2	36	2	2022-07-12 18:13:30.304911	2022-07-12 18:13:30.304911
-73	3	36	3	2022-07-12 18:13:30.313866	2022-07-12 18:13:30.313866
-74	1	37	1	2022-07-12 18:13:30.664364	2022-07-12 18:13:30.664364
-75	2	37	2	2022-07-12 18:13:30.672702	2022-07-12 18:13:30.672702
-76	3	37	3	2022-07-12 18:13:30.681344	2022-07-12 18:13:30.681344
-77	1	38	1	2022-07-12 18:13:31.032346	2022-07-12 18:13:31.032346
-78	2	38	2	2022-07-12 18:13:31.04085	2022-07-12 18:13:31.04085
-79	3	38	3	2022-07-12 18:13:31.049691	2022-07-12 18:13:31.049691
-80	1	39	1	2022-07-12 18:13:31.397323	2022-07-12 18:13:31.397323
-81	2	39	2	2022-07-12 18:13:31.405994	2022-07-12 18:13:31.405994
-82	3	39	3	2022-07-12 18:13:31.41484	2022-07-12 18:13:31.41484
-83	1	40	1	2022-07-12 18:13:31.757404	2022-07-12 18:13:31.757404
-84	2	40	2	2022-07-12 18:13:31.765809	2022-07-12 18:13:31.765809
-85	3	40	3	2022-07-12 18:13:31.773796	2022-07-12 18:13:31.773796
-86	1	41	1	2022-07-12 18:13:32.112651	2022-07-12 18:13:32.112651
-87	2	41	2	2022-07-12 18:13:32.121135	2022-07-12 18:13:32.121135
-88	3	41	3	2022-07-12 18:13:32.129865	2022-07-12 18:13:32.129865
-89	1	42	1	2022-07-12 18:13:32.474603	2022-07-12 18:13:32.474603
-90	2	42	2	2022-07-12 18:13:32.483349	2022-07-12 18:13:32.483349
-91	3	42	3	2022-07-12 18:13:32.49222	2022-07-12 18:13:32.49222
-92	1	43	1	2022-07-12 18:13:32.835911	2022-07-12 18:13:32.835911
-93	2	43	2	2022-07-12 18:13:32.84366	2022-07-12 18:13:32.84366
-94	3	43	3	2022-07-12 18:13:32.852862	2022-07-12 18:13:32.852862
-95	1	44	1	2022-07-12 18:13:33.208138	2022-07-12 18:13:33.208138
-96	2	44	2	2022-07-12 18:13:33.217014	2022-07-12 18:13:33.217014
-97	3	44	3	2022-07-12 18:13:33.225673	2022-07-12 18:13:33.225673
-98	1	45	1	2022-07-12 18:13:33.577764	2022-07-12 18:13:33.577764
-99	2	45	2	2022-07-12 18:13:33.586475	2022-07-12 18:13:33.586475
-100	3	45	3	2022-07-12 18:13:33.595803	2022-07-12 18:13:33.595803
-101	1	46	1	2022-07-12 18:13:34.096804	2022-07-12 18:13:34.096804
-102	2	46	2	2022-07-12 18:13:34.106015	2022-07-12 18:13:34.106015
-103	3	46	3	2022-07-12 18:13:34.115273	2022-07-12 18:13:34.115273
-104	1	47	1	2022-07-12 18:13:34.480549	2022-07-12 18:13:34.480549
-105	2	47	2	2022-07-12 18:13:34.489648	2022-07-12 18:13:34.489648
-106	3	47	3	2022-07-12 18:13:34.498335	2022-07-12 18:13:34.498335
-107	1	48	1	2022-07-12 18:13:34.852232	2022-07-12 18:13:34.852232
-108	2	48	2	2022-07-12 18:13:34.860548	2022-07-12 18:13:34.860548
-109	3	48	3	2022-07-12 18:13:34.870004	2022-07-12 18:13:34.870004
-110	1	49	1	2022-07-12 18:13:35.207764	2022-07-12 18:13:35.207764
-111	2	49	2	2022-07-12 18:13:35.216873	2022-07-12 18:13:35.216873
-112	3	49	3	2022-07-12 18:13:35.224963	2022-07-12 18:13:35.224963
-113	1	50	1	2022-07-12 18:13:35.56383	2022-07-12 18:13:35.56383
-114	2	50	2	2022-07-12 18:13:35.571814	2022-07-12 18:13:35.571814
-115	3	50	3	2022-07-12 18:13:35.580874	2022-07-12 18:13:35.580874
-116	1	51	1	2022-07-12 18:13:35.945071	2022-07-12 18:13:35.945071
-117	2	51	2	2022-07-12 18:13:35.953824	2022-07-12 18:13:35.953824
-118	3	51	3	2022-07-12 18:13:35.962352	2022-07-12 18:13:35.962352
-119	1	52	1	2022-07-12 18:13:36.3111	2022-07-12 18:13:36.3111
-120	2	52	2	2022-07-12 18:13:36.320411	2022-07-12 18:13:36.320411
-121	3	52	3	2022-07-12 18:13:36.330639	2022-07-12 18:13:36.330639
-122	1	53	1	2022-07-12 18:13:36.677545	2022-07-12 18:13:36.677545
-123	2	53	2	2022-07-12 18:13:36.68664	2022-07-12 18:13:36.68664
-124	3	53	3	2022-07-12 18:13:36.695426	2022-07-12 18:13:36.695426
-125	1	54	1	2022-07-12 18:13:37.049889	2022-07-12 18:13:37.049889
-126	2	54	2	2022-07-12 18:13:37.058247	2022-07-12 18:13:37.058247
-127	3	54	3	2022-07-12 18:13:37.067221	2022-07-12 18:13:37.067221
-128	1	55	1	2022-07-12 18:13:37.404303	2022-07-12 18:13:37.404303
-129	2	55	2	2022-07-12 18:13:37.413239	2022-07-12 18:13:37.413239
-130	3	55	3	2022-07-12 18:13:37.421293	2022-07-12 18:13:37.421293
-131	1	56	1	2022-07-12 18:13:37.781885	2022-07-12 18:13:37.781885
-132	2	56	2	2022-07-12 18:13:37.78931	2022-07-12 18:13:37.78931
-133	3	56	3	2022-07-12 18:13:37.797355	2022-07-12 18:13:37.797355
-134	1	57	1	2022-07-12 18:13:38.138696	2022-07-12 18:13:38.138696
-135	2	57	2	2022-07-12 18:13:38.146991	2022-07-12 18:13:38.146991
-136	3	57	3	2022-07-12 18:13:38.155974	2022-07-12 18:13:38.155974
-137	1	58	1	2022-07-12 18:13:38.492112	2022-07-12 18:13:38.492112
-138	2	58	3	2022-07-12 18:13:38.500838	2022-07-12 18:13:38.500838
-139	1	59	1	2022-07-12 18:13:38.836883	2022-07-12 18:13:38.836883
-140	2	59	3	2022-07-12 18:13:38.845619	2022-07-12 18:13:38.845619
-141	1	60	1	2022-07-12 18:13:39.323586	2022-07-12 18:13:39.323586
-142	2	60	3	2022-07-12 18:13:39.333458	2022-07-12 18:13:39.333458
-143	1	61	1	2022-07-12 18:13:39.680552	2022-07-12 18:13:39.680552
-144	2	61	3	2022-07-12 18:13:39.689867	2022-07-12 18:13:39.689867
-145	1	62	1	2022-07-12 18:13:40.033752	2022-07-12 18:13:40.033752
-146	2	62	3	2022-07-12 18:13:40.041748	2022-07-12 18:13:40.041748
-147	1	63	1	2022-07-12 18:13:40.367323	2022-07-12 18:13:40.367323
-148	2	63	3	2022-07-12 18:13:40.375561	2022-07-12 18:13:40.375561
-149	1	64	1	2022-07-12 18:13:40.71485	2022-07-12 18:13:40.71485
-150	2	64	3	2022-07-12 18:13:40.723576	2022-07-12 18:13:40.723576
-151	1	65	1	2022-07-12 18:13:41.054895	2022-07-12 18:13:41.054895
-152	2	65	3	2022-07-12 18:13:41.063395	2022-07-12 18:13:41.063395
-153	1	66	1	2022-07-12 18:13:41.426338	2022-07-12 18:13:41.426338
-154	2	66	3	2022-07-12 18:13:41.434411	2022-07-12 18:13:41.434411
-155	1	67	1	2022-07-12 18:13:41.785665	2022-07-12 18:13:41.785665
-156	2	67	3	2022-07-12 18:13:41.793955	2022-07-12 18:13:41.793955
-157	1	68	1	2022-07-12 18:13:42.171322	2022-07-12 18:13:42.171322
-158	2	68	3	2022-07-12 18:13:42.17995	2022-07-12 18:13:42.17995
-159	1	69	1	2022-07-12 18:13:42.557836	2022-07-12 18:13:42.557836
-160	2	69	3	2022-07-12 18:13:42.567011	2022-07-12 18:13:42.567011
-161	1	70	1	2022-07-12 18:13:42.933622	2022-07-12 18:13:42.933622
-162	2	70	3	2022-07-12 18:13:42.941885	2022-07-12 18:13:42.941885
-163	1	71	1	2022-07-12 18:13:43.286463	2022-07-12 18:13:43.286463
-164	2	71	3	2022-07-12 18:13:43.294709	2022-07-12 18:13:43.294709
-165	1	72	1	2022-07-12 18:13:43.631257	2022-07-12 18:13:43.631257
-166	2	72	3	2022-07-12 18:13:43.640147	2022-07-12 18:13:43.640147
-167	1	73	1	2022-07-12 18:13:44.005544	2022-07-12 18:13:44.005544
-168	2	73	3	2022-07-12 18:13:44.015382	2022-07-12 18:13:44.015382
-169	1	74	1	2022-07-12 18:13:44.395187	2022-07-12 18:13:44.395187
-170	2	74	3	2022-07-12 18:13:44.404632	2022-07-12 18:13:44.404632
-171	1	75	1	2022-07-12 18:13:44.941443	2022-07-12 18:13:44.941443
-172	2	75	3	2022-07-12 18:13:44.950985	2022-07-12 18:13:44.950985
-173	1	76	1	2022-07-12 18:13:45.319038	2022-07-12 18:13:45.319038
-174	2	76	3	2022-07-12 18:13:45.327977	2022-07-12 18:13:45.327977
-175	1	77	1	2022-07-12 18:13:45.727388	2022-07-12 18:13:45.727388
-176	2	77	3	2022-07-12 18:13:45.736331	2022-07-12 18:13:45.736331
-177	1	78	1	2022-07-12 18:13:46.48761	2022-07-12 18:13:46.48761
-178	2	78	3	2022-07-12 18:13:46.497909	2022-07-12 18:13:46.497909
-179	1	79	1	2022-07-12 18:13:46.933937	2022-07-12 18:13:46.933937
-180	2	79	3	2022-07-12 18:13:46.942119	2022-07-12 18:13:46.942119
-181	1	80	1	2022-07-12 18:13:47.333479	2022-07-12 18:13:47.333479
-182	2	80	3	2022-07-12 18:13:47.341357	2022-07-12 18:13:47.341357
-183	1	81	1	2022-07-12 18:13:47.686914	2022-07-12 18:13:47.686914
-184	2	81	3	2022-07-12 18:13:47.695509	2022-07-12 18:13:47.695509
-185	1	82	1	2022-07-12 18:13:48.035599	2022-07-12 18:13:48.035599
-186	2	82	3	2022-07-12 18:13:48.044067	2022-07-12 18:13:48.044067
-187	1	83	1	2022-07-12 18:13:48.410533	2022-07-12 18:13:48.410533
-188	2	83	3	2022-07-12 18:13:48.419075	2022-07-12 18:13:48.419075
-189	1	84	1	2022-07-12 18:13:48.794319	2022-07-12 18:13:48.794319
-190	2	84	3	2022-07-12 18:13:48.804825	2022-07-12 18:13:48.804825
-191	1	85	1	2022-07-12 18:13:49.168878	2022-07-12 18:13:49.168878
-192	2	85	3	2022-07-12 18:13:49.178696	2022-07-12 18:13:49.178696
-193	1	86	1	2022-07-12 18:13:49.531735	2022-07-12 18:13:49.531735
-194	2	86	3	2022-07-12 18:13:49.539631	2022-07-12 18:13:49.539631
-195	1	87	1	2022-07-12 18:13:49.90381	2022-07-12 18:13:49.90381
-196	2	87	3	2022-07-12 18:13:49.913407	2022-07-12 18:13:49.913407
-197	1	88	1	2022-07-12 18:13:50.279325	2022-07-12 18:13:50.279325
-198	2	88	3	2022-07-12 18:13:50.288437	2022-07-12 18:13:50.288437
-199	1	89	1	2022-07-12 18:13:50.753488	2022-07-12 18:13:50.753488
-200	2	89	3	2022-07-12 18:13:50.809272	2022-07-12 18:13:50.809272
-201	1	90	1	2022-07-12 18:13:51.217482	2022-07-12 18:13:51.217482
-202	2	90	3	2022-07-12 18:13:51.233482	2022-07-12 18:13:51.233482
-203	1	91	1	2022-07-12 18:13:51.693958	2022-07-12 18:13:51.693958
-204	2	91	3	2022-07-12 18:13:51.702208	2022-07-12 18:13:51.702208
-205	1	92	1	2022-07-12 18:13:52.157253	2022-07-12 18:13:52.157253
-206	2	92	3	2022-07-12 18:13:52.166825	2022-07-12 18:13:52.166825
-207	1	93	1	2022-07-12 18:13:52.555513	2022-07-12 18:13:52.555513
-208	2	93	3	2022-07-12 18:13:52.564577	2022-07-12 18:13:52.564577
-209	1	94	1	2022-07-12 18:13:52.949459	2022-07-12 18:13:52.949459
-210	2	94	3	2022-07-12 18:13:52.95804	2022-07-12 18:13:52.95804
-211	1	95	1	2022-07-12 18:13:53.305542	2022-07-12 18:13:53.305542
-212	2	95	3	2022-07-12 18:13:53.316051	2022-07-12 18:13:53.316051
-213	1	96	1	2022-07-12 18:13:53.745176	2022-07-12 18:13:53.745176
-214	2	96	3	2022-07-12 18:13:53.753446	2022-07-12 18:13:53.753446
-215	1	97	1	2022-07-12 18:13:54.106734	2022-07-12 18:13:54.106734
-216	2	97	3	2022-07-12 18:13:54.115998	2022-07-12 18:13:54.115998
-217	1	98	1	2022-07-12 18:13:54.453648	2022-07-12 18:13:54.453648
-218	2	98	3	2022-07-12 18:13:54.461947	2022-07-12 18:13:54.461947
-219	1	99	1	2022-07-12 18:13:54.808287	2022-07-12 18:13:54.808287
-220	2	99	3	2022-07-12 18:13:54.817092	2022-07-12 18:13:54.817092
-221	1	100	1	2022-07-12 18:13:55.163449	2022-07-12 18:13:55.163449
-222	2	100	3	2022-07-12 18:13:55.171801	2022-07-12 18:13:55.171801
-223	1	101	1	2022-07-12 18:13:55.511207	2022-07-12 18:13:55.511207
-224	2	101	3	2022-07-12 18:13:55.519354	2022-07-12 18:13:55.519354
-225	1	102	1	2022-07-12 18:13:55.853402	2022-07-12 18:13:55.853402
-226	2	102	3	2022-07-12 18:13:55.861475	2022-07-12 18:13:55.861475
-227	1	103	1	2022-07-12 18:13:56.322419	2022-07-12 18:13:56.322419
-228	2	103	3	2022-07-12 18:13:56.33349	2022-07-12 18:13:56.33349
-229	1	104	1	2022-07-12 18:13:56.818936	2022-07-12 18:13:56.818936
-230	2	104	3	2022-07-12 18:13:56.827286	2022-07-12 18:13:56.827286
-231	1	105	1	2022-07-12 18:13:57.171495	2022-07-12 18:13:57.171495
-232	2	105	3	2022-07-12 18:13:57.1806	2022-07-12 18:13:57.1806
-233	1	106	1	2022-07-12 18:13:57.560541	2022-07-12 18:13:57.560541
-234	2	106	3	2022-07-12 18:13:57.570159	2022-07-12 18:13:57.570159
-235	1	107	1	2022-07-12 18:13:57.936413	2022-07-12 18:13:57.936413
-236	2	107	3	2022-07-12 18:13:57.944962	2022-07-12 18:13:57.944962
-237	1	108	1	2022-07-12 18:13:58.2908	2022-07-12 18:13:58.2908
-238	2	108	3	2022-07-12 18:13:58.299084	2022-07-12 18:13:58.299084
-239	1	109	1	2022-07-12 18:13:58.665842	2022-07-12 18:13:58.665842
-240	2	109	3	2022-07-12 18:13:58.674033	2022-07-12 18:13:58.674033
-241	1	110	1	2022-07-12 18:13:59.03653	2022-07-12 18:13:59.03653
-242	2	110	3	2022-07-12 18:13:59.050098	2022-07-12 18:13:59.050098
-243	1	111	1	2022-07-12 18:13:59.395745	2022-07-12 18:13:59.395745
-244	2	111	3	2022-07-12 18:13:59.404135	2022-07-12 18:13:59.404135
-245	1	112	1	2022-07-12 18:13:59.748758	2022-07-12 18:13:59.748758
-246	2	112	3	2022-07-12 18:13:59.757113	2022-07-12 18:13:59.757113
-247	1	113	1	2022-07-12 18:14:00.178064	2022-07-12 18:14:00.178064
-248	2	113	3	2022-07-12 18:14:00.187813	2022-07-12 18:14:00.187813
-249	1	114	1	2022-07-12 18:14:00.624735	2022-07-12 18:14:00.624735
-250	2	114	3	2022-07-12 18:14:00.633366	2022-07-12 18:14:00.633366
-251	1	115	1	2022-07-12 18:14:00.978736	2022-07-12 18:14:00.978736
-252	2	115	3	2022-07-12 18:14:00.986601	2022-07-12 18:14:00.986601
-253	1	116	1	2022-07-12 18:14:01.32857	2022-07-12 18:14:01.32857
-254	2	116	3	2022-07-12 18:14:01.337079	2022-07-12 18:14:01.337079
 \.
 
 
@@ -6822,968 +6488,18 @@ COPY public.spree_product_promotion_rules (id, product_id, promotion_rule_id, cr
 --
 
 COPY public.spree_product_properties (id, value, product_id, property_id, created_at, updated_at, "position", show_property, filter_param) FROM stdin;
-4	Ringer T	12	4	2022-07-12 18:14:11.045295	2022-07-12 18:14:11.045295	4	t	ringer-t
-5	Short	12	5	2022-07-12 18:14:11.093229	2022-07-12 18:14:11.093229	5	t	short
-8	Men's	12	8	2022-07-12 18:14:11.229764	2022-07-12 18:14:11.229764	8	t	men-s
-9	Wilson	13	1	2022-07-12 18:14:11.273324	2022-07-12 18:14:11.273324	1	t	wilson
-12	Baseball Jersey	13	4	2022-07-12 18:14:11.457981	2022-07-12 18:14:11.457981	4	t	baseball-jersey
-13	Long	13	5	2022-07-12 18:14:11.518325	2022-07-12 18:14:11.518325	5	t	long
-16	Men's	13	8	2022-07-12 18:14:11.692089	2022-07-12 18:14:11.692089	8	t	men-s
-17	Wilson	14	1	2022-07-12 18:14:11.754862	2022-07-12 18:14:11.754862	1	t	wilson
-20	Baseball Jersey	14	4	2022-07-12 18:14:11.919719	2022-07-12 18:14:11.919719	4	t	baseball-jersey
-21	Long	14	5	2022-07-12 18:14:11.969093	2022-07-12 18:14:11.969093	5	t	long
-24	Men's	14	8	2022-07-12 18:14:12.115036	2022-07-12 18:14:12.115036	8	t	men-s
-28	Baseball Jersey	15	4	2022-07-12 18:14:12.336828	2022-07-12 18:14:12.336828	4	t	baseball-jersey
-29	Long	15	5	2022-07-12 18:14:12.398856	2022-07-12 18:14:12.398856	5	t	long
-32	Men's	15	8	2022-07-12 18:14:12.750242	2022-07-12 18:14:12.750242	8	t	men-s
-33	Wilson	16	1	2022-07-12 18:14:12.819533	2022-07-12 18:14:12.819533	1	t	wilson
-36	Baseball Jersey	16	4	2022-07-12 18:14:13.013512	2022-07-12 18:14:13.013512	4	t	baseball-jersey
-37	Long	16	5	2022-07-12 18:14:13.096269	2022-07-12 18:14:13.096269	5	t	long
-40	Men's	16	8	2022-07-12 18:14:13.281113	2022-07-12 18:14:13.281113	8	t	men-s
-44	Baseball Jersey	17	4	2022-07-12 18:14:13.511214	2022-07-12 18:14:13.511214	4	t	baseball-jersey
-45	Long	17	5	2022-07-12 18:14:13.561484	2022-07-12 18:14:13.561484	5	t	long
-48	Men's	17	8	2022-07-12 18:14:13.718694	2022-07-12 18:14:13.718694	8	t	men-s
-52	Ringer T	18	4	2022-07-12 18:14:13.91878	2022-07-12 18:14:13.91878	4	t	ringer-t
-53	Short	18	5	2022-07-12 18:14:13.967968	2022-07-12 18:14:13.967968	5	t	short
-56	Men's	18	8	2022-07-12 18:14:14.120511	2022-07-12 18:14:14.120511	8	t	men-s
-60	Baseball Jersey	19	4	2022-07-12 18:14:14.315824	2022-07-12 18:14:14.315824	4	t	baseball-jersey
-61	Long	19	5	2022-07-12 18:14:14.369726	2022-07-12 18:14:14.369726	5	t	long
-64	Men's	19	8	2022-07-12 18:14:14.529635	2022-07-12 18:14:14.529635	8	t	men-s
-68	Jr. Spaghetti T	76	4	2022-07-12 18:14:14.740034	2022-07-12 18:14:14.740034	4	t	jr-spaghetti-t
-69	None	76	5	2022-07-12 18:14:14.788126	2022-07-12 18:14:14.788126	5	t	none
-71	Form	76	7	2022-07-12 18:14:14.891563	2022-07-12 18:14:14.891563	7	t	form
-72	Women's	76	8	2022-07-12 18:14:14.940076	2022-07-12 18:14:14.940076	8	t	women-s
-76	Jr. Spaghetti T	77	4	2022-07-12 18:14:15.135583	2022-07-12 18:14:15.135583	4	t	jr-spaghetti-t
-77	None	77	5	2022-07-12 18:14:15.181584	2022-07-12 18:14:15.181584	5	t	none
-80	Women's	77	8	2022-07-12 18:14:15.32301	2022-07-12 18:14:15.32301	8	t	women-s
-84	Jr. Spaghetti T	78	4	2022-07-12 18:14:15.500945	2022-07-12 18:14:15.500945	4	t	jr-spaghetti-t
-58	Beta	19	2	2022-07-12 18:14:14.216609	2022-07-12 18:14:20.311684	2	t	beta
-63	Form	19	7	2022-07-12 18:14:14.475822	2022-07-12 18:14:20.403536	7	t	form
-59	T-shirts_basict-shirt_23.99	19	3	2022-07-12 18:14:14.263139	2022-07-12 18:14:20.466668	3	t	t-shirts_basict-shirt_23-99
-18	Alpha	14	2	2022-07-12 18:14:11.812049	2022-07-12 18:14:20.638358	2	t	alpha
-22	90% Cotton 10% Elastan	14	6	2022-07-12 18:14:12.017708	2022-07-12 18:14:20.71979	6	t	90-cotton-10-elastan
-23	Form	14	7	2022-07-12 18:14:12.066455	2022-07-12 18:14:20.772824	7	t	form
-10	Zeta	13	2	2022-07-12 18:14:11.343003	2022-07-12 18:14:21.012425	2	t	zeta
-14	50% Cotton 50% Elastan	13	6	2022-07-12 18:14:11.573943	2022-07-12 18:14:21.064956	6	t	50-cotton-50-elastan
-15	Lose	13	7	2022-07-12 18:14:11.630921	2022-07-12 18:14:21.119409	7	t	lose
-11	T-shirts_longsleevet-shirt_28.99	13	3	2022-07-12 18:14:11.401275	2022-07-12 18:14:21.189874	3	t	t-shirts_longsleevet-shirt_28-99
-34	Epsilon	16	2	2022-07-12 18:14:12.884383	2022-07-12 18:14:22.313239	2	t	epsilon
-38	10% Cotton 90% Elastan	16	6	2022-07-12 18:14:13.155741	2022-07-12 18:14:22.36171	6	t	10-cotton-90-elastan
-39	Lose	16	7	2022-07-12 18:14:13.218469	2022-07-12 18:14:22.410074	7	t	lose
-1	Wannabe	12	1	2022-07-12 18:14:10.910206	2022-07-12 18:14:23.998214	1	t	wannabe
-2	Zeta	12	2	2022-07-12 18:14:10.956139	2022-07-12 18:14:24.053193	2	t	zeta
-6	50% Cotton 50% Elastan	12	6	2022-07-12 18:14:11.140473	2022-07-12 18:14:24.10893	6	t	50-cotton-50-elastan
-7	Lose	12	7	2022-07-12 18:14:11.186045	2022-07-12 18:14:24.162179	7	t	lose
-3	T-shirts_polot-shirt_52.99	12	3	2022-07-12 18:14:11.000963	2022-07-12 18:14:24.235395	3	t	t-shirts_polot-shirt_52-99
-81	Wannabe	78	1	2022-07-12 18:14:15.369116	2022-07-12 18:14:43.172897	1	t	wannabe
-82	Theta	78	2	2022-07-12 18:14:15.413061	2022-07-12 18:14:43.22004	2	t	theta
-73	Wannabe	77	1	2022-07-12 18:14:14.987949	2022-07-12 18:14:43.905717	1	t	wannabe
-74	Zeta	77	2	2022-07-12 18:14:15.038013	2022-07-12 18:14:43.968672	2	t	zeta
-78	10% Cotton 90% Elastan	77	6	2022-07-12 18:14:15.229498	2022-07-12 18:14:44.049763	6	t	10-cotton-90-elastan
-79	Lose	77	7	2022-07-12 18:14:15.275813	2022-07-12 18:14:44.101234	7	t	lose
-75	TopsandT-shirts_printedt-shirt_30.99	77	3	2022-07-12 18:14:15.086865	2022-07-12 18:14:44.17093	3	t	topsandt-shirts_printedt-shirt_30-99
-65	Wannabe	76	1	2022-07-12 18:14:14.595347	2022-07-12 18:14:45.459498	1	t	wannabe
-66	Delta	76	2	2022-07-12 18:14:14.643307	2022-07-12 18:14:45.504074	2	t	delta
-70	50% Cotton 50% Elastan	76	6	2022-07-12 18:14:14.836721	2022-07-12 18:14:45.551302	6	t	50-cotton-50-elastan
-25	Wannabe	15	1	2022-07-12 18:14:12.163912	2022-07-12 18:14:59.082882	1	t	wannabe
-26	Zeta	15	2	2022-07-12 18:14:12.219846	2022-07-12 18:14:59.134747	2	t	zeta
-30	10% Cotton 90% Elastan	15	6	2022-07-12 18:14:12.501357	2022-07-12 18:14:59.187343	6	t	10-cotton-90-elastan
-31	Lose	15	7	2022-07-12 18:14:12.618622	2022-07-12 18:14:59.240961	7	t	lose
-27	T-shirts_t-shirtwithholes_34.99	15	3	2022-07-12 18:14:12.276874	2022-07-12 18:14:59.306673	3	t	t-shirts_t-shirtwithholes_34-99
-49	Wannabe	18	1	2022-07-12 18:14:13.767298	2022-07-12 18:15:00.996582	1	t	wannabe
-50	Theta	18	2	2022-07-12 18:14:13.820934	2022-07-12 18:15:01.052534	2	t	theta
-54	90% Cotton 10% Elastan	18	6	2022-07-12 18:14:14.018844	2022-07-12 18:15:01.105795	6	t	90-cotton-10-elastan
-55	Form	18	7	2022-07-12 18:14:14.071089	2022-07-12 18:15:01.158344	7	t	form
-51	T-shirts_tanktop_10.99	18	3	2022-07-12 18:14:13.869784	2022-07-12 18:15:01.227707	3	t	t-shirts_tanktop_10-99
-42	Epsilon	17	2	2022-07-12 18:14:13.402025	2022-07-12 18:15:04.036574	2	t	epsilon
-46	90% Cotton 10% Elastan	17	6	2022-07-12 18:14:13.615531	2022-07-12 18:15:04.087225	6	t	90-cotton-10-elastan
-47	Lose	17	7	2022-07-12 18:14:13.66447	2022-07-12 18:15:04.14062	7	t	lose
-43	T-shirts_v-neckt-shirt_47.99	17	3	2022-07-12 18:14:13.454861	2022-07-12 18:15:04.215004	3	t	t-shirts_v-neckt-shirt_47-99
-85	None	78	5	2022-07-12 18:14:15.546871	2022-07-12 18:14:15.546871	5	t	none
-87	Form	78	7	2022-07-12 18:14:15.63523	2022-07-12 18:14:15.63523	7	t	form
-88	Women's	78	8	2022-07-12 18:14:15.680566	2022-07-12 18:14:15.680566	8	t	women-s
-89	Jerseys	79	1	2022-07-12 18:14:15.725547	2022-07-12 18:14:15.725547	1	t	jerseys
-92	Jr. Spaghetti T	79	4	2022-07-12 18:14:15.88598	2022-07-12 18:14:15.88598	4	t	jr-spaghetti-t
-93	None	79	5	2022-07-12 18:14:15.944123	2022-07-12 18:14:15.944123	5	t	none
-96	Women's	79	8	2022-07-12 18:14:16.120459	2022-07-12 18:14:16.120459	8	t	women-s
-100	Jr. Spaghetti T	80	4	2022-07-12 18:14:16.363447	2022-07-12 18:14:16.363447	4	t	jr-spaghetti-t
-101	None	80	5	2022-07-12 18:14:16.416141	2022-07-12 18:14:16.416141	5	t	none
-103	Form	80	7	2022-07-12 18:14:16.524765	2022-07-12 18:14:16.524765	7	t	form
-104	Women's	80	8	2022-07-12 18:14:16.578163	2022-07-12 18:14:16.578163	8	t	women-s
-108	Jr. Spaghetti T	81	4	2022-07-12 18:14:16.786388	2022-07-12 18:14:16.786388	4	t	jr-spaghetti-t
-109	None	81	5	2022-07-12 18:14:16.836321	2022-07-12 18:14:16.836321	5	t	none
-112	Women's	81	8	2022-07-12 18:14:17.012171	2022-07-12 18:14:17.012171	8	t	women-s
-116	Jr. Spaghetti T	82	4	2022-07-12 18:14:17.276956	2022-07-12 18:14:17.276956	4	t	jr-spaghetti-t
-117	None	82	5	2022-07-12 18:14:17.331281	2022-07-12 18:14:17.331281	5	t	none
-119	Form	82	7	2022-07-12 18:14:17.443131	2022-07-12 18:14:17.443131	7	t	form
-120	Women's	82	8	2022-07-12 18:14:17.504201	2022-07-12 18:14:17.504201	8	t	women-s
-124	Jr. Spaghetti T	83	4	2022-07-12 18:14:17.800582	2022-07-12 18:14:17.800582	4	t	jr-spaghetti-t
-125	None	83	5	2022-07-12 18:14:17.858089	2022-07-12 18:14:17.858089	5	t	none
-128	Women's	83	8	2022-07-12 18:14:18.026971	2022-07-12 18:14:18.026971	8	t	women-s
-132	Jr. Spaghetti T	84	4	2022-07-12 18:14:18.398346	2022-07-12 18:14:18.398346	4	t	jr-spaghetti-t
-133	None	84	5	2022-07-12 18:14:18.449424	2022-07-12 18:14:18.449424	5	t	none
-135	Form	84	7	2022-07-12 18:14:18.560712	2022-07-12 18:14:18.560712	7	t	form
-136	Women's	84	8	2022-07-12 18:14:18.635048	2022-07-12 18:14:18.635048	8	t	women-s
-137	Men	4	9	2022-07-12 18:14:18.70226	2022-07-12 18:14:18.70226	1	t	men
-138	Men	4	10	2022-07-12 18:14:18.751974	2022-07-12 18:14:18.751974	2	t	men
-139	Wannabe	4	1	2022-07-12 18:14:18.795921	2022-07-12 18:14:18.795921	3	t	wannabe
-140	Epsilon	4	2	2022-07-12 18:14:18.848153	2022-07-12 18:14:18.848153	4	t	epsilon
-141	10% Cotton 90% Elastan	4	6	2022-07-12 18:14:18.908887	2022-07-12 18:14:18.908887	5	t	10-cotton-90-elastan
-142	Form	4	7	2022-07-12 18:14:18.960467	2022-07-12 18:14:18.960467	6	t	form
-143	Men's	4	8	2022-07-12 18:14:19.012586	2022-07-12 18:14:19.012586	7	t	men-s
-144	Shirts_slimfitshirt_17.99	4	3	2022-07-12 18:14:19.068011	2022-07-12 18:14:19.068011	8	t	shirts_slimfitshirt_17-99
-145	Men	5	9	2022-07-12 18:14:19.121436	2022-07-12 18:14:19.121436	1	t	men
-146	Men	5	10	2022-07-12 18:14:19.170799	2022-07-12 18:14:19.170799	2	t	men
-147	Wannabe	5	1	2022-07-12 18:14:19.376526	2022-07-12 18:14:19.376526	3	t	wannabe
-148	Zeta	5	2	2022-07-12 18:14:19.460151	2022-07-12 18:14:19.460151	4	t	zeta
-149	50% Cotton 50% Elastan	5	6	2022-07-12 18:14:19.516796	2022-07-12 18:14:19.516796	5	t	50-cotton-50-elastan
-150	Lose	5	7	2022-07-12 18:14:19.570142	2022-07-12 18:14:19.570142	6	t	lose
-151	Men's	5	8	2022-07-12 18:14:19.627041	2022-07-12 18:14:19.627041	7	t	men-s
-152	Shirts_shortsleeveshirt_55.99	5	3	2022-07-12 18:14:19.679034	2022-07-12 18:14:19.679034	8	t	shirts_shortsleeveshirt_55-99
-153	Men	6	9	2022-07-12 18:14:19.730457	2022-07-12 18:14:19.730457	1	t	men
-154	Men	6	10	2022-07-12 18:14:19.781892	2022-07-12 18:14:19.781892	2	t	men
-155	Wannabe	6	1	2022-07-12 18:14:19.830441	2022-07-12 18:14:19.830441	3	t	wannabe
-156	Epsilon	6	2	2022-07-12 18:14:19.879912	2022-07-12 18:14:19.879912	4	t	epsilon
-157	10% Cotton 90% Elastan	6	6	2022-07-12 18:14:19.948135	2022-07-12 18:14:19.948135	5	t	10-cotton-90-elastan
-158	Form	6	7	2022-07-12 18:14:19.999745	2022-07-12 18:14:19.999745	6	t	form
-159	Men's	6	8	2022-07-12 18:14:20.051036	2022-07-12 18:14:20.051036	7	t	men-s
-160	Shirts_printedshortsleeveshirt_74.99	6	3	2022-07-12 18:14:20.106177	2022-07-12 18:14:20.106177	8	t	shirts_printedshortsleeveshirt_74-99
-161	Men	19	9	2022-07-12 18:14:20.15862	2022-07-12 18:14:20.15862	9	t	men
-162	Men	19	10	2022-07-12 18:14:20.212863	2022-07-12 18:14:20.212863	10	t	men
-57	Conditioned	19	1	2022-07-12 18:14:14.168952	2022-07-12 18:14:20.263975	1	t	conditioned
-62	10% Cotton 90% Elastan	19	6	2022-07-12 18:14:14.423492	2022-07-12 18:14:20.35704	6	t	10-cotton-90-elastan
-163	Men	14	9	2022-07-12 18:14:20.516374	2022-07-12 18:14:20.516374	9	t	men
-164	Men	14	10	2022-07-12 18:14:20.572094	2022-07-12 18:14:20.572094	10	t	men
-114	Delta	82	2	2022-07-12 18:14:17.166908	2022-07-12 18:14:29.192658	2	t	delta
-115	TopsandT-shirts_looset-shirtwithpocketimitation_37.99	82	3	2022-07-12 18:14:17.220805	2022-07-12 18:14:29.330049	3	t	topsandt-shirts_looset-shirtwithpocketimitation_37-99
-129	Wilson	84	1	2022-07-12 18:14:18.086002	2022-07-12 18:14:41.461705	1	t	wilson
-130	Zeta	84	2	2022-07-12 18:14:18.143173	2022-07-12 18:14:41.510831	2	t	zeta
-131	TopsandT-shirts_basiclooset-shirt_25.99	84	3	2022-07-12 18:14:18.199228	2022-07-12 18:14:41.68054	3	t	topsandt-shirts_basiclooset-shirt_25-99
-121	Wannabe	83	1	2022-07-12 18:14:17.608445	2022-07-12 18:14:42.762464	1	t	wannabe
-122	Zeta	83	2	2022-07-12 18:14:17.674432	2022-07-12 18:14:42.816451	2	t	zeta
-126	10% Cotton 90% Elastan	83	6	2022-07-12 18:14:17.914187	2022-07-12 18:14:42.876917	6	t	10-cotton-90-elastan
-127	Lose	83	7	2022-07-12 18:14:17.97044	2022-07-12 18:14:42.945322	7	t	lose
-86	10% Cotton 90% Elastan	78	6	2022-07-12 18:14:15.59075	2022-07-12 18:14:43.270351	6	t	10-cotton-90-elastan
-105	Resiliance	81	1	2022-07-12 18:14:16.63279	2022-07-12 18:14:43.521458	1	t	resiliance
-106	Epsilon	81	2	2022-07-12 18:14:16.682897	2022-07-12 18:14:43.579004	2	t	epsilon
-110	50% Cotton 50% Elastan	81	6	2022-07-12 18:14:16.890309	2022-07-12 18:14:43.628729	6	t	50-cotton-50-elastan
-111	Lose	81	7	2022-07-12 18:14:16.942561	2022-07-12 18:14:43.67667	7	t	lose
-107	TopsandT-shirts_croptop_60.99	81	3	2022-07-12 18:14:16.734772	2022-07-12 18:14:43.746352	3	t	topsandt-shirts_croptop_60-99
-90	Beta	79	2	2022-07-12 18:14:15.777617	2022-07-12 18:15:02.770365	2	t	beta
-94	90% Cotton 10% Elastan	79	6	2022-07-12 18:14:16.003032	2022-07-12 18:15:02.819132	6	t	90-cotton-10-elastan
-95	Lose	79	7	2022-07-12 18:14:16.061684	2022-07-12 18:15:02.866967	7	t	lose
-97	Conditioned	80	1	2022-07-12 18:14:16.173228	2022-07-12 18:15:12.170497	1	t	conditioned
-98	Beta	80	2	2022-07-12 18:14:16.226733	2022-07-12 18:15:12.223666	2	t	beta
-102	90% Cotton 10% Elastan	80	6	2022-07-12 18:14:16.470911	2022-07-12 18:15:12.278264	6	t	90-cotton-10-elastan
-99	TopsandT-shirts_scrappycroptopwithtie_46.99	80	3	2022-07-12 18:14:16.309094	2022-07-12 18:15:12.361395	3	t	topsandt-shirts_scrappycroptopwithtie_46-99
-19	T-shirts_3_4sleevet-shirt_18.99	14	3	2022-07-12 18:14:11.866438	2022-07-12 18:14:20.838958	3	t	t-shirts_3_4sleevet-shirt_18-99
-165	Men	13	9	2022-07-12 18:14:20.889681	2022-07-12 18:14:20.889681	9	t	men
-166	Men	13	10	2022-07-12 18:14:20.942633	2022-07-12 18:14:20.942633	10	t	men
-167	Men	10	9	2022-07-12 18:14:21.244747	2022-07-12 18:14:21.244747	1	t	men
-168	Men	10	10	2022-07-12 18:14:21.302411	2022-07-12 18:14:21.302411	2	t	men
-169	Resiliance	10	1	2022-07-12 18:14:21.35801	2022-07-12 18:14:21.35801	3	t	resiliance
-170	Zeta	10	2	2022-07-12 18:14:21.484681	2022-07-12 18:14:21.484681	4	t	zeta
-171	50% Cotton 50% Elastan	10	6	2022-07-12 18:14:21.540639	2022-07-12 18:14:21.540639	5	t	50-cotton-50-elastan
-172	Form	10	7	2022-07-12 18:14:21.597672	2022-07-12 18:14:21.597672	6	t	form
-173	Men's	10	8	2022-07-12 18:14:21.657197	2022-07-12 18:14:21.657197	7	t	men-s
-174	Shirts_linenshirt_87.99	10	3	2022-07-12 18:14:21.716777	2022-07-12 18:14:21.716777	8	t	shirts_linenshirt_87-99
-175	Men	22	9	2022-07-12 18:14:21.777099	2022-07-12 18:14:21.777099	1	t	men
-176	Men	22	10	2022-07-12 18:14:21.832754	2022-07-12 18:14:21.832754	2	t	men
-177	Jerseys	22	1	2022-07-12 18:14:21.882969	2022-07-12 18:14:21.882969	3	t	jerseys
-178	Beta	22	2	2022-07-12 18:14:21.933012	2022-07-12 18:14:21.933012	4	t	beta
-179	50% Cotton 50% Elastan	22	6	2022-07-12 18:14:21.981593	2022-07-12 18:14:21.981593	5	t	50-cotton-50-elastan
-180	Lose	22	7	2022-07-12 18:14:22.034576	2022-07-12 18:14:22.034576	6	t	lose
-181	Men's	22	8	2022-07-12 18:14:22.086152	2022-07-12 18:14:22.086152	7	t	men-s
-182	Sweaters_longsleevejumperwithpocket_93.99	22	3	2022-07-12 18:14:22.139854	2022-07-12 18:14:22.139854	8	t	sweaters_longsleevejumperwithpocket_93-99
-183	Men	16	9	2022-07-12 18:14:22.194793	2022-07-12 18:14:22.194793	9	t	men
-184	Men	16	10	2022-07-12 18:14:22.249301	2022-07-12 18:14:22.249301	10	t	men
-35	T-shirts_raw-edget-shirt_84.99	16	3	2022-07-12 18:14:12.950955	2022-07-12 18:14:22.4727	3	t	t-shirts_raw-edget-shirt_84-99
-185	Men	8	9	2022-07-12 18:14:22.529259	2022-07-12 18:14:22.529259	1	t	men
-186	Men	8	10	2022-07-12 18:14:22.589205	2022-07-12 18:14:22.589205	2	t	men
-187	Wannabe	8	1	2022-07-12 18:14:22.652282	2022-07-12 18:14:22.652282	3	t	wannabe
-188	Zeta	8	2	2022-07-12 18:14:22.71544	2022-07-12 18:14:22.71544	4	t	zeta
-189	10% Cotton 90% Elastan	8	6	2022-07-12 18:14:22.77307	2022-07-12 18:14:22.77307	5	t	10-cotton-90-elastan
-190	Lose	8	7	2022-07-12 18:14:22.83099	2022-07-12 18:14:22.83099	6	t	lose
-191	Men's	8	8	2022-07-12 18:14:22.889484	2022-07-12 18:14:22.889484	7	t	men-s
-192	Shirts_checkedslimfitshirt_27.99	8	3	2022-07-12 18:14:22.948141	2022-07-12 18:14:22.948141	8	t	shirts_checkedslimfitshirt_27-99
-193	Men	2	9	2022-07-12 18:14:23.007735	2022-07-12 18:14:23.007735	1	t	men
-194	Men	2	10	2022-07-12 18:14:23.06329	2022-07-12 18:14:23.06329	2	t	men
-195	Resiliance	2	1	2022-07-12 18:14:23.116924	2022-07-12 18:14:23.116924	3	t	resiliance
-196	Theta	2	2	2022-07-12 18:14:23.171082	2022-07-12 18:14:23.171082	4	t	theta
-197	10% Cotton 90% Elastan	2	6	2022-07-12 18:14:23.22397	2022-07-12 18:14:23.22397	5	t	10-cotton-90-elastan
-198	Form	2	7	2022-07-12 18:14:23.277512	2022-07-12 18:14:23.277512	6	t	form
-199	Men's	2	8	2022-07-12 18:14:23.333882	2022-07-12 18:14:23.333882	7	t	men-s
-200	Shirts_checkedshirt_65.99	2	3	2022-07-12 18:14:23.388404	2022-07-12 18:14:23.388404	8	t	shirts_checkedshirt_65-99
-201	Men	9	9	2022-07-12 18:14:23.443282	2022-07-12 18:14:23.443282	1	t	men
-202	Men	9	10	2022-07-12 18:14:23.497539	2022-07-12 18:14:23.497539	2	t	men
-203	Resiliance	9	1	2022-07-12 18:14:23.55002	2022-07-12 18:14:23.55002	3	t	resiliance
-204	Epsilon	9	2	2022-07-12 18:14:23.601055	2022-07-12 18:14:23.601055	4	t	epsilon
-205	50% Cotton 50% Elastan	9	6	2022-07-12 18:14:23.655893	2022-07-12 18:14:23.655893	5	t	50-cotton-50-elastan
-206	Lose	9	7	2022-07-12 18:14:23.711173	2022-07-12 18:14:23.711173	6	t	lose
-207	Men's	9	8	2022-07-12 18:14:23.770595	2022-07-12 18:14:23.770595	7	t	men-s
-208	Shirts_dottedshirt_33.99	9	3	2022-07-12 18:14:23.828364	2022-07-12 18:14:23.828364	8	t	shirts_dottedshirt_33-99
-209	Men	12	9	2022-07-12 18:14:23.889134	2022-07-12 18:14:23.889134	9	t	men
-210	Men	12	10	2022-07-12 18:14:23.945017	2022-07-12 18:14:23.945017	10	t	men
-211	Men	1	9	2022-07-12 18:14:24.289701	2022-07-12 18:14:24.289701	1	t	men
-212	Men	1	10	2022-07-12 18:14:24.34823	2022-07-12 18:14:24.34823	2	t	men
-213	Jerseys	1	1	2022-07-12 18:14:24.402796	2022-07-12 18:14:24.402796	3	t	jerseys
-214	Beta	1	2	2022-07-12 18:14:24.458453	2022-07-12 18:14:24.458453	4	t	beta
-215	50% Cotton 50% Elastan	1	6	2022-07-12 18:14:24.51555	2022-07-12 18:14:24.51555	5	t	50-cotton-50-elastan
-216	Lose	1	7	2022-07-12 18:14:24.57213	2022-07-12 18:14:24.57213	6	t	lose
-217	Men's	1	8	2022-07-12 18:14:24.63121	2022-07-12 18:14:24.63121	7	t	men-s
-218	Shirts_denimshirt_24.99	1	3	2022-07-12 18:14:24.689938	2022-07-12 18:14:24.689938	8	t	shirts_denimshirt_24-99
-219	Men	3	9	2022-07-12 18:14:24.747266	2022-07-12 18:14:24.747266	1	t	men
-220	Men	3	10	2022-07-12 18:14:24.80962	2022-07-12 18:14:24.80962	2	t	men
-221	Conditioned	3	1	2022-07-12 18:14:24.878811	2022-07-12 18:14:24.878811	3	t	conditioned
-222	Zeta	3	2	2022-07-12 18:14:24.951182	2022-07-12 18:14:24.951182	4	t	zeta
-223	90% Cotton 10% Elastan	3	6	2022-07-12 18:14:25.022085	2022-07-12 18:14:25.022085	5	t	90-cotton-10-elastan
-224	Lose	3	7	2022-07-12 18:14:25.083546	2022-07-12 18:14:25.083546	6	t	lose
-225	Men's	3	8	2022-07-12 18:14:25.143561	2022-07-12 18:14:25.143561	7	t	men-s
-226	Shirts_coveredplacketshirt_99.99	3	3	2022-07-12 18:14:25.20584	2022-07-12 18:14:25.20584	8	t	shirts_coveredplacketshirt_99-99
-227	Men	21	9	2022-07-12 18:14:25.272349	2022-07-12 18:14:25.272349	1	t	men
-228	Men	21	10	2022-07-12 18:14:25.329825	2022-07-12 18:14:25.329825	2	t	men
-229	Resiliance	21	1	2022-07-12 18:14:25.38203	2022-07-12 18:14:25.38203	3	t	resiliance
-230	Theta	21	2	2022-07-12 18:14:25.432656	2022-07-12 18:14:25.432656	4	t	theta
-231	50% Cotton 50% Elastan	21	6	2022-07-12 18:14:25.481892	2022-07-12 18:14:25.481892	5	t	50-cotton-50-elastan
-232	Lose	21	7	2022-07-12 18:14:25.535101	2022-07-12 18:14:25.535101	6	t	lose
-233	Men's	21	8	2022-07-12 18:14:25.589177	2022-07-12 18:14:25.589177	7	t	men-s
-234	Sweaters_strippedjumper_88.99	21	3	2022-07-12 18:14:25.653489	2022-07-12 18:14:25.653489	8	t	sweaters_strippedjumper_88-99
-235	Men	23	9	2022-07-12 18:14:25.714417	2022-07-12 18:14:25.714417	1	t	men
-236	Men	23	10	2022-07-12 18:14:25.767154	2022-07-12 18:14:25.767154	2	t	men
-237	Resiliance	23	1	2022-07-12 18:14:25.818697	2022-07-12 18:14:25.818697	3	t	resiliance
-238	Beta	23	2	2022-07-12 18:14:25.871642	2022-07-12 18:14:25.871642	4	t	beta
-239	90% Cotton 10% Elastan	23	6	2022-07-12 18:14:25.924963	2022-07-12 18:14:25.924963	5	t	90-cotton-10-elastan
-240	Form	23	7	2022-07-12 18:14:25.976283	2022-07-12 18:14:25.976283	6	t	form
-241	Men's	23	8	2022-07-12 18:14:26.030804	2022-07-12 18:14:26.030804	7	t	men-s
-242	Sweaters_jumper_61.99	23	3	2022-07-12 18:14:26.085716	2022-07-12 18:14:26.085716	8	t	sweaters_jumper_61-99
-243	Men	24	9	2022-07-12 18:14:26.141819	2022-07-12 18:14:26.141819	1	t	men
-244	Men	24	10	2022-07-12 18:14:26.195364	2022-07-12 18:14:26.195364	2	t	men
-245	Wannabe	24	1	2022-07-12 18:14:26.246861	2022-07-12 18:14:26.246861	3	t	wannabe
-246	Gamma	24	2	2022-07-12 18:14:26.29732	2022-07-12 18:14:26.29732	4	t	gamma
-247	90% Cotton 10% Elastan	24	6	2022-07-12 18:14:26.350889	2022-07-12 18:14:26.350889	5	t	90-cotton-10-elastan
-248	Lose	24	7	2022-07-12 18:14:26.40023	2022-07-12 18:14:26.40023	6	t	lose
-249	Men's	24	8	2022-07-12 18:14:26.451588	2022-07-12 18:14:26.451588	7	t	men-s
-250	Sweaters_longsleevesweatshirt_73.99	24	3	2022-07-12 18:14:26.503217	2022-07-12 18:14:26.503217	8	t	sweaters_longsleevesweatshirt_73-99
-251	Women	41	9	2022-07-12 18:14:26.556989	2022-07-12 18:14:26.556989	1	t	women
-252	Women	41	10	2022-07-12 18:14:26.609006	2022-07-12 18:14:26.609006	2	t	women
-253	Resiliance	41	1	2022-07-12 18:14:26.663716	2022-07-12 18:14:26.663716	3	t	resiliance
-254	Gamma	41	2	2022-07-12 18:14:26.72211	2022-07-12 18:14:26.72211	4	t	gamma
-255	90% Cotton 10% Elastan	41	6	2022-07-12 18:14:26.776732	2022-07-12 18:14:26.776732	5	t	90-cotton-10-elastan
-256	Form	41	7	2022-07-12 18:14:26.828113	2022-07-12 18:14:26.828113	6	t	form
-257	Women's	41	8	2022-07-12 18:14:26.883823	2022-07-12 18:14:26.883823	7	t	women-s
-258	Skirts_flaredskirt_74.99	41	3	2022-07-12 18:14:26.939373	2022-07-12 18:14:26.939373	8	t	skirts_flaredskirt_74-99
-259	Men	35	9	2022-07-12 18:14:27.048469	2022-07-12 18:14:27.048469	1	t	men
-260	Men	35	10	2022-07-12 18:14:27.119298	2022-07-12 18:14:27.119298	2	t	men
-261	Resiliance	35	1	2022-07-12 18:14:27.202782	2022-07-12 18:14:27.202782	3	t	resiliance
-262	Zeta	35	2	2022-07-12 18:14:27.310811	2022-07-12 18:14:27.310811	4	t	zeta
-263	10% Cotton 90% Elastan	35	6	2022-07-12 18:14:27.385987	2022-07-12 18:14:27.385987	5	t	10-cotton-90-elastan
-264	Form	35	7	2022-07-12 18:14:27.450826	2022-07-12 18:14:27.450826	6	t	form
-265	Men's	35	8	2022-07-12 18:14:27.536919	2022-07-12 18:14:27.536919	7	t	men-s
-266	JacketsandCoats_jacketwithliner_73.99	35	3	2022-07-12 18:14:27.599777	2022-07-12 18:14:27.599777	8	t	jacketsandcoats_jacketwithliner_73-99
-267	Men	28	9	2022-07-12 18:14:27.654215	2022-07-12 18:14:27.654215	1	t	men
-268	Men	28	10	2022-07-12 18:14:27.715899	2022-07-12 18:14:27.715899	2	t	men
-269	Wannabe	28	1	2022-07-12 18:14:27.775476	2022-07-12 18:14:27.775476	3	t	wannabe
-270	Alpha	28	2	2022-07-12 18:14:27.834949	2022-07-12 18:14:27.834949	4	t	alpha
-271	50% Cotton 50% Elastan	28	6	2022-07-12 18:14:27.893734	2022-07-12 18:14:27.893734	5	t	50-cotton-50-elastan
-272	Form	28	7	2022-07-12 18:14:27.957162	2022-07-12 18:14:27.957162	6	t	form
-273	Men's	28	8	2022-07-12 18:14:28.020424	2022-07-12 18:14:28.020424	7	t	men-s
-274	JacketsandCoats_suedebikerjacket_33.99	28	3	2022-07-12 18:14:28.083887	2022-07-12 18:14:28.083887	8	t	jacketsandcoats_suedebikerjacket_33-99
-275	Men	25	9	2022-07-12 18:14:28.150023	2022-07-12 18:14:28.150023	1	t	men
-276	Men	25	10	2022-07-12 18:14:28.204589	2022-07-12 18:14:28.204589	2	t	men
-277	Wilson	25	1	2022-07-12 18:14:28.25782	2022-07-12 18:14:28.25782	3	t	wilson
-278	Epsilon	25	2	2022-07-12 18:14:28.312726	2022-07-12 18:14:28.312726	4	t	epsilon
-279	90% Cotton 10% Elastan	25	6	2022-07-12 18:14:28.367796	2022-07-12 18:14:28.367796	5	t	90-cotton-10-elastan
-280	Form	25	7	2022-07-12 18:14:28.421897	2022-07-12 18:14:28.421897	6	t	form
-281	Men's	25	8	2022-07-12 18:14:28.478209	2022-07-12 18:14:28.478209	7	t	men-s
-282	Sweaters_hoodie_24.99	25	3	2022-07-12 18:14:28.534009	2022-07-12 18:14:28.534009	8	t	sweaters_hoodie_24-99
-283	Men	33	9	2022-07-12 18:14:28.591417	2022-07-12 18:14:28.591417	1	t	men
-284	Men	33	10	2022-07-12 18:14:28.644203	2022-07-12 18:14:28.644203	2	t	men
-285	Wannabe	33	1	2022-07-12 18:14:28.698478	2022-07-12 18:14:28.698478	3	t	wannabe
-286	Gamma	33	2	2022-07-12 18:14:28.752605	2022-07-12 18:14:28.752605	4	t	gamma
-287	10% Cotton 90% Elastan	33	6	2022-07-12 18:14:28.807507	2022-07-12 18:14:28.807507	5	t	10-cotton-90-elastan
-288	Form	33	7	2022-07-12 18:14:28.86033	2022-07-12 18:14:28.86033	6	t	form
-289	Men's	33	8	2022-07-12 18:14:28.916019	2022-07-12 18:14:28.916019	7	t	men-s
-290	JacketsandCoats_downjacketwithhood_64.99	33	3	2022-07-12 18:14:28.976371	2022-07-12 18:14:28.976371	8	t	jacketsandcoats_downjacketwithhood_64-99
-291	Women	82	9	2022-07-12 18:14:29.029763	2022-07-12 18:14:29.029763	9	t	women
-292	Women	82	10	2022-07-12 18:14:29.083997	2022-07-12 18:14:29.083997	10	t	women
-113	Conditioned	82	1	2022-07-12 18:14:17.078167	2022-07-12 18:14:29.137212	1	t	conditioned
-118	50% Cotton 50% Elastan	82	6	2022-07-12 18:14:17.383297	2022-07-12 18:14:29.245075	6	t	50-cotton-50-elastan
-293	Men	29	9	2022-07-12 18:14:29.384071	2022-07-12 18:14:29.384071	1	t	men
-294	Men	29	10	2022-07-12 18:14:29.43597	2022-07-12 18:14:29.43597	2	t	men
-295	Conditioned	29	1	2022-07-12 18:14:29.489652	2022-07-12 18:14:29.489652	3	t	conditioned
-296	Gamma	29	2	2022-07-12 18:14:29.546089	2022-07-12 18:14:29.546089	4	t	gamma
-297	90% Cotton 10% Elastan	29	6	2022-07-12 18:14:29.597669	2022-07-12 18:14:29.597669	5	t	90-cotton-10-elastan
-298	Form	29	7	2022-07-12 18:14:29.649927	2022-07-12 18:14:29.649927	6	t	form
-299	Men's	29	8	2022-07-12 18:14:29.706852	2022-07-12 18:14:29.706852	7	t	men-s
-300	JacketsandCoats_hoodedjacket_11.99	29	3	2022-07-12 18:14:29.792854	2022-07-12 18:14:29.792854	8	t	jacketsandcoats_hoodedjacket_11-99
-301	Men	34	9	2022-07-12 18:14:29.850449	2022-07-12 18:14:29.850449	1	t	men
-302	Men	34	10	2022-07-12 18:14:29.903939	2022-07-12 18:14:29.903939	2	t	men
-303	Conditioned	34	1	2022-07-12 18:14:29.955505	2022-07-12 18:14:29.955505	3	t	conditioned
-304	Delta	34	2	2022-07-12 18:14:30.006796	2022-07-12 18:14:30.006796	4	t	delta
-305	90% Cotton 10% Elastan	34	6	2022-07-12 18:14:30.058906	2022-07-12 18:14:30.058906	5	t	90-cotton-10-elastan
-306	Form	34	7	2022-07-12 18:14:30.107756	2022-07-12 18:14:30.107756	6	t	form
-307	Men's	34	8	2022-07-12 18:14:30.159972	2022-07-12 18:14:30.159972	7	t	men-s
-308	JacketsandCoats_wool-blendcoat_35.99	34	3	2022-07-12 18:14:30.213906	2022-07-12 18:14:30.213906	8	t	jacketsandcoats_wool-blendcoat_35-99
-309	Women	36	9	2022-07-12 18:14:30.266913	2022-07-12 18:14:30.266913	1	t	women
-310	Women	36	10	2022-07-12 18:14:30.317448	2022-07-12 18:14:30.317448	2	t	women
-311	Conditioned	36	1	2022-07-12 18:14:30.365933	2022-07-12 18:14:30.365933	3	t	conditioned
-312	Epsilon	36	2	2022-07-12 18:14:30.41469	2022-07-12 18:14:30.41469	4	t	epsilon
-313	10% Cotton 90% Elastan	36	6	2022-07-12 18:14:30.471277	2022-07-12 18:14:30.471277	5	t	10-cotton-90-elastan
-314	Form	36	7	2022-07-12 18:14:30.521656	2022-07-12 18:14:30.521656	6	t	form
-315	Women's	36	8	2022-07-12 18:14:30.574984	2022-07-12 18:14:30.574984	7	t	women-s
-316	Skirts_flaredmidiskirt_21.99	36	3	2022-07-12 18:14:30.635812	2022-07-12 18:14:30.635812	8	t	skirts_flaredmidiskirt_21-99
-317	Women	37	9	2022-07-12 18:14:30.691403	2022-07-12 18:14:30.691403	1	t	women
-318	Women	37	10	2022-07-12 18:14:30.748611	2022-07-12 18:14:30.748611	2	t	women
-319	Wannabe	37	1	2022-07-12 18:14:30.801906	2022-07-12 18:14:30.801906	3	t	wannabe
-320	Beta	37	2	2022-07-12 18:14:30.856686	2022-07-12 18:14:30.856686	4	t	beta
-321	50% Cotton 50% Elastan	37	6	2022-07-12 18:14:30.920642	2022-07-12 18:14:30.920642	5	t	50-cotton-50-elastan
-322	Lose	37	7	2022-07-12 18:14:30.975956	2022-07-12 18:14:30.975956	6	t	lose
-323	Women's	37	8	2022-07-12 18:14:31.034065	2022-07-12 18:14:31.034065	7	t	women-s
-324	Skirts_midiskirtwithbottoms_40.99	37	3	2022-07-12 18:14:31.092867	2022-07-12 18:14:31.092867	8	t	skirts_midiskirtwithbottoms_40-99
-325	Men	31	9	2022-07-12 18:14:31.155959	2022-07-12 18:14:31.155959	1	t	men
-326	Men	31	10	2022-07-12 18:14:31.216778	2022-07-12 18:14:31.216778	2	t	men
-327	Wilson	31	1	2022-07-12 18:14:31.289109	2022-07-12 18:14:31.289109	3	t	wilson
-328	Theta	31	2	2022-07-12 18:14:31.353207	2022-07-12 18:14:31.353207	4	t	theta
-329	50% Cotton 50% Elastan	31	6	2022-07-12 18:14:31.411705	2022-07-12 18:14:31.411705	5	t	50-cotton-50-elastan
-330	Lose	31	7	2022-07-12 18:14:31.465299	2022-07-12 18:14:31.465299	6	t	lose
-331	Men's	31	8	2022-07-12 18:14:31.521792	2022-07-12 18:14:31.521792	7	t	men-s
-332	JacketsandCoats_denimjacket_76.99	31	3	2022-07-12 18:14:31.576122	2022-07-12 18:14:31.576122	8	t	jacketsandcoats_denimjacket_76-99
-333	Women	40	9	2022-07-12 18:14:31.632511	2022-07-12 18:14:31.632511	1	t	women
-334	Women	40	10	2022-07-12 18:14:31.689644	2022-07-12 18:14:31.689644	2	t	women
-335	Wilson	40	1	2022-07-12 18:14:31.746974	2022-07-12 18:14:31.746974	3	t	wilson
-336	Alpha	40	2	2022-07-12 18:14:31.803779	2022-07-12 18:14:31.803779	4	t	alpha
-337	50% Cotton 50% Elastan	40	6	2022-07-12 18:14:31.860866	2022-07-12 18:14:31.860866	5	t	50-cotton-50-elastan
-338	Lose	40	7	2022-07-12 18:14:31.922653	2022-07-12 18:14:31.922653	6	t	lose
-339	Women's	40	8	2022-07-12 18:14:31.993681	2022-07-12 18:14:31.993681	7	t	women-s
-340	Skirts_leatherskirtwithlacing_46.99	40	3	2022-07-12 18:14:32.058135	2022-07-12 18:14:32.058135	8	t	skirts_leatherskirtwithlacing_46-99
-341	Men	26	9	2022-07-12 18:14:32.130087	2022-07-12 18:14:32.130087	1	t	men
-342	Men	26	10	2022-07-12 18:14:32.186619	2022-07-12 18:14:32.186619	2	t	men
-343	Wilson	26	1	2022-07-12 18:14:32.239696	2022-07-12 18:14:32.239696	3	t	wilson
-344	Zeta	26	2	2022-07-12 18:14:32.293217	2022-07-12 18:14:32.293217	4	t	zeta
-345	50% Cotton 50% Elastan	26	6	2022-07-12 18:14:32.35274	2022-07-12 18:14:32.35274	5	t	50-cotton-50-elastan
-346	Form	26	7	2022-07-12 18:14:32.407645	2022-07-12 18:14:32.407645	6	t	form
-347	Men's	26	8	2022-07-12 18:14:32.465945	2022-07-12 18:14:32.465945	7	t	men-s
-348	Sweaters_zippedhighnecksweater_67.99	26	3	2022-07-12 18:14:32.521904	2022-07-12 18:14:32.521904	8	t	sweaters_zippedhighnecksweater_67-99
-349	Women	42	9	2022-07-12 18:14:32.575822	2022-07-12 18:14:32.575822	1	t	women
-350	Women	42	10	2022-07-12 18:14:32.624261	2022-07-12 18:14:32.624261	2	t	women
-351	Wannabe	42	1	2022-07-12 18:14:32.680971	2022-07-12 18:14:32.680971	3	t	wannabe
-352	Epsilon	42	2	2022-07-12 18:14:32.729187	2022-07-12 18:14:32.729187	4	t	epsilon
-353	90% Cotton 10% Elastan	42	6	2022-07-12 18:14:32.77709	2022-07-12 18:14:32.77709	5	t	90-cotton-10-elastan
-354	Form	42	7	2022-07-12 18:14:32.828697	2022-07-12 18:14:32.828697	6	t	form
-355	Women's	42	8	2022-07-12 18:14:32.876001	2022-07-12 18:14:32.876001	7	t	women-s
-356	Skirts_skaterskirt_17.99	42	3	2022-07-12 18:14:32.924708	2022-07-12 18:14:32.924708	8	t	skirts_skaterskirt_17-99
-357	Women	43	9	2022-07-12 18:14:33.023183	2022-07-12 18:14:33.023183	1	t	women
-358	Women	43	10	2022-07-12 18:14:33.077826	2022-07-12 18:14:33.077826	2	t	women
-359	Jerseys	43	1	2022-07-12 18:14:33.1266	2022-07-12 18:14:33.1266	3	t	jerseys
-360	Zeta	43	2	2022-07-12 18:14:33.194966	2022-07-12 18:14:33.194966	4	t	zeta
-361	10% Cotton 90% Elastan	43	6	2022-07-12 18:14:33.245304	2022-07-12 18:14:33.245304	5	t	10-cotton-90-elastan
-362	Form	43	7	2022-07-12 18:14:33.296182	2022-07-12 18:14:33.296182	6	t	form
-363	Women's	43	8	2022-07-12 18:14:33.348691	2022-07-12 18:14:33.348691	7	t	women-s
-364	Skirts_skatershortskirt_67.99	43	3	2022-07-12 18:14:33.404597	2022-07-12 18:14:33.404597	8	t	skirts_skatershortskirt_67-99
-365	Women	49	9	2022-07-12 18:14:33.458226	2022-07-12 18:14:33.458226	1	t	women
-366	Women	49	10	2022-07-12 18:14:33.513114	2022-07-12 18:14:33.513114	2	t	women
-367	Wilson	49	1	2022-07-12 18:14:33.568174	2022-07-12 18:14:33.568174	3	t	wilson
-368	Zeta	49	2	2022-07-12 18:14:33.622214	2022-07-12 18:14:33.622214	4	t	zeta
-369	10% Cotton 90% Elastan	49	6	2022-07-12 18:14:33.676972	2022-07-12 18:14:33.676972	5	t	10-cotton-90-elastan
-370	Form	49	7	2022-07-12 18:14:33.732751	2022-07-12 18:14:33.732751	6	t	form
-371	Women's	49	8	2022-07-12 18:14:33.790776	2022-07-12 18:14:33.790776	7	t	women-s
-372	Dresses_elegantflareddress_55.99	49	3	2022-07-12 18:14:33.855078	2022-07-12 18:14:33.855078	8	t	dresses_elegantflareddress_55-99
-373	Women	51	9	2022-07-12 18:14:33.935258	2022-07-12 18:14:33.935258	1	t	women
-374	Women	51	10	2022-07-12 18:14:34.020249	2022-07-12 18:14:34.020249	2	t	women
-375	Resiliance	51	1	2022-07-12 18:14:34.101267	2022-07-12 18:14:34.101267	3	t	resiliance
-376	Zeta	51	2	2022-07-12 18:14:34.167834	2022-07-12 18:14:34.167834	4	t	zeta
-377	10% Cotton 90% Elastan	51	6	2022-07-12 18:14:34.234122	2022-07-12 18:14:34.234122	5	t	10-cotton-90-elastan
-378	Form	51	7	2022-07-12 18:14:34.289013	2022-07-12 18:14:34.289013	6	t	form
-379	Women's	51	8	2022-07-12 18:14:34.346717	2022-07-12 18:14:34.346717	7	t	women-s
-380	Dresses_stripedshirtdress_87.99	51	3	2022-07-12 18:14:34.408887	2022-07-12 18:14:34.408887	8	t	dresses_stripedshirtdress_87-99
-381	Women	46	9	2022-07-12 18:14:34.470371	2022-07-12 18:14:34.470371	1	t	women
-382	Women	46	10	2022-07-12 18:14:34.526141	2022-07-12 18:14:34.526141	2	t	women
-383	Resiliance	46	1	2022-07-12 18:14:34.581724	2022-07-12 18:14:34.581724	3	t	resiliance
-384	Beta	46	2	2022-07-12 18:14:34.634306	2022-07-12 18:14:34.634306	4	t	beta
-385	10% Cotton 90% Elastan	46	6	2022-07-12 18:14:34.690771	2022-07-12 18:14:34.690771	5	t	10-cotton-90-elastan
-386	Lose	46	7	2022-07-12 18:14:34.757123	2022-07-12 18:14:34.757123	6	t	lose
-387	Women's	46	8	2022-07-12 18:14:34.814304	2022-07-12 18:14:34.814304	7	t	women-s
-388	Dresses_floralwrapdress_14.99	46	3	2022-07-12 18:14:34.877994	2022-07-12 18:14:34.877994	8	t	dresses_floralwrapdress_14-99
-389	Women	50	9	2022-07-12 18:14:34.945914	2022-07-12 18:14:34.945914	1	t	women
-390	Women	50	10	2022-07-12 18:14:35.014742	2022-07-12 18:14:35.014742	2	t	women
-391	Wannabe	50	1	2022-07-12 18:14:35.08501	2022-07-12 18:14:35.08501	3	t	wannabe
-392	Alpha	50	2	2022-07-12 18:14:35.157972	2022-07-12 18:14:35.157972	4	t	alpha
-393	90% Cotton 10% Elastan	50	6	2022-07-12 18:14:35.232421	2022-07-12 18:14:35.232421	5	t	90-cotton-10-elastan
-394	Lose	50	7	2022-07-12 18:14:35.306874	2022-07-12 18:14:35.306874	6	t	lose
-395	Women's	50	8	2022-07-12 18:14:35.402551	2022-07-12 18:14:35.402551	7	t	women-s
-396	Dresses_longsleeveknitteddress_23.99	50	3	2022-07-12 18:14:35.497159	2022-07-12 18:14:35.497159	8	t	dresses_longsleeveknitteddress_23-99
-397	Women	64	9	2022-07-12 18:14:35.569682	2022-07-12 18:14:35.569682	1	t	women
-398	Women	64	10	2022-07-12 18:14:35.640158	2022-07-12 18:14:35.640158	2	t	women
-399	Resiliance	64	1	2022-07-12 18:14:35.70729	2022-07-12 18:14:35.70729	3	t	resiliance
-400	Epsilon	64	2	2022-07-12 18:14:35.770971	2022-07-12 18:14:35.770971	4	t	epsilon
-401	90% Cotton 10% Elastan	64	6	2022-07-12 18:14:35.837058	2022-07-12 18:14:35.837058	5	t	90-cotton-10-elastan
-402	Lose	64	7	2022-07-12 18:14:35.906272	2022-07-12 18:14:35.906272	6	t	lose
-403	Women's	64	8	2022-07-12 18:14:35.975959	2022-07-12 18:14:35.975959	7	t	women-s
-404	ShirtsandBlouses_blousewithwideflouncedsleeve_90.99	64	3	2022-07-12 18:14:36.05282	2022-07-12 18:14:36.05282	8	t	shirtsandblouses_blousewithwideflouncedsleeve_90-99
-405	Women	53	9	2022-07-12 18:14:36.124452	2022-07-12 18:14:36.124452	1	t	women
-406	Women	53	10	2022-07-12 18:14:36.186773	2022-07-12 18:14:36.186773	2	t	women
-407	Jerseys	53	1	2022-07-12 18:14:36.245011	2022-07-12 18:14:36.245011	3	t	jerseys
-408	Gamma	53	2	2022-07-12 18:14:36.304768	2022-07-12 18:14:36.304768	4	t	gamma
-409	90% Cotton 10% Elastan	53	6	2022-07-12 18:14:36.361476	2022-07-12 18:14:36.361476	5	t	90-cotton-10-elastan
-410	Form	53	7	2022-07-12 18:14:36.416845	2022-07-12 18:14:36.416845	6	t	form
-411	Women's	53	8	2022-07-12 18:14:36.474958	2022-07-12 18:14:36.474958	7	t	women-s
-412	Dresses_printedslit-sleevesdress_76.99	53	3	2022-07-12 18:14:36.533632	2022-07-12 18:14:36.533632	8	t	dresses_printedslit-sleevesdress_76-99
-413	Women	44	9	2022-07-12 18:14:36.591963	2022-07-12 18:14:36.591963	1	t	women
-414	Women	44	10	2022-07-12 18:14:36.654181	2022-07-12 18:14:36.654181	2	t	women
-415	Wannabe	44	1	2022-07-12 18:14:36.712567	2022-07-12 18:14:36.712567	3	t	wannabe
-416	Alpha	44	2	2022-07-12 18:14:36.772895	2022-07-12 18:14:36.772895	4	t	alpha
-417	50% Cotton 50% Elastan	44	6	2022-07-12 18:14:36.831879	2022-07-12 18:14:36.831879	5	t	50-cotton-50-elastan
-418	Form	44	7	2022-07-12 18:14:36.907068	2022-07-12 18:14:36.907068	6	t	form
-419	Women's	44	8	2022-07-12 18:14:37.023805	2022-07-12 18:14:37.023805	7	t	women-s
-420	Skirts_floralflaredskirt_10.99	44	3	2022-07-12 18:14:37.090086	2022-07-12 18:14:37.090086	8	t	skirts_floralflaredskirt_10-99
-421	Women	59	9	2022-07-12 18:14:37.157205	2022-07-12 18:14:37.157205	1	t	women
-422	Women	59	10	2022-07-12 18:14:37.217899	2022-07-12 18:14:37.217899	2	t	women
-423	Wilson	59	1	2022-07-12 18:14:37.278511	2022-07-12 18:14:37.278511	3	t	wilson
-424	Theta	59	2	2022-07-12 18:14:37.340021	2022-07-12 18:14:37.340021	4	t	theta
-425	10% Cotton 90% Elastan	59	6	2022-07-12 18:14:37.400306	2022-07-12 18:14:37.400306	5	t	10-cotton-90-elastan
-426	Form	59	7	2022-07-12 18:14:37.459075	2022-07-12 18:14:37.459075	6	t	form
-427	Women's	59	8	2022-07-12 18:14:37.521723	2022-07-12 18:14:37.521723	7	t	women-s
-428	ShirtsandBlouses_stripedshirt_60.99	59	3	2022-07-12 18:14:37.609497	2022-07-12 18:14:37.609497	8	t	shirtsandblouses_stripedshirt_60-99
-429	Women	60	9	2022-07-12 18:14:37.673605	2022-07-12 18:14:37.673605	1	t	women
-430	Women	60	10	2022-07-12 18:14:37.730002	2022-07-12 18:14:37.730002	2	t	women
-431	Conditioned	60	1	2022-07-12 18:14:37.785902	2022-07-12 18:14:37.785902	3	t	conditioned
-432	Gamma	60	2	2022-07-12 18:14:37.864997	2022-07-12 18:14:37.864997	4	t	gamma
-433	90% Cotton 10% Elastan	60	6	2022-07-12 18:14:37.924748	2022-07-12 18:14:37.924748	5	t	90-cotton-10-elastan
-434	Lose	60	7	2022-07-12 18:14:37.98011	2022-07-12 18:14:37.98011	6	t	lose
-435	Women's	60	8	2022-07-12 18:14:38.041965	2022-07-12 18:14:38.041965	7	t	women-s
-436	ShirtsandBlouses_v-neckwideshirt_68.99	60	3	2022-07-12 18:14:38.103378	2022-07-12 18:14:38.103378	8	t	shirtsandblouses_v-neckwideshirt_68-99
-437	Women	57	9	2022-07-12 18:14:38.159178	2022-07-12 18:14:38.159178	1	t	women
-438	Women	57	10	2022-07-12 18:14:38.218768	2022-07-12 18:14:38.218768	2	t	women
-439	Wilson	57	1	2022-07-12 18:14:38.272753	2022-07-12 18:14:38.272753	3	t	wilson
-440	Zeta	57	2	2022-07-12 18:14:38.328912	2022-07-12 18:14:38.328912	4	t	zeta
-441	50% Cotton 50% Elastan	57	6	2022-07-12 18:14:38.404798	2022-07-12 18:14:38.404798	5	t	50-cotton-50-elastan
-442	Form	57	7	2022-07-12 18:14:38.468543	2022-07-12 18:14:38.468543	6	t	form
-443	Women's	57	8	2022-07-12 18:14:38.537956	2022-07-12 18:14:38.537956	7	t	women-s
-444	Dresses_slitmaxidress_26.99	57	3	2022-07-12 18:14:38.603886	2022-07-12 18:14:38.603886	8	t	dresses_slitmaxidress_26-99
-445	Women	63	9	2022-07-12 18:14:38.663534	2022-07-12 18:14:38.663534	1	t	women
-446	Women	63	10	2022-07-12 18:14:38.717626	2022-07-12 18:14:38.717626	2	t	women
-447	Conditioned	63	1	2022-07-12 18:14:38.774756	2022-07-12 18:14:38.774756	3	t	conditioned
-448	Beta	63	2	2022-07-12 18:14:38.831605	2022-07-12 18:14:38.831605	4	t	beta
-449	90% Cotton 10% Elastan	63	6	2022-07-12 18:14:38.894	2022-07-12 18:14:38.894	5	t	90-cotton-10-elastan
-450	Lose	63	7	2022-07-12 18:14:38.960759	2022-07-12 18:14:38.960759	6	t	lose
-451	Women's	63	8	2022-07-12 18:14:39.028544	2022-07-12 18:14:39.028544	7	t	women-s
-452	ShirtsandBlouses_cottonshirt_17.99	63	3	2022-07-12 18:14:39.090872	2022-07-12 18:14:39.090872	8	t	shirtsandblouses_cottonshirt_17-99
-453	Women	58	9	2022-07-12 18:14:39.152337	2022-07-12 18:14:39.152337	1	t	women
-454	Women	58	10	2022-07-12 18:14:39.206226	2022-07-12 18:14:39.206226	2	t	women
-455	Wannabe	58	1	2022-07-12 18:14:39.260759	2022-07-12 18:14:39.260759	3	t	wannabe
-456	Gamma	58	2	2022-07-12 18:14:39.319061	2022-07-12 18:14:39.319061	4	t	gamma
-457	10% Cotton 90% Elastan	58	6	2022-07-12 18:14:39.372198	2022-07-12 18:14:39.372198	5	t	10-cotton-90-elastan
-458	Form	58	7	2022-07-12 18:14:39.423571	2022-07-12 18:14:39.423571	6	t	form
-459	Women's	58	8	2022-07-12 18:14:39.474556	2022-07-12 18:14:39.474556	7	t	women-s
-460	ShirtsandBlouses_semi-sheershirtwithfloralcuffs_91.99	58	3	2022-07-12 18:14:39.527881	2022-07-12 18:14:39.527881	8	t	shirtsandblouses_semi-sheershirtwithfloralcuffs_91-99
-461	Women	52	9	2022-07-12 18:14:39.582931	2022-07-12 18:14:39.582931	1	t	women
-462	Women	52	10	2022-07-12 18:14:39.640262	2022-07-12 18:14:39.640262	2	t	women
-463	Jerseys	52	1	2022-07-12 18:14:39.698816	2022-07-12 18:14:39.698816	3	t	jerseys
-464	Epsilon	52	2	2022-07-12 18:14:39.754005	2022-07-12 18:14:39.754005	4	t	epsilon
-465	50% Cotton 50% Elastan	52	6	2022-07-12 18:14:39.809327	2022-07-12 18:14:39.809327	5	t	50-cotton-50-elastan
-466	Lose	52	7	2022-07-12 18:14:39.860985	2022-07-12 18:14:39.860985	6	t	lose
-467	Women's	52	8	2022-07-12 18:14:39.916737	2022-07-12 18:14:39.916737	7	t	women-s
-468	Dresses_printeddress_83.99	52	3	2022-07-12 18:14:39.971305	2022-07-12 18:14:39.971305	8	t	dresses_printeddress_83-99
-469	Women	56	9	2022-07-12 18:14:40.026037	2022-07-12 18:14:40.026037	1	t	women
-470	Women	56	10	2022-07-12 18:14:40.079035	2022-07-12 18:14:40.079035	2	t	women
-471	Jerseys	56	1	2022-07-12 18:14:40.131795	2022-07-12 18:14:40.131795	3	t	jerseys
-472	Delta	56	2	2022-07-12 18:14:40.185447	2022-07-12 18:14:40.185447	4	t	delta
-473	90% Cotton 10% Elastan	56	6	2022-07-12 18:14:40.235507	2022-07-12 18:14:40.235507	5	t	90-cotton-10-elastan
-474	Lose	56	7	2022-07-12 18:14:40.286719	2022-07-12 18:14:40.286719	6	t	lose
-475	Women's	56	8	2022-07-12 18:14:40.34412	2022-07-12 18:14:40.34412	7	t	women-s
-476	Dresses_flounceddress_32.99	56	3	2022-07-12 18:14:40.399277	2022-07-12 18:14:40.399277	8	t	dresses_flounceddress_32-99
-477	Women	61	9	2022-07-12 18:14:40.453047	2022-07-12 18:14:40.453047	1	t	women
-478	Women	61	10	2022-07-12 18:14:40.506142	2022-07-12 18:14:40.506142	2	t	women
-479	Resiliance	61	1	2022-07-12 18:14:40.562511	2022-07-12 18:14:40.562511	3	t	resiliance
-480	Gamma	61	2	2022-07-12 18:14:40.615365	2022-07-12 18:14:40.615365	4	t	gamma
-481	50% Cotton 50% Elastan	61	6	2022-07-12 18:14:40.67027	2022-07-12 18:14:40.67027	5	t	50-cotton-50-elastan
-482	Form	61	7	2022-07-12 18:14:40.721831	2022-07-12 18:14:40.721831	6	t	form
-483	Women's	61	8	2022-07-12 18:14:40.781053	2022-07-12 18:14:40.781053	7	t	women-s
-484	ShirtsandBlouses_printedwrappedblouse_15.99	61	3	2022-07-12 18:14:40.837995	2022-07-12 18:14:40.837995	8	t	shirtsandblouses_printedwrappedblouse_15-99
-485	Women	62	9	2022-07-12 18:14:40.891787	2022-07-12 18:14:40.891787	1	t	women
-486	Women	62	10	2022-07-12 18:14:40.945351	2022-07-12 18:14:40.945351	2	t	women
-487	Conditioned	62	1	2022-07-12 18:14:40.997142	2022-07-12 18:14:40.997142	3	t	conditioned
-488	Delta	62	2	2022-07-12 18:14:41.074211	2022-07-12 18:14:41.074211	4	t	delta
-489	90% Cotton 10% Elastan	62	6	2022-07-12 18:14:41.128436	2022-07-12 18:14:41.128436	5	t	90-cotton-10-elastan
-490	Lose	62	7	2022-07-12 18:14:41.181156	2022-07-12 18:14:41.181156	6	t	lose
-491	Women's	62	8	2022-07-12 18:14:41.237776	2022-07-12 18:14:41.237776	7	t	women-s
-492	ShirtsandBlouses_pleatedsleevev-neckshirt_28.99	62	3	2022-07-12 18:14:41.294736	2022-07-12 18:14:41.294736	8	t	shirtsandblouses_pleatedsleevev-neckshirt_28-99
-493	Women	84	9	2022-07-12 18:14:41.350608	2022-07-12 18:14:41.350608	9	t	women
-494	Women	84	10	2022-07-12 18:14:41.407653	2022-07-12 18:14:41.407653	10	t	women
-134	50% Cotton 50% Elastan	84	6	2022-07-12 18:14:18.509334	2022-07-12 18:14:41.560489	6	t	50-cotton-50-elastan
-495	Women	67	9	2022-07-12 18:14:41.738918	2022-07-12 18:14:41.738918	1	t	women
-496	Women	67	10	2022-07-12 18:14:41.795211	2022-07-12 18:14:41.795211	2	t	women
-497	Conditioned	67	1	2022-07-12 18:14:41.853023	2022-07-12 18:14:41.853023	3	t	conditioned
-498	Beta	67	2	2022-07-12 18:14:41.912019	2022-07-12 18:14:41.912019	4	t	beta
-499	50% Cotton 50% Elastan	67	6	2022-07-12 18:14:41.966848	2022-07-12 18:14:41.966848	5	t	50-cotton-50-elastan
-500	Lose	67	7	2022-07-12 18:14:42.026001	2022-07-12 18:14:42.026001	6	t	lose
-501	Women's	67	8	2022-07-12 18:14:42.082184	2022-07-12 18:14:42.082184	7	t	women-s
-502	ShirtsandBlouses_semi-sheershirtwithpockets_36.99	67	3	2022-07-12 18:14:42.140443	2022-07-12 18:14:42.140443	8	t	shirtsandblouses_semi-sheershirtwithpockets_36-99
-503	Women	68	9	2022-07-12 18:14:42.20094	2022-07-12 18:14:42.20094	1	t	women
-504	Women	68	10	2022-07-12 18:14:42.25867	2022-07-12 18:14:42.25867	2	t	women
-505	Wannabe	68	1	2022-07-12 18:14:42.311857	2022-07-12 18:14:42.311857	3	t	wannabe
-506	Theta	68	2	2022-07-12 18:14:42.366943	2022-07-12 18:14:42.366943	4	t	theta
-507	50% Cotton 50% Elastan	68	6	2022-07-12 18:14:42.422512	2022-07-12 18:14:42.422512	5	t	50-cotton-50-elastan
-508	Form	68	7	2022-07-12 18:14:42.475241	2022-07-12 18:14:42.475241	6	t	form
-509	Women's	68	8	2022-07-12 18:14:42.53086	2022-07-12 18:14:42.53086	7	t	women-s
-510	ShirtsandBlouses_v-neckshirt_87.99	68	3	2022-07-12 18:14:42.590445	2022-07-12 18:14:42.590445	8	t	shirtsandblouses_v-neckshirt_87-99
-511	Women	83	9	2022-07-12 18:14:42.649302	2022-07-12 18:14:42.649302	9	t	women
-512	Women	83	10	2022-07-12 18:14:42.706367	2022-07-12 18:14:42.706367	10	t	women
-123	TopsandT-shirts_sleevelessloosetop_58.99	83	3	2022-07-12 18:14:17.738736	2022-07-12 18:14:43.016119	3	t	topsandt-shirts_sleevelessloosetop_58-99
-513	Women	78	9	2022-07-12 18:14:43.068358	2022-07-12 18:14:43.068358	9	t	women
-514	Women	78	10	2022-07-12 18:14:43.120147	2022-07-12 18:14:43.120147	10	t	women
-83	TopsandT-shirts_scrappytop_40.99	78	3	2022-07-12 18:14:15.457356	2022-07-12 18:14:43.357368	3	t	topsandt-shirts_scrappytop_40-99
-515	Women	81	9	2022-07-12 18:14:43.410529	2022-07-12 18:14:43.410529	9	t	women
-516	Women	81	10	2022-07-12 18:14:43.467502	2022-07-12 18:14:43.467502	10	t	women
-517	Women	77	9	2022-07-12 18:14:43.798371	2022-07-12 18:14:43.798371	9	t	women
-518	Women	77	10	2022-07-12 18:14:43.852488	2022-07-12 18:14:43.852488	10	t	women
-519	Women	85	9	2022-07-12 18:14:44.231367	2022-07-12 18:14:44.231367	1	t	women
-520	Women	85	10	2022-07-12 18:14:44.325974	2022-07-12 18:14:44.325974	2	t	women
-521	Wannabe	85	1	2022-07-12 18:14:44.397838	2022-07-12 18:14:44.397838	3	t	wannabe
-522	Delta	85	2	2022-07-12 18:14:44.582165	2022-07-12 18:14:44.582165	4	t	delta
-523	50% Cotton 50% Elastan	85	6	2022-07-12 18:14:44.658557	2022-07-12 18:14:44.658557	5	t	50-cotton-50-elastan
-524	Form	85	7	2022-07-12 18:14:44.72444	2022-07-12 18:14:44.72444	6	t	form
-525	Women's	85	8	2022-07-12 18:14:44.792275	2022-07-12 18:14:44.792275	7	t	women-s
-526	JacketsandCoats_coatwithpockets_27.99	85	3	2022-07-12 18:14:44.861929	2022-07-12 18:14:44.861929	8	t	jacketsandcoats_coatwithpockets_27-99
-527	Women	73	9	2022-07-12 18:14:44.922111	2022-07-12 18:14:44.922111	1	t	women
-528	Women	73	10	2022-07-12 18:14:44.977181	2022-07-12 18:14:44.977181	2	t	women
-529	Wannabe	73	1	2022-07-12 18:14:45.028388	2022-07-12 18:14:45.028388	3	t	wannabe
-530	Zeta	73	2	2022-07-12 18:14:45.0792	2022-07-12 18:14:45.0792	4	t	zeta
-531	10% Cotton 90% Elastan	73	6	2022-07-12 18:14:45.133416	2022-07-12 18:14:45.133416	5	t	10-cotton-90-elastan
-532	Form	73	7	2022-07-12 18:14:45.185824	2022-07-12 18:14:45.185824	6	t	form
-533	Women's	73	8	2022-07-12 18:14:45.247766	2022-07-12 18:14:45.247766	7	t	women-s
-534	Sweaters_knittedhighnecksweater_86.99	73	3	2022-07-12 18:14:45.300746	2022-07-12 18:14:45.300746	8	t	sweaters_knittedhighnecksweater_86-99
-535	Women	76	9	2022-07-12 18:14:45.355888	2022-07-12 18:14:45.355888	9	t	women
-536	Women	76	10	2022-07-12 18:14:45.409505	2022-07-12 18:14:45.409505	10	t	women
-67	TopsandT-shirts_croptopwithtie_96.99	76	3	2022-07-12 18:14:14.691763	2022-07-12 18:14:45.626109	3	t	topsandt-shirts_croptopwithtie_96-99
-537	Women	66	9	2022-07-12 18:14:45.673533	2022-07-12 18:14:45.673533	1	t	women
-538	Women	66	10	2022-07-12 18:14:45.730026	2022-07-12 18:14:45.730026	2	t	women
-539	Wannabe	66	1	2022-07-12 18:14:45.78154	2022-07-12 18:14:45.78154	3	t	wannabe
-540	Beta	66	2	2022-07-12 18:14:45.836731	2022-07-12 18:14:45.836731	4	t	beta
-541	50% Cotton 50% Elastan	66	6	2022-07-12 18:14:45.892647	2022-07-12 18:14:45.892647	5	t	50-cotton-50-elastan
-542	Form	66	7	2022-07-12 18:14:45.947837	2022-07-12 18:14:45.947837	6	t	form
-543	Women's	66	8	2022-07-12 18:14:46.004686	2022-07-12 18:14:46.004686	7	t	women-s
-544	ShirtsandBlouses_floralshirt_72.99	66	3	2022-07-12 18:14:46.063878	2022-07-12 18:14:46.063878	8	t	shirtsandblouses_floralshirt_72-99
-545	Women	75	9	2022-07-12 18:14:46.122782	2022-07-12 18:14:46.122782	1	t	women
-546	Women	75	10	2022-07-12 18:14:46.179094	2022-07-12 18:14:46.179094	2	t	women
-547	Conditioned	75	1	2022-07-12 18:14:46.22977	2022-07-12 18:14:46.22977	3	t	conditioned
-548	Gamma	75	2	2022-07-12 18:14:46.28596	2022-07-12 18:14:46.28596	4	t	gamma
-549	10% Cotton 90% Elastan	75	6	2022-07-12 18:14:46.338134	2022-07-12 18:14:46.338134	5	t	10-cotton-90-elastan
-550	Lose	75	7	2022-07-12 18:14:46.390908	2022-07-12 18:14:46.390908	6	t	lose
-551	Women's	75	8	2022-07-12 18:14:46.451694	2022-07-12 18:14:46.451694	7	t	women-s
-552	Sweaters_croppedfittedsweater_92.99	75	3	2022-07-12 18:14:46.517685	2022-07-12 18:14:46.517685	8	t	sweaters_croppedfittedsweater_92-99
-553	Women	72	9	2022-07-12 18:14:46.57501	2022-07-12 18:14:46.57501	1	t	women
-554	Women	72	10	2022-07-12 18:14:46.630852	2022-07-12 18:14:46.630852	2	t	women
-555	Conditioned	72	1	2022-07-12 18:14:46.683337	2022-07-12 18:14:46.683337	3	t	conditioned
-556	Gamma	72	2	2022-07-12 18:14:46.739087	2022-07-12 18:14:46.739087	4	t	gamma
-557	10% Cotton 90% Elastan	72	6	2022-07-12 18:14:46.794258	2022-07-12 18:14:46.794258	5	t	10-cotton-90-elastan
-558	Form	72	7	2022-07-12 18:14:46.848524	2022-07-12 18:14:46.848524	6	t	form
-559	Women's	72	8	2022-07-12 18:14:46.909507	2022-07-12 18:14:46.909507	7	t	women-s
-560	Sweaters_oversizedsweatshirt_86.99	72	3	2022-07-12 18:14:46.966176	2022-07-12 18:14:46.966176	8	t	sweaters_oversizedsweatshirt_86-99
-561	Women	71	9	2022-07-12 18:14:47.023071	2022-07-12 18:14:47.023071	1	t	women
-562	Women	71	10	2022-07-12 18:14:47.097367	2022-07-12 18:14:47.097367	2	t	women
-563	Wannabe	71	1	2022-07-12 18:14:47.183596	2022-07-12 18:14:47.183596	3	t	wannabe
-564	Zeta	71	2	2022-07-12 18:14:47.252723	2022-07-12 18:14:47.252723	4	t	zeta
-565	50% Cotton 50% Elastan	71	6	2022-07-12 18:14:47.329449	2022-07-12 18:14:47.329449	5	t	50-cotton-50-elastan
-566	Lose	71	7	2022-07-12 18:14:47.385385	2022-07-12 18:14:47.385385	6	t	lose
-567	Women's	71	8	2022-07-12 18:14:47.444373	2022-07-12 18:14:47.444373	7	t	women-s
-568	Sweaters_oversizedknittedsweater_24.99	71	3	2022-07-12 18:14:47.502429	2022-07-12 18:14:47.502429	8	t	sweaters_oversizedknittedsweater_24-99
-569	Women	91	9	2022-07-12 18:14:47.560313	2022-07-12 18:14:47.560313	1	t	women
-570	Women	91	10	2022-07-12 18:14:47.615477	2022-07-12 18:14:47.615477	2	t	women
-571	Wilson	91	1	2022-07-12 18:14:47.667776	2022-07-12 18:14:47.667776	3	t	wilson
-572	Zeta	91	2	2022-07-12 18:14:47.722242	2022-07-12 18:14:47.722242	4	t	zeta
-573	50% Cotton 50% Elastan	91	6	2022-07-12 18:14:47.77629	2022-07-12 18:14:47.77629	5	t	50-cotton-50-elastan
-574	Lose	91	7	2022-07-12 18:14:47.828433	2022-07-12 18:14:47.828433	6	t	lose
-575	Women's	91	8	2022-07-12 18:14:47.886573	2022-07-12 18:14:47.886573	7	t	women-s
-576	JacketsandCoats_loose-fittedjacket_43.99	91	3	2022-07-12 18:14:47.969496	2022-07-12 18:14:47.969496	8	t	jacketsandcoats_loose-fittedjacket_43-99
-577	Women	95	9	2022-07-12 18:14:48.027167	2022-07-12 18:14:48.027167	1	t	women
-578	Women	95	10	2022-07-12 18:14:48.077301	2022-07-12 18:14:48.077301	2	t	women
-579	Wilson	95	1	2022-07-12 18:14:48.126158	2022-07-12 18:14:48.126158	3	t	wilson
-580	Gamma	95	2	2022-07-12 18:14:48.17478	2022-07-12 18:14:48.17478	4	t	gamma
-581	10% Cotton 90% Elastan	95	6	2022-07-12 18:14:48.224924	2022-07-12 18:14:48.224924	5	t	10-cotton-90-elastan
-582	Lose	95	7	2022-07-12 18:14:48.276582	2022-07-12 18:14:48.276582	6	t	lose
-583	Women's	95	8	2022-07-12 18:14:48.327202	2022-07-12 18:14:48.327202	7	t	women-s
-584	JacketsandCoats_denimhoodedjacket_88.99	95	3	2022-07-12 18:14:48.382198	2022-07-12 18:14:48.382198	8	t	jacketsandcoats_denimhoodedjacket_88-99
-585	Sportswear	102	9	2022-07-12 18:14:48.439559	2022-07-12 18:14:48.439559	1	t	sportswear
-586	Sportswear	102	10	2022-07-12 18:14:48.497461	2022-07-12 18:14:48.497461	2	t	sportswear
-587	Wannabe	102	1	2022-07-12 18:14:48.5527	2022-07-12 18:14:48.5527	3	t	wannabe
-588	Theta	102	2	2022-07-12 18:14:48.608435	2022-07-12 18:14:48.608435	4	t	theta
-589	90% Cotton 10% Elastan	102	6	2022-07-12 18:14:48.661892	2022-07-12 18:14:48.661892	5	t	90-cotton-10-elastan
-590	Form	102	7	2022-07-12 18:14:48.73169	2022-07-12 18:14:48.73169	6	t	form
-591	Women's	102	8	2022-07-12 18:14:48.787606	2022-07-12 18:14:48.787606	7	t	women-s
-592	Tops_sportsbramediumsupport_29.99	102	3	2022-07-12 18:14:48.847465	2022-07-12 18:14:48.847465	8	t	tops_sportsbramediumsupport_29-99
-593	Women	87	9	2022-07-12 18:14:48.91092	2022-07-12 18:14:48.91092	1	t	women
-594	Women	87	10	2022-07-12 18:14:48.969496	2022-07-12 18:14:48.969496	2	t	women
-595	Wannabe	87	1	2022-07-12 18:14:49.023676	2022-07-12 18:14:49.023676	3	t	wannabe
-596	Theta	87	2	2022-07-12 18:14:49.077276	2022-07-12 18:14:49.077276	4	t	theta
-597	50% Cotton 50% Elastan	87	6	2022-07-12 18:14:49.13129	2022-07-12 18:14:49.13129	5	t	50-cotton-50-elastan
-598	Form	87	7	2022-07-12 18:14:49.185466	2022-07-12 18:14:49.185466	6	t	form
-599	Women's	87	8	2022-07-12 18:14:49.245203	2022-07-12 18:14:49.245203	7	t	women-s
-600	JacketsandCoats_asymmetriccoat_19.99	87	3	2022-07-12 18:14:49.305691	2022-07-12 18:14:49.305691	8	t	jacketsandcoats_asymmetriccoat_19-99
-601	Sportswear	106	9	2022-07-12 18:14:49.364407	2022-07-12 18:14:49.364407	1	t	sportswear
-602	Sportswear	106	10	2022-07-12 18:14:49.423077	2022-07-12 18:14:49.423077	2	t	sportswear
-603	Conditioned	106	1	2022-07-12 18:14:49.479508	2022-07-12 18:14:49.479508	3	t	conditioned
-604	Alpha	106	2	2022-07-12 18:14:49.534933	2022-07-12 18:14:49.534933	4	t	alpha
-605	90% Cotton 10% Elastan	106	6	2022-07-12 18:14:49.588438	2022-07-12 18:14:49.588438	5	t	90-cotton-10-elastan
-606	Lose	106	7	2022-07-12 18:14:49.642997	2022-07-12 18:14:49.642997	6	t	lose
-607	Women's	106	8	2022-07-12 18:14:49.700642	2022-07-12 18:14:49.700642	7	t	women-s
-608	Sweatshirts_lightweightrunningjacket_52.99	106	3	2022-07-12 18:14:49.756775	2022-07-12 18:14:49.756775	8	t	sweatshirts_lightweightrunningjacket_52-99
-609	Sportswear	101	9	2022-07-12 18:14:49.816576	2022-07-12 18:14:49.816576	1	t	sportswear
-610	Sportswear	101	10	2022-07-12 18:14:49.874447	2022-07-12 18:14:49.874447	2	t	sportswear
-611	Wannabe	101	1	2022-07-12 18:14:49.930472	2022-07-12 18:14:49.930472	3	t	wannabe
-612	Alpha	101	2	2022-07-12 18:14:49.98972	2022-07-12 18:14:49.98972	4	t	alpha
-613	50% Cotton 50% Elastan	101	6	2022-07-12 18:14:50.039643	2022-07-12 18:14:50.039643	5	t	50-cotton-50-elastan
-614	Form	101	7	2022-07-12 18:14:50.089494	2022-07-12 18:14:50.089494	6	t	form
-615	Women's	101	8	2022-07-12 18:14:50.146173	2022-07-12 18:14:50.146173	7	t	women-s
-616	Tops_lacedcroptop_11.99	101	3	2022-07-12 18:14:50.20168	2022-07-12 18:14:50.20168	8	t	tops_lacedcroptop_11-99
-617	Sportswear	104	9	2022-07-12 18:14:50.255083	2022-07-12 18:14:50.255083	1	t	sportswear
-618	Sportswear	104	10	2022-07-12 18:14:50.310779	2022-07-12 18:14:50.310779	2	t	sportswear
-619	Resiliance	104	1	2022-07-12 18:14:50.360488	2022-07-12 18:14:50.360488	3	t	resiliance
-620	Delta	104	2	2022-07-12 18:14:50.411171	2022-07-12 18:14:50.411171	4	t	delta
-621	10% Cotton 90% Elastan	104	6	2022-07-12 18:14:50.465516	2022-07-12 18:14:50.465516	5	t	10-cotton-90-elastan
-622	Form	104	7	2022-07-12 18:14:50.516047	2022-07-12 18:14:50.516047	6	t	form
-623	Women's	104	8	2022-07-12 18:14:50.568391	2022-07-12 18:14:50.568391	7	t	women-s
-624	Tops_sportcropptop_47.99	104	3	2022-07-12 18:14:50.621975	2022-07-12 18:14:50.621975	8	t	tops_sportcropptop_47-99
-625	Women	96	9	2022-07-12 18:14:50.676615	2022-07-12 18:14:50.676615	1	t	women
-626	Women	96	10	2022-07-12 18:14:50.729953	2022-07-12 18:14:50.729953	2	t	women
-627	Jerseys	96	1	2022-07-12 18:14:50.780111	2022-07-12 18:14:50.780111	3	t	jerseys
-628	Delta	96	2	2022-07-12 18:14:50.832945	2022-07-12 18:14:50.832945	4	t	delta
-629	50% Cotton 50% Elastan	96	6	2022-07-12 18:14:50.882034	2022-07-12 18:14:50.882034	5	t	50-cotton-50-elastan
-630	Lose	96	7	2022-07-12 18:14:50.935942	2022-07-12 18:14:50.935942	6	t	lose
-631	Women's	96	8	2022-07-12 18:14:50.986976	2022-07-12 18:14:50.986976	7	t	women-s
-632	JacketsandCoats_bomberjacket_30.99	96	3	2022-07-12 18:14:51.037553	2022-07-12 18:14:51.037553	8	t	jacketsandcoats_bomberjacket_30-99
-633	Women	93	9	2022-07-12 18:14:51.090701	2022-07-12 18:14:51.090701	1	t	women
-634	Women	93	10	2022-07-12 18:14:51.169311	2022-07-12 18:14:51.169311	2	t	women
-635	Jerseys	93	1	2022-07-12 18:14:51.257683	2022-07-12 18:14:51.257683	3	t	jerseys
-636	Beta	93	2	2022-07-12 18:14:51.320385	2022-07-12 18:14:51.320385	4	t	beta
-637	50% Cotton 50% Elastan	93	6	2022-07-12 18:14:51.383291	2022-07-12 18:14:51.383291	5	t	50-cotton-50-elastan
-638	Form	93	7	2022-07-12 18:14:51.446286	2022-07-12 18:14:51.446286	6	t	form
-639	Women's	93	8	2022-07-12 18:14:51.515786	2022-07-12 18:14:51.515786	7	t	women-s
-640	JacketsandCoats_leatherbikerjacket_26.99	93	3	2022-07-12 18:14:51.58288	2022-07-12 18:14:51.58288	8	t	jacketsandcoats_leatherbikerjacket_26-99
-641	Women	88	9	2022-07-12 18:14:51.64928	2022-07-12 18:14:51.64928	1	t	women
-642	Women	88	10	2022-07-12 18:14:51.723902	2022-07-12 18:14:51.723902	2	t	women
-643	Resiliance	88	1	2022-07-12 18:14:51.79089	2022-07-12 18:14:51.79089	3	t	resiliance
-644	Theta	88	2	2022-07-12 18:14:51.873175	2022-07-12 18:14:51.873175	4	t	theta
-645	90% Cotton 10% Elastan	88	6	2022-07-12 18:14:51.939619	2022-07-12 18:14:51.939619	5	t	90-cotton-10-elastan
-646	Lose	88	7	2022-07-12 18:14:51.992272	2022-07-12 18:14:51.992272	6	t	lose
-647	Women's	88	8	2022-07-12 18:14:52.04724	2022-07-12 18:14:52.04724	7	t	women-s
-648	JacketsandCoats_longcoatwithbelt_47.99	88	3	2022-07-12 18:14:52.10207	2022-07-12 18:14:52.10207	8	t	jacketsandcoats_longcoatwithbelt_47-99
-649	Women	92	9	2022-07-12 18:14:52.158582	2022-07-12 18:14:52.158582	1	t	women
-650	Women	92	10	2022-07-12 18:14:52.222203	2022-07-12 18:14:52.222203	2	t	women
-651	Wilson	92	1	2022-07-12 18:14:52.281558	2022-07-12 18:14:52.281558	3	t	wilson
-652	Alpha	92	2	2022-07-12 18:14:52.341188	2022-07-12 18:14:52.341188	4	t	alpha
-653	50% Cotton 50% Elastan	92	6	2022-07-12 18:14:52.400767	2022-07-12 18:14:52.400767	5	t	50-cotton-50-elastan
-654	Form	92	7	2022-07-12 18:14:52.458092	2022-07-12 18:14:52.458092	6	t	form
-655	Women's	92	8	2022-07-12 18:14:52.524496	2022-07-12 18:14:52.524496	7	t	women-s
-656	JacketsandCoats_double-breastedjacket_50.99	92	3	2022-07-12 18:14:52.58619	2022-07-12 18:14:52.58619	8	t	jacketsandcoats_double-breastedjacket_50-99
-657	Sportswear	98	9	2022-07-12 18:14:52.6459	2022-07-12 18:14:52.6459	1	t	sportswear
-658	Sportswear	98	10	2022-07-12 18:14:52.701561	2022-07-12 18:14:52.701561	2	t	sportswear
-659	Resiliance	98	1	2022-07-12 18:14:52.7526	2022-07-12 18:14:52.7526	3	t	resiliance
-660	Delta	98	2	2022-07-12 18:14:52.80751	2022-07-12 18:14:52.80751	4	t	delta
-661	10% Cotton 90% Elastan	98	6	2022-07-12 18:14:52.860329	2022-07-12 18:14:52.860329	5	t	10-cotton-90-elastan
-662	Lose	98	7	2022-07-12 18:14:52.915398	2022-07-12 18:14:52.915398	6	t	lose
-663	Women's	98	8	2022-07-12 18:14:52.97353	2022-07-12 18:14:52.97353	7	t	women-s
-664	Tops_longsleevesyogacroptop_37.99	98	3	2022-07-12 18:14:53.032634	2022-07-12 18:14:53.032634	8	t	tops_longsleevesyogacroptop_37-99
-665	Sportswear	99	9	2022-07-12 18:14:53.095288	2022-07-12 18:14:53.095288	1	t	sportswear
-666	Sportswear	99	10	2022-07-12 18:14:53.153411	2022-07-12 18:14:53.153411	2	t	sportswear
-667	Wilson	99	1	2022-07-12 18:14:53.210513	2022-07-12 18:14:53.210513	3	t	wilson
-668	Alpha	99	2	2022-07-12 18:14:53.266563	2022-07-12 18:14:53.266563	4	t	alpha
-669	10% Cotton 90% Elastan	99	6	2022-07-12 18:14:53.321211	2022-07-12 18:14:53.321211	5	t	10-cotton-90-elastan
-670	Lose	99	7	2022-07-12 18:14:53.37782	2022-07-12 18:14:53.37782	6	t	lose
-671	Women's	99	8	2022-07-12 18:14:53.435022	2022-07-12 18:14:53.435022	7	t	women-s
-672	Tops_oversizet-shirtwrappedonback_76.99	99	3	2022-07-12 18:14:53.498087	2022-07-12 18:14:53.498087	8	t	tops_oversizet-shirtwrappedonback_76-99
-673	Sportswear	103	9	2022-07-12 18:14:53.56349	2022-07-12 18:14:53.56349	1	t	sportswear
-674	Sportswear	103	10	2022-07-12 18:14:53.624425	2022-07-12 18:14:53.624425	2	t	sportswear
-675	Wilson	103	1	2022-07-12 18:14:53.706132	2022-07-12 18:14:53.706132	3	t	wilson
-676	Epsilon	103	2	2022-07-12 18:14:53.762616	2022-07-12 18:14:53.762616	4	t	epsilon
-677	10% Cotton 90% Elastan	103	6	2022-07-12 18:14:53.815412	2022-07-12 18:14:53.815412	5	t	10-cotton-90-elastan
-678	Form	103	7	2022-07-12 18:14:53.870631	2022-07-12 18:14:53.870631	6	t	form
-679	Women's	103	8	2022-07-12 18:14:53.925163	2022-07-12 18:14:53.925163	7	t	women-s
-680	Tops_sportsbra_79.99	103	3	2022-07-12 18:14:54.064684	2022-07-12 18:14:54.064684	8	t	tops_sportsbra_79-99
-681	Women	94	9	2022-07-12 18:14:54.118073	2022-07-12 18:14:54.118073	1	t	women
-682	Women	94	10	2022-07-12 18:14:54.173696	2022-07-12 18:14:54.173696	2	t	women
-683	Wilson	94	1	2022-07-12 18:14:54.226424	2022-07-12 18:14:54.226424	3	t	wilson
-684	Gamma	94	2	2022-07-12 18:14:54.281016	2022-07-12 18:14:54.281016	4	t	gamma
-685	90% Cotton 10% Elastan	94	6	2022-07-12 18:14:54.338038	2022-07-12 18:14:54.338038	5	t	90-cotton-10-elastan
-686	Form	94	7	2022-07-12 18:14:54.394754	2022-07-12 18:14:54.394754	6	t	form
-687	Women's	94	8	2022-07-12 18:14:54.480149	2022-07-12 18:14:54.480149	7	t	women-s
-688	JacketsandCoats_wool-blendcoatwithbelt_13.99	94	3	2022-07-12 18:14:54.536229	2022-07-12 18:14:54.536229	8	t	jacketsandcoats_wool-blendcoatwithbelt_13-99
-689	Sportswear	100	9	2022-07-12 18:14:54.592391	2022-07-12 18:14:54.592391	1	t	sportswear
-690	Sportswear	100	10	2022-07-12 18:14:54.649247	2022-07-12 18:14:54.649247	2	t	sportswear
-691	Jerseys	100	1	2022-07-12 18:14:54.709101	2022-07-12 18:14:54.709101	3	t	jerseys
-692	Alpha	100	2	2022-07-12 18:14:54.764245	2022-07-12 18:14:54.764245	4	t	alpha
-693	90% Cotton 10% Elastan	100	6	2022-07-12 18:14:54.821446	2022-07-12 18:14:54.821446	5	t	90-cotton-10-elastan
-694	Form	100	7	2022-07-12 18:14:54.889118	2022-07-12 18:14:54.889118	6	t	form
-695	Women's	100	8	2022-07-12 18:14:54.960772	2022-07-12 18:14:54.960772	7	t	women-s
-696	Tops_longsleevescroptop_34.99	100	3	2022-07-12 18:14:55.037571	2022-07-12 18:14:55.037571	8	t	tops_longsleevescroptop_34-99
-697	Sportswear	116	9	2022-07-12 18:14:55.102392	2022-07-12 18:14:55.102392	1	t	sportswear
-698	Sportswear	116	10	2022-07-12 18:14:55.157189	2022-07-12 18:14:55.157189	2	t	sportswear
-699	Jerseys	116	1	2022-07-12 18:14:55.210603	2022-07-12 18:14:55.210603	3	t	jerseys
-700	Zeta	116	2	2022-07-12 18:14:55.262947	2022-07-12 18:14:55.262947	4	t	zeta
-701	90% Cotton 10% Elastan	116	6	2022-07-12 18:14:55.314846	2022-07-12 18:14:55.314846	5	t	90-cotton-10-elastan
-702	Form	116	7	2022-07-12 18:14:55.367254	2022-07-12 18:14:55.367254	6	t	form
-703	Women's	116	8	2022-07-12 18:14:55.423144	2022-07-12 18:14:55.423144	7	t	women-s
-704	Pants_highwaistpants_20.99	116	3	2022-07-12 18:14:55.47818	2022-07-12 18:14:55.47818	8	t	pants_highwaistpants_20-99
-705	Sportswear	111	9	2022-07-12 18:14:55.53167	2022-07-12 18:14:55.53167	1	t	sportswear
-706	Sportswear	111	10	2022-07-12 18:14:55.589364	2022-07-12 18:14:55.589364	2	t	sportswear
-707	Wilson	111	1	2022-07-12 18:14:55.649232	2022-07-12 18:14:55.649232	3	t	wilson
-708	Alpha	111	2	2022-07-12 18:14:55.713281	2022-07-12 18:14:55.713281	4	t	alpha
-709	10% Cotton 90% Elastan	111	6	2022-07-12 18:14:55.774632	2022-07-12 18:14:55.774632	5	t	10-cotton-90-elastan
-710	Lose	111	7	2022-07-12 18:14:55.83468	2022-07-12 18:14:55.83468	6	t	lose
-711	Women's	111	8	2022-07-12 18:14:55.895585	2022-07-12 18:14:55.895585	7	t	women-s
-712	Pants_shortpants_14.99	111	3	2022-07-12 18:14:55.954206	2022-07-12 18:14:55.954206	8	t	pants_shortpants_14-99
-713	Sportswear	109	9	2022-07-12 18:14:56.01138	2022-07-12 18:14:56.01138	1	t	sportswear
-714	Sportswear	109	10	2022-07-12 18:14:56.061271	2022-07-12 18:14:56.061271	2	t	sportswear
-715	Jerseys	109	1	2022-07-12 18:14:56.106932	2022-07-12 18:14:56.106932	3	t	jerseys
-716	Theta	109	2	2022-07-12 18:14:56.154284	2022-07-12 18:14:56.154284	4	t	theta
-717	50% Cotton 50% Elastan	109	6	2022-07-12 18:14:56.205107	2022-07-12 18:14:56.205107	5	t	50-cotton-50-elastan
-718	Lose	109	7	2022-07-12 18:14:56.257026	2022-07-12 18:14:56.257026	6	t	lose
-719	Women's	109	8	2022-07-12 18:14:56.307405	2022-07-12 18:14:56.307405	7	t	women-s
-720	Sweatshirts_sportwaistcoat_71.99	109	3	2022-07-12 18:14:56.357438	2022-07-12 18:14:56.357438	8	t	sweatshirts_sportwaistcoat_71-99
-721	Sportswear	108	9	2022-07-12 18:14:56.44093	2022-07-12 18:14:56.44093	1	t	sportswear
-722	Sportswear	108	10	2022-07-12 18:14:56.498845	2022-07-12 18:14:56.498845	2	t	sportswear
-723	Resiliance	108	1	2022-07-12 18:14:56.551602	2022-07-12 18:14:56.551602	3	t	resiliance
-724	Delta	108	2	2022-07-12 18:14:56.60424	2022-07-12 18:14:56.60424	4	t	delta
-725	50% Cotton 50% Elastan	108	6	2022-07-12 18:14:56.659144	2022-07-12 18:14:56.659144	5	t	50-cotton-50-elastan
-726	Lose	108	7	2022-07-12 18:14:56.71228	2022-07-12 18:14:56.71228	6	t	lose
-727	Women's	108	8	2022-07-12 18:14:56.769308	2022-07-12 18:14:56.769308	7	t	women-s
-728	Sweatshirts_sportwindproofjacket_54.99	108	3	2022-07-12 18:14:56.828615	2022-07-12 18:14:56.828615	8	t	sweatshirts_sportwindproofjacket_54-99
-729	Sportswear	112	9	2022-07-12 18:14:56.918359	2022-07-12 18:14:56.918359	1	t	sportswear
-730	Sportswear	112	10	2022-07-12 18:14:57.051418	2022-07-12 18:14:57.051418	2	t	sportswear
-731	Wannabe	112	1	2022-07-12 18:14:57.157398	2022-07-12 18:14:57.157398	3	t	wannabe
-732	Theta	112	2	2022-07-12 18:14:57.240315	2022-07-12 18:14:57.240315	4	t	theta
-733	90% Cotton 10% Elastan	112	6	2022-07-12 18:14:57.312234	2022-07-12 18:14:57.312234	5	t	90-cotton-10-elastan
-734	Lose	112	7	2022-07-12 18:14:57.377648	2022-07-12 18:14:57.377648	6	t	lose
-735	Women's	112	8	2022-07-12 18:14:57.446637	2022-07-12 18:14:57.446637	7	t	women-s
-736	Pants_printedpantswithholes_45.99	112	3	2022-07-12 18:14:57.514693	2022-07-12 18:14:57.514693	8	t	pants_printedpantswithholes_45-99
-737	Women	38	9	2022-07-12 18:14:57.580666	2022-07-12 18:14:57.580666	1	t	women
-738	Women	38	10	2022-07-12 18:14:57.636616	2022-07-12 18:14:57.636616	2	t	women
-739	Wilson	38	1	2022-07-12 18:14:57.693687	2022-07-12 18:14:57.693687	3	t	wilson
-740	Gamma	38	2	2022-07-12 18:14:57.749847	2022-07-12 18:14:57.749847	4	t	gamma
-741	50% Cotton 50% Elastan	38	6	2022-07-12 18:14:57.813288	2022-07-12 18:14:57.813288	5	t	50-cotton-50-elastan
-742	Form	38	7	2022-07-12 18:14:57.866758	2022-07-12 18:14:57.866758	6	t	form
-743	Women's	38	8	2022-07-12 18:14:57.928616	2022-07-12 18:14:57.928616	7	t	women-s
-744	Skirts_fittedskirt_62.99	38	3	2022-07-12 18:14:57.994352	2022-07-12 18:14:57.994352	8	t	skirts_fittedskirt_62-99
-745	Sportswear	115	9	2022-07-12 18:14:58.060558	2022-07-12 18:14:58.060558	1	t	sportswear
-746	Sportswear	115	10	2022-07-12 18:14:58.127035	2022-07-12 18:14:58.127035	2	t	sportswear
-747	Conditioned	115	1	2022-07-12 18:14:58.189363	2022-07-12 18:14:58.189363	3	t	conditioned
-748	Zeta	115	2	2022-07-12 18:14:58.248893	2022-07-12 18:14:58.248893	4	t	zeta
-749	50% Cotton 50% Elastan	115	6	2022-07-12 18:14:58.304855	2022-07-12 18:14:58.304855	5	t	50-cotton-50-elastan
-750	Form	115	7	2022-07-12 18:14:58.359942	2022-07-12 18:14:58.359942	6	t	form
-751	Women's	115	8	2022-07-12 18:14:58.418137	2022-07-12 18:14:58.418137	7	t	women-s
-752	Pants_highwaistpantswithpockets_92.99	115	3	2022-07-12 18:14:58.476584	2022-07-12 18:14:58.476584	8	t	pants_highwaistpantswithpockets_92-99
-753	Sportswear	114	9	2022-07-12 18:14:58.533	2022-07-12 18:14:58.533	1	t	sportswear
-754	Sportswear	114	10	2022-07-12 18:14:58.587381	2022-07-12 18:14:58.587381	2	t	sportswear
-755	Conditioned	114	1	2022-07-12 18:14:58.640382	2022-07-12 18:14:58.640382	3	t	conditioned
-756	Beta	114	2	2022-07-12 18:14:58.690202	2022-07-12 18:14:58.690202	4	t	beta
-757	50% Cotton 50% Elastan	114	6	2022-07-12 18:14:58.741353	2022-07-12 18:14:58.741353	5	t	50-cotton-50-elastan
-758	Lose	114	7	2022-07-12 18:14:58.796707	2022-07-12 18:14:58.796707	6	t	lose
-759	Women's	114	8	2022-07-12 18:14:58.852464	2022-07-12 18:14:58.852464	7	t	women-s
-760	Pants_printedpants_45.99	114	3	2022-07-12 18:14:58.907972	2022-07-12 18:14:58.907972	8	t	pants_printedpants_45-99
-761	Men	15	9	2022-07-12 18:14:58.966144	2022-07-12 18:14:58.966144	9	t	men
-762	Men	15	10	2022-07-12 18:14:59.02706	2022-07-12 18:14:59.02706	10	t	men
-763	Sportswear	113	9	2022-07-12 18:14:59.359141	2022-07-12 18:14:59.359141	1	t	sportswear
-764	Sportswear	113	10	2022-07-12 18:14:59.415969	2022-07-12 18:14:59.415969	2	t	sportswear
-765	Wannabe	113	1	2022-07-12 18:14:59.489328	2022-07-12 18:14:59.489328	3	t	wannabe
-766	Zeta	113	2	2022-07-12 18:14:59.56667	2022-07-12 18:14:59.56667	4	t	zeta
-767	10% Cotton 90% Elastan	113	6	2022-07-12 18:14:59.619405	2022-07-12 18:14:59.619405	5	t	10-cotton-90-elastan
-768	Form	113	7	2022-07-12 18:14:59.669315	2022-07-12 18:14:59.669315	6	t	form
-769	Women's	113	8	2022-07-12 18:14:59.724911	2022-07-12 18:14:59.724911	7	t	women-s
-770	Pants_pants_50.99	113	3	2022-07-12 18:14:59.779372	2022-07-12 18:14:59.779372	8	t	pants_pants_50-99
-771	Sportswear	110	9	2022-07-12 18:14:59.841585	2022-07-12 18:14:59.841585	1	t	sportswear
-772	Sportswear	110	10	2022-07-12 18:14:59.912283	2022-07-12 18:14:59.912283	2	t	sportswear
-773	Wannabe	110	1	2022-07-12 18:14:59.985108	2022-07-12 18:14:59.985108	3	t	wannabe
-774	Delta	110	2	2022-07-12 18:15:00.062585	2022-07-12 18:15:00.062585	4	t	delta
-775	50% Cotton 50% Elastan	110	6	2022-07-12 18:15:00.131787	2022-07-12 18:15:00.131787	5	t	50-cotton-50-elastan
-776	Lose	110	7	2022-07-12 18:15:00.225527	2022-07-12 18:15:00.225527	6	t	lose
-777	Women's	110	8	2022-07-12 18:15:00.291477	2022-07-12 18:15:00.291477	7	t	women-s
-778	Pants_shinedpants_73.99	110	3	2022-07-12 18:15:00.354903	2022-07-12 18:15:00.354903	8	t	pants_shinedpants_73-99
-779	Sportswear	107	9	2022-07-12 18:15:00.417454	2022-07-12 18:15:00.417454	1	t	sportswear
-780	Sportswear	107	10	2022-07-12 18:15:00.471098	2022-07-12 18:15:00.471098	2	t	sportswear
-781	Wannabe	107	1	2022-07-12 18:15:00.522203	2022-07-12 18:15:00.522203	3	t	wannabe
-782	Epsilon	107	2	2022-07-12 18:15:00.574715	2022-07-12 18:15:00.574715	4	t	epsilon
-783	10% Cotton 90% Elastan	107	6	2022-07-12 18:15:00.632343	2022-07-12 18:15:00.632343	5	t	10-cotton-90-elastan
-784	Form	107	7	2022-07-12 18:15:00.687278	2022-07-12 18:15:00.687278	6	t	form
-785	Women's	107	8	2022-07-12 18:15:00.743788	2022-07-12 18:15:00.743788	7	t	women-s
-786	Sweatshirts_oversizesweatshirt_67.99	107	3	2022-07-12 18:15:00.801703	2022-07-12 18:15:00.801703	8	t	sweatshirts_oversizesweatshirt_67-99
-787	Men	18	9	2022-07-12 18:15:00.861116	2022-07-12 18:15:00.861116	9	t	men
-788	Men	18	10	2022-07-12 18:15:00.931077	2022-07-12 18:15:00.931077	10	t	men
-789	Men	7	9	2022-07-12 18:15:01.28126	2022-07-12 18:15:01.28126	1	t	men
-790	Men	7	10	2022-07-12 18:15:01.334181	2022-07-12 18:15:01.334181	2	t	men
-791	Conditioned	7	1	2022-07-12 18:15:01.386463	2022-07-12 18:15:01.386463	3	t	conditioned
-792	Alpha	7	2	2022-07-12 18:15:01.438933	2022-07-12 18:15:01.438933	4	t	alpha
-793	90% Cotton 10% Elastan	7	6	2022-07-12 18:15:01.488656	2022-07-12 18:15:01.488656	5	t	90-cotton-10-elastan
-794	Lose	7	7	2022-07-12 18:15:01.542661	2022-07-12 18:15:01.542661	6	t	lose
-795	Men's	7	8	2022-07-12 18:15:01.60001	2022-07-12 18:15:01.60001	7	t	men-s
-796	Shirts_regularshirt_94.99	7	3	2022-07-12 18:15:01.658861	2022-07-12 18:15:01.658861	8	t	shirts_regularshirt_94-99
-797	Women	86	9	2022-07-12 18:15:01.717123	2022-07-12 18:15:01.717123	1	t	women
-798	Women	86	10	2022-07-12 18:15:01.775314	2022-07-12 18:15:01.775314	2	t	women
-799	Jerseys	86	1	2022-07-12 18:15:01.83327	2022-07-12 18:15:01.83327	3	t	jerseys
-800	Alpha	86	2	2022-07-12 18:15:01.906188	2022-07-12 18:15:01.906188	4	t	alpha
-801	10% Cotton 90% Elastan	86	6	2022-07-12 18:15:01.96251	2022-07-12 18:15:01.96251	5	t	10-cotton-90-elastan
-802	Lose	86	7	2022-07-12 18:15:02.017665	2022-07-12 18:15:02.017665	6	t	lose
-803	Women's	86	8	2022-07-12 18:15:02.072758	2022-07-12 18:15:02.072758	7	t	women-s
-804	JacketsandCoats_longwool-blendcoatwithbelt_43.99	86	3	2022-07-12 18:15:02.128582	2022-07-12 18:15:02.128582	8	t	jacketsandcoats_longwool-blendcoatwithbelt_43-99
-805	Sportswear	105	9	2022-07-12 18:15:02.18435	2022-07-12 18:15:02.18435	1	t	sportswear
-806	Sportswear	105	10	2022-07-12 18:15:02.24092	2022-07-12 18:15:02.24092	2	t	sportswear
-807	Resiliance	105	1	2022-07-12 18:15:02.293491	2022-07-12 18:15:02.293491	3	t	resiliance
-808	Beta	105	2	2022-07-12 18:15:02.347376	2022-07-12 18:15:02.347376	4	t	beta
-809	10% Cotton 90% Elastan	105	6	2022-07-12 18:15:02.406041	2022-07-12 18:15:02.406041	5	t	10-cotton-90-elastan
-810	Form	105	7	2022-07-12 18:15:02.465208	2022-07-12 18:15:02.465208	6	t	form
-811	Women's	105	8	2022-07-12 18:15:02.529164	2022-07-12 18:15:02.529164	7	t	women-s
-812	Sweatshirts_runningsweatshirt_17.99	105	3	2022-07-12 18:15:02.591327	2022-07-12 18:15:02.591327	8	t	sweatshirts_runningsweatshirt_17-99
-813	Women	79	9	2022-07-12 18:15:02.64743	2022-07-12 18:15:02.64743	9	t	women
-814	Women	79	10	2022-07-12 18:15:02.704576	2022-07-12 18:15:02.704576	10	t	women
-91	TopsandT-shirts_pleatedsleevet-shirt_83.99	79	3	2022-07-12 18:14:15.832201	2022-07-12 18:15:02.93374	3	t	topsandt-shirts_pleatedsleevet-shirt_83-99
-815	Women	89	9	2022-07-12 18:15:02.987193	2022-07-12 18:15:02.987193	1	t	women
-816	Women	89	10	2022-07-12 18:15:03.043979	2022-07-12 18:15:03.043979	2	t	women
-817	Wannabe	89	1	2022-07-12 18:15:03.099073	2022-07-12 18:15:03.099073	3	t	wannabe
-818	Alpha	89	2	2022-07-12 18:15:03.155439	2022-07-12 18:15:03.155439	4	t	alpha
-819	90% Cotton 10% Elastan	89	6	2022-07-12 18:15:03.211528	2022-07-12 18:15:03.211528	5	t	90-cotton-10-elastan
-820	Lose	89	7	2022-07-12 18:15:03.266824	2022-07-12 18:15:03.266824	6	t	lose
-821	Women's	89	8	2022-07-12 18:15:03.352964	2022-07-12 18:15:03.352964	7	t	women-s
-822	JacketsandCoats_downjacket_59.99	89	3	2022-07-12 18:15:03.408085	2022-07-12 18:15:03.408085	8	t	jacketsandcoats_downjacket_59-99
-823	Women	69	9	2022-07-12 18:15:03.459999	2022-07-12 18:15:03.459999	1	t	women
-824	Women	69	10	2022-07-12 18:15:03.513931	2022-07-12 18:15:03.513931	2	t	women
-825	Resiliance	69	1	2022-07-12 18:15:03.565514	2022-07-12 18:15:03.565514	3	t	resiliance
-826	Gamma	69	2	2022-07-12 18:15:03.618632	2022-07-12 18:15:03.618632	4	t	gamma
-827	50% Cotton 50% Elastan	69	6	2022-07-12 18:15:03.668593	2022-07-12 18:15:03.668593	5	t	50-cotton-50-elastan
-828	Lose	69	7	2022-07-12 18:15:03.717809	2022-07-12 18:15:03.717809	6	t	lose
-829	Women's	69	8	2022-07-12 18:15:03.771474	2022-07-12 18:15:03.771474	7	t	women-s
-830	ShirtsandBlouses_printedshirt_46.99	69	3	2022-07-12 18:15:03.824216	2022-07-12 18:15:03.824216	8	t	shirtsandblouses_printedshirt_46-99
-831	Men	17	9	2022-07-12 18:15:03.878149	2022-07-12 18:15:03.878149	9	t	men
-832	Men	17	10	2022-07-12 18:15:03.931658	2022-07-12 18:15:03.931658	10	t	men
-41	Wannabe	17	1	2022-07-12 18:14:13.340865	2022-07-12 18:15:03.982017	1	t	wannabe
-833	Men	27	9	2022-07-12 18:15:04.269614	2022-07-12 18:15:04.269614	1	t	men
-834	Men	27	10	2022-07-12 18:15:04.328549	2022-07-12 18:15:04.328549	2	t	men
-835	Conditioned	27	1	2022-07-12 18:15:04.382408	2022-07-12 18:15:04.382408	3	t	conditioned
-836	Beta	27	2	2022-07-12 18:15:04.436218	2022-07-12 18:15:04.436218	4	t	beta
-837	10% Cotton 90% Elastan	27	6	2022-07-12 18:15:04.490025	2022-07-12 18:15:04.490025	5	t	10-cotton-90-elastan
-838	Lose	27	7	2022-07-12 18:15:04.54312	2022-07-12 18:15:04.54312	6	t	lose
-839	Men's	27	8	2022-07-12 18:15:04.600442	2022-07-12 18:15:04.600442	7	t	men-s
-840	Sweaters_longsleevejumper_64.99	27	3	2022-07-12 18:15:04.657347	2022-07-12 18:15:04.657347	8	t	sweaters_longsleevejumper_64-99
-841	Women	54	9	2022-07-12 18:15:04.717353	2022-07-12 18:15:04.717353	1	t	women
-842	Women	54	10	2022-07-12 18:15:04.774719	2022-07-12 18:15:04.774719	2	t	women
-843	Wilson	54	1	2022-07-12 18:15:04.834557	2022-07-12 18:15:04.834557	3	t	wilson
-844	Alpha	54	2	2022-07-12 18:15:04.886604	2022-07-12 18:15:04.886604	4	t	alpha
-845	10% Cotton 90% Elastan	54	6	2022-07-12 18:15:04.941464	2022-07-12 18:15:04.941464	5	t	10-cotton-90-elastan
-846	Form	54	7	2022-07-12 18:15:04.997063	2022-07-12 18:15:04.997063	6	t	form
-847	Women's	54	8	2022-07-12 18:15:05.053353	2022-07-12 18:15:05.053353	7	t	women-s
-848	Dresses_dresswithbelt_36.99	54	3	2022-07-12 18:15:05.111652	2022-07-12 18:15:05.111652	8	t	dresses_dresswithbelt_36-99
-849	Women	70	9	2022-07-12 18:15:05.168241	2022-07-12 18:15:05.168241	1	t	women
-850	Women	70	10	2022-07-12 18:15:05.230082	2022-07-12 18:15:05.230082	2	t	women
-851	Wannabe	70	1	2022-07-12 18:15:05.286926	2022-07-12 18:15:05.286926	3	t	wannabe
-852	Epsilon	70	2	2022-07-12 18:15:05.344511	2022-07-12 18:15:05.344511	4	t	epsilon
-853	10% Cotton 90% Elastan	70	6	2022-07-12 18:15:05.406874	2022-07-12 18:15:05.406874	5	t	10-cotton-90-elastan
-854	Lose	70	7	2022-07-12 18:15:05.466551	2022-07-12 18:15:05.466551	6	t	lose
-855	Women's	70	8	2022-07-12 18:15:05.534793	2022-07-12 18:15:05.534793	7	t	women-s
-856	Sweaters_asymmetricsweaterwithwidesleeves_34.99	70	3	2022-07-12 18:15:05.598625	2022-07-12 18:15:05.598625	8	t	sweaters_asymmetricsweaterwithwidesleeves_34-99
-857	Women	65	9	2022-07-12 18:15:05.664127	2022-07-12 18:15:05.664127	1	t	women
-858	Women	65	10	2022-07-12 18:15:05.724132	2022-07-12 18:15:05.724132	2	t	women
-859	Wannabe	65	1	2022-07-12 18:15:05.782726	2022-07-12 18:15:05.782726	3	t	wannabe
-860	Zeta	65	2	2022-07-12 18:15:05.839787	2022-07-12 18:15:05.839787	4	t	zeta
-861	50% Cotton 50% Elastan	65	6	2022-07-12 18:15:05.921024	2022-07-12 18:15:05.921024	5	t	50-cotton-50-elastan
-862	Lose	65	7	2022-07-12 18:15:05.976685	2022-07-12 18:15:05.976685	6	t	lose
-863	Women's	65	8	2022-07-12 18:15:06.035149	2022-07-12 18:15:06.035149	7	t	women-s
-864	ShirtsandBlouses_elegantblousewithchocker_19.99	65	3	2022-07-12 18:15:06.093098	2022-07-12 18:15:06.093098	8	t	shirtsandblouses_elegantblousewithchocker_19-99
-865	Sportswear	97	9	2022-07-12 18:15:06.151404	2022-07-12 18:15:06.151404	1	t	sportswear
-866	Sportswear	97	10	2022-07-12 18:15:06.213916	2022-07-12 18:15:06.213916	2	t	sportswear
-867	Jerseys	97	1	2022-07-12 18:15:06.274859	2022-07-12 18:15:06.274859	3	t	jerseys
-868	Delta	97	2	2022-07-12 18:15:06.334753	2022-07-12 18:15:06.334753	4	t	delta
-869	90% Cotton 10% Elastan	97	6	2022-07-12 18:15:06.397755	2022-07-12 18:15:06.397755	5	t	90-cotton-10-elastan
-870	Form	97	7	2022-07-12 18:15:06.460583	2022-07-12 18:15:06.460583	6	t	form
-871	Women's	97	8	2022-07-12 18:15:06.535158	2022-07-12 18:15:06.535158	7	t	women-s
-872	Tops_sportsbralowsupport_41.99	97	3	2022-07-12 18:15:06.599944	2022-07-12 18:15:06.599944	8	t	tops_sportsbralowsupport_41-99
-873	Men	30	9	2022-07-12 18:15:06.660424	2022-07-12 18:15:06.660424	1	t	men
-874	Men	30	10	2022-07-12 18:15:06.712951	2022-07-12 18:15:06.712951	2	t	men
-875	Conditioned	30	1	2022-07-12 18:15:06.764968	2022-07-12 18:15:06.764968	3	t	conditioned
-876	Theta	30	2	2022-07-12 18:15:06.815411	2022-07-12 18:15:06.815411	4	t	theta
-877	10% Cotton 90% Elastan	30	6	2022-07-12 18:15:06.897563	2022-07-12 18:15:06.897563	5	t	10-cotton-90-elastan
-878	Form	30	7	2022-07-12 18:15:06.9822	2022-07-12 18:15:06.9822	6	t	form
-879	Men's	30	8	2022-07-12 18:15:07.064426	2022-07-12 18:15:07.064426	7	t	men-s
-880	JacketsandCoats_anorakwithhood_44.99	30	3	2022-07-12 18:15:07.133964	2022-07-12 18:15:07.133964	8	t	jacketsandcoats_anorakwithhood_44-99
-881	Women	48	9	2022-07-12 18:15:07.194188	2022-07-12 18:15:07.194188	1	t	women
-882	Women	48	10	2022-07-12 18:15:07.255898	2022-07-12 18:15:07.255898	2	t	women
-883	Wilson	48	1	2022-07-12 18:15:07.315402	2022-07-12 18:15:07.315402	3	t	wilson
-884	Beta	48	2	2022-07-12 18:15:07.370616	2022-07-12 18:15:07.370616	4	t	beta
-885	90% Cotton 10% Elastan	48	6	2022-07-12 18:15:07.428677	2022-07-12 18:15:07.428677	5	t	90-cotton-10-elastan
-886	Lose	48	7	2022-07-12 18:15:07.485068	2022-07-12 18:15:07.485068	6	t	lose
-887	Women's	48	8	2022-07-12 18:15:07.542411	2022-07-12 18:15:07.542411	7	t	women-s
-888	Dresses_flareddress_81.99	48	3	2022-07-12 18:15:07.600432	2022-07-12 18:15:07.600432	8	t	dresses_flareddress_81-99
-889	Men	11	9	2022-07-12 18:15:07.65831	2022-07-12 18:15:07.65831	1	t	men
-890	Men	11	10	2022-07-12 18:15:07.716717	2022-07-12 18:15:07.716717	2	t	men
-891	Jerseys	11	1	2022-07-12 18:15:07.773978	2022-07-12 18:15:07.773978	3	t	jerseys
-892	Alpha	11	2	2022-07-12 18:15:07.831254	2022-07-12 18:15:07.831254	4	t	alpha
-893	90% Cotton 10% Elastan	11	6	2022-07-12 18:15:07.888118	2022-07-12 18:15:07.888118	5	t	90-cotton-10-elastan
-894	Lose	11	7	2022-07-12 18:15:07.945052	2022-07-12 18:15:07.945052	6	t	lose
-895	Men's	11	8	2022-07-12 18:15:08.002794	2022-07-12 18:15:08.002794	7	t	men-s
-896	Shirts_regularshirtwithrolledupsleeves_98.99	11	3	2022-07-12 18:15:08.060264	2022-07-12 18:15:08.060264	8	t	shirts_regularshirtwithrolledupsleeves_98-99
-897	Women	74	9	2022-07-12 18:15:08.121534	2022-07-12 18:15:08.121534	1	t	women
-898	Women	74	10	2022-07-12 18:15:08.184279	2022-07-12 18:15:08.184279	2	t	women
-899	Wilson	74	1	2022-07-12 18:15:08.244798	2022-07-12 18:15:08.244798	3	t	wilson
-900	Theta	74	2	2022-07-12 18:15:08.300802	2022-07-12 18:15:08.300802	4	t	theta
-901	10% Cotton 90% Elastan	74	6	2022-07-12 18:15:08.354863	2022-07-12 18:15:08.354863	5	t	10-cotton-90-elastan
-902	Lose	74	7	2022-07-12 18:15:08.408293	2022-07-12 18:15:08.408293	6	t	lose
-903	Women's	74	8	2022-07-12 18:15:08.464895	2022-07-12 18:15:08.464895	7	t	women-s
-904	Sweaters_knittedv-necksweater_17.99	74	3	2022-07-12 18:15:08.522218	2022-07-12 18:15:08.522218	8	t	sweaters_knittedv-necksweater_17-99
-905	Women	90	9	2022-07-12 18:15:08.589137	2022-07-12 18:15:08.589137	1	t	women
-906	Women	90	10	2022-07-12 18:15:08.648384	2022-07-12 18:15:08.648384	2	t	women
-907	Conditioned	90	1	2022-07-12 18:15:08.704743	2022-07-12 18:15:08.704743	3	t	conditioned
-908	Theta	90	2	2022-07-12 18:15:08.76034	2022-07-12 18:15:08.76034	4	t	theta
-909	90% Cotton 10% Elastan	90	6	2022-07-12 18:15:08.814682	2022-07-12 18:15:08.814682	5	t	90-cotton-10-elastan
-910	Lose	90	7	2022-07-12 18:15:08.871065	2022-07-12 18:15:08.871065	6	t	lose
-911	Women's	90	8	2022-07-12 18:15:08.928928	2022-07-12 18:15:08.928928	7	t	women-s
-912	JacketsandCoats_zippedjacket_28.99	90	3	2022-07-12 18:15:08.98631	2022-07-12 18:15:08.98631	8	t	jacketsandcoats_zippedjacket_28-99
-913	Men	20	9	2022-07-12 18:15:09.04379	2022-07-12 18:15:09.04379	1	t	men
-914	Men	20	10	2022-07-12 18:15:09.10294	2022-07-12 18:15:09.10294	2	t	men
-915	Conditioned	20	1	2022-07-12 18:15:09.188529	2022-07-12 18:15:09.188529	3	t	conditioned
-916	Alpha	20	2	2022-07-12 18:15:09.246609	2022-07-12 18:15:09.246609	4	t	alpha
-917	90% Cotton 10% Elastan	20	6	2022-07-12 18:15:09.303091	2022-07-12 18:15:09.303091	5	t	90-cotton-10-elastan
-918	Form	20	7	2022-07-12 18:15:09.359207	2022-07-12 18:15:09.359207	6	t	form
-919	Men's	20	8	2022-07-12 18:15:09.418231	2022-07-12 18:15:09.418231	7	t	men-s
-920	Sweaters_highnecksweater_45.99	20	3	2022-07-12 18:15:09.476192	2022-07-12 18:15:09.476192	8	t	sweaters_highnecksweater_45-99
-921	Men	32	9	2022-07-12 18:15:09.534994	2022-07-12 18:15:09.534994	1	t	men
-922	Men	32	10	2022-07-12 18:15:09.592303	2022-07-12 18:15:09.592303	2	t	men
-923	Resiliance	32	1	2022-07-12 18:15:09.647675	2022-07-12 18:15:09.647675	3	t	resiliance
-924	Alpha	32	2	2022-07-12 18:15:09.701667	2022-07-12 18:15:09.701667	4	t	alpha
-925	90% Cotton 10% Elastan	32	6	2022-07-12 18:15:09.75663	2022-07-12 18:15:09.75663	5	t	90-cotton-10-elastan
-926	Lose	32	7	2022-07-12 18:15:09.810684	2022-07-12 18:15:09.810684	6	t	lose
-927	Men's	32	8	2022-07-12 18:15:09.865816	2022-07-12 18:15:09.865816	7	t	men-s
-928	JacketsandCoats_wool-blendshortcoat_27.99	32	3	2022-07-12 18:15:09.922424	2022-07-12 18:15:09.922424	8	t	jacketsandcoats_wool-blendshortcoat_27-99
-929	Women	39	9	2022-07-12 18:15:09.979948	2022-07-12 18:15:09.979948	1	t	women
-930	Women	39	10	2022-07-12 18:15:10.043259	2022-07-12 18:15:10.043259	2	t	women
-931	Conditioned	39	1	2022-07-12 18:15:10.100284	2022-07-12 18:15:10.100284	3	t	conditioned
-932	Beta	39	2	2022-07-12 18:15:10.158408	2022-07-12 18:15:10.158408	4	t	beta
-933	10% Cotton 90% Elastan	39	6	2022-07-12 18:15:10.216402	2022-07-12 18:15:10.216402	5	t	10-cotton-90-elastan
-934	Form	39	7	2022-07-12 18:15:10.273344	2022-07-12 18:15:10.273344	6	t	form
-935	Women's	39	8	2022-07-12 18:15:10.404796	2022-07-12 18:15:10.404796	7	t	women-s
-936	Skirts_a-linesuedeskirt_30.99	39	3	2022-07-12 18:15:10.463474	2022-07-12 18:15:10.463474	8	t	skirts_a-linesuedeskirt_30-99
-937	Women	47	9	2022-07-12 18:15:10.526228	2022-07-12 18:15:10.526228	1	t	women
-938	Women	47	10	2022-07-12 18:15:10.591234	2022-07-12 18:15:10.591234	2	t	women
-939	Resiliance	47	1	2022-07-12 18:15:10.657115	2022-07-12 18:15:10.657115	3	t	resiliance
-940	Delta	47	2	2022-07-12 18:15:10.725426	2022-07-12 18:15:10.725426	4	t	delta
-941	10% Cotton 90% Elastan	47	6	2022-07-12 18:15:10.791435	2022-07-12 18:15:10.791435	5	t	10-cotton-90-elastan
-942	Form	47	7	2022-07-12 18:15:10.853049	2022-07-12 18:15:10.853049	6	t	form
-943	Women's	47	8	2022-07-12 18:15:10.922067	2022-07-12 18:15:10.922067	7	t	women-s
-944	Dresses_v-neckfloralmaxidress_31.99	47	3	2022-07-12 18:15:10.99248	2022-07-12 18:15:10.99248	8	t	dresses_v-neckfloralmaxidress_31-99
-945	Women	45	9	2022-07-12 18:15:11.060999	2022-07-12 18:15:11.060999	1	t	women
-946	Women	45	10	2022-07-12 18:15:11.121678	2022-07-12 18:15:11.121678	2	t	women
-947	Wannabe	45	1	2022-07-12 18:15:11.178274	2022-07-12 18:15:11.178274	3	t	wannabe
-948	Delta	45	2	2022-07-12 18:15:11.232608	2022-07-12 18:15:11.232608	4	t	delta
-949	50% Cotton 50% Elastan	45	6	2022-07-12 18:15:11.285564	2022-07-12 18:15:11.285564	5	t	50-cotton-50-elastan
-950	Lose	45	7	2022-07-12 18:15:11.341001	2022-07-12 18:15:11.341001	6	t	lose
-951	Women's	45	8	2022-07-12 18:15:11.398558	2022-07-12 18:15:11.398558	7	t	women-s
-952	Skirts_pleatedskirt2_17.99	45	3	2022-07-12 18:15:11.452518	2022-07-12 18:15:11.452518	8	t	skirts_pleatedskirt2_17-99
-953	Women	55	9	2022-07-12 18:15:11.507922	2022-07-12 18:15:11.507922	1	t	women
-954	Women	55	10	2022-07-12 18:15:11.567953	2022-07-12 18:15:11.567953	2	t	women
-955	Wilson	55	1	2022-07-12 18:15:11.634626	2022-07-12 18:15:11.634626	3	t	wilson
-956	Gamma	55	2	2022-07-12 18:15:11.698952	2022-07-12 18:15:11.698952	4	t	gamma
-957	50% Cotton 50% Elastan	55	6	2022-07-12 18:15:11.765016	2022-07-12 18:15:11.765016	5	t	50-cotton-50-elastan
-958	Lose	55	7	2022-07-12 18:15:11.853002	2022-07-12 18:15:11.853002	6	t	lose
-959	Women's	55	8	2022-07-12 18:15:11.918641	2022-07-12 18:15:11.918641	7	t	women-s
-960	Dresses_v-neckfloraldress_73.99	55	3	2022-07-12 18:15:11.987754	2022-07-12 18:15:11.987754	8	t	dresses_v-neckfloraldress_73-99
-961	Women	80	9	2022-07-12 18:15:12.054829	2022-07-12 18:15:12.054829	9	t	women
-962	Women	80	10	2022-07-12 18:15:12.113717	2022-07-12 18:15:12.113717	10	t	women
+963	Datadog	117	2	2022-09-02 16:33:37.884843	2022-09-02 16:34:45.51011	1	t	datadog
+964	Datadog	118	2	2022-09-02 17:09:21.771276	2022-09-02 17:12:33.860129	1	t	datadog
+965	Datadog	119	2	2022-09-02 17:19:13.977857	2022-09-02 17:29:54.515482	1	t	datadog
+966	Datadog Training	120	2	2022-09-02 17:31:19.827955	2022-09-02 17:36:42.851347	1	t	datadog-training
+967	Datadog	121	2	2022-09-02 18:30:31.036118	2022-09-02 18:31:27.69165	1	t	datadog
+968	Datadog	124	2	2022-09-02 18:42:26.646845	2022-09-02 18:43:45.324859	1	t	datadog
+969	Datadog	125	2	2022-09-02 18:44:36.219102	2022-09-02 18:45:55.905848	1	t	datadog
+970	Datadog	126	2	2022-09-02 18:50:49.314888	2022-09-02 18:51:24.263099	1	t	datadog
+971	Datadog	127	2	2022-09-02 18:52:56.366504	2022-09-02 18:54:19.702039	1	t	datadog
+972	Datadog	128	2	2022-09-02 18:57:21.671562	2022-09-02 18:58:10.851126	1	t	datadog
+973	Datadog	129	2	2022-09-02 18:59:14.748296	2022-09-02 19:00:17.923645	1	t	datadog
+974	Datadog	130	2	2022-09-02 19:01:55.379756	2022-09-02 19:03:22.790409	1	t	datadog
 \.
 
 
@@ -7792,122 +6508,136 @@ COPY public.spree_product_properties (id, value, product_id, property_id, create
 --
 
 COPY public.spree_products (id, name, description, available_on, deleted_at, slug, meta_description, meta_keywords, tax_category_id, shipping_category_id, created_at, updated_at, promotionable, meta_title, discontinue_on, public_metadata, private_metadata) FROM stdin;
-14	3 4 Sleeve T Shirt	Esse quisquam cupiditate ab saepe suscipit rerum ea aperiam. Inventore expedita tenetur aut beatae. Quae deleniti distinctio dignissimos labore. Labore expedita illum eius itaque provident.	2022-07-12 18:13:21.673176	\N	3-4-sleeve-t-shirt	\N	\N	1	1	2022-07-12 18:13:21.774208	2022-07-12 18:21:47.421685	t	\N	\N	\N	\N
-1	Denim Shirt	Harum suscipit a sunt blanditiis nisi. Itaque labore commodi ipsa mollitia. Minus laboriosam est nemo earum sunt.	2022-07-12 18:13:17.026782	\N	denim-shirt	\N	\N	1	1	2022-07-12 18:13:17.233973	2022-07-12 18:15:34.503553	t	\N	\N	\N	\N
-3	Covered Placket Shirt	Distinctio fugiat iste nobis enim non earum. Autem minus facere quos minima perspiciatis vel ad. Qui deserunt ex accusantium laboriosam rerum vitae. Provident ducimus itaque modi alias perferendis consectetur. A pariatur amet dicta dolorum.	2022-07-12 18:13:17.960419	\N	covered-placket-shirt	\N	\N	1	1	2022-07-12 18:13:18.063139	2022-07-12 18:15:34.78794	t	\N	\N	\N	\N
-29	Hooded Jacket	Incidunt rem repellat fuga hic illum. Dolor incidunt ullam mollitia cumque. Velit cumque placeat voluptatibus enim. Ad iusto fugiat maxime necessitatibus optio.	2022-07-12 18:13:27.356685	\N	hooded-jacket	\N	\N	1	1	2022-07-12 18:13:27.474123	2022-07-12 18:15:38.481645	t	\N	\N	\N	\N
-36	Flared Midi Skirt	Necessitatibus ratione quos hic suscipit exercitationem corrupti. Dolorem nulla sint natus aliquid expedita. Facere officiis odio sint delectus molestiae aut recusandae. Sed molestias saepe ad nobis praesentium blanditiis. Facere corrupti sit quaerat iste officiis excepturi inventore.	2022-07-12 18:13:30.177617	\N	flared-midi-skirt	\N	\N	1	1	2022-07-12 18:13:30.290347	2022-07-12 18:15:39.943916	t	\N	\N	\N	\N
-42	Skater Skirt	Dolor sit nisi commodi nostrum beatae culpa. Molestiae quos alias odit rem distinctio dicta in. Aperiam repellat totam recusandae quaerat pariatur labore. Voluptates necessitatibus incidunt alias magnam laudantium eos. Mollitia sed corporis dolor at nemo rerum.	2022-07-12 18:13:32.349681	\N	skater-skirt	\N	\N	1	1	2022-07-12 18:13:32.468571	2022-07-12 18:15:40.928845	t	\N	\N	\N	\N
-43	Skater Short Skirt	Velit quae iusto quas repellat non molestiae quisquam. Recusandae esse fugiat animi hic veniam. Debitis laborum accusantium animi voluptatum eligendi modi temporibus. Exercitationem natus voluptatibus aspernatur reiciendis suscipit. Dolor enim veniam ratione eos unde.	2022-07-12 18:13:32.719069	\N	skater-short-skirt	\N	\N	1	1	2022-07-12 18:13:32.829835	2022-07-12 18:15:41.074581	t	\N	\N	\N	\N
-46	Floral Wrap Dress	Recusandae minus temporibus cumque cupiditate necessitatibus labore reiciendis culpa. Cumque quibusdam corporis suscipit qui nostrum quidem. Culpa dignissimos eligendi deserunt neque vero. Fuga error ea porro esse ratione incidunt.	2022-07-12 18:13:33.870099	\N	floral-wrap-dress	\N	\N	1	1	2022-07-12 18:13:34.090368	2022-07-12 18:15:41.531471	t	\N	\N	\N	\N
-51	Striped Shirt Dress	Iusto reiciendis omnis aut alias. Natus quisquam nostrum at cupiditate harum ratione accusantium. Quo dolor voluptatum distinctio odio voluptatem. Laudantium hic perspiciatis facilis commodi architecto. Adipisci earum nam dolorem at fugiat dolores.	2022-07-12 18:13:35.817391	\N	striped-shirt-dress	\N	\N	1	1	2022-07-12 18:13:35.938824	2022-07-12 18:15:42.396627	t	\N	\N	\N	\N
-67	Semi Sheer Shirt With Pockets	Suscipit quod explicabo culpa placeat incidunt animi ad. Maiores ad praesentium corrupti eos. Animi voluptas non rem occaecati.	2022-07-12 18:13:41.670246	\N	semi-sheer-shirt-with-pockets	\N	\N	1	1	2022-07-12 18:13:41.779463	2022-07-12 18:15:45.144057	t	\N	\N	\N	\N
-71	Oversized Knitted Sweater	Eius quod sunt modi nulla aspernatur illo. Magni veniam aperiam illum voluptatem alias maiores. Repellat commodi quo iste possimus.	2022-07-12 18:13:43.162257	\N	oversized-knitted-sweater	\N	\N	1	1	2022-07-12 18:13:43.280082	2022-07-12 18:15:45.814463	t	\N	\N	\N	\N
-87	Asymmetric Coat	Numquam necessitatibus quo dolores sapiente minima nihil. Tempora alias ut sapiente eaque. Officiis voluptates veniam exercitationem laborum inventore. Odio dicta quas asperiores expedita saepe molestias. Delectus quos ipsam itaque quam odit debitis deserunt assumenda.	2022-07-12 18:13:49.777333	\N	asymmetric-coat	\N	\N	1	1	2022-07-12 18:13:49.8979	2022-07-12 18:15:48.618519	t	\N	\N	\N	\N
-92	Double Breasted Jacket	Ullam neque quidem officiis nisi pariatur explicabo quibusdam odio. Ullam quis et laudantium eius sunt dolor ab architecto. Dignissimos explicabo quae amet incidunt omnis.	2022-07-12 18:13:51.978032	\N	double-breasted-jacket	\N	\N	1	1	2022-07-12 18:13:52.148849	2022-07-12 18:15:49.390799	t	\N	\N	\N	\N
-96	Bomber Jacket	Laboriosam eaque animi impedit tempora eum corrupti. Ut exercitationem mollitia necessitatibus officia nemo nobis. Qui eius dolore officiis nostrum veniam.	2022-07-12 18:13:53.587633	\N	bomber-jacket	\N	\N	1	1	2022-07-12 18:13:53.739252	2022-07-12 18:15:49.999719	t	\N	\N	\N	\N
-4	Slim Fit Shirt	Maxime unde magni sed eos amet asperiores. Modi est vel enim tempore iste accusantium. Error ad vitae expedita doloremque numquam.	2022-07-12 18:13:18.289352	\N	slim-fit-shirt	\N	\N	1	1	2022-07-12 18:13:18.401467	2022-07-12 18:15:34.936991	t	\N	\N	\N	\N
-83	Sleeveless Loose Top	Harum sint ad vero voluptate accusantium natus. Sit laudantium explicabo velit ipsa tempore. Tenetur nemo quibusdam molestiae laudantium distinctio eum adipisci. Fugiat animi voluptate quas praesentium sunt repudiandae quasi consequatur.	2022-07-12 18:13:48.268389	\N	sleeveless-loose-top	\N	\N	1	1	2022-07-12 18:13:48.404769	2022-07-12 18:15:47.982004	t	\N	\N	\N	\N
-107	Oversize Sweatshirt	Incidunt possimus nesciunt ea quo nihil. Harum repellat soluta sint nemo eius consequatur blanditiis consectetur. Eius voluptates consectetur facere maiores vel temporibus facilis ipsum. Corporis sunt saepe laboriosam porro. Porro assumenda optio reiciendis molestiae quaerat laborum.	2022-07-12 18:13:57.806171	\N	oversize-sweatshirt	\N	\N	1	1	2022-07-12 18:13:57.929854	2022-07-12 18:15:51.703709	t	\N	\N	\N	\N
-27	Long Sleeve Jumper	Veritatis aspernatur vero eius rerum nam doloremque iure similique. Minima explicabo nostrum aperiam ipsam veritatis. Natus id deleniti cupiditate ex vero exercitationem amet error.	2022-07-12 18:13:26.52462	\N	long-sleeve-jumper	\N	\N	1	1	2022-07-12 18:13:26.635809	2022-07-12 18:15:38.142806	t	\N	\N	\N	\N
-54	Dress With Belt	Iusto aut architecto sequi inventore quod delectus eligendi minima. In quod animi quisquam fuga ratione. Iusto incidunt sequi quis dicta sapiente tempore.	2022-07-12 18:13:36.930584	\N	dress-with-belt	\N	\N	1	1	2022-07-12 18:13:37.043743	2022-07-12 18:15:42.866922	t	\N	\N	\N	\N
-74	Knitted V Neck Sweater	Aspernatur laboriosam blanditiis minima ipsa exercitationem. Magnam pariatur eaque tempora saepe ad vero. Facilis commodi nihil quae quod. Itaque illum ipsa porro quibusdam.	2022-07-12 18:13:44.266041	\N	knitted-v-neck-sweater	\N	\N	1	1	2022-07-12 18:13:44.38903	2022-07-12 18:15:46.39376	t	\N	\N	\N	\N
-45	Pleated Skirt 2	Fugiat iure doloremque vitae laudantium odit. Quos possimus at deserunt provident perferendis architecto natus suscipit. Deserunt corrupti consectetur dolore labore corporis quibusdam voluptatem sequi. Perspiciatis incidunt ab error nobis animi.	2022-07-12 18:13:33.459005	\N	pleated-skirt-2	\N	\N	1	1	2022-07-12 18:13:33.572055	2022-07-12 18:15:41.377902	t	\N	\N	\N	\N
-47	V Neck Floral Maxi Dress	Sit asperiores nihil incidunt iste iusto natus sint. Molestiae consequuntur recusandae facilis atque totam dolorem dolorum ea. Labore aspernatur vel autem minima voluptates magni. Nihil sit quod numquam eius facere eum in minima.	2022-07-12 18:13:34.354511	\N	v-neck-floral-maxi-dress	\N	\N	1	1	2022-07-12 18:13:34.473636	2022-07-12 18:15:41.709375	t	\N	\N	\N	\N
-90	Zipped Jacket	Voluptatum praesentium dolorem eum neque. Necessitatibus veniam perferendis cupiditate nulla velit. Perspiciatis ratione eligendi delectus sapiente assumenda. Vero ex explicabo dolorum fuga molestiae odio.	2022-07-12 18:13:51.087881	\N	zipped-jacket	\N	\N	1	1	2022-07-12 18:13:51.205812	2022-07-12 18:15:49.077477	t	\N	\N	\N	\N
-6	Printed Short Sleeve Shirt	Voluptatibus perspiciatis tempore recusandae reiciendis. Et aliquam velit molestiae iure occaecati dolore eum. Minus facilis commodi adipisci placeat excepturi in esse.	2022-07-12 18:13:18.967612	\N	printed-short-sleeve-shirt	\N	\N	1	1	2022-07-12 18:13:19.074261	2022-07-12 18:15:35.230068	t	\N	\N	\N	\N
-22	Long Sleeve Jumper With Pocket	Delectus ratione in aspernatur consequuntur minus praesentium laborum. Quia excepturi optio aliquid fugit voluptatibus in vel itaque. Rerum libero reiciendis temporibus recusandae possimus fuga minus distinctio. Id ipsum totam itaque recusandae magni quibusdam sed adipisci.	2022-07-12 18:13:24.645297	\N	long-sleeve-jumper-with-pocket	\N	\N	1	1	2022-07-12 18:13:24.764565	2022-07-12 18:15:37.423612	t	\N	\N	\N	\N
-9	Dotted Shirt	Mollitia magni atque alias eligendi qui cupiditate deleniti eos. Magnam excepturi voluptatum atque harum eaque architecto. Ducimus magnam at labore exercitationem quae. Possimus tempora animi qui atque voluptatem minus ipsum accusamus.	2022-07-12 18:13:19.992871	\N	dotted-shirt	\N	\N	1	1	2022-07-12 18:13:20.098254	2022-07-12 18:15:35.661547	t	\N	\N	\N	\N
-80	Scrappy Crop Top With Tie	Quod eos consectetur nihil ut fugiat labore iusto. Exercitationem error enim commodi magnam est. Explicabo eaque iste eveniet asperiores beatae. Ex modi repudiandae labore aperiam cumque. Omnis reiciendis placeat possimus ad molestiae illo incidunt exercitationem.	2022-07-12 18:13:47.219704	\N	scrappy-crop-top-with-tie	\N	\N	1	1	2022-07-12 18:13:47.327846	2022-07-12 18:15:47.516858	t	\N	\N	\N	\N
-8	Checked Slim Fit Shirt	Distinctio eum pariatur consectetur quod tempore laudantium exercitationem. Magnam occaecati accusantium debitis libero dolorum quaerat. Voluptatibus praesentium reprehenderit iusto ea cum. Beatae possimus porro velit error corrupti. Ea dolore amet nostrum voluptate similique.	2022-07-12 18:13:19.646856	\N	checked-slim-fit-shirt	\N	\N	1	1	2022-07-12 18:13:19.751861	2022-07-12 18:15:35.514936	t	\N	\N	\N	\N
-21	Stripped Jumper	Odio ex possimus molestias ut architecto. Dolor neque corrupti recusandae voluptas ratione doloremque aut. Error id recusandae dolorem aliquid eos. Quae consectetur ducimus cum dignissimos debitis neque enim. Sunt doloremque ullam provident nobis.	2022-07-12 18:13:24.29614	\N	stripped-jumper	\N	\N	1	1	2022-07-12 18:13:24.405774	2022-07-12 18:15:37.28686	t	\N	\N	\N	\N
-2	Checked Shirt	Incidunt in sunt ea id nostrum assumenda nemo velit. Soluta impedit occaecati molestiae inventore vel eius minus tenetur. Quis in rerum ipsa incidunt fuga.	2022-07-12 18:13:17.470012	\N	checked-shirt	\N	\N	1	1	2022-07-12 18:13:17.570674	2022-07-12 18:15:34.639985	t	\N	\N	\N	\N
-82	Loose T Shirt With Pocket Imitation	Magni corporis iste quas nihil nisi rem doloremque aliquid. Ea fuga quaerat eaque accusamus similique. Eius ea delectus quod reprehenderit explicabo earum ullam voluptas. Mollitia dolorum libero perferendis facilis tempore iusto.	2022-07-12 18:13:47.92671	\N	loose-t-shirt-with-pocket-imitation	\N	\N	1	1	2022-07-12 18:13:48.029968	2022-07-12 18:15:47.824109	t	\N	\N	\N	\N
-24	Long Sleeve Sweatshirt	Reprehenderit nulla adipisci voluptatibus eum. Modi ullam cupiditate alias adipisci enim doloremque nam. Assumenda voluptate optio provident laborum voluptatibus totam.	2022-07-12 18:13:25.361399	\N	long-sleeve-sweatshirt	\N	\N	1	1	2022-07-12 18:13:25.468421	2022-07-12 18:15:37.706004	t	\N	\N	\N	\N
-28	Suede Biker Jacket	Illo nemo a ipsum odit incidunt sapiente. Quasi tenetur unde tempora nihil ullam. Reiciendis cum architecto suscipit nostrum. Sint voluptate cupiditate rem temporibus quasi aliquam accusantium. Voluptates ullam excepturi voluptatem ad enim.	2022-07-12 18:13:26.906223	\N	suede-biker-jacket	\N	\N	1	1	2022-07-12 18:13:27.057238	2022-07-12 18:15:38.310288	t	\N	\N	\N	\N
-23	Jumper	Voluptatibus iste aspernatur sunt quos earum amet. Facilis officia pariatur quis voluptates neque. Laborum esse adipisci omnis impedit.	2022-07-12 18:13:24.997166	\N	jumper	\N	\N	1	1	2022-07-12 18:13:25.105046	2022-07-12 18:15:37.570001	t	\N	\N	\N	\N
-34	Wool Blend Coat	Occaecati ea cum saepe dolore minus hic. Earum consectetur facere labore possimus est numquam commodi ea. Ad adipisci quidem corporis a at. Sint hic molestias temporibus recusandae debitis.	2022-07-12 18:13:29.458783	\N	wool-blend-coat	\N	\N	1	1	2022-07-12 18:13:29.567693	2022-07-12 18:15:39.607339	t	\N	\N	\N	\N
-41	Flared Skirt	Porro neque illum corrupti veritatis ducimus doloribus. Placeat beatae molestias quas earum voluptates modi molestiae reprehenderit. Exercitationem unde odio architecto deleniti vitae ipsa omnis nemo. Ratione pariatur rem molestiae ab animi occaecati error. Iure vitae deleniti consequuntur neque error.	2022-07-12 18:13:31.998	\N	flared-skirt	\N	\N	1	1	2022-07-12 18:13:32.106511	2022-07-12 18:15:40.776934	t	\N	\N	\N	\N
-12	Polo T Shirt	Sed enim ut molestiae nisi impedit. Quibusdam commodi doloremque officiis tempore. Fugiat itaque suscipit eligendi rerum quas ut quaerat optio.	2022-07-12 18:13:21.006743	\N	polo-t-shirt	\N	\N	1	1	2022-07-12 18:13:21.109783	2022-07-12 18:15:35.954019	t	\N	\N	\N	\N
-31	Denim Jacket	Omnis totam modi id quia atque quas. Quae ipsa quia nobis suscipit. Autem ut voluptatum quo vel occaecati. Laboriosam voluptatum at aut deleniti minima debitis. Beatae voluptates laborum inventore quibusdam.	2022-07-12 18:13:28.207573	\N	denim-jacket	\N	\N	1	1	2022-07-12 18:13:28.320011	2022-07-12 18:15:38.998858	t	\N	\N	\N	\N
-35	Jacket With Liner	Animi quibusdam alias laborum adipisci quae. Eos rem quo adipisci nesciunt veritatis ad. Eius soluta ad eligendi magnam cumque repellendus eos. Officia quo rem deleniti provident. Enim aut voluptatum deleniti modi.	2022-07-12 18:13:29.807567	\N	jacket-with-liner	\N	\N	1	1	2022-07-12 18:13:29.935552	2022-07-12 18:15:39.778462	t	\N	\N	\N	\N
-33	Down Jacket With Hood	Maiores provident optio tempore inventore officiis. Repellendus quisquam sit recusandae sequi. Quaerat in porro provident ratione asperiores. Maxime vitae beatae doloremque magnam aliquid.	2022-07-12 18:13:29.092483	\N	down-jacket-with-hood	\N	\N	1	1	2022-07-12 18:13:29.206958	2022-07-12 18:15:39.33255	t	\N	\N	\N	\N
-37	Midi Skirt With Bottoms	Qui debitis nobis minima occaecati voluptatum dicta. Autem recusandae error doloribus illo laborum mollitia eligendi. Porro vero impedit ducimus numquam dicta atque. Accusantium maiores odio minus mollitia iusto natus expedita. Qui ducimus ipsam impedit tempora assumenda enim.	2022-07-12 18:13:30.546701	\N	midi-skirt-with-bottoms	\N	\N	1	1	2022-07-12 18:13:30.658555	2022-07-12 18:15:40.103618	t	\N	\N	\N	\N
-40	Leather Skirt With Lacing	Officia nulla corrupti explicabo eius totam quam. Minima alias consectetur exercitationem iste expedita fugiat vitae accusantium. Qui nesciunt ea fugiat autem illum dignissimos culpa tenetur. Id ea suscipit maiores consequatur beatae.	2022-07-12 18:13:31.643288	\N	leather-skirt-with-lacing	\N	\N	1	1	2022-07-12 18:13:31.751738	2022-07-12 18:15:40.604808	t	\N	\N	\N	\N
-25	Hoodie	Commodi soluta suscipit cumque neque. Voluptatem consectetur qui voluptates libero. Quibusdam omnis ad voluptates voluptatibus maxime. Unde minus optio tenetur vero accusantium eius itaque. Labore dolore hic ipsum quo accusamus quidem.	2022-07-12 18:13:25.701521	\N	hoodie	\N	\N	1	1	2022-07-12 18:13:25.822753	2022-07-12 18:15:37.841894	t	\N	\N	\N	\N
-26	Zipped High Neck Sweater	Labore optio tempora nobis nemo officiis ipsam. Cupiditate assumenda maiores cumque totam reiciendis voluptate illum aspernatur. Numquam reprehenderit architecto repellat rem consequatur nemo illo. Esse voluptatum occaecati quas animi tempore iure. Maxime dolore error laboriosam quae.	2022-07-12 18:13:26.14777	\N	zipped-high-neck-sweater	\N	\N	1	1	2022-07-12 18:13:26.262199	2022-07-12 18:15:37.985838	t	\N	\N	\N	\N
-77	Printed T Shirt	Sapiente culpa non dignissimos maxime magnam. Perspiciatis voluptas facere veniam deserunt possimus magni omnis iure. Enim ratione cupiditate aliquid adipisci perferendis consequuntur harum. Voluptatibus dolore inventore suscipit odio exercitationem quis dolor corrupti. Aspernatur libero voluptatibus totam nisi.	2022-07-12 18:13:45.606079	\N	printed-t-shirt	\N	\N	1	1	2022-07-12 18:13:45.721758	2022-07-12 18:15:46.994613	t	\N	\N	\N	\N
-78	Scrappy Top	Temporibus repellendus dolore autem unde nobis. Doloribus iure distinctio tempore alias molestias. Officia tenetur maiores possimus totam pariatur repellat consequuntur.	2022-07-12 18:13:46.3407	\N	scrappy-top	\N	\N	1	1	2022-07-12 18:13:46.48078	2022-07-12 18:15:47.200429	t	\N	\N	\N	\N
-81	Crop Top	Est sint similique explicabo aperiam aliquam mollitia id. Aliquam unde error doloribus nostrum mollitia consequatur. Excepturi quidem voluptate ullam ex molestiae. Quidem dicta ab debitis blanditiis vitae repellat laborum. Facere ad minima quisquam at illum.	2022-07-12 18:13:47.567897	\N	crop-top	\N	\N	1	1	2022-07-12 18:13:47.680797	2022-07-12 18:15:47.670937	t	\N	\N	\N	\N
-16	Raw Edge T Shirt	Facere officia laborum dolores animi autem tempora dolore. Suscipit sapiente dolores eaque fugiat ipsa asperiores. Animi eaque nesciunt voluptate dignissimos voluptates. Perferendis sequi suscipit rem officia quibusdam ut harum.	2022-07-12 18:13:22.376547	\N	raw-edge-t-shirt	\N	\N	1	1	2022-07-12 18:13:22.484648	2022-07-12 18:15:36.585715	t	\N	\N	\N	\N
-59	Striped Shirt	Maiores asperiores expedita incidunt eos ex. Minus sunt voluptatum rem inventore unde eius. Occaecati excepturi incidunt id debitis quasi placeat.	2022-07-12 18:13:38.717982	\N	striped-shirt	\N	\N	1	1	2022-07-12 18:13:38.831243	2022-07-12 18:15:44.010545	t	\N	\N	\N	\N
-64	Blouse With Wide Flounced Sleeve	Laboriosam qui quam magnam quidem aspernatur ex amet nostrum. Similique placeat ducimus incidunt illum maiores mollitia explicabo velit. Eligendi aliquid consectetur odio aperiam.	2022-07-12 18:13:40.602194	\N	blouse-with-wide-flounced-sleeve	\N	\N	1	1	2022-07-12 18:13:40.709149	2022-07-12 18:15:44.665624	t	\N	\N	\N	\N
-44	Floral Flared Skirt	Earum consequatur ex ratione commodi voluptatem nesciunt minima aperiam. Incidunt provident impedit dolores dignissimos. Magnam hic nesciunt exercitationem aliquam.	2022-07-12 18:13:33.085572	\N	floral-flared-skirt	\N	\N	1	1	2022-07-12 18:13:33.201797	2022-07-12 18:15:41.219973	t	\N	\N	\N	\N
-57	Slit Maxi Dress	Veniam eaque iste incidunt omnis. Numquam totam tempore voluptates possimus quibusdam corrupti expedita magni. Eos numquam natus exercitationem ut. Velit odit facere dolorum maiores suscipit laudantium quisquam. Corrupti velit sunt vel repellendus a ipsum tempore illo.	2022-07-12 18:13:38.022248	\N	slit-maxi-dress	\N	\N	1	1	2022-07-12 18:13:38.132993	2022-07-12 18:15:43.403009	t	\N	\N	\N	\N
-63	Cotton Shirt	Vitae quisquam incidunt aut rem. Repudiandae quibusdam maiores doloremque dolorum facere quae. Labore corrupti delectus necessitatibus et veritatis quae explicabo.	2022-07-12 18:13:40.257348	\N	cotton-shirt	\N	\N	1	1	2022-07-12 18:13:40.3615	2022-07-12 18:15:44.511995	t	\N	\N	\N	\N
-50	Long Sleeve Knitted Dress	Vitae delectus voluptates ab quisquam ipsum impedit. Occaecati eaque aperiam officia assumenda cum modi. Sed quod consequatur ipsam iure aspernatur.	2022-07-12 18:13:35.44638	\N	long-sleeve-knitted-dress	\N	\N	1	1	2022-07-12 18:13:35.557525	2022-07-12 18:15:42.224873	t	\N	\N	\N	\N
-53	Printed Slit Sleeves Dress	Ea ut distinctio odit repudiandae. Dicta placeat dolores illum esse. Architecto vel illum reiciendis totam ipsam amet repudiandae aperiam.	2022-07-12 18:13:36.560719	\N	printed-slit-sleeves-dress	\N	\N	1	1	2022-07-12 18:13:36.671818	2022-07-12 18:15:42.704602	t	\N	\N	\N	\N
-49	Elegant Flared Dress	Iure aliquid perferendis rerum dignissimos. Ea expedita dolorum aut nihil corporis nesciunt. Dicta harum soluta corporis perspiciatis hic eum. Ex corporis consequuntur accusantium qui.	2022-07-12 18:13:35.08712	\N	elegant-flared-dress	\N	\N	1	1	2022-07-12 18:13:35.202274	2022-07-12 18:15:42.039709	t	\N	\N	\N	\N
-52	Printed Dress	Exercitationem tempore saepe dicta aliquid atque facilis debitis. Expedita assumenda itaque non nulla quas. Repellat est ipsum at qui ex odio. Tempora quidem quas unde optio. Voluptas maiores eos totam quas.	2022-07-12 18:13:36.187544	\N	printed-dress	\N	\N	1	1	2022-07-12 18:13:36.305061	2022-07-12 18:15:42.54469	t	\N	\N	\N	\N
-61	Printed Wrapped Blouse	Sapiente amet laudantium recusandae ratione illo. Sit id vero aliquid accusamus earum. Facilis autem nobis perspiciatis consectetur nesciunt vero illo corporis.	2022-07-12 18:13:39.562815	\N	printed-wrapped-blouse	\N	\N	1	1	2022-07-12 18:13:39.674399	2022-07-12 18:15:44.367352	t	\N	\N	\N	\N
-56	Flounced Dress	Fugit magnam odit nesciunt atque dolores saepe recusandae vero. Ipsa excepturi pariatur nisi rerum debitis. Temporibus quas rerum dolore perspiciatis iusto officia fugit. Nesciunt sapiente harum laboriosam impedit neque.	2022-07-12 18:13:37.669025	\N	flounced-dress	\N	\N	1	1	2022-07-12 18:13:37.775932	2022-07-12 18:15:43.23117	t	\N	\N	\N	\N
-58	Semi Sheer Shirt With Floral Cuffs	Eos quia perspiciatis nulla id qui deleniti maxime. Quisquam est ea esse ab. Atque excepturi culpa similique commodi. Sequi pariatur qui voluptatibus delectus ea corrupti cupiditate perferendis. Distinctio mollitia ad deserunt excepturi dolorum adipisci nulla.	2022-07-12 18:13:38.37956	\N	semi-sheer-shirt-with-floral-cuffs	\N	\N	1	1	2022-07-12 18:13:38.486672	2022-07-12 18:15:43.666999	t	\N	\N	\N	\N
-60	V Neck Wide Shirt	Mollitia quo omnis sequi reiciendis. Recusandae tempore deserunt harum occaecati reprehenderit vero voluptatibus. Molestiae magni voluptatum amet tenetur vel. Veritatis adipisci iusto excepturi dolorem sed ab. Maxime facilis recusandae repudiandae illo alias laudantium.	2022-07-12 18:13:39.067867	\N	v-neck-wide-shirt	\N	\N	1	1	2022-07-12 18:13:39.316362	2022-07-12 18:15:44.220018	t	\N	\N	\N	\N
-68	V Neck Shirt	Voluptate atque voluptatibus culpa vitae. Atque aliquam nemo a repellat. Iste laboriosam in maxime libero atque. Facilis molestiae optio sed ducimus vel nobis et. Adipisci vel nisi possimus autem aliquam veritatis molestias quo.	2022-07-12 18:13:42.045267	\N	v-neck-shirt	\N	\N	1	1	2022-07-12 18:13:42.165262	2022-07-12 18:15:45.288755	t	\N	\N	\N	\N
-85	Coat With Pockets	Similique repellendus laborum repudiandae explicabo fugit facilis. Blanditiis cum ullam magnam quidem aliquam. Deserunt laudantium consequuntur nihil repellendus quasi sint ut.	2022-07-12 18:13:49.047532	\N	coat-with-pockets	\N	\N	1	1	2022-07-12 18:13:49.162968	2022-07-12 18:15:48.2895	t	\N	\N	\N	\N
-62	Pleated Sleeve V Neck Shirt	Hic at nulla omnis saepe placeat aliquam minus. Quae dolorum mollitia itaque aliquam accusantium corrupti. Ipsum iste nesciunt cum maxime animi ab maiores ex. Repudiandae ipsa laboriosam voluptates rem doloremque.	2022-07-12 18:13:39.918405	\N	pleated-sleeve-v-neck-shirt	\N	\N	1	1	2022-07-12 18:13:40.027365	2022-07-12 18:15:33.027826	t	\N	\N	\N	\N
-18	Tank Top	Tempora ipsam aliquid inventore provident dolor. Exercitationem ex magnam dolorem perferendis nemo architecto saepe. Provident quis occaecati asperiores dolorem nemo.	2022-07-12 18:13:23.209425	\N	tank-top	\N	\N	1	1	2022-07-12 18:13:23.317573	2022-07-12 18:15:36.862186	t	\N	\N	\N	\N
-66	Floral Shirt	Sed adipisci possimus quo impedit exercitationem. Quod culpa praesentium iste eaque placeat similique. Occaecati est saepe delectus nisi unde quia adipisci laborum. Sapiente ipsum molestiae nulla voluptatibus fugiat quaerat eaque. Vel tenetur hic eveniet rem unde assumenda nisi.	2022-07-12 18:13:41.315705	\N	floral-shirt	\N	\N	1	1	2022-07-12 18:13:41.420627	2022-07-12 18:15:44.984975	t	\N	\N	\N	\N
-73	Knitted High Neck Sweater	Sapiente animi eius dicta non quaerat dolorem ratione. Error laborum earum in necessitatibus facilis esse. Maiores rerum repudiandae asperiores cupiditate mollitia. Amet dicta beatae odio deserunt animi esse. Pariatur minus quam culpa distinctio vero.	2022-07-12 18:13:43.873073	\N	knitted-high-neck-sweater	\N	\N	1	1	2022-07-12 18:13:43.998569	2022-07-12 18:15:46.208705	t	\N	\N	\N	\N
-75	Cropped Fitted Sweater	Vitae non repudiandae ipsam quia expedita hic numquam. Iste iure debitis dolorum sequi amet mollitia maxime. Veritatis laborum libero atque vitae doloribus doloremque error.	2022-07-12 18:13:44.81429	\N	cropped-fitted-sweater	\N	\N	1	1	2022-07-12 18:13:44.935521	2022-07-12 18:15:46.620015	t	\N	\N	\N	\N
-76	Crop Top With Tie	Aut alias iste adipisci modi eos. Atque maiores dolorem error possimus ipsam. Commodi ipsa quo repudiandae autem.	2022-07-12 18:13:45.194571	\N	crop-top-with-tie	\N	\N	1	1	2022-07-12 18:13:45.312161	2022-07-12 18:15:46.83456	t	\N	\N	\N	\N
-5	Short Sleeve Shirt	Inventore eaque ea debitis eius nostrum neque porro. Recusandae sequi totam neque dolorum. Ducimus corporis debitis officiis omnis.	2022-07-12 18:13:18.629763	\N	short-sleeve-shirt	\N	\N	1	1	2022-07-12 18:13:18.733675	2022-07-12 18:15:35.075708	t	\N	\N	\N	\N
-13	Long Sleeve T Shirt	Nesciunt reprehenderit quia modi quae molestias odio deleniti consectetur. Veritatis perspiciatis dolore voluptas corrupti aut. Magni delectus at odio asperiores quidem. Vel unde voluptas optio id possimus impedit. Dicta consectetur ducimus placeat eum eos voluptatibus perspiciatis.	2022-07-12 18:13:21.337759	\N	long-sleeve-t-shirt	\N	\N	1	1	2022-07-12 18:13:21.447101	2022-07-12 18:15:36.105986	t	\N	\N	\N	\N
-72	Oversized Sweatshirt	Cum eveniet impedit facilis necessitatibus. Iure odit nihil neque culpa nulla veritatis ad. Incidunt pariatur magni temporibus modi voluptatibus quos nemo laborum. Dolor ut fuga adipisci quam. Fugit laborum atque hic cum adipisci natus.	2022-07-12 18:13:43.516638	\N	oversized-sweatshirt	\N	\N	1	1	2022-07-12 18:13:43.625507	2022-07-12 18:15:46.010958	t	\N	\N	\N	\N
-95	Denim Hooded Jacket	Ducimus beatae sit numquam excepturi natus minima. Aliquam provident vitae aperiam eos dicta occaecati. Impedit quam aspernatur assumenda fugit incidunt officiis. Quo inventore ipsum accusamus natus fugit. Dolores eligendi quos ipsam ab eaque asperiores similique vitae.	2022-07-12 18:13:53.188645	\N	denim-hooded-jacket	\N	\N	1	1	2022-07-12 18:13:53.29933	2022-07-12 18:15:49.845819	t	\N	\N	\N	\N
-106	Lightweight Running Jacket	Atque enim soluta minima fugiat. Beatae itaque doloribus dignissimos possimus laudantium qui officiis. Ut quaerat quae esse harum nemo repellat sint. Tempore error ipsum omnis illum cumque. Officiis natus explicabo illo iure at distinctio minus.	2022-07-12 18:13:57.438296	\N	lightweight-running-jacket	\N	\N	1	1	2022-07-12 18:13:57.55469	2022-07-12 18:15:51.550174	t	\N	\N	\N	\N
-88	Long Coat With Belt	Quo animi sequi nihil maiores quisquam beatae ipsum. Nesciunt rerum quidem nihil dolore eaque illum quae nulla. Dicta esse in iste tempora fugit et nisi beatae.	2022-07-12 18:13:50.154756	\N	long-coat-with-belt	\N	\N	1	1	2022-07-12 18:13:50.273003	2022-07-12 18:15:48.767838	t	\N	\N	\N	\N
-102	Sports Bra Medium Support	Nulla aut dicta cum dolorum modi officiis. Quam suscipit voluptatem cumque dolorem et at itaque. Iusto ea id tempora fuga dolores expedita ducimus assumenda. Earum commodi ad provident assumenda reiciendis animi suscipit optio.	2022-07-12 18:13:55.742633	\N	sports-bra-medium-support	\N	\N	1	1	2022-07-12 18:13:55.848228	2022-07-12 18:15:50.940977	t	\N	\N	\N	\N
-104	Sport Cropp Top	Eos veritatis magni error facilis. Expedita at deleniti repellat aliquid dolore. Quos libero fugiat corrupti voluptatibus doloremque alias repellat.	2022-07-12 18:13:56.660013	\N	sport-cropp-top	\N	\N	1	1	2022-07-12 18:13:56.812783	2022-07-12 18:15:51.237107	t	\N	\N	\N	\N
-93	Leather Biker Jacket	Accusantium asperiores vitae quo nulla vel ab placeat. Voluptate repellat reprehenderit vitae voluptatem blanditiis magni. Inventore saepe minima fugiat dignissimos alias corrupti aperiam. In quidem minima ipsa et sed culpa. Consectetur eveniet amet beatae voluptates architecto sit minus possimus.	2022-07-12 18:13:52.434348	\N	leather-biker-jacket	\N	\N	1	1	2022-07-12 18:13:52.549667	2022-07-12 18:15:49.545073	t	\N	\N	\N	\N
-101	Laced Crop Top	Vero rerum minima ab aliquid. Atque ab officiis perspiciatis distinctio dolore minus illo. Totam aperiam error accusantium voluptatibus consequatur. Repellat explicabo amet vel nesciunt ullam aliquid laborum itaque.	2022-07-12 18:13:55.387812	\N	laced-crop-top	\N	\N	1	1	2022-07-12 18:13:55.505438	2022-07-12 18:15:50.787012	t	\N	\N	\N	\N
-91	Loose Fitted Jacket	Quasi nobis aperiam rem harum saepe unde similique. Repellat voluptatum quibusdam in dolorem. Numquam debitis fuga esse occaecati quaerat distinctio corrupti.	2022-07-12 18:13:51.564444	\N	loose-fitted-jacket	\N	\N	1	1	2022-07-12 18:13:51.687103	2022-07-12 18:15:49.238055	t	\N	\N	\N	\N
-98	Long Sleeves Yoga Crop Top	Sit dolores placeat possimus fugit eius. Libero deserunt perspiciatis similique cumque doloremque quae. Ab perferendis ducimus iste nam quisquam.	2022-07-12 18:13:54.337359	\N	long-sleeves-yoga-crop-top	\N	\N	1	1	2022-07-12 18:13:54.447803	2022-07-12 18:15:50.315757	t	\N	\N	\N	\N
-99	Oversize T Shirt Wrapped On Back	Facere provident praesentium inventore modi veritatis. Nam numquam veritatis quae non optio aperiam quisquam. Totam ab vero rerum aut. Magni amet sed praesentium voluptatem impedit nostrum alias.	2022-07-12 18:13:54.692243	\N	oversize-t-shirt-wrapped-on-back	\N	\N	1	1	2022-07-12 18:13:54.802491	2022-07-12 18:15:50.466512	t	\N	\N	\N	\N
-100	Long Sleeves Crop Top	Nobis deleniti corporis modi molestiae atque error. Beatae architecto corrupti voluptate repudiandae qui ullam. Sint nesciunt sed vel ab. Temporibus id tempore iste iusto. Rerum commodi quidem dolorum esse eaque vitae delectus.	2022-07-12 18:13:55.035514	\N	long-sleeves-crop-top	\N	\N	1	1	2022-07-12 18:13:55.156868	2022-07-12 18:15:50.618692	t	\N	\N	\N	\N
-103	Sports Bra 	Ipsum magnam animi voluptatum ratione rerum eius nobis. Amet eos dolores facere aspernatur architecto. Dolorum occaecati quam impedit placeat laboriosam labore repudiandae pariatur. Quod consequatur expedita numquam repellat animi tempora.	2022-07-12 18:13:56.194397	\N	sports-bra	\N	\N	1	1	2022-07-12 18:13:56.31494	2022-07-12 18:15:51.093042	t	\N	\N	\N	\N
-15	T Shirt With Holes	Placeat dolores ducimus molestias animi. Quibusdam vitae necessitatibus earum corrupti exercitationem adipisci deserunt. Quisquam distinctio fuga qui nulla atque. Cumque quaerat ullam quia vel suscipit. Dolores magnam quae eos unde mollitia.	2022-07-12 18:13:22.022377	\N	t-shirt-with-holes	\N	\N	1	1	2022-07-12 18:13:22.128963	2022-07-12 18:15:36.440833	t	\N	\N	\N	\N
-116	High Waist Pants	Atque fuga dolore ipsam a culpa adipisci quia. Ab magni temporibus optio deleniti. Distinctio consequatur impedit eaque similique.	2022-07-12 18:14:01.217208	\N	high-waist-pants	\N	\N	1	1	2022-07-12 18:14:01.322012	2022-07-12 18:15:52.461743	t	\N	\N	\N	\N
-108	Sport Windproof Jacket	Officiis nulla similique eos tempora. Ab qui illo incidunt maiores vero possimus. Eos modi similique nemo doloribus voluptatibus quos molestias. Alias nihil sed doloremque molestias. Tenetur nisi temporibus quo magnam molestiae blanditiis.	2022-07-12 18:13:58.181169	\N	sport-windproof-jacket	\N	\N	1	1	2022-07-12 18:13:58.285334	2022-07-12 18:15:51.854809	t	\N	\N	\N	\N
-109	Sport Waistcoat	Perferendis harum voluptas tempora dolore maiores deleniti. Cum praesentium omnis atque corporis. Ipsum nihil quod rerum neque beatae sed vel deleniti. Temporibus et ducimus exercitationem dolorum molestiae hic corporis rem.	2022-07-12 18:13:58.547108	\N	sport-waistcoat	\N	\N	1	1	2022-07-12 18:13:58.659922	2022-07-12 18:15:52.004624	t	\N	\N	\N	\N
-112	Printed Pants With Holes	Repellat velit laborum omnis consequatur provident libero occaecati ut. Dolorum modi excepturi perferendis occaecati. Porro eveniet molestiae nobis accusamus.	2022-07-12 18:13:59.632949	\N	printed-pants-with-holes	\N	\N	1	1	2022-07-12 18:13:59.741963	2022-07-12 18:15:33.525081	t	\N	\N	\N	\N
-114	Printed Pants	Molestiae laudantium quidem repellendus tenetur nesciunt. Nihil sunt incidunt perferendis porro dolorum nam odio earum. Deserunt consequuntur ab nostrum alias velit unde repellendus minima. Sequi eligendi quis cupiditate dolorem. Tenetur inventore nihil ab mollitia magni sint provident.	2022-07-12 18:14:00.474266	\N	printed-pants	\N	\N	1	1	2022-07-12 18:14:00.618412	2022-07-12 18:15:33.831171	t	\N	\N	\N	\N
-111	Short Pants	Soluta explicabo quisquam rem accusantium illo laborum ratione incidunt. Aperiam ab impedit quasi nihil odit. Maxime mollitia facere at voluptate. Veniam soluta expedita adipisci maiores vitae minus repudiandae harum.	2022-07-12 18:13:59.279977	\N	short-pants	\N	\N	1	1	2022-07-12 18:13:59.389341	2022-07-12 18:15:52.307836	t	\N	\N	\N	\N
-113	Pants	Alias est molestias laudantium consequuntur in minus facere distinctio. Quae omnis natus accusamus unde ducimus. Perspiciatis quas quos blanditiis tempora soluta quam molestias minima. Quod vitae necessitatibus aut voluptatibus repellendus quidem. Atque facere amet harum voluptates.	2022-07-12 18:14:00.036039	\N	pants	\N	\N	1	1	2022-07-12 18:14:00.171791	2022-07-12 18:15:33.687584	t	\N	\N	\N	\N
-115	High Waist Pants With Pockets	Quasi voluptates quo molestias nulla perferendis consequatur repellat. Voluptates enim odit libero repellendus officiis laboriosam. Iure soluta adipisci dignissimos amet eveniet.	2022-07-12 18:14:00.867015	\N	high-waist-pants-with-pockets	\N	\N	1	1	2022-07-12 18:14:00.972025	2022-07-12 18:15:34.015524	t	\N	\N	\N	\N
-38	Fitted Skirt	Amet ducimus voluptatum omnis praesentium repellat illum atque nulla. Autem praesentium consequuntur illo aperiam eos facere distinctio. Maxime quisquam maiores earum error quis temporibus.	2022-07-12 18:13:30.906301	\N	fitted-skirt	\N	\N	1	1	2022-07-12 18:13:31.026289	2022-07-12 18:15:40.2678	t	\N	\N	\N	\N
-94	Wool Blend Coat With Belt	Mollitia facere eveniet quia numquam. Illum odio adipisci corporis sint deleniti itaque. Minus quaerat sed tempora nobis. Rerum suscipit sit corporis repellat voluptates ad.	2022-07-12 18:13:52.793484	\N	wool-blend-coat-with-belt	\N	\N	1	1	2022-07-12 18:13:52.943398	2022-07-12 18:15:49.696379	t	\N	\N	\N	\N
-10	Linen Shirt	Eveniet asperiores tenetur repellat placeat modi ab veritatis excepturi. Cupiditate recusandae sit quibusdam modi labore. Distinctio a ex beatae ipsa illum exercitationem nesciunt molestiae. Sed ipsa sapiente amet provident voluptate veniam.	2022-07-12 18:13:20.332429	\N	linen-shirt	\N	\N	1	1	2022-07-12 18:13:20.438071	2022-07-12 18:15:35.80649	t	\N	\N	\N	\N
-105	Running Sweatshirt	Excepturi inventore deserunt delectus dicta a. Voluptates ipsam eligendi accusantium illo quasi vel optio quibusdam. Deleniti iste facilis voluptatibus molestiae autem mollitia quisquam. Qui quam ut vitae dolores atque doloribus dicta.	2022-07-12 18:13:57.047807	\N	running-sweatshirt	\N	\N	1	1	2022-07-12 18:13:57.165606	2022-07-12 18:15:51.392942	t	\N	\N	\N	\N
-7	Regular Shirt	Aperiam autem amet nam laudantium quidem. Fuga consequatur voluptas qui voluptatem consectetur doloribus. Quas veritatis exercitationem excepturi consequatur aut quibusdam.	2022-07-12 18:13:19.30322	\N	regular-shirt	\N	\N	1	1	2022-07-12 18:13:19.407093	2022-07-12 18:15:35.371393	t	\N	\N	\N	\N
-79	Pleated Sleeve T Shirt	Ea nulla eligendi dolorem magni. Occaecati quidem fugit maxime fuga debitis excepturi. Odio ipsa porro doloribus ea nostrum nobis quas necessitatibus. Voluptatum natus perspiciatis dicta sint repudiandae tempora. Eveniet non sequi necessitatibus amet ipsum consequatur adipisci.	2022-07-12 18:13:46.815179	\N	pleated-sleeve-t-shirt	\N	\N	1	1	2022-07-12 18:13:46.928259	2022-07-12 18:15:47.35757	t	\N	\N	\N	\N
-17	V Neck T Shirt	Eveniet molestiae enim illum placeat recusandae. Distinctio praesentium nobis explicabo excepturi velit aspernatur. Incidunt eum aliquam vitae eveniet voluptate.	2022-07-12 18:13:22.719738	\N	v-neck-t-shirt	\N	\N	1	1	2022-07-12 18:13:22.972608	2022-07-12 18:15:36.725872	t	\N	\N	\N	\N
-19	Basic T Shirt	Eligendi pariatur odit expedita labore. Sequi iste exercitationem repellendus expedita quam perspiciatis in fugit. Repellat sint iste hic tempore distinctio veritatis. In neque tenetur praesentium quidem deserunt laborum. Libero corporis recusandae cupiditate praesentium odio vero.	2022-07-12 18:13:23.566031	\N	basic-t-shirt	\N	\N	1	1	2022-07-12 18:13:23.677212	2022-07-12 18:15:37.001386	t	\N	\N	\N	\N
-69	Printed Shirt	Placeat eius harum facere aut. Earum quisquam sequi eaque ipsa modi. Sint quas incidunt nulla possimus facilis hic. Esse id ullam voluptas in reprehenderit quaerat corporis numquam. Hic dolores doloribus id excepturi dolore neque.	2022-07-12 18:13:42.426889	\N	printed-shirt	\N	\N	1	1	2022-07-12 18:13:42.55227	2022-07-12 18:15:45.444354	t	\N	\N	\N	\N
-70	Asymmetric Sweater With Wide Sleeves	Ab ad facilis ipsam reprehenderit ex ipsum. Quos nisi nobis itaque fugit minus modi nostrum. Eius perspiciatis mollitia veniam saepe voluptatibus.	2022-07-12 18:13:42.81728	\N	asymmetric-sweater-with-wide-sleeves	\N	\N	1	1	2022-07-12 18:13:42.927495	2022-07-12 18:15:45.600667	t	\N	\N	\N	\N
-89	Down Jacket	Molestiae soluta veniam illo alias voluptatum minima accusamus. Ea corporis dolores autem dolorem vitae qui id ut. Nesciunt autem voluptatibus asperiores ab facilis quam porro iusto. Asperiores blanditiis architecto non placeat corrupti excepturi consequuntur. Eius repudiandae aperiam dicta delectus.	2022-07-12 18:13:50.546399	\N	down-jacket	\N	\N	1	1	2022-07-12 18:13:50.722652	2022-07-12 18:15:48.913628	t	\N	\N	\N	\N
-30	Anorak With Hood	Laboriosam magni debitis inventore recusandae atque libero. Perferendis praesentium soluta odio exercitationem quis vel veniam asperiores. Cumque earum a facilis nam sunt quod. Sunt unde ratione natus officiis nam quaerat enim beatae.	2022-07-12 18:13:27.742848	\N	anorak-with-hood	\N	\N	1	1	2022-07-12 18:13:27.857596	2022-07-12 18:15:38.837267	t	\N	\N	\N	\N
-48	Flared Dress	Perferendis id labore dolore corporis exercitationem quas. Doloremque consequuntur architecto exercitationem iusto. Quasi voluptatibus quae aperiam velit nisi. Commodi perferendis tempora magni neque. Minima nesciunt qui aliquam voluptatibus facilis aut quis.	2022-07-12 18:13:34.73343	\N	flared-dress	\N	\N	1	1	2022-07-12 18:13:34.84675	2022-07-12 18:15:41.874907	t	\N	\N	\N	\N
-11	Regular Shirt With Rolled Up Sleeves	Ducimus quas et dignissimos cupiditate. Itaque laboriosam cum repudiandae facere quod soluta aspernatur. Reprehenderit numquam beatae velit delectus iusto. Unde nostrum modi provident incidunt.	2022-07-12 18:13:20.677467	\N	regular-shirt-with-rolled-up-sleeves	\N	\N	1	1	2022-07-12 18:13:20.776635	2022-07-12 18:15:32.87141	t	\N	\N	\N	\N
-65	Elegant Blouse With Chocker	Tempore unde quibusdam eaque et similique incidunt. In nostrum asperiores voluptates at soluta hic perspiciatis cum. Non nobis reiciendis possimus enim cumque. Velit voluptatum sed omnis veritatis aliquid ipsam.	2022-07-12 18:13:40.937892	\N	elegant-blouse-with-chocker	\N	\N	1	1	2022-07-12 18:13:41.049032	2022-07-12 18:15:44.836657	t	\N	\N	\N	\N
-86	Long Wool Blend Coat With Belt	Quidem ratione explicabo delectus nesciunt. Iusto provident atque id voluptatem debitis nihil. Fugit exercitationem tempore provident molestias distinctio quia impedit. Voluptatibus natus nesciunt adipisci qui quasi voluptatum eius harum.	2022-07-12 18:13:49.417552	\N	long-wool-blend-coat-with-belt	\N	\N	1	1	2022-07-12 18:13:49.525501	2022-07-12 18:15:48.44332	t	\N	\N	\N	\N
-97	Sports Bra Low Support	Illum impedit quisquam atque cupiditate velit veniam nisi. Expedita ad quod quasi aperiam corporis repellendus. A dolore tenetur laborum sapiente animi atque. Aliquam praesentium perferendis tempora perspiciatis occaecati. Rerum illo pariatur officia consequuntur at.	2022-07-12 18:13:53.985874	\N	sports-bra-low-support	\N	\N	1	1	2022-07-12 18:13:54.100351	2022-07-12 18:15:50.150089	t	\N	\N	\N	\N
-110	Shined Pants	Incidunt illo molestias eveniet dicta neque veritatis illum fugit. Doloribus consequatur dolorem est ipsa culpa. Dicta modi quo sunt blanditiis omnis magni itaque. Pariatur ipsa minima libero quis dolorum ipsum beatae.	2022-07-12 18:13:58.925767	\N	shined-pants	\N	\N	1	1	2022-07-12 18:13:59.030752	2022-07-12 18:15:52.150009	t	\N	\N	\N	\N
-20	High Neck Sweater	Ducimus aperiam maiores doloribus laborum nemo. Fugiat voluptates vero quibusdam beatae quidem voluptatem alias. Ab quisquam labore cum nemo alias eligendi hic provident. Laudantium placeat exercitationem nulla fugiat.	2022-07-12 18:13:23.932558	\N	high-neck-sweater	\N	\N	1	1	2022-07-12 18:13:24.047159	2022-07-12 18:15:37.138355	t	\N	\N	\N	\N
-39	A Line Suede Skirt	Autem perferendis harum vel similique. Eaque quisquam perspiciatis laborum id eius veniam. Magni dicta at nostrum perferendis. Pariatur itaque quam voluptatem consequuntur alias id sint.	2022-07-12 18:13:31.276388	\N	a-line-suede-skirt	\N	\N	1	1	2022-07-12 18:13:31.391121	2022-07-12 18:15:40.439331	t	\N	\N	\N	\N
-84	Basic Loose T Shirt	Accusamus perferendis cumque quod natus voluptates quos optio dolores. Odit reiciendis sapiente dignissimos voluptas molestiae repellendus minus. Sed praesentium aspernatur illo doloremque. Et vitae quidem delectus reiciendis. Expedita amet laboriosam cumque saepe eum rem.	2022-07-12 18:13:48.653251	\N	basic-loose-t-shirt	\N	\N	1	1	2022-07-12 18:13:48.787394	2022-07-12 18:15:48.137469	t	\N	\N	\N	\N
-32	Wool Blend Short Coat	At magni quas deleniti tenetur. Eum iusto molestias voluptas cum sed magni ducimus. Praesentium aliquid non necessitatibus autem repudiandae atque delectus eligendi. Laudantium molestias enim nobis illo quae natus explicabo. Inventore occaecati sunt dicta quaerat nisi dolor.	2022-07-12 18:13:28.723377	\N	wool-blend-short-coat	\N	\N	1	1	2022-07-12 18:13:28.834877	2022-07-12 18:15:39.169735	t	\N	\N	\N	\N
-55	V Neck Floral Dress	Delectus ducimus eligendi tempora quos vero cumque. Eligendi placeat perferendis maxime neque minima. Velit aliquid voluptate ex quidem voluptas in iure odio. Cum quia quos fugit harum exercitationem. Facere suscipit dolore quia sed et illo at deserunt.	2022-07-12 18:13:37.282987	\N	v-neck-floral-dress	\N	\N	1	1	2022-07-12 18:13:37.398664	2022-07-12 18:15:43.030782	t	\N	\N	\N	\N
+14	3 4 Sleeve T Shirt	Esse quisquam cupiditate ab saepe suscipit rerum ea aperiam. Inventore expedita tenetur aut beatae. Quae deleniti distinctio dignissimos labore. Labore expedita illum eius itaque provident.	2022-07-12 18:13:21.673176	2022-09-02 14:33:29.010605	1662129209_3-4-sleeve-t-shirt	\N	\N	1	1	2022-07-12 18:13:21.774208	2022-09-02 14:33:29.010161	t	\N	\N	\N	\N
+39	A Line Suede Skirt	Autem perferendis harum vel similique. Eaque quisquam perspiciatis laborum id eius veniam. Magni dicta at nostrum perferendis. Pariatur itaque quam voluptatem consequuntur alias id sint.	2022-07-12 18:13:31.276388	2022-09-02 14:33:32.145693	1662129212_a-line-suede-skirt	\N	\N	1	1	2022-07-12 18:13:31.391121	2022-09-02 14:33:32.145221	t	\N	\N	\N	\N
+30	Anorak With Hood	Laboriosam magni debitis inventore recusandae atque libero. Perferendis praesentium soluta odio exercitationem quis vel veniam asperiores. Cumque earum a facilis nam sunt quod. Sunt unde ratione natus officiis nam quaerat enim beatae.	2022-07-12 18:13:27.742848	2022-09-02 14:33:34.481806	1662129214_anorak-with-hood	\N	\N	1	1	2022-07-12 18:13:27.857596	2022-09-02 14:33:34.481248	t	\N	\N	\N	\N
+87	Asymmetric Coat	Numquam necessitatibus quo dolores sapiente minima nihil. Tempora alias ut sapiente eaque. Officiis voluptates veniam exercitationem laborum inventore. Odio dicta quas asperiores expedita saepe molestias. Delectus quos ipsam itaque quam odit debitis deserunt assumenda.	2022-07-12 18:13:49.777333	2022-09-02 14:33:39.581741	1662129219_asymmetric-coat	\N	\N	1	1	2022-07-12 18:13:49.8979	2022-09-02 14:33:39.581165	t	\N	\N	\N	\N
+70	Asymmetric Sweater With Wide Sleeves	Ab ad facilis ipsam reprehenderit ex ipsum. Quos nisi nobis itaque fugit minus modi nostrum. Eius perspiciatis mollitia veniam saepe voluptatibus.	2022-07-12 18:13:42.81728	2022-09-02 14:33:49.066631	1662129229_asymmetric-sweater-with-wide-sleeves	\N	\N	1	1	2022-07-12 18:13:42.927495	2022-09-02 14:33:49.066179	t	\N	\N	\N	\N
+41	Flared Skirt	Porro neque illum corrupti veritatis ducimus doloribus. Placeat beatae molestias quas earum voluptates modi molestiae reprehenderit. Exercitationem unde odio architecto deleniti vitae ipsa omnis nemo. Ratione pariatur rem molestiae ab animi occaecati error. Iure vitae deleniti consequuntur neque error.	2022-07-12 18:13:31.998	2022-09-02 16:27:00.004791	1662136020_flared-skirt	\N	\N	1	1	2022-07-12 18:13:32.106511	2022-09-02 16:27:00.004327	t	\N	\N	\N	\N
+46	Floral Wrap Dress	Recusandae minus temporibus cumque cupiditate necessitatibus labore reiciendis culpa. Cumque quibusdam corporis suscipit qui nostrum quidem. Culpa dignissimos eligendi deserunt neque vero. Fuga error ea porro esse ratione incidunt.	2022-07-12 18:13:33.870099	2022-09-02 16:27:24.147803	1662136044_floral-wrap-dress	\N	\N	1	1	2022-07-12 18:13:34.090368	2022-09-02 16:27:24.147397	t	\N	\N	\N	\N
+112	Printed Pants With Holes	Repellat velit laborum omnis consequatur provident libero occaecati ut. Dolorum modi excepturi perferendis occaecati. Porro eveniet molestiae nobis accusamus.	2022-07-12 18:13:59.632949	2022-09-02 16:28:41.29121	1662136121_printed-pants-with-holes	\N	\N	1	1	2022-07-12 18:13:59.741963	2022-09-02 16:28:41.290788	t	\N	\N	\N	\N
+37	Midi Skirt With Bottoms	Qui debitis nobis minima occaecati voluptatum dicta. Autem recusandae error doloribus illo laborum mollitia eligendi. Porro vero impedit ducimus numquam dicta atque. Accusantium maiores odio minus mollitia iusto natus expedita. Qui ducimus ipsam impedit tempora assumenda enim.	2022-07-12 18:13:30.546701	2022-09-02 16:28:29.317574	1662136109_midi-skirt-with-bottoms	\N	\N	1	1	2022-07-12 18:13:30.658555	2022-09-02 16:28:29.317165	t	\N	\N	\N	\N
+84	Basic Loose T Shirt	Accusamus perferendis cumque quod natus voluptates quos optio dolores. Odit reiciendis sapiente dignissimos voluptas molestiae repellendus minus. Sed praesentium aspernatur illo doloremque. Et vitae quidem delectus reiciendis. Expedita amet laboriosam cumque saepe eum rem.	2022-07-12 18:13:48.653251	2022-09-02 16:25:40.116039	1662135940_basic-loose-t-shirt	\N	\N	1	1	2022-07-12 18:13:48.787394	2022-09-02 16:25:40.115572	t	\N	\N	\N	\N
+72	Oversized Sweatshirt	Cum eveniet impedit facilis necessitatibus. Iure odit nihil neque culpa nulla veritatis ad. Incidunt pariatur magni temporibus modi voluptatibus quos nemo laborum. Dolor ut fuga adipisci quam. Fugit laborum atque hic cum adipisci natus.	2022-07-12 18:13:43.516638	2022-09-02 16:28:32.416479	1662136112_oversized-sweatshirt	\N	\N	1	1	2022-07-12 18:13:43.625507	2022-09-02 16:28:32.415603	t	\N	\N	\N	\N
+45	Pleated Skirt 2	Fugiat iure doloremque vitae laudantium odit. Quos possimus at deserunt provident perferendis architecto natus suscipit. Deserunt corrupti consectetur dolore labore corporis quibusdam voluptatem sequi. Perspiciatis incidunt ab error nobis animi.	2022-07-12 18:13:33.459005	2022-09-02 16:28:33.073263	1662136113_pleated-skirt-2	\N	\N	1	1	2022-07-12 18:13:33.572055	2022-09-02 16:28:33.072755	t	\N	\N	\N	\N
+11	Regular Shirt With Rolled Up Sleeves	Ducimus quas et dignissimos cupiditate. Itaque laboriosam cum repudiandae facere quod soluta aspernatur. Reprehenderit numquam beatae velit delectus iusto. Unde nostrum modi provident incidunt.	2022-07-12 18:13:20.677467	2022-09-02 16:27:31.684469	1662136051_regular-shirt-with-rolled-up-sleeves	\N	\N	1	1	2022-07-12 18:13:20.776635	2022-09-02 16:27:31.683771	t	\N	\N	\N	\N
+16	Raw Edge T Shirt	Facere officia laborum dolores animi autem tempora dolore. Suscipit sapiente dolores eaque fugiat ipsa asperiores. Animi eaque nesciunt voluptate dignissimos voluptates. Perferendis sequi suscipit rem officia quibusdam ut harum.	2022-07-12 18:13:22.376547	2022-09-02 16:28:36.211105	1662136116_raw-edge-t-shirt	\N	\N	1	1	2022-07-12 18:13:22.484648	2022-09-02 16:28:36.210653	t	\N	\N	\N	\N
+62	Pleated Sleeve V Neck Shirt	Hic at nulla omnis saepe placeat aliquam minus. Quae dolorum mollitia itaque aliquam accusantium corrupti. Ipsum iste nesciunt cum maxime animi ab maiores ex. Repudiandae ipsa laboriosam voluptates rem doloremque.	2022-07-12 18:13:39.918405	2022-09-02 16:28:44.452613	1662136124_pleated-sleeve-v-neck-shirt	\N	\N	1	1	2022-07-12 18:13:40.027365	2022-09-02 16:28:44.452146	t	\N	\N	\N	\N
+114	Printed Pants	Molestiae laudantium quidem repellendus tenetur nesciunt. Nihil sunt incidunt perferendis porro dolorum nam odio earum. Deserunt consequuntur ab nostrum alias velit unde repellendus minima. Sequi eligendi quis cupiditate dolorem. Tenetur inventore nihil ab mollitia magni sint provident.	2022-07-12 18:14:00.474266	2022-09-02 16:28:41.894097	1662136121_printed-pants	\N	\N	1	1	2022-07-12 18:14:00.618412	2022-09-02 16:28:41.893702	t	\N	\N	\N	\N
+77	Printed T Shirt	Sapiente culpa non dignissimos maxime magnam. Perspiciatis voluptas facere veniam deserunt possimus magni omnis iure. Enim ratione cupiditate aliquid adipisci perferendis consequuntur harum. Voluptatibus dolore inventore suscipit odio exercitationem quis dolor corrupti. Aspernatur libero voluptatibus totam nisi.	2022-07-12 18:13:45.606079	2022-09-02 16:28:38.092437	1662136118_printed-t-shirt	\N	\N	1	1	2022-07-12 18:13:45.721758	2022-09-02 16:28:38.092045	t	\N	\N	\N	\N
+69	Printed Shirt	Placeat eius harum facere aut. Earum quisquam sequi eaque ipsa modi. Sint quas incidunt nulla possimus facilis hic. Esse id ullam voluptas in reprehenderit quaerat corporis numquam. Hic dolores doloribus id excepturi dolore neque.	2022-07-12 18:13:42.426889	2022-09-02 16:28:40.122167	1662136120_printed-shirt	\N	\N	1	1	2022-07-12 18:13:42.55227	2022-09-02 16:28:40.12179	t	\N	\N	\N	\N
+44	Floral Flared Skirt	Earum consequatur ex ratione commodi voluptatem nesciunt minima aperiam. Incidunt provident impedit dolores dignissimos. Magnam hic nesciunt exercitationem aliquam.	2022-07-12 18:13:33.085572	2022-09-02 16:27:01.295678	1662136021_floral-flared-skirt	\N	\N	1	1	2022-07-12 18:13:33.201797	2022-09-02 16:27:01.295234	t	\N	\N	\N	\N
+79	Pleated Sleeve T Shirt	Ea nulla eligendi dolorem magni. Occaecati quidem fugit maxime fuga debitis excepturi. Odio ipsa porro doloribus ea nostrum nobis quas necessitatibus. Voluptatum natus perspiciatis dicta sint repudiandae tempora. Eveniet non sequi necessitatibus amet ipsum consequatur adipisci.	2022-07-12 18:13:46.815179	2022-09-02 16:28:45.139707	1662136125_pleated-sleeve-t-shirt	\N	\N	1	1	2022-07-12 18:13:46.928259	2022-09-02 16:28:45.1393	t	\N	\N	\N	\N
+53	Printed Slit Sleeves Dress	Ea ut distinctio odit repudiandae. Dicta placeat dolores illum esse. Architecto vel illum reiciendis totam ipsam amet repudiandae aperiam.	2022-07-12 18:13:36.560719	2022-09-02 16:28:38.718095	1662136118_printed-slit-sleeves-dress	\N	\N	1	1	2022-07-12 18:13:36.671818	2022-09-02 16:28:38.717644	t	\N	\N	\N	\N
+71	Oversized Knitted Sweater	Eius quod sunt modi nulla aspernatur illo. Magni veniam aperiam illum voluptatem alias maiores. Repellat commodi quo iste possimus.	2022-07-12 18:13:43.162257	2022-09-02 16:28:31.862087	1662136111_oversized-knitted-sweater	\N	\N	1	1	2022-07-12 18:13:43.280082	2022-09-02 16:28:31.861705	t	\N	\N	\N	\N
+67	Semi Sheer Shirt With Pockets	Suscipit quod explicabo culpa placeat incidunt animi ad. Maiores ad praesentium corrupti eos. Animi voluptas non rem occaecati.	2022-07-12 18:13:41.670246	2022-09-02 16:27:35.559877	1662136055_semi-sheer-shirt-with-pockets	\N	\N	1	1	2022-07-12 18:13:41.779463	2022-09-02 16:27:35.559435	t	\N	\N	\N	\N
+105	Running Sweatshirt	Excepturi inventore deserunt delectus dicta a. Voluptates ipsam eligendi accusantium illo quasi vel optio quibusdam. Deleniti iste facilis voluptatibus molestiae autem mollitia quisquam. Qui quam ut vitae dolores atque doloribus dicta.	2022-07-12 18:13:57.047807	2022-09-02 16:27:33.78407	1662136053_running-sweatshirt	\N	\N	1	1	2022-07-12 18:13:57.165606	2022-09-02 16:27:33.782368	t	\N	\N	\N	\N
+19	Basic T Shirt	Eligendi pariatur odit expedita labore. Sequi iste exercitationem repellendus expedita quam perspiciatis in fugit. Repellat sint iste hic tempore distinctio veritatis. In neque tenetur praesentium quidem deserunt laborum. Libero corporis recusandae cupiditate praesentium odio vero.	2022-07-12 18:13:23.566031	2022-09-02 16:25:42.061903	1662135942_basic-t-shirt	\N	\N	1	1	2022-07-12 18:13:23.677212	2022-09-02 16:25:42.061435	t	\N	\N	\N	\N
+66	Floral Shirt	Sed adipisci possimus quo impedit exercitationem. Quod culpa praesentium iste eaque placeat similique. Occaecati est saepe delectus nisi unde quia adipisci laborum. Sapiente ipsum molestiae nulla voluptatibus fugiat quaerat eaque. Vel tenetur hic eveniet rem unde assumenda nisi.	2022-07-12 18:13:41.315705	2022-09-02 16:27:02.096713	1662136022_floral-shirt	\N	\N	1	1	2022-07-12 18:13:41.420627	2022-09-02 16:27:02.096268	t	\N	\N	\N	\N
+90	Zipped Jacket	Voluptatum praesentium dolorem eum neque. Necessitatibus veniam perferendis cupiditate nulla velit. Perspiciatis ratione eligendi delectus sapiente assumenda. Vero ex explicabo dolorum fuga molestiae odio.	2022-07-12 18:13:51.087881	2022-09-02 16:28:00.577352	1662136080_zipped-jacket	\N	\N	1	1	2022-07-12 18:13:51.205812	2022-09-02 16:28:00.576913	t	\N	\N	\N	\N
+111	Short Pants	Soluta explicabo quisquam rem accusantium illo laborum ratione incidunt. Aperiam ab impedit quasi nihil odit. Maxime mollitia facere at voluptate. Veniam soluta expedita adipisci maiores vitae minus repudiandae harum.	2022-07-12 18:13:59.279977	2022-09-02 16:27:36.033786	1662136056_short-pants	\N	\N	1	1	2022-07-12 18:13:59.389341	2022-09-02 16:27:36.033381	t	\N	\N	\N	\N
+56	Flounced Dress	Fugit magnam odit nesciunt atque dolores saepe recusandae vero. Ipsa excepturi pariatur nisi rerum debitis. Temporibus quas rerum dolore perspiciatis iusto officia fugit. Nesciunt sapiente harum laboriosam impedit neque.	2022-07-12 18:13:37.669025	2022-09-02 16:27:02.759388	1662136022_flounced-dress	\N	\N	1	1	2022-07-12 18:13:37.775932	2022-09-02 16:27:02.758816	t	\N	\N	\N	\N
+35	Jacket With Liner	Animi quibusdam alias laborum adipisci quae. Eos rem quo adipisci nesciunt veritatis ad. Eius soluta ad eligendi magnam cumque repellendus eos. Officia quo rem deleniti provident. Enim aut voluptatum deleniti modi.	2022-07-12 18:13:29.807567	2022-09-02 16:27:05.414575	1662136025_jacket-with-liner	\N	\N	1	1	2022-07-12 18:13:29.935552	2022-09-02 16:27:05.414058	t	\N	\N	\N	\N
+1	Denim Shirt	Harum suscipit a sunt blanditiis nisi. Itaque labore commodi ipsa mollitia. Minus laboriosam est nemo earum sunt.	2022-07-12 18:13:17.026782	2022-09-02 16:26:09.720256	1662135969_denim-shirt	\N	\N	1	1	2022-07-12 18:13:17.233973	2022-09-02 16:26:09.719802	t	\N	\N	\N	\N
+63	Cotton Shirt	Vitae quisquam incidunt aut rem. Repudiandae quibusdam maiores doloremque dolorum facere quae. Labore corrupti delectus necessitatibus et veritatis quae explicabo.	2022-07-12 18:13:40.257348	2022-09-02 16:25:52.142342	1662135952_cotton-shirt	\N	\N	1	1	2022-07-12 18:13:40.3615	2022-09-02 16:25:52.141912	t	\N	\N	\N	\N
+64	Blouse With Wide Flounced Sleeve	Laboriosam qui quam magnam quidem aspernatur ex amet nostrum. Similique placeat ducimus incidunt illum maiores mollitia explicabo velit. Eligendi aliquid consectetur odio aperiam.	2022-07-12 18:13:40.602194	2022-09-02 16:25:43.882982	1662135943_blouse-with-wide-flounced-sleeve	\N	\N	1	1	2022-07-12 18:13:40.709149	2022-09-02 16:25:43.881815	t	\N	\N	\N	\N
+43	Skater Short Skirt	Velit quae iusto quas repellat non molestiae quisquam. Recusandae esse fugiat animi hic veniam. Debitis laborum accusantium animi voluptatum eligendi modi temporibus. Exercitationem natus voluptatibus aspernatur reiciendis suscipit. Dolor enim veniam ratione eos unde.	2022-07-12 18:13:32.719069	2022-09-02 16:27:36.748835	1662136056_skater-short-skirt	\N	\N	1	1	2022-07-12 18:13:32.829835	2022-09-02 16:27:36.748334	t	\N	\N	\N	\N
+116	High Waist Pants	Atque fuga dolore ipsam a culpa adipisci quia. Ab magni temporibus optio deleniti. Distinctio consequatur impedit eaque similique.	2022-07-12 18:14:01.217208	2022-09-02 16:27:03.555318	1662136023_high-waist-pants	\N	\N	1	1	2022-07-12 18:14:01.322012	2022-09-02 16:27:03.554716	t	\N	\N	\N	\N
+96	Bomber Jacket	Laboriosam eaque animi impedit tempora eum corrupti. Ut exercitationem mollitia necessitatibus officia nemo nobis. Qui eius dolore officiis nostrum veniam.	2022-07-12 18:13:53.587633	2022-09-02 16:25:45.516225	1662135945_bomber-jacket	\N	\N	1	1	2022-07-12 18:13:53.739252	2022-09-02 16:25:45.515812	t	\N	\N	\N	\N
+110	Shined Pants	Incidunt illo molestias eveniet dicta neque veritatis illum fugit. Doloribus consequatur dolorem est ipsa culpa. Dicta modi quo sunt blanditiis omnis magni itaque. Pariatur ipsa minima libero quis dolorum ipsum beatae.	2022-07-12 18:13:58.925767	2022-09-02 16:27:42.188495	1662136062_shined-pants	\N	\N	1	1	2022-07-12 18:13:59.030752	2022-09-02 16:27:42.18807	t	\N	\N	\N	\N
+2	Checked Shirt	Incidunt in sunt ea id nostrum assumenda nemo velit. Soluta impedit occaecati molestiae inventore vel eius minus tenetur. Quis in rerum ipsa incidunt fuga.	2022-07-12 18:13:17.470012	2022-09-02 16:25:47.21882	1662135947_checked-shirt	\N	\N	1	1	2022-07-12 18:13:17.570674	2022-09-02 16:25:47.218358	t	\N	\N	\N	\N
+5	Short Sleeve Shirt	Inventore eaque ea debitis eius nostrum neque porro. Recusandae sequi totam neque dolorum. Ducimus corporis debitis officiis omnis.	2022-07-12 18:13:18.629763	2022-09-02 16:27:42.811559	1662136062_short-sleeve-shirt	\N	\N	1	1	2022-07-12 18:13:18.733675	2022-09-02 16:27:42.811099	t	\N	\N	\N	\N
+101	Laced Crop Top	Vero rerum minima ab aliquid. Atque ab officiis perspiciatis distinctio dolore minus illo. Totam aperiam error accusantium voluptatibus consequatur. Repellat explicabo amet vel nesciunt ullam aliquid laborum itaque.	2022-07-12 18:13:55.387812	2022-09-02 16:27:08.137317	1662136028_laced-crop-top	\N	\N	1	1	2022-07-12 18:13:55.505438	2022-09-02 16:27:08.136895	t	\N	\N	\N	\N
+61	Printed Wrapped Blouse	Sapiente amet laudantium recusandae ratione illo. Sit id vero aliquid accusamus earum. Facilis autem nobis perspiciatis consectetur nesciunt vero illo corporis.	2022-07-12 18:13:39.562815	2022-09-02 16:28:36.897231	1662136116_printed-wrapped-blouse	\N	\N	1	1	2022-07-12 18:13:39.674399	2022-09-02 16:28:36.896745	t	\N	\N	\N	\N
+7	Regular Shirt	Aperiam autem amet nam laudantium quidem. Fuga consequatur voluptas qui voluptatem consectetur doloribus. Quas veritatis exercitationem excepturi consequatur aut quibusdam.	2022-07-12 18:13:19.30322	2022-09-02 16:28:35.55735	1662136115_regular-shirt	\N	\N	1	1	2022-07-12 18:13:19.407093	2022-09-02 16:28:35.556926	t	\N	\N	\N	\N
+15	T Shirt With Holes	Placeat dolores ducimus molestias animi. Quibusdam vitae necessitatibus earum corrupti exercitationem adipisci deserunt. Quisquam distinctio fuga qui nulla atque. Cumque quaerat ullam quia vel suscipit. Dolores magnam quae eos unde mollitia.	2022-07-12 18:13:22.022377	2022-09-02 16:27:45.588236	1662136065_t-shirt-with-holes	\N	\N	1	1	2022-07-12 18:13:22.128963	2022-09-02 16:27:45.587828	t	\N	\N	\N	\N
+8	Checked Slim Fit Shirt	Distinctio eum pariatur consectetur quod tempore laudantium exercitationem. Magnam occaecati accusantium debitis libero dolorum quaerat. Voluptatibus praesentium reprehenderit iusto ea cum. Beatae possimus porro velit error corrupti. Ea dolore amet nostrum voluptate similique.	2022-07-12 18:13:19.646856	2022-09-02 16:25:48.767477	1662135948_checked-slim-fit-shirt	\N	\N	1	1	2022-07-12 18:13:19.751861	2022-09-02 16:25:48.766138	t	\N	\N	\N	\N
+28	Suede Biker Jacket	Illo nemo a ipsum odit incidunt sapiente. Quasi tenetur unde tempora nihil ullam. Reiciendis cum architecto suscipit nostrum. Sint voluptate cupiditate rem temporibus quasi aliquam accusantium. Voluptates ullam excepturi voluptatem ad enim.	2022-07-12 18:13:26.906223	2022-09-02 16:27:46.199069	1662136066_suede-biker-jacket	\N	\N	1	1	2022-07-12 18:13:27.057238	2022-09-02 16:27:46.198637	t	\N	\N	\N	\N
+21	Stripped Jumper	Odio ex possimus molestias ut architecto. Dolor neque corrupti recusandae voluptas ratione doloremque aut. Error id recusandae dolorem aliquid eos. Quae consectetur ducimus cum dignissimos debitis neque enim. Sunt doloremque ullam provident nobis.	2022-07-12 18:13:24.29614	2022-09-02 16:27:46.76863	1662136066_stripped-jumper	\N	\N	1	1	2022-07-12 18:13:24.405774	2022-09-02 16:27:46.768189	t	\N	\N	\N	\N
+40	Leather Skirt With Lacing	Officia nulla corrupti explicabo eius totam quam. Minima alias consectetur exercitationem iste expedita fugiat vitae accusantium. Qui nesciunt ea fugiat autem illum dignissimos culpa tenetur. Id ea suscipit maiores consequatur beatae.	2022-07-12 18:13:31.643288	2022-09-02 16:27:09.109005	1662136029_leather-skirt-with-lacing	\N	\N	1	1	2022-07-12 18:13:31.751738	2022-09-02 16:27:09.108596	t	\N	\N	\N	\N
+51	Striped Shirt Dress	Iusto reiciendis omnis aut alias. Natus quisquam nostrum at cupiditate harum ratione accusantium. Quo dolor voluptatum distinctio odio voluptatem. Laudantium hic perspiciatis facilis commodi architecto. Adipisci earum nam dolorem at fugiat dolores.	2022-07-12 18:13:35.817391	2022-09-02 16:27:47.500164	1662136067_striped-shirt-dress	\N	\N	1	1	2022-07-12 18:13:35.938824	2022-09-02 16:27:47.499718	t	\N	\N	\N	\N
+76	Crop Top With Tie	Aut alias iste adipisci modi eos. Atque maiores dolorem error possimus ipsam. Commodi ipsa quo repudiandae autem.	2022-07-12 18:13:45.194571	2022-09-02 16:25:57.94484	1662135957_crop-top-with-tie	\N	\N	1	1	2022-07-12 18:13:45.312161	2022-09-02 16:25:57.944402	t	\N	\N	\N	\N
+85	Coat With Pockets	Similique repellendus laborum repudiandae explicabo fugit facilis. Blanditiis cum ullam magnam quidem aliquam. Deserunt laudantium consequuntur nihil repellendus quasi sint ut.	2022-07-12 18:13:49.047532	2022-09-02 16:25:50.495979	1662135950_coat-with-pockets	\N	\N	1	1	2022-07-12 18:13:49.162968	2022-09-02 16:25:50.495549	t	\N	\N	\N	\N
+102	Sports Bra Medium Support	Nulla aut dicta cum dolorum modi officiis. Quam suscipit voluptatem cumque dolorem et at itaque. Iusto ea id tempora fuga dolores expedita ducimus assumenda. Earum commodi ad provident assumenda reiciendis animi suscipit optio.	2022-07-12 18:13:55.742633	2022-09-02 16:27:48.739322	1662136068_sports-bra-medium-support	\N	\N	1	1	2022-07-12 18:13:55.848228	2022-09-02 16:27:48.738904	t	\N	\N	\N	\N
+10	Linen Shirt	Eveniet asperiores tenetur repellat placeat modi ab veritatis excepturi. Cupiditate recusandae sit quibusdam modi labore. Distinctio a ex beatae ipsa illum exercitationem nesciunt molestiae. Sed ipsa sapiente amet provident voluptate veniam.	2022-07-12 18:13:20.332429	2022-09-02 16:27:09.931541	1662136029_linen-shirt	\N	\N	1	1	2022-07-12 18:13:20.438071	2022-09-02 16:27:09.931078	t	\N	\N	\N	\N
+24	Long Sleeve Sweatshirt	Reprehenderit nulla adipisci voluptatibus eum. Modi ullam cupiditate alias adipisci enim doloremque nam. Assumenda voluptate optio provident laborum voluptatibus totam.	2022-07-12 18:13:25.361399	2022-09-02 16:27:13.599906	1662136033_long-sleeve-sweatshirt	\N	\N	1	1	2022-07-12 18:13:25.468421	2022-09-02 16:27:13.59943	t	\N	\N	\N	\N
+97	Sports Bra Low Support	Illum impedit quisquam atque cupiditate velit veniam nisi. Expedita ad quod quasi aperiam corporis repellendus. A dolore tenetur laborum sapiente animi atque. Aliquam praesentium perferendis tempora perspiciatis occaecati. Rerum illo pariatur officia consequuntur at.	2022-07-12 18:13:53.985874	2022-09-02 16:27:49.560075	1662136069_sports-bra-low-support	\N	\N	1	1	2022-07-12 18:13:54.100351	2022-09-02 16:27:49.559677	t	\N	\N	\N	\N
+27	Long Sleeve Jumper	Veritatis aspernatur vero eius rerum nam doloremque iure similique. Minima explicabo nostrum aperiam ipsam veritatis. Natus id deleniti cupiditate ex vero exercitationem amet error.	2022-07-12 18:13:26.52462	2022-09-02 16:27:10.673064	1662136030_long-sleeve-jumper	\N	\N	1	1	2022-07-12 18:13:26.635809	2022-09-02 16:27:10.67261	t	\N	\N	\N	\N
+103	Sports Bra 	Ipsum magnam animi voluptatum ratione rerum eius nobis. Amet eos dolores facere aspernatur architecto. Dolorum occaecati quam impedit placeat laboriosam labore repudiandae pariatur. Quod consequatur expedita numquam repellat animi tempora.	2022-07-12 18:13:56.194397	2022-09-02 16:27:50.065306	1662136070_sports-bra	\N	\N	1	1	2022-07-12 18:13:56.31494	2022-09-02 16:27:50.064725	t	\N	\N	\N	\N
+42	Skater Skirt	Dolor sit nisi commodi nostrum beatae culpa. Molestiae quos alias odit rem distinctio dicta in. Aperiam repellat totam recusandae quaerat pariatur labore. Voluptates necessitatibus incidunt alias magnam laudantium eos. Mollitia sed corporis dolor at nemo rerum.	2022-07-12 18:13:32.349681	2022-09-02 16:27:54.077593	1662136074_skater-skirt	\N	\N	1	1	2022-07-12 18:13:32.468571	2022-09-02 16:27:54.077167	t	\N	\N	\N	\N
+108	Sport Windproof Jacket	Officiis nulla similique eos tempora. Ab qui illo incidunt maiores vero possimus. Eos modi similique nemo doloribus voluptatibus quos molestias. Alias nihil sed doloremque molestias. Tenetur nisi temporibus quo magnam molestiae blanditiis.	2022-07-12 18:13:58.181169	2022-09-02 16:27:50.776624	1662136070_sport-windproof-jacket	\N	\N	1	1	2022-07-12 18:13:58.285334	2022-09-02 16:27:50.776188	t	\N	\N	\N	\N
+78	Scrappy Top	Temporibus repellendus dolore autem unde nobis. Doloribus iure distinctio tempore alias molestias. Officia tenetur maiores possimus totam pariatur repellat consequuntur.	2022-07-12 18:13:46.3407	2022-09-02 16:27:34.866099	1662136054_scrappy-top	\N	\N	1	1	2022-07-12 18:13:46.48078	2022-09-02 16:27:34.865647	t	\N	\N	\N	\N
+13	Long Sleeve T Shirt	Nesciunt reprehenderit quia modi quae molestias odio deleniti consectetur. Veritatis perspiciatis dolore voluptas corrupti aut. Magni delectus at odio asperiores quidem. Vel unde voluptas optio id possimus impedit. Dicta consectetur ducimus placeat eum eos voluptatibus perspiciatis.	2022-07-12 18:13:21.337759	2022-09-02 16:27:13.025824	1662136033_long-sleeve-t-shirt	\N	\N	1	1	2022-07-12 18:13:21.447101	2022-09-02 16:27:13.025258	t	\N	\N	\N	\N
+104	Sport Cropp Top	Eos veritatis magni error facilis. Expedita at deleniti repellat aliquid dolore. Quos libero fugiat corrupti voluptatibus doloremque alias repellat.	2022-07-12 18:13:56.660013	2022-09-02 16:27:52.864239	1662136072_sport-cropp-top	\N	\N	1	1	2022-07-12 18:13:56.812783	2022-09-02 16:27:52.863785	t	\N	\N	\N	\N
+109	Sport Waistcoat	Perferendis harum voluptas tempora dolore maiores deleniti. Cum praesentium omnis atque corporis. Ipsum nihil quod rerum neque beatae sed vel deleniti. Temporibus et ducimus exercitationem dolorum molestiae hic corporis rem.	2022-07-12 18:13:58.547108	2022-09-02 16:27:51.346934	1662136071_sport-waistcoat	\N	\N	1	1	2022-07-12 18:13:58.659922	2022-09-02 16:27:51.346498	t	\N	\N	\N	\N
+57	Slit Maxi Dress	Veniam eaque iste incidunt omnis. Numquam totam tempore voluptates possimus quibusdam corrupti expedita magni. Eos numquam natus exercitationem ut. Velit odit facere dolorum maiores suscipit laudantium quisquam. Corrupti velit sunt vel repellendus a ipsum tempore illo.	2022-07-12 18:13:38.022248	2022-09-02 16:27:53.553408	1662136073_slit-maxi-dress	\N	\N	1	1	2022-07-12 18:13:38.132993	2022-09-02 16:27:53.552955	t	\N	\N	\N	\N
+3	Covered Placket Shirt	Distinctio fugiat iste nobis enim non earum. Autem minus facere quos minima perspiciatis vel ad. Qui deserunt ex accusantium laboriosam rerum vitae. Provident ducimus itaque modi alias perferendis consectetur. A pariatur amet dicta dolorum.	2022-07-12 18:13:17.960419	2022-09-02 16:25:54.161663	1662135954_covered-placket-shirt	\N	\N	1	1	2022-07-12 18:13:18.063139	2022-09-02 16:25:54.161212	t	\N	\N	\N	\N
+99	Oversize T Shirt Wrapped On Back	Facere provident praesentium inventore modi veritatis. Nam numquam veritatis quae non optio aperiam quisquam. Totam ab vero rerum aut. Magni amet sed praesentium voluptatem impedit nostrum alias.	2022-07-12 18:13:54.692243	2022-09-02 16:28:31.304256	1662136111_oversize-t-shirt-wrapped-on-back	\N	\N	1	1	2022-07-12 18:13:54.802491	2022-09-02 16:28:31.30388	t	\N	\N	\N	\N
+100	Long Sleeves Crop Top	Nobis deleniti corporis modi molestiae atque error. Beatae architecto corrupti voluptate repudiandae qui ullam. Sint nesciunt sed vel ab. Temporibus id tempore iste iusto. Rerum commodi quidem dolorum esse eaque vitae delectus.	2022-07-12 18:13:55.035514	2022-09-02 16:28:18.778775	1662136098_long-sleeves-crop-top	\N	\N	1	1	2022-07-12 18:13:55.156868	2022-09-02 16:28:18.778344	t	\N	\N	\N	\N
+80	Scrappy Crop Top With Tie	Quod eos consectetur nihil ut fugiat labore iusto. Exercitationem error enim commodi magnam est. Explicabo eaque iste eveniet asperiores beatae. Ex modi repudiandae labore aperiam cumque. Omnis reiciendis placeat possimus ad molestiae illo incidunt exercitationem.	2022-07-12 18:13:47.219704	2022-09-02 16:27:34.375065	1662136054_scrappy-crop-top-with-tie	\N	\N	1	1	2022-07-12 18:13:47.327846	2022-09-02 16:27:34.374607	t	\N	\N	\N	\N
+88	Long Coat With Belt	Quo animi sequi nihil maiores quisquam beatae ipsum. Nesciunt rerum quidem nihil dolore eaque illum quae nulla. Dicta esse in iste tempora fugit et nisi beatae.	2022-07-12 18:13:50.154756	2022-09-02 16:27:15.484191	1662136035_long-coat-with-belt	\N	\N	1	1	2022-07-12 18:13:50.273003	2022-09-02 16:27:15.483733	t	\N	\N	\N	\N
+50	Long Sleeve Knitted Dress	Vitae delectus voluptates ab quisquam ipsum impedit. Occaecati eaque aperiam officia assumenda cum modi. Sed quod consequatur ipsam iure aspernatur.	2022-07-12 18:13:35.44638	2022-09-02 16:27:14.243331	1662136034_long-sleeve-knitted-dress	\N	\N	1	1	2022-07-12 18:13:35.557525	2022-09-02 16:27:14.242862	t	\N	\N	\N	\N
+26	Zipped High Neck Sweater	Labore optio tempora nobis nemo officiis ipsam. Cupiditate assumenda maiores cumque totam reiciendis voluptate illum aspernatur. Numquam reprehenderit architecto repellat rem consequatur nemo illo. Esse voluptatum occaecati quas animi tempore iure. Maxime dolore error laboriosam quae.	2022-07-12 18:13:26.14777	2022-09-02 16:28:01.227568	1662136081_zipped-high-neck-sweater	\N	\N	1	1	2022-07-12 18:13:26.262199	2022-09-02 16:28:01.226191	t	\N	\N	\N	\N
+81	Crop Top	Est sint similique explicabo aperiam aliquam mollitia id. Aliquam unde error doloribus nostrum mollitia consequatur. Excepturi quidem voluptate ullam ex molestiae. Quidem dicta ab debitis blanditiis vitae repellat laborum. Facere ad minima quisquam at illum.	2022-07-12 18:13:47.567897	2022-09-02 16:25:56.144074	1662135956_crop-top	\N	\N	1	1	2022-07-12 18:13:47.680797	2022-09-02 16:25:56.143505	t	\N	\N	\N	\N
+32	Wool Blend Short Coat	At magni quas deleniti tenetur. Eum iusto molestias voluptas cum sed magni ducimus. Praesentium aliquid non necessitatibus autem repudiandae atque delectus eligendi. Laudantium molestias enim nobis illo quae natus explicabo. Inventore occaecati sunt dicta quaerat nisi dolor.	2022-07-12 18:13:28.723377	2022-09-02 16:28:01.83436	1662136081_wool-blend-short-coat	\N	\N	1	1	2022-07-12 18:13:28.834877	2022-09-02 16:28:01.833824	t	\N	\N	\N	\N
+94	Wool Blend Coat With Belt	Mollitia facere eveniet quia numquam. Illum odio adipisci corporis sint deleniti itaque. Minus quaerat sed tempora nobis. Rerum suscipit sit corporis repellat voluptates ad.	2022-07-12 18:13:52.793484	2022-09-02 16:28:02.55914	1662136082_wool-blend-coat-with-belt	\N	\N	1	1	2022-07-12 18:13:52.943398	2022-09-02 16:28:02.558577	t	\N	\N	\N	\N
+22	Long Sleeve Jumper With Pocket	Delectus ratione in aspernatur consequuntur minus praesentium laborum. Quia excepturi optio aliquid fugit voluptatibus in vel itaque. Rerum libero reiciendis temporibus recusandae possimus fuga minus distinctio. Id ipsum totam itaque recusandae magni quibusdam sed adipisci.	2022-07-12 18:13:24.645297	2022-09-02 16:27:14.899458	1662136034_long-sleeve-jumper-with-pocket	\N	\N	1	1	2022-07-12 18:13:24.764565	2022-09-02 16:27:14.898869	t	\N	\N	\N	\N
+82	Loose T Shirt With Pocket Imitation	Magni corporis iste quas nihil nisi rem doloremque aliquid. Ea fuga quaerat eaque accusamus similique. Eius ea delectus quod reprehenderit explicabo earum ullam voluptas. Mollitia dolorum libero perferendis facilis tempore iusto.	2022-07-12 18:13:47.92671	2022-09-02 16:28:20.570194	1662136100_loose-t-shirt-with-pocket-imitation	\N	\N	1	1	2022-07-12 18:13:48.029968	2022-09-02 16:28:20.569797	t	\N	\N	\N	\N
+60	V Neck Wide Shirt	Mollitia quo omnis sequi reiciendis. Recusandae tempore deserunt harum occaecati reprehenderit vero voluptatibus. Molestiae magni voluptatum amet tenetur vel. Veritatis adipisci iusto excepturi dolorem sed ab. Maxime facilis recusandae repudiandae illo alias laudantium.	2022-07-12 18:13:39.067867	2022-09-02 16:28:03.833898	1662136083_v-neck-wide-shirt	\N	\N	1	1	2022-07-12 18:13:39.316362	2022-09-02 16:28:03.833425	t	\N	\N	\N	\N
+17	V Neck T Shirt	Eveniet molestiae enim illum placeat recusandae. Distinctio praesentium nobis explicabo excepturi velit aspernatur. Incidunt eum aliquam vitae eveniet voluptate.	2022-07-12 18:13:22.719738	2022-09-02 16:28:04.512745	1662136084_v-neck-t-shirt	\N	\N	1	1	2022-07-12 18:13:22.972608	2022-09-02 16:28:04.512289	t	\N	\N	\N	\N
+52	Printed Dress	Exercitationem tempore saepe dicta aliquid atque facilis debitis. Expedita assumenda itaque non nulla quas. Repellat est ipsum at qui ex odio. Tempora quidem quas unde optio. Voluptas maiores eos totam quas.	2022-07-12 18:13:36.187544	2022-09-02 16:28:42.566088	1662136122_printed-dress	\N	\N	1	1	2022-07-12 18:13:36.305061	2022-09-02 16:28:42.565608	t	\N	\N	\N	\N
+113	Pants	Alias est molestias laudantium consequuntur in minus facere distinctio. Quae omnis natus accusamus unde ducimus. Perspiciatis quas quos blanditiis tempora soluta quam molestias minima. Quod vitae necessitatibus aut voluptatibus repellendus quidem. Atque facere amet harum voluptates.	2022-07-12 18:14:00.036039	2022-09-02 16:28:46.981352	1662136126_pants	\N	\N	1	1	2022-07-12 18:14:00.171791	2022-09-02 16:28:46.980958	t	\N	\N	\N	\N
+47	V Neck Floral Maxi Dress	Sit asperiores nihil incidunt iste iusto natus sint. Molestiae consequuntur recusandae facilis atque totam dolorem dolorum ea. Labore aspernatur vel autem minima voluptates magni. Nihil sit quod numquam eius facere eum in minima.	2022-07-12 18:13:34.354511	2022-09-02 16:28:06.321172	1662136086_v-neck-floral-maxi-dress	\N	\N	1	1	2022-07-12 18:13:34.473636	2022-09-02 16:28:06.320729	t	\N	\N	\N	\N
+55	V Neck Floral Dress	Delectus ducimus eligendi tempora quos vero cumque. Eligendi placeat perferendis maxime neque minima. Velit aliquid voluptate ex quidem voluptas in iure odio. Cum quia quos fugit harum exercitationem. Facere suscipit dolore quia sed et illo at deserunt.	2022-07-12 18:13:37.282987	2022-09-02 16:28:06.979858	1662136086_v-neck-floral-dress	\N	\N	1	1	2022-07-12 18:13:37.398664	2022-09-02 16:28:06.979416	t	\N	\N	\N	\N
+4	Slim Fit Shirt	Maxime unde magni sed eos amet asperiores. Modi est vel enim tempore iste accusantium. Error ad vitae expedita doloremque numquam.	2022-07-12 18:13:18.289352	2022-09-02 16:27:43.37352	1662136063_slim-fit-shirt	\N	\N	1	1	2022-07-12 18:13:18.401467	2022-09-02 16:27:43.373047	t	\N	\N	\N	\N
+83	Sleeveless Loose Top	Harum sint ad vero voluptate accusantium natus. Sit laudantium explicabo velit ipsa tempore. Tenetur nemo quibusdam molestiae laudantium distinctio eum adipisci. Fugiat animi voluptate quas praesentium sunt repudiandae quasi consequatur.	2022-07-12 18:13:48.268389	2022-09-02 16:27:38.217954	1662136058_sleeveless-loose-top	\N	\N	1	1	2022-07-12 18:13:48.404769	2022-09-02 16:27:38.217484	t	\N	\N	\N	\N
+106	Lightweight Running Jacket	Atque enim soluta minima fugiat. Beatae itaque doloribus dignissimos possimus laudantium qui officiis. Ut quaerat quae esse harum nemo repellat sint. Tempore error ipsum omnis illum cumque. Officiis natus explicabo illo iure at distinctio minus.	2022-07-12 18:13:57.438296	2022-09-02 16:27:16.214681	1662136036_lightweight-running-jacket	\N	\N	1	1	2022-07-12 18:13:57.55469	2022-09-02 16:27:16.214211	t	\N	\N	\N	\N
+73	Knitted High Neck Sweater	Sapiente animi eius dicta non quaerat dolorem ratione. Error laborum earum in necessitatibus facilis esse. Maiores rerum repudiandae asperiores cupiditate mollitia. Amet dicta beatae odio deserunt animi esse. Pariatur minus quam culpa distinctio vero.	2022-07-12 18:13:43.873073	2022-09-02 16:27:17.527689	1662136037_knitted-high-neck-sweater	\N	\N	1	1	2022-07-12 18:13:43.998569	2022-09-02 16:27:17.527239	t	\N	\N	\N	\N
+18	Tank Top	Tempora ipsam aliquid inventore provident dolor. Exercitationem ex magnam dolorem perferendis nemo architecto saepe. Provident quis occaecati asperiores dolorem nemo.	2022-07-12 18:13:23.209425	2022-09-02 16:28:07.527152	1662136087_tank-top	\N	\N	1	1	2022-07-12 18:13:23.317573	2022-09-02 16:28:07.526737	t	\N	\N	\N	\N
+98	Long Sleeves Yoga Crop Top	Sit dolores placeat possimus fugit eius. Libero deserunt perspiciatis similique cumque doloremque quae. Ab perferendis ducimus iste nam quisquam.	2022-07-12 18:13:54.337359	2022-09-02 16:28:19.355544	1662136099_long-sleeves-yoga-crop-top	\N	\N	1	1	2022-07-12 18:13:54.447803	2022-09-02 16:28:19.355125	t	\N	\N	\N	\N
+74	Knitted V Neck Sweater	Aspernatur laboriosam blanditiis minima ipsa exercitationem. Magnam pariatur eaque tempora saepe ad vero. Facilis commodi nihil quae quod. Itaque illum ipsa porro quibusdam.	2022-07-12 18:13:44.266041	2022-09-02 16:27:07.267267	1662136027_knitted-v-neck-sweater	\N	\N	1	1	2022-07-12 18:13:44.38903	2022-09-02 16:27:07.266841	t	\N	\N	\N	\N
+29	Hooded Jacket	Incidunt rem repellat fuga hic illum. Dolor incidunt ullam mollitia cumque. Velit cumque placeat voluptatibus enim. Ad iusto fugiat maxime necessitatibus optio.	2022-07-12 18:13:27.356685	2022-09-02 16:27:04.322036	1662136024_hooded-jacket	\N	\N	1	1	2022-07-12 18:13:27.474123	2022-09-02 16:27:04.321591	t	\N	\N	\N	\N
+86	Long Wool Blend Coat With Belt	Quidem ratione explicabo delectus nesciunt. Iusto provident atque id voluptatem debitis nihil. Fugit exercitationem tempore provident molestias distinctio quia impedit. Voluptatibus natus nesciunt adipisci qui quasi voluptatum eius harum.	2022-07-12 18:13:49.417552	2022-09-02 16:28:19.982357	1662136099_long-wool-blend-coat-with-belt	\N	\N	1	1	2022-07-12 18:13:49.525501	2022-09-02 16:28:19.981958	t	\N	\N	\N	\N
+49	Elegant Flared Dress	Iure aliquid perferendis rerum dignissimos. Ea expedita dolorum aut nihil corporis nesciunt. Dicta harum soluta corporis perspiciatis hic eum. Ex corporis consequuntur accusantium qui.	2022-07-12 18:13:35.08712	2022-09-02 16:26:05.222016	1662135965_elegant-flared-dress	\N	\N	1	1	2022-07-12 18:13:35.202274	2022-09-02 16:26:05.221578	t	\N	\N	\N	\N
+75	Cropped Fitted Sweater	Vitae non repudiandae ipsam quia expedita hic numquam. Iste iure debitis dolorum sequi amet mollitia maxime. Veritatis laborum libero atque vitae doloribus doloremque error.	2022-07-12 18:13:44.81429	2022-09-02 16:25:59.585643	1662135959_cropped-fitted-sweater	\N	\N	1	1	2022-07-12 18:13:44.935521	2022-09-02 16:25:59.585193	t	\N	\N	\N	\N
+93	Leather Biker Jacket	Accusantium asperiores vitae quo nulla vel ab placeat. Voluptate repellat reprehenderit vitae voluptatem blanditiis magni. Inventore saepe minima fugiat dignissimos alias corrupti aperiam. In quidem minima ipsa et sed culpa. Consectetur eveniet amet beatae voluptates architecto sit minus possimus.	2022-07-12 18:13:52.434348	2022-09-02 16:27:17.019323	1662136037_leather-biker-jacket	\N	\N	1	1	2022-07-12 18:13:52.549667	2022-09-02 16:27:17.018894	t	\N	\N	\N	\N
+107	Oversize Sweatshirt	Incidunt possimus nesciunt ea quo nihil. Harum repellat soluta sint nemo eius consequatur blanditiis consectetur. Eius voluptates consectetur facere maiores vel temporibus facilis ipsum. Corporis sunt saepe laboriosam porro. Porro assumenda optio reiciendis molestiae quaerat laborum.	2022-07-12 18:13:57.806171	2022-09-02 16:28:20.955353	1662136100_oversize-sweatshirt	\N	\N	1	1	2022-07-12 18:13:57.929854	2022-09-02 16:28:20.954945	t	\N	\N	\N	\N
+95	Denim Hooded Jacket	Ducimus beatae sit numquam excepturi natus minima. Aliquam provident vitae aperiam eos dicta occaecati. Impedit quam aspernatur assumenda fugit incidunt officiis. Quo inventore ipsum accusamus natus fugit. Dolores eligendi quos ipsam ab eaque asperiores similique vitae.	2022-07-12 18:13:53.188645	2022-09-02 16:26:01.376129	1662135961_denim-hooded-jacket	\N	\N	1	1	2022-07-12 18:13:53.29933	2022-09-02 16:26:01.375649	t	\N	\N	\N	\N
+23	Jumper	Voluptatibus iste aspernatur sunt quos earum amet. Facilis officia pariatur quis voluptates neque. Laborum esse adipisci omnis impedit.	2022-07-12 18:13:24.997166	2022-09-02 16:27:18.484784	1662136038_jumper	\N	\N	1	1	2022-07-12 18:13:25.105046	2022-09-02 16:27:18.484329	t	\N	\N	\N	\N
+25	Hoodie	Commodi soluta suscipit cumque neque. Voluptatem consectetur qui voluptates libero. Quibusdam omnis ad voluptates voluptatibus maxime. Unde minus optio tenetur vero accusantium eius itaque. Labore dolore hic ipsum quo accusamus quidem.	2022-07-12 18:13:25.701521	2022-09-02 16:27:21.499706	1662136041_hoodie	\N	\N	1	1	2022-07-12 18:13:25.822753	2022-09-02 16:27:21.49931	t	\N	\N	\N	\N
+54	Dress With Belt	Iusto aut architecto sequi inventore quod delectus eligendi minima. In quod animi quisquam fuga ratione. Iusto incidunt sequi quis dicta sapiente tempore.	2022-07-12 18:13:36.930584	2022-09-02 16:26:06.71989	1662135966_dress-with-belt	\N	\N	1	1	2022-07-12 18:13:37.043743	2022-09-02 16:26:06.71942	t	\N	\N	\N	\N
+36	Flared Midi Skirt	Necessitatibus ratione quos hic suscipit exercitationem corrupti. Dolorem nulla sint natus aliquid expedita. Facere officiis odio sint delectus molestiae aut recusandae. Sed molestias saepe ad nobis praesentium blanditiis. Facere corrupti sit quaerat iste officiis excepturi inventore.	2022-07-12 18:13:30.177617	2022-09-02 16:26:03.47934	1662135963_flared-midi-skirt	\N	\N	1	1	2022-07-12 18:13:30.290347	2022-09-02 16:26:03.478825	t	\N	\N	\N	\N
+115	High Waist Pants With Pockets	Quasi voluptates quo molestias nulla perferendis consequatur repellat. Voluptates enim odit libero repellendus officiis laboriosam. Iure soluta adipisci dignissimos amet eveniet.	2022-07-12 18:14:00.867015	2022-09-02 16:27:22.684622	1662136042_high-waist-pants-with-pockets	\N	\N	1	1	2022-07-12 18:14:00.972025	2022-09-02 16:27:22.68416	t	\N	\N	\N	\N
+20	High Neck Sweater	Ducimus aperiam maiores doloribus laborum nemo. Fugiat voluptates vero quibusdam beatae quidem voluptatem alias. Ab quisquam labore cum nemo alias eligendi hic provident. Laudantium placeat exercitationem nulla fugiat.	2022-07-12 18:13:23.932558	2022-09-02 16:27:23.3856	1662136043_high-neck-sweater	\N	\N	1	1	2022-07-12 18:13:24.047159	2022-09-02 16:27:23.38513	t	\N	\N	\N	\N
+48	Flared Dress	Perferendis id labore dolore corporis exercitationem quas. Doloremque consequuntur architecto exercitationem iusto. Quasi voluptatibus quae aperiam velit nisi. Commodi perferendis tempora magni neque. Minima nesciunt qui aliquam voluptatibus facilis aut quis.	2022-07-12 18:13:34.73343	2022-09-02 16:26:04.262003	1662135964_flared-dress	\N	\N	1	1	2022-07-12 18:13:34.84675	2022-09-02 16:26:04.261549	t	\N	\N	\N	\N
+38	Fitted Skirt	Amet ducimus voluptatum omnis praesentium repellat illum atque nulla. Autem praesentium consequuntur illo aperiam eos facere distinctio. Maxime quisquam maiores earum error quis temporibus.	2022-07-12 18:13:30.906301	2022-09-02 16:26:04.846644	1662135964_fitted-skirt	\N	\N	1	1	2022-07-12 18:13:31.026289	2022-09-02 16:26:04.846108	t	\N	\N	\N	\N
+65	Elegant Blouse With Chocker	Tempore unde quibusdam eaque et similique incidunt. In nostrum asperiores voluptates at soluta hic perspiciatis cum. Non nobis reiciendis possimus enim cumque. Velit voluptatum sed omnis veritatis aliquid ipsam.	2022-07-12 18:13:40.937892	2022-09-02 16:26:05.840037	1662135965_elegant-blouse-with-chocker	\N	\N	1	1	2022-07-12 18:13:41.049032	2022-09-02 16:26:05.839589	t	\N	\N	\N	\N
+33	Down Jacket With Hood	Maiores provident optio tempore inventore officiis. Repellendus quisquam sit recusandae sequi. Quaerat in porro provident ratione asperiores. Maxime vitae beatae doloremque magnam aliquid.	2022-07-12 18:13:29.092483	2022-09-02 16:26:07.131222	1662135967_down-jacket-with-hood	\N	\N	1	1	2022-07-12 18:13:29.206958	2022-09-02 16:26:07.130785	t	\N	\N	\N	\N
+59	Striped Shirt	Maiores asperiores expedita incidunt eos ex. Minus sunt voluptatum rem inventore unde eius. Occaecati excepturi incidunt id debitis quasi placeat.	2022-07-12 18:13:38.717982	2022-09-02 16:27:48.172707	1662136068_striped-shirt	\N	\N	1	1	2022-07-12 18:13:38.831243	2022-09-02 16:27:48.171888	t	\N	\N	\N	\N
+68	V Neck Shirt	Voluptate atque voluptatibus culpa vitae. Atque aliquam nemo a repellat. Iste laboriosam in maxime libero atque. Facilis molestiae optio sed ducimus vel nobis et. Adipisci vel nisi possimus autem aliquam veritatis molestias quo.	2022-07-12 18:13:42.045267	2022-09-02 16:28:05.075886	1662136085_v-neck-shirt	\N	\N	1	1	2022-07-12 18:13:42.165262	2022-09-02 16:28:05.075455	t	\N	\N	\N	\N
+34	Wool Blend Coat	Occaecati ea cum saepe dolore minus hic. Earum consectetur facere labore possimus est numquam commodi ea. Ad adipisci quidem corporis a at. Sint hic molestias temporibus recusandae debitis.	2022-07-12 18:13:29.458783	2022-09-02 16:28:03.142569	1662136083_wool-blend-coat	\N	\N	1	1	2022-07-12 18:13:29.567693	2022-09-02 16:28:03.141966	t	\N	\N	\N	\N
+89	Down Jacket	Molestiae soluta veniam illo alias voluptatum minima accusamus. Ea corporis dolores autem dolorem vitae qui id ut. Nesciunt autem voluptatibus asperiores ab facilis quam porro iusto. Asperiores blanditiis architecto non placeat corrupti excepturi consequuntur. Eius repudiandae aperiam dicta delectus.	2022-07-12 18:13:50.546399	2022-09-02 16:26:07.624198	1662135967_down-jacket	\N	\N	1	1	2022-07-12 18:13:50.722652	2022-09-02 16:26:07.623684	t	\N	\N	\N	\N
+6	Printed Short Sleeve Shirt	Voluptatibus perspiciatis tempore recusandae reiciendis. Et aliquam velit molestiae iure occaecati dolore eum. Minus facilis commodi adipisci placeat excepturi in esse.	2022-07-12 18:13:18.967612	2022-09-02 16:28:39.41427	1662136119_printed-short-sleeve-shirt	\N	\N	1	1	2022-07-12 18:13:19.074261	2022-09-02 16:28:39.413851	t	\N	\N	\N	\N
+58	Semi Sheer Shirt With Floral Cuffs	Eos quia perspiciatis nulla id qui deleniti maxime. Quisquam est ea esse ab. Atque excepturi culpa similique commodi. Sequi pariatur qui voluptatibus delectus ea corrupti cupiditate perferendis. Distinctio mollitia ad deserunt excepturi dolorum adipisci nulla.	2022-07-12 18:13:38.37956	2022-09-02 16:27:41.547134	1662136061_semi-sheer-shirt-with-floral-cuffs	\N	\N	1	1	2022-07-12 18:13:38.486672	2022-09-02 16:27:41.540608	t	\N	\N	\N	\N
+91	Loose Fitted Jacket	Quasi nobis aperiam rem harum saepe unde similique. Repellat voluptatum quibusdam in dolorem. Numquam debitis fuga esse occaecati quaerat distinctio corrupti.	2022-07-12 18:13:51.564444	2022-09-02 16:28:28.497619	1662136108_loose-fitted-jacket	\N	\N	1	1	2022-07-12 18:13:51.687103	2022-09-02 16:28:28.497132	t	\N	\N	\N	\N
+92	Double Breasted Jacket	Ullam neque quidem officiis nisi pariatur explicabo quibusdam odio. Ullam quis et laudantium eius sunt dolor ab architecto. Dignissimos explicabo quae amet incidunt omnis.	2022-07-12 18:13:51.978032	2022-09-02 16:26:08.235011	1662135968_double-breasted-jacket	\N	\N	1	1	2022-07-12 18:13:52.148849	2022-09-02 16:26:08.233117	t	\N	\N	\N	\N
+12	Polo T Shirt	Sed enim ut molestiae nisi impedit. Quibusdam commodi doloremque officiis tempore. Fugiat itaque suscipit eligendi rerum quas ut quaerat optio.	2022-07-12 18:13:21.006743	2022-09-02 16:28:43.369487	1662136123_polo-t-shirt	\N	\N	1	1	2022-07-12 18:13:21.109783	2022-09-02 16:28:43.369046	t	\N	\N	\N	\N
+9	Dotted Shirt	Mollitia magni atque alias eligendi qui cupiditate deleniti eos. Magnam excepturi voluptatum atque harum eaque architecto. Ducimus magnam at labore exercitationem quae. Possimus tempora animi qui atque voluptatem minus ipsum accusamus.	2022-07-12 18:13:19.992871	2022-09-02 16:26:09.007155	1662135969_dotted-shirt	\N	\N	1	1	2022-07-12 18:13:20.098254	2022-09-02 16:26:09.0067	t	\N	\N	\N	\N
+31	Denim Jacket	Omnis totam modi id quia atque quas. Quae ipsa quia nobis suscipit. Autem ut voluptatum quo vel occaecati. Laboriosam voluptatum at aut deleniti minima debitis. Beatae voluptates laborum inventore quibusdam.	2022-07-12 18:13:28.207573	2022-09-02 16:26:10.412079	1662135970_denim-jacket	\N	\N	1	1	2022-07-12 18:13:28.320011	2022-09-02 16:26:10.411643	t	\N	\N	\N	\N
+118	Bits by Dre	<p>Bits got some dope cans for his fat beats! Show the world that you like dogs that like hip hop with this tasteful vinyl sticker.</p>	2022-09-01 05:00:00	\N	bits-by-dre			\N	1	2022-09-02 17:09:21.541099	2022-09-08 15:41:32.978583	t		\N	\N	\N
+117	Cool Bits	<p>Slap this onto your favorite water bottle and be as cool as Bits.</p>	2022-09-01 05:00:00	\N	cool-bits			\N	1	2022-09-02 16:33:37.715722	2022-09-08 15:42:11.755393	t		\N	\N	\N
+119	Hockey Bits	<p>Just as iconic as Gritty.</p>	2022-09-01 05:00:00	\N	hockey-bits			\N	1	2022-09-02 17:19:13.882198	2022-09-08 15:42:47.62901	t		\N	\N	\N
+120	Learning Bits	<p>Show that you're the head of the class.</p>	2022-09-01 05:00:00	\N	learning-bits			\N	1	2022-09-02 17:31:19.71234	2022-09-08 15:43:22.645298	t		\N	\N	\N
+121	Money Bits	<p>With good breeding and a little bit of luck, a good dog can rise to the top. Show your admiration for the top 1% with this fancy vinyl sticker.</p>	2022-09-01 05:00:00	\N	money-bits			\N	1	2022-09-02 18:30:30.895575	2022-09-08 15:45:34.868417	t		\N	\N	\N
+122	Octo Bits	<p>Last we saw Bits, he was snorkeling in the Cayman Islands. Not sure who this octopus is...&nbsp;</p>	2022-09-01 05:00:00	\N	octo-bits			\N	1	2022-09-02 18:38:46.408336	2022-09-08 15:47:28.939313	t		\N	\N	\N
+123	OG Bits	<p>It's hard to beat a classic. The original Datadog logo on a durable vinyl sticker.</p>	2022-09-01 05:00:00	\N	og-bits			\N	1	2022-09-02 18:41:05.372097	2022-09-13 20:55:14.22708	t		\N	\N	\N
+124	Rainbow Bits	<p>Be as proud as Bits with this colorful vinyl sticker.</p>	2022-09-01 05:00:00	\N	rainbow-bits			\N	1	2022-09-02 18:42:26.495532	2022-09-13 20:56:26.359845	t		\N	\N	\N
+125	Space Bits	<p>Everybody Laikas this vinyl sticker! (We would never send Bits into space alone without having a safe recovery plan.)&nbsp;&nbsp;</p>	2022-09-01 05:00:00	\N	space-bits			\N	1	2022-09-02 18:44:36.118532	2022-09-13 20:57:51.366054	t		\N	\N	\N
+127	Stonk Bits	<p>This sticker is so hot we're legally not allowed to sell it.&nbsp;</p>	\N	\N	stonk-bits			\N	1	2022-09-02 18:52:56.259081	2022-09-13 20:58:02.761831	t		\N	\N	\N
+126	Student Bits	<p>Show the folks at the cafe that you're as smart (and obedient) as Bits! Lifelong vinyl sticker.</p>	2022-09-01 05:00:00	\N	student-bits			\N	1	2022-09-02 18:50:49.226403	2022-09-13 20:58:22.820602	t		\N	\N	\N
+129	Sunset Bits	<p>Remember the amazing Miami sunsets of the 80s? Bits sure does. Slap this everlasting vinly sticker on your jet ski and hit the waves!</p>	2022-09-01 05:00:00	\N	sunset-bits			\N	1	2022-09-02 18:59:14.653772	2022-09-13 20:58:36.687058	t		\N	\N	\N
+128	April 2022 Summit Denver Sticker	<p>The year was 2022 and hundreds of observability folks converged on Denver to talk metrics, logs, and events. This is the commemorative vinyl sticker.</p>	2022-09-01 05:00:00	\N	april-2022-summit-denver-sticker			\N	1	2022-09-02 18:57:21.587803	2022-09-13 20:58:51.572416	t		\N	\N	\N
+130	AAPI Heritage Month Bits	<p>Celebrate Asian American Pacific Islander Heritage Month with Bits!</p>	2022-09-01 05:00:00	\N	aapi-heritage-month-bits			\N	1	2022-09-02 19:01:55.285004	2022-09-13 20:59:13.204277	t		\N	\N	\N
 \.
 
 
@@ -8264,6 +6994,20 @@ COPY public.spree_products_stores (id, product_id, store_id, created_at, updated
 346	116	1	2022-07-12 18:14:01.388872	2022-07-12 18:14:01.388872
 347	116	2	2022-07-12 18:14:01.394901	2022-07-12 18:14:01.394901
 348	116	3	2022-07-12 18:14:01.40089	2022-07-12 18:14:01.40089
+349	117	1	2022-09-02 16:33:37.773767	2022-09-02 16:33:37.773767
+350	118	1	2022-09-02 17:09:21.608572	2022-09-02 17:09:21.608572
+351	119	1	2022-09-02 17:19:13.924526	2022-09-02 17:19:13.924526
+352	120	1	2022-09-02 17:31:19.763415	2022-09-02 17:31:19.763415
+353	121	1	2022-09-02 18:30:30.943849	2022-09-02 18:30:30.943849
+354	122	1	2022-09-02 18:38:46.473805	2022-09-02 18:38:46.473805
+355	123	1	2022-09-02 18:41:05.420086	2022-09-02 18:41:05.420086
+356	124	1	2022-09-02 18:42:26.534284	2022-09-02 18:42:26.534284
+357	125	1	2022-09-02 18:44:36.161054	2022-09-02 18:44:36.161054
+358	126	1	2022-09-02 18:50:49.264648	2022-09-02 18:50:49.264648
+359	127	1	2022-09-02 18:52:56.31228	2022-09-02 18:52:56.31228
+360	128	1	2022-09-02 18:57:21.624564	2022-09-02 18:57:21.624564
+361	129	1	2022-09-02 18:59:14.692689	2022-09-02 18:59:14.692689
+362	130	1	2022-09-02 19:01:55.325934	2022-09-02 19:01:55.325934
 \.
 
 
@@ -8272,448 +7016,45 @@ COPY public.spree_products_stores (id, product_id, store_id, created_at, updated
 --
 
 COPY public.spree_products_taxons (id, product_id, taxon_id, "position", created_at, updated_at) FROM stdin;
-1	1	2	1	2022-07-12 18:13:17.257815	2022-07-12 18:13:17.257815
-2	1	5	1	2022-07-12 18:13:17.266964	2022-07-12 18:13:17.266964
-3	2	2	2	2022-07-12 18:13:17.593163	2022-07-12 18:13:17.593163
-4	2	5	2	2022-07-12 18:13:17.641508	2022-07-12 18:13:17.641508
-5	3	2	3	2022-07-12 18:13:18.085787	2022-07-12 18:13:18.085787
-6	3	5	3	2022-07-12 18:13:18.094498	2022-07-12 18:13:18.094498
-7	4	2	4	2022-07-12 18:13:18.424005	2022-07-12 18:13:18.424005
-8	4	5	4	2022-07-12 18:13:18.433049	2022-07-12 18:13:18.433049
-9	5	2	5	2022-07-12 18:13:18.754963	2022-07-12 18:13:18.754963
-10	5	5	5	2022-07-12 18:13:18.763709	2022-07-12 18:13:18.763709
-11	6	2	6	2022-07-12 18:13:19.097393	2022-07-12 18:13:19.097393
-12	6	5	6	2022-07-12 18:13:19.106591	2022-07-12 18:13:19.106591
-13	7	2	7	2022-07-12 18:13:19.436361	2022-07-12 18:13:19.436361
-14	7	5	7	2022-07-12 18:13:19.445738	2022-07-12 18:13:19.445738
-15	8	2	8	2022-07-12 18:13:19.774911	2022-07-12 18:13:19.774911
-16	8	5	8	2022-07-12 18:13:19.78367	2022-07-12 18:13:19.78367
-17	9	2	9	2022-07-12 18:13:20.120432	2022-07-12 18:13:20.120432
-18	9	5	9	2022-07-12 18:13:20.129405	2022-07-12 18:13:20.129405
-19	10	2	10	2022-07-12 18:13:20.466936	2022-07-12 18:13:20.466936
-20	10	5	10	2022-07-12 18:13:20.476222	2022-07-12 18:13:20.476222
-21	11	2	11	2022-07-12 18:13:20.798717	2022-07-12 18:13:20.798717
-22	11	5	11	2022-07-12 18:13:20.806972	2022-07-12 18:13:20.806972
-23	12	2	12	2022-07-12 18:13:21.132428	2022-07-12 18:13:21.132428
-24	12	6	1	2022-07-12 18:13:21.141846	2022-07-12 18:13:21.141846
-25	13	2	13	2022-07-12 18:13:21.469565	2022-07-12 18:13:21.469565
-26	13	6	2	2022-07-12 18:13:21.477771	2022-07-12 18:13:21.477771
-27	14	2	14	2022-07-12 18:13:21.797177	2022-07-12 18:13:21.797177
-28	14	6	3	2022-07-12 18:13:21.806018	2022-07-12 18:13:21.806018
-29	15	2	15	2022-07-12 18:13:22.153189	2022-07-12 18:13:22.153189
-30	15	6	4	2022-07-12 18:13:22.161503	2022-07-12 18:13:22.161503
-31	16	2	16	2022-07-12 18:13:22.508094	2022-07-12 18:13:22.508094
-32	16	6	5	2022-07-12 18:13:22.516936	2022-07-12 18:13:22.516936
-33	17	2	17	2022-07-12 18:13:22.997052	2022-07-12 18:13:22.997052
-34	17	6	6	2022-07-12 18:13:23.006188	2022-07-12 18:13:23.006188
-35	18	2	18	2022-07-12 18:13:23.342353	2022-07-12 18:13:23.342353
-36	18	6	7	2022-07-12 18:13:23.35246	2022-07-12 18:13:23.35246
-37	19	2	19	2022-07-12 18:13:23.700869	2022-07-12 18:13:23.700869
-38	19	6	8	2022-07-12 18:13:23.710555	2022-07-12 18:13:23.710555
-39	20	2	20	2022-07-12 18:13:24.070578	2022-07-12 18:13:24.070578
-40	20	7	1	2022-07-12 18:13:24.079528	2022-07-12 18:13:24.079528
-41	21	2	21	2022-07-12 18:13:24.428476	2022-07-12 18:13:24.428476
-42	21	7	2	2022-07-12 18:13:24.438457	2022-07-12 18:13:24.438457
-43	22	2	22	2022-07-12 18:13:24.787892	2022-07-12 18:13:24.787892
-44	22	7	3	2022-07-12 18:13:24.797493	2022-07-12 18:13:24.797493
-45	23	2	23	2022-07-12 18:13:25.129284	2022-07-12 18:13:25.129284
-46	23	7	4	2022-07-12 18:13:25.141457	2022-07-12 18:13:25.141457
-47	24	2	24	2022-07-12 18:13:25.491389	2022-07-12 18:13:25.491389
-48	24	7	5	2022-07-12 18:13:25.500375	2022-07-12 18:13:25.500375
-49	25	2	25	2022-07-12 18:13:25.848984	2022-07-12 18:13:25.848984
-50	25	7	6	2022-07-12 18:13:25.859321	2022-07-12 18:13:25.859321
-51	26	2	26	2022-07-12 18:13:26.288706	2022-07-12 18:13:26.288706
-52	26	7	7	2022-07-12 18:13:26.300188	2022-07-12 18:13:26.300188
-53	27	2	27	2022-07-12 18:13:26.659503	2022-07-12 18:13:26.659503
-54	27	7	8	2022-07-12 18:13:26.668696	2022-07-12 18:13:26.668696
-55	28	2	28	2022-07-12 18:13:27.085492	2022-07-12 18:13:27.085492
-56	28	8	1	2022-07-12 18:13:27.096582	2022-07-12 18:13:27.096582
-57	29	2	29	2022-07-12 18:13:27.497762	2022-07-12 18:13:27.497762
-58	29	8	2	2022-07-12 18:13:27.507003	2022-07-12 18:13:27.507003
-59	30	2	30	2022-07-12 18:13:27.881808	2022-07-12 18:13:27.881808
-60	30	8	3	2022-07-12 18:13:27.891382	2022-07-12 18:13:27.891382
-61	31	2	31	2022-07-12 18:13:28.345543	2022-07-12 18:13:28.345543
-62	31	8	4	2022-07-12 18:13:28.355712	2022-07-12 18:13:28.355712
-63	32	2	32	2022-07-12 18:13:28.859973	2022-07-12 18:13:28.859973
-64	32	8	5	2022-07-12 18:13:28.869941	2022-07-12 18:13:28.869941
-65	33	2	33	2022-07-12 18:13:29.229792	2022-07-12 18:13:29.229792
-66	33	8	6	2022-07-12 18:13:29.238701	2022-07-12 18:13:29.238701
-67	34	2	34	2022-07-12 18:13:29.590321	2022-07-12 18:13:29.590321
-68	34	8	7	2022-07-12 18:13:29.599506	2022-07-12 18:13:29.599506
-69	35	2	35	2022-07-12 18:13:29.958954	2022-07-12 18:13:29.958954
-70	35	8	8	2022-07-12 18:13:29.968512	2022-07-12 18:13:29.968512
-71	36	3	1	2022-07-12 18:13:30.32295	2022-07-12 18:13:30.32295
-72	36	9	1	2022-07-12 18:13:30.332566	2022-07-12 18:13:30.332566
-73	37	3	2	2022-07-12 18:13:30.690372	2022-07-12 18:13:30.690372
-74	37	9	2	2022-07-12 18:13:30.700187	2022-07-12 18:13:30.700187
-75	38	3	3	2022-07-12 18:13:31.058603	2022-07-12 18:13:31.058603
-76	38	9	3	2022-07-12 18:13:31.068046	2022-07-12 18:13:31.068046
-77	39	3	4	2022-07-12 18:13:31.42453	2022-07-12 18:13:31.42453
-78	39	9	4	2022-07-12 18:13:31.433171	2022-07-12 18:13:31.433171
-79	40	3	5	2022-07-12 18:13:31.782399	2022-07-12 18:13:31.782399
-80	40	9	5	2022-07-12 18:13:31.791509	2022-07-12 18:13:31.791509
-81	41	3	6	2022-07-12 18:13:32.138887	2022-07-12 18:13:32.138887
-82	41	9	6	2022-07-12 18:13:32.148819	2022-07-12 18:13:32.148819
-83	42	3	7	2022-07-12 18:13:32.501347	2022-07-12 18:13:32.501347
-84	42	9	7	2022-07-12 18:13:32.511242	2022-07-12 18:13:32.511242
-85	43	3	8	2022-07-12 18:13:32.861786	2022-07-12 18:13:32.861786
-86	43	9	8	2022-07-12 18:13:32.871015	2022-07-12 18:13:32.871015
-87	44	3	9	2022-07-12 18:13:33.234815	2022-07-12 18:13:33.234815
-88	44	9	9	2022-07-12 18:13:33.243902	2022-07-12 18:13:33.243902
-89	45	3	10	2022-07-12 18:13:33.60509	2022-07-12 18:13:33.60509
-90	45	9	10	2022-07-12 18:13:33.614559	2022-07-12 18:13:33.614559
-91	46	3	11	2022-07-12 18:13:34.12478	2022-07-12 18:13:34.12478
-92	46	10	1	2022-07-12 18:13:34.135961	2022-07-12 18:13:34.135961
-93	47	3	12	2022-07-12 18:13:34.507182	2022-07-12 18:13:34.507182
-94	47	10	2	2022-07-12 18:13:34.516151	2022-07-12 18:13:34.516151
-95	48	3	13	2022-07-12 18:13:34.878782	2022-07-12 18:13:34.878782
-96	48	10	3	2022-07-12 18:13:34.887925	2022-07-12 18:13:34.887925
-97	49	3	14	2022-07-12 18:13:35.233775	2022-07-12 18:13:35.233775
-98	49	10	4	2022-07-12 18:13:35.242751	2022-07-12 18:13:35.242751
-99	50	3	15	2022-07-12 18:13:35.589712	2022-07-12 18:13:35.589712
-100	50	10	5	2022-07-12 18:13:35.599524	2022-07-12 18:13:35.599524
-101	51	3	16	2022-07-12 18:13:35.97185	2022-07-12 18:13:35.97185
-102	51	10	6	2022-07-12 18:13:35.98127	2022-07-12 18:13:35.98127
-103	52	3	17	2022-07-12 18:13:36.340174	2022-07-12 18:13:36.340174
-104	52	10	7	2022-07-12 18:13:36.349833	2022-07-12 18:13:36.349833
-105	53	3	18	2022-07-12 18:13:36.704279	2022-07-12 18:13:36.704279
-106	53	10	8	2022-07-12 18:13:36.713821	2022-07-12 18:13:36.713821
-107	54	3	19	2022-07-12 18:13:37.07545	2022-07-12 18:13:37.07545
-108	54	10	9	2022-07-12 18:13:37.084752	2022-07-12 18:13:37.084752
-109	55	3	20	2022-07-12 18:13:37.429863	2022-07-12 18:13:37.429863
-110	55	10	10	2022-07-12 18:13:37.439719	2022-07-12 18:13:37.439719
-111	56	3	21	2022-07-12 18:13:37.805803	2022-07-12 18:13:37.805803
-112	56	10	11	2022-07-12 18:13:37.815172	2022-07-12 18:13:37.815172
-113	57	3	22	2022-07-12 18:13:38.164672	2022-07-12 18:13:38.164672
-114	57	10	12	2022-07-12 18:13:38.173952	2022-07-12 18:13:38.173952
-115	58	3	23	2022-07-12 18:13:38.509775	2022-07-12 18:13:38.509775
-116	58	11	1	2022-07-12 18:13:38.518521	2022-07-12 18:13:38.518521
-117	59	3	24	2022-07-12 18:13:38.855065	2022-07-12 18:13:38.855065
-118	59	11	2	2022-07-12 18:13:38.864632	2022-07-12 18:13:38.864632
-119	60	3	25	2022-07-12 18:13:39.342318	2022-07-12 18:13:39.342318
-120	60	11	3	2022-07-12 18:13:39.352196	2022-07-12 18:13:39.352196
-121	61	3	26	2022-07-12 18:13:39.698794	2022-07-12 18:13:39.698794
-122	61	11	4	2022-07-12 18:13:39.707959	2022-07-12 18:13:39.707959
-123	62	3	27	2022-07-12 18:13:40.050501	2022-07-12 18:13:40.050501
-124	62	11	5	2022-07-12 18:13:40.059324	2022-07-12 18:13:40.059324
-125	63	3	28	2022-07-12 18:13:40.383766	2022-07-12 18:13:40.383766
-126	63	11	6	2022-07-12 18:13:40.392594	2022-07-12 18:13:40.392594
-127	64	3	29	2022-07-12 18:13:40.732799	2022-07-12 18:13:40.732799
-128	64	11	7	2022-07-12 18:13:40.741496	2022-07-12 18:13:40.741496
-129	65	3	30	2022-07-12 18:13:41.071827	2022-07-12 18:13:41.071827
-130	65	11	8	2022-07-12 18:13:41.081416	2022-07-12 18:13:41.081416
-131	66	3	31	2022-07-12 18:13:41.442858	2022-07-12 18:13:41.442858
-132	66	11	9	2022-07-12 18:13:41.451879	2022-07-12 18:13:41.451879
-133	67	3	32	2022-07-12 18:13:41.803367	2022-07-12 18:13:41.803367
-134	67	11	10	2022-07-12 18:13:41.812969	2022-07-12 18:13:41.812969
-135	68	3	33	2022-07-12 18:13:42.189548	2022-07-12 18:13:42.189548
-136	68	11	11	2022-07-12 18:13:42.199745	2022-07-12 18:13:42.199745
-137	69	3	34	2022-07-12 18:13:42.576317	2022-07-12 18:13:42.576317
-138	69	11	12	2022-07-12 18:13:42.586476	2022-07-12 18:13:42.586476
-139	70	3	35	2022-07-12 18:13:42.950476	2022-07-12 18:13:42.950476
-140	70	12	1	2022-07-12 18:13:42.958535	2022-07-12 18:13:42.958535
-141	71	3	36	2022-07-12 18:13:43.303491	2022-07-12 18:13:43.303491
-142	71	12	2	2022-07-12 18:13:43.31287	2022-07-12 18:13:43.31287
-143	72	3	37	2022-07-12 18:13:43.648781	2022-07-12 18:13:43.648781
-144	72	12	3	2022-07-12 18:13:43.657979	2022-07-12 18:13:43.657979
-145	73	3	38	2022-07-12 18:13:44.025231	2022-07-12 18:13:44.025231
-146	73	12	4	2022-07-12 18:13:44.03527	2022-07-12 18:13:44.03527
-147	74	3	39	2022-07-12 18:13:44.41445	2022-07-12 18:13:44.41445
-148	74	12	5	2022-07-12 18:13:44.425816	2022-07-12 18:13:44.425816
-149	75	3	40	2022-07-12 18:13:44.96084	2022-07-12 18:13:44.96084
-150	75	12	6	2022-07-12 18:13:44.972931	2022-07-12 18:13:44.972931
-151	76	3	41	2022-07-12 18:13:45.338135	2022-07-12 18:13:45.338135
-152	76	13	1	2022-07-12 18:13:45.348405	2022-07-12 18:13:45.348405
-153	77	3	42	2022-07-12 18:13:45.745526	2022-07-12 18:13:45.745526
-154	77	13	2	2022-07-12 18:13:45.755144	2022-07-12 18:13:45.755144
-155	78	3	43	2022-07-12 18:13:46.508254	2022-07-12 18:13:46.508254
-156	78	13	3	2022-07-12 18:13:46.520049	2022-07-12 18:13:46.520049
-157	79	3	44	2022-07-12 18:13:46.950338	2022-07-12 18:13:46.950338
-158	79	13	4	2022-07-12 18:13:46.959933	2022-07-12 18:13:46.959933
-159	80	3	45	2022-07-12 18:13:47.350403	2022-07-12 18:13:47.350403
-160	80	13	5	2022-07-12 18:13:47.359211	2022-07-12 18:13:47.359211
-161	81	3	46	2022-07-12 18:13:47.704534	2022-07-12 18:13:47.704534
-162	81	13	6	2022-07-12 18:13:47.713787	2022-07-12 18:13:47.713787
-163	82	3	47	2022-07-12 18:13:48.0525	2022-07-12 18:13:48.0525
-164	82	13	7	2022-07-12 18:13:48.061654	2022-07-12 18:13:48.061654
-165	83	3	48	2022-07-12 18:13:48.42766	2022-07-12 18:13:48.42766
-166	83	13	8	2022-07-12 18:13:48.436375	2022-07-12 18:13:48.436375
-167	84	3	49	2022-07-12 18:13:48.816227	2022-07-12 18:13:48.816227
-168	84	13	9	2022-07-12 18:13:48.826271	2022-07-12 18:13:48.826271
-169	85	3	50	2022-07-12 18:13:49.187574	2022-07-12 18:13:49.187574
-170	85	14	1	2022-07-12 18:13:49.197396	2022-07-12 18:13:49.197396
-171	86	3	51	2022-07-12 18:13:49.548316	2022-07-12 18:13:49.548316
-172	86	14	2	2022-07-12 18:13:49.557882	2022-07-12 18:13:49.557882
-173	87	3	52	2022-07-12 18:13:49.922913	2022-07-12 18:13:49.922913
-174	87	14	3	2022-07-12 18:13:49.936212	2022-07-12 18:13:49.936212
-175	88	3	53	2022-07-12 18:13:50.297156	2022-07-12 18:13:50.297156
-176	88	14	4	2022-07-12 18:13:50.306266	2022-07-12 18:13:50.306266
-177	89	3	54	2022-07-12 18:13:50.84314	2022-07-12 18:13:50.84314
-178	89	14	5	2022-07-12 18:13:50.854455	2022-07-12 18:13:50.854455
-179	90	3	55	2022-07-12 18:13:51.246671	2022-07-12 18:13:51.246671
-180	90	14	6	2022-07-12 18:13:51.259348	2022-07-12 18:13:51.259348
-181	91	3	56	2022-07-12 18:13:51.711692	2022-07-12 18:13:51.711692
-182	91	14	7	2022-07-12 18:13:51.721354	2022-07-12 18:13:51.721354
-183	92	3	57	2022-07-12 18:13:52.177279	2022-07-12 18:13:52.177279
-184	92	14	8	2022-07-12 18:13:52.193268	2022-07-12 18:13:52.193268
-185	93	3	58	2022-07-12 18:13:52.574242	2022-07-12 18:13:52.574242
-186	93	14	9	2022-07-12 18:13:52.583786	2022-07-12 18:13:52.583786
-187	94	3	59	2022-07-12 18:13:52.966488	2022-07-12 18:13:52.966488
-188	94	14	10	2022-07-12 18:13:52.975406	2022-07-12 18:13:52.975406
-189	95	3	60	2022-07-12 18:13:53.326687	2022-07-12 18:13:53.326687
-190	95	14	11	2022-07-12 18:13:53.336098	2022-07-12 18:13:53.336098
-191	96	3	61	2022-07-12 18:13:53.762274	2022-07-12 18:13:53.762274
-192	96	14	12	2022-07-12 18:13:53.772014	2022-07-12 18:13:53.772014
-193	97	4	1	2022-07-12 18:13:54.124597	2022-07-12 18:13:54.124597
-194	97	15	1	2022-07-12 18:13:54.134037	2022-07-12 18:13:54.134037
-195	98	4	2	2022-07-12 18:13:54.470387	2022-07-12 18:13:54.470387
-196	98	15	2	2022-07-12 18:13:54.479716	2022-07-12 18:13:54.479716
-197	99	4	3	2022-07-12 18:13:54.826277	2022-07-12 18:13:54.826277
-198	99	15	3	2022-07-12 18:13:54.835421	2022-07-12 18:13:54.835421
-199	100	4	4	2022-07-12 18:13:55.18043	2022-07-12 18:13:55.18043
-200	100	15	4	2022-07-12 18:13:55.189325	2022-07-12 18:13:55.189325
-201	101	4	5	2022-07-12 18:13:55.527524	2022-07-12 18:13:55.527524
-202	101	15	5	2022-07-12 18:13:55.536325	2022-07-12 18:13:55.536325
-203	102	4	6	2022-07-12 18:13:55.918055	2022-07-12 18:13:55.918055
-204	102	15	6	2022-07-12 18:13:55.929681	2022-07-12 18:13:55.929681
-205	103	4	7	2022-07-12 18:13:56.343267	2022-07-12 18:13:56.343267
-206	103	15	7	2022-07-12 18:13:56.352422	2022-07-12 18:13:56.352422
-207	104	4	8	2022-07-12 18:13:56.836642	2022-07-12 18:13:56.836642
-208	104	15	8	2022-07-12 18:13:56.846102	2022-07-12 18:13:56.846102
-209	105	4	9	2022-07-12 18:13:57.190881	2022-07-12 18:13:57.190881
-210	105	16	1	2022-07-12 18:13:57.202395	2022-07-12 18:13:57.202395
-211	106	4	10	2022-07-12 18:13:57.579569	2022-07-12 18:13:57.579569
-212	106	16	2	2022-07-12 18:13:57.589893	2022-07-12 18:13:57.589893
-213	107	4	11	2022-07-12 18:13:57.95347	2022-07-12 18:13:57.95347
-214	107	16	3	2022-07-12 18:13:57.964115	2022-07-12 18:13:57.964115
-215	108	4	12	2022-07-12 18:13:58.30811	2022-07-12 18:13:58.30811
-216	108	16	4	2022-07-12 18:13:58.320283	2022-07-12 18:13:58.320283
-217	109	4	13	2022-07-12 18:13:58.705489	2022-07-12 18:13:58.705489
-218	109	16	5	2022-07-12 18:13:58.719865	2022-07-12 18:13:58.719865
-219	110	4	14	2022-07-12 18:13:59.05951	2022-07-12 18:13:59.05951
-220	110	17	1	2022-07-12 18:13:59.069627	2022-07-12 18:13:59.069627
-221	111	4	15	2022-07-12 18:13:59.41309	2022-07-12 18:13:59.41309
-222	111	17	2	2022-07-12 18:13:59.423275	2022-07-12 18:13:59.423275
-223	112	4	16	2022-07-12 18:13:59.765807	2022-07-12 18:13:59.765807
-224	112	17	3	2022-07-12 18:13:59.775117	2022-07-12 18:13:59.775117
-225	113	4	17	2022-07-12 18:14:00.197006	2022-07-12 18:14:00.197006
-226	113	17	4	2022-07-12 18:14:00.20715	2022-07-12 18:14:00.20715
-227	114	4	18	2022-07-12 18:14:00.642359	2022-07-12 18:14:00.642359
-228	114	17	5	2022-07-12 18:14:00.650834	2022-07-12 18:14:00.650834
-229	115	4	19	2022-07-12 18:14:00.995109	2022-07-12 18:14:00.995109
-230	115	17	6	2022-07-12 18:14:01.00486	2022-07-12 18:14:01.00486
-231	116	4	20	2022-07-12 18:14:01.345073	2022-07-12 18:14:01.345073
-232	116	17	7	2022-07-12 18:14:01.353728	2022-07-12 18:14:01.353728
-233	8	20	1	2022-07-12 18:14:01.557142	2022-07-12 18:14:01.557142
-234	25	20	2	2022-07-12 18:14:01.56626	2022-07-12 18:14:01.56626
-235	82	20	3	2022-07-12 18:14:01.576199	2022-07-12 18:14:01.576199
-236	38	20	4	2022-07-12 18:14:01.585763	2022-07-12 18:14:01.585763
-237	15	20	5	2022-07-12 18:14:01.595287	2022-07-12 18:14:01.595287
-238	20	20	6	2022-07-12 18:14:01.604963	2022-07-12 18:14:01.604963
-239	7	20	7	2022-07-12 18:14:01.615199	2022-07-12 18:14:01.615199
-240	92	20	8	2022-07-12 18:14:01.6246	2022-07-12 18:14:01.6246
-241	86	20	9	2022-07-12 18:14:01.634123	2022-07-12 18:14:01.634123
-242	30	20	10	2022-07-12 18:14:01.64852	2022-07-12 18:14:01.64852
-243	105	20	11	2022-07-12 18:14:01.658846	2022-07-12 18:14:01.658846
-244	65	20	12	2022-07-12 18:14:01.669279	2022-07-12 18:14:01.669279
-245	108	20	13	2022-07-12 18:14:01.680832	2022-07-12 18:14:01.680832
-246	17	20	14	2022-07-12 18:14:01.690562	2022-07-12 18:14:01.690562
-247	11	20	15	2022-07-12 18:14:01.701126	2022-07-12 18:14:01.701126
-248	46	20	16	2022-07-12 18:14:01.711466	2022-07-12 18:14:01.711466
-249	90	20	17	2022-07-12 18:14:01.722595	2022-07-12 18:14:01.722595
-250	74	20	18	2022-07-12 18:14:01.732495	2022-07-12 18:14:01.732495
-251	18	20	19	2022-07-12 18:14:01.742384	2022-07-12 18:14:01.742384
-252	110	20	20	2022-07-12 18:14:01.752901	2022-07-12 18:14:01.752901
-253	111	20	21	2022-07-12 18:14:01.763689	2022-07-12 18:14:01.763689
-254	89	20	22	2022-07-12 18:14:01.774172	2022-07-12 18:14:01.774172
-255	112	20	23	2022-07-12 18:14:01.785181	2022-07-12 18:14:01.785181
-256	69	20	24	2022-07-12 18:14:01.794964	2022-07-12 18:14:01.794964
-257	97	20	25	2022-07-12 18:14:01.806211	2022-07-12 18:14:01.806211
-258	48	20	26	2022-07-12 18:14:01.816631	2022-07-12 18:14:01.816631
-259	47	20	27	2022-07-12 18:14:01.826843	2022-07-12 18:14:01.826843
-260	79	20	28	2022-07-12 18:14:01.838912	2022-07-12 18:14:01.838912
-261	70	20	29	2022-07-12 18:14:01.849492	2022-07-12 18:14:01.849492
-262	55	20	30	2022-07-12 18:14:01.8586	2022-07-12 18:14:01.8586
-263	111	26	1	2022-07-12 18:14:02.781778	2022-07-12 18:14:02.781778
-264	100	26	2	2022-07-12 18:14:02.792044	2022-07-12 18:14:02.792044
-265	106	26	3	2022-07-12 18:14:02.802094	2022-07-12 18:14:02.802094
-266	110	26	4	2022-07-12 18:14:02.811902	2022-07-12 18:14:02.811902
-267	35	26	5	2022-07-12 18:14:02.821329	2022-07-12 18:14:02.821329
-268	68	26	6	2022-07-12 18:14:02.831064	2022-07-12 18:14:02.831064
-269	49	26	7	2022-07-12 18:14:02.841222	2022-07-12 18:14:02.841222
-270	19	26	8	2022-07-12 18:14:02.851366	2022-07-12 18:14:02.851366
-271	63	26	9	2022-07-12 18:14:02.861229	2022-07-12 18:14:02.861229
-272	97	26	10	2022-07-12 18:14:02.87197	2022-07-12 18:14:02.87197
-273	33	26	11	2022-07-12 18:14:02.88241	2022-07-12 18:14:02.88241
-274	1	26	12	2022-07-12 18:14:02.892457	2022-07-12 18:14:02.892457
-275	112	26	13	2022-07-12 18:14:02.902815	2022-07-12 18:14:02.902815
-276	115	26	14	2022-07-12 18:14:02.913592	2022-07-12 18:14:02.913592
-277	50	26	15	2022-07-12 18:14:02.923568	2022-07-12 18:14:02.923568
-278	85	26	16	2022-07-12 18:14:02.933894	2022-07-12 18:14:02.933894
-279	2	26	17	2022-07-12 18:14:02.943467	2022-07-12 18:14:02.943467
-280	14	26	18	2022-07-12 18:14:02.955301	2022-07-12 18:14:02.955301
-281	82	26	19	2022-07-12 18:14:02.967352	2022-07-12 18:14:02.967352
-282	98	26	20	2022-07-12 18:14:02.978025	2022-07-12 18:14:02.978025
-283	28	26	21	2022-07-12 18:14:02.987825	2022-07-12 18:14:02.987825
-284	80	26	22	2022-07-12 18:14:02.99841	2022-07-12 18:14:02.99841
-285	8	26	23	2022-07-12 18:14:03.007952	2022-07-12 18:14:03.007952
-286	21	26	24	2022-07-12 18:14:03.024857	2022-07-12 18:14:03.024857
-287	83	26	25	2022-07-12 18:14:03.035249	2022-07-12 18:14:03.035249
-288	59	26	26	2022-07-12 18:14:03.04518	2022-07-12 18:14:03.04518
-289	3	26	27	2022-07-12 18:14:03.054455	2022-07-12 18:14:03.054455
-290	57	26	28	2022-07-12 18:14:03.06413	2022-07-12 18:14:03.06413
-291	54	26	29	2022-07-12 18:14:03.073578	2022-07-12 18:14:03.073578
-292	27	26	30	2022-07-12 18:14:03.082891	2022-07-12 18:14:03.082891
-293	64	21	1	2022-07-12 18:14:03.826269	2022-07-12 18:14:03.826269
-294	40	21	2	2022-07-12 18:14:03.836932	2022-07-12 18:14:03.836932
-295	57	21	3	2022-07-12 18:14:03.846425	2022-07-12 18:14:03.846425
-296	68	21	4	2022-07-12 18:14:03.856057	2022-07-12 18:14:03.856057
-297	106	21	5	2022-07-12 18:14:03.865102	2022-07-12 18:14:03.865102
-298	102	21	6	2022-07-12 18:14:03.874178	2022-07-12 18:14:03.874178
-299	25	21	7	2022-07-12 18:14:03.88388	2022-07-12 18:14:03.88388
-300	99	21	8	2022-07-12 18:14:03.896429	2022-07-12 18:14:03.896429
-301	110	21	9	2022-07-12 18:14:03.90832	2022-07-12 18:14:03.90832
-302	48	21	10	2022-07-12 18:14:03.92083	2022-07-12 18:14:03.92083
-303	26	21	11	2022-07-12 18:14:03.931236	2022-07-12 18:14:03.931236
-304	100	21	12	2022-07-12 18:14:03.941431	2022-07-12 18:14:03.941431
-305	111	21	13	2022-07-12 18:14:03.951265	2022-07-12 18:14:03.951265
-306	93	21	14	2022-07-12 18:14:03.960286	2022-07-12 18:14:03.960286
-307	108	21	15	2022-07-12 18:14:03.97012	2022-07-12 18:14:03.97012
-308	60	21	16	2022-07-12 18:14:03.979708	2022-07-12 18:14:03.979708
-309	47	21	17	2022-07-12 18:14:03.988704	2022-07-12 18:14:03.988704
-310	32	21	18	2022-07-12 18:14:04.000672	2022-07-12 18:14:04.000672
-311	20	21	19	2022-07-12 18:14:04.011611	2022-07-12 18:14:04.011611
-312	63	21	20	2022-07-12 18:14:04.024074	2022-07-12 18:14:04.024074
-313	112	21	21	2022-07-12 18:14:04.034901	2022-07-12 18:14:04.034901
-314	39	21	22	2022-07-12 18:14:04.044254	2022-07-12 18:14:04.044254
-315	13	21	23	2022-07-12 18:14:04.054499	2022-07-12 18:14:04.054499
-316	14	21	24	2022-07-12 18:14:04.064216	2022-07-12 18:14:04.064216
-317	52	21	25	2022-07-12 18:14:04.073595	2022-07-12 18:14:04.073595
-318	90	21	26	2022-07-12 18:14:04.085145	2022-07-12 18:14:04.085145
-319	45	21	27	2022-07-12 18:14:04.096028	2022-07-12 18:14:04.096028
-320	55	21	28	2022-07-12 18:14:04.106135	2022-07-12 18:14:04.106135
-321	91	21	29	2022-07-12 18:14:04.115438	2022-07-12 18:14:04.115438
-322	115	21	30	2022-07-12 18:14:04.124266	2022-07-12 18:14:04.124266
-323	65	18	1	2022-07-12 18:14:04.924408	2022-07-12 18:14:04.924408
-324	38	18	2	2022-07-12 18:14:04.934369	2022-07-12 18:14:04.934369
-325	35	18	3	2022-07-12 18:14:04.944209	2022-07-12 18:14:04.944209
-326	85	18	4	2022-07-12 18:14:04.953822	2022-07-12 18:14:04.953822
-327	91	18	5	2022-07-12 18:14:04.963919	2022-07-12 18:14:04.963919
-328	102	18	6	2022-07-12 18:14:04.973377	2022-07-12 18:14:04.973377
-329	15	18	7	2022-07-12 18:14:04.983094	2022-07-12 18:14:04.983094
-330	16	18	8	2022-07-12 18:14:04.992322	2022-07-12 18:14:04.992322
-331	84	18	9	2022-07-12 18:14:05.001893	2022-07-12 18:14:05.001893
-332	93	18	10	2022-07-12 18:14:05.01113	2022-07-12 18:14:05.01113
-333	70	18	11	2022-07-12 18:14:05.022882	2022-07-12 18:14:05.022882
-334	50	18	12	2022-07-12 18:14:05.033157	2022-07-12 18:14:05.033157
-335	101	18	13	2022-07-12 18:14:05.043582	2022-07-12 18:14:05.043582
-336	12	18	14	2022-07-12 18:14:05.053197	2022-07-12 18:14:05.053197
-337	28	18	15	2022-07-12 18:14:05.0629	2022-07-12 18:14:05.0629
-338	40	18	16	2022-07-12 18:14:05.072292	2022-07-12 18:14:05.072292
-339	47	18	17	2022-07-12 18:14:05.083054	2022-07-12 18:14:05.083054
-340	51	18	18	2022-07-12 18:14:05.093516	2022-07-12 18:14:05.093516
-341	92	18	19	2022-07-12 18:14:05.103502	2022-07-12 18:14:05.103502
-342	3	18	20	2022-07-12 18:14:05.113312	2022-07-12 18:14:05.113312
-343	37	18	21	2022-07-12 18:14:05.122848	2022-07-12 18:14:05.122848
-344	71	18	22	2022-07-12 18:14:05.131561	2022-07-12 18:14:05.131561
-345	39	18	23	2022-07-12 18:14:05.141065	2022-07-12 18:14:05.141065
-346	44	18	24	2022-07-12 18:14:05.150063	2022-07-12 18:14:05.150063
-347	107	18	25	2022-07-12 18:14:05.159014	2022-07-12 18:14:05.159014
-348	94	18	26	2022-07-12 18:14:05.167574	2022-07-12 18:14:05.167574
-349	56	18	27	2022-07-12 18:14:05.177502	2022-07-12 18:14:05.177502
-350	2	18	28	2022-07-12 18:14:05.186768	2022-07-12 18:14:05.186768
-351	31	18	29	2022-07-12 18:14:05.196562	2022-07-12 18:14:05.196562
-352	10	18	30	2022-07-12 18:14:05.20602	2022-07-12 18:14:05.20602
-353	41	24	1	2022-07-12 18:14:06.081233	2022-07-12 18:14:06.081233
-354	104	24	2	2022-07-12 18:14:06.091139	2022-07-12 18:14:06.091139
-355	72	24	3	2022-07-12 18:14:06.136887	2022-07-12 18:14:06.136887
-356	66	24	4	2022-07-12 18:14:06.149326	2022-07-12 18:14:06.149326
-357	13	24	5	2022-07-12 18:14:06.159327	2022-07-12 18:14:06.159327
-358	59	24	6	2022-07-12 18:14:06.169172	2022-07-12 18:14:06.169172
-359	97	24	7	2022-07-12 18:14:06.17908	2022-07-12 18:14:06.17908
-360	92	24	8	2022-07-12 18:14:06.218337	2022-07-12 18:14:06.218337
-361	64	24	9	2022-07-12 18:14:06.23312	2022-07-12 18:14:06.23312
-362	114	24	10	2022-07-12 18:14:06.243418	2022-07-12 18:14:06.243418
-363	34	24	11	2022-07-12 18:14:06.253266	2022-07-12 18:14:06.253266
-364	55	24	12	2022-07-12 18:14:06.263353	2022-07-12 18:14:06.263353
-365	110	24	13	2022-07-12 18:14:06.274098	2022-07-12 18:14:06.274098
-366	98	24	14	2022-07-12 18:14:06.28477	2022-07-12 18:14:06.28477
-367	44	24	15	2022-07-12 18:14:06.296091	2022-07-12 18:14:06.296091
-368	8	24	16	2022-07-12 18:14:06.305765	2022-07-12 18:14:06.305765
-369	40	24	17	2022-07-12 18:14:06.315982	2022-07-12 18:14:06.315982
-370	20	24	18	2022-07-12 18:14:06.325795	2022-07-12 18:14:06.325795
-371	46	24	19	2022-07-12 18:14:06.335688	2022-07-12 18:14:06.335688
-372	115	24	20	2022-07-12 18:14:06.345457	2022-07-12 18:14:06.345457
-373	15	24	21	2022-07-12 18:14:06.355005	2022-07-12 18:14:06.355005
-374	30	24	22	2022-07-12 18:14:06.364527	2022-07-12 18:14:06.364527
-375	53	24	23	2022-07-12 18:14:06.374341	2022-07-12 18:14:06.374341
-376	57	24	24	2022-07-12 18:14:06.384161	2022-07-12 18:14:06.384161
-377	31	24	25	2022-07-12 18:14:06.39512	2022-07-12 18:14:06.39512
-378	32	24	26	2022-07-12 18:14:06.404978	2022-07-12 18:14:06.404978
-379	37	24	27	2022-07-12 18:14:06.415181	2022-07-12 18:14:06.415181
-380	103	24	28	2022-07-12 18:14:06.424546	2022-07-12 18:14:06.424546
-381	14	24	29	2022-07-12 18:14:06.434337	2022-07-12 18:14:06.434337
-382	71	24	30	2022-07-12 18:14:06.44397	2022-07-12 18:14:06.44397
-383	1	19	1	2022-07-12 18:14:07.448266	2022-07-12 18:14:07.448266
-384	9	19	2	2022-07-12 18:14:07.458324	2022-07-12 18:14:07.458324
-385	113	19	3	2022-07-12 18:14:07.468943	2022-07-12 18:14:07.468943
-386	27	19	4	2022-07-12 18:14:07.4785	2022-07-12 18:14:07.4785
-387	50	19	5	2022-07-12 18:14:07.488242	2022-07-12 18:14:07.488242
-388	13	19	6	2022-07-12 18:14:07.497833	2022-07-12 18:14:07.497833
-389	94	19	7	2022-07-12 18:14:07.509527	2022-07-12 18:14:07.509527
-390	74	19	8	2022-07-12 18:14:07.524205	2022-07-12 18:14:07.524205
-391	112	19	9	2022-07-12 18:14:07.535638	2022-07-12 18:14:07.535638
-392	85	19	10	2022-07-12 18:14:07.546457	2022-07-12 18:14:07.546457
-393	10	19	11	2022-07-12 18:14:07.578691	2022-07-12 18:14:07.578691
-394	3	19	12	2022-07-12 18:14:07.593013	2022-07-12 18:14:07.593013
-395	110	19	13	2022-07-12 18:14:07.604136	2022-07-12 18:14:07.604136
-396	72	19	14	2022-07-12 18:14:07.614245	2022-07-12 18:14:07.614245
-397	100	19	15	2022-07-12 18:14:07.624442	2022-07-12 18:14:07.624442
-398	48	19	16	2022-07-12 18:14:07.634071	2022-07-12 18:14:07.634071
-399	34	19	17	2022-07-12 18:14:07.644189	2022-07-12 18:14:07.644189
-400	87	19	18	2022-07-12 18:14:07.654764	2022-07-12 18:14:07.654764
-401	107	19	19	2022-07-12 18:14:07.66499	2022-07-12 18:14:07.66499
-402	80	19	20	2022-07-12 18:14:07.674968	2022-07-12 18:14:07.674968
-403	73	19	21	2022-07-12 18:14:07.684989	2022-07-12 18:14:07.684989
-404	28	19	22	2022-07-12 18:14:07.69548	2022-07-12 18:14:07.69548
-405	12	19	23	2022-07-12 18:14:07.705987	2022-07-12 18:14:07.705987
-406	18	19	24	2022-07-12 18:14:07.71551	2022-07-12 18:14:07.71551
-407	70	19	25	2022-07-12 18:14:07.725503	2022-07-12 18:14:07.725503
-408	92	19	26	2022-07-12 18:14:07.736598	2022-07-12 18:14:07.736598
-409	39	19	27	2022-07-12 18:14:07.746635	2022-07-12 18:14:07.746635
-410	93	19	28	2022-07-12 18:14:07.756459	2022-07-12 18:14:07.756459
-411	31	19	29	2022-07-12 18:14:07.766841	2022-07-12 18:14:07.766841
-412	99	19	30	2022-07-12 18:14:07.77684	2022-07-12 18:14:07.77684
-413	77	22	1	2022-07-12 18:14:08.753657	2022-07-12 18:14:08.753657
-414	95	22	2	2022-07-12 18:14:08.762689	2022-07-12 18:14:08.762689
-415	40	22	3	2022-07-12 18:14:08.77215	2022-07-12 18:14:08.77215
-416	66	22	4	2022-07-12 18:14:08.781071	2022-07-12 18:14:08.781071
-417	116	22	5	2022-07-12 18:14:08.790128	2022-07-12 18:14:08.790128
-418	70	22	6	2022-07-12 18:14:08.799348	2022-07-12 18:14:08.799348
-419	87	22	7	2022-07-12 18:14:08.808152	2022-07-12 18:14:08.808152
-420	97	22	8	2022-07-12 18:14:08.817068	2022-07-12 18:14:08.817068
-421	112	22	9	2022-07-12 18:14:08.826861	2022-07-12 18:14:08.826861
-422	28	22	10	2022-07-12 18:14:08.836355	2022-07-12 18:14:08.836355
-423	64	22	11	2022-07-12 18:14:08.845171	2022-07-12 18:14:08.845171
-424	47	22	12	2022-07-12 18:14:08.854864	2022-07-12 18:14:08.854864
-425	44	22	13	2022-07-12 18:14:08.864189	2022-07-12 18:14:08.864189
-426	16	22	14	2022-07-12 18:14:08.873235	2022-07-12 18:14:08.873235
-427	93	22	15	2022-07-12 18:14:08.88198	2022-07-12 18:14:08.88198
-428	11	22	16	2022-07-12 18:14:08.890902	2022-07-12 18:14:08.890902
-429	45	22	17	2022-07-12 18:14:08.899667	2022-07-12 18:14:08.899667
-430	59	22	18	2022-07-12 18:14:08.90862	2022-07-12 18:14:08.90862
-431	29	22	19	2022-07-12 18:14:08.917862	2022-07-12 18:14:08.917862
-432	10	22	20	2022-07-12 18:14:08.92632	2022-07-12 18:14:08.92632
-433	74	22	21	2022-07-12 18:14:08.935259	2022-07-12 18:14:08.935259
-434	88	22	22	2022-07-12 18:14:08.944174	2022-07-12 18:14:08.944174
-435	83	22	23	2022-07-12 18:14:08.952429	2022-07-12 18:14:08.952429
-436	36	22	24	2022-07-12 18:14:08.960501	2022-07-12 18:14:08.960501
-437	75	22	25	2022-07-12 18:14:08.969208	2022-07-12 18:14:08.969208
-438	71	22	26	2022-07-12 18:14:08.977299	2022-07-12 18:14:08.977299
-439	22	22	27	2022-07-12 18:14:08.986202	2022-07-12 18:14:08.986202
-440	9	22	28	2022-07-12 18:14:08.995019	2022-07-12 18:14:08.995019
-441	26	22	29	2022-07-12 18:14:09.003602	2022-07-12 18:14:09.003602
-442	55	22	30	2022-07-12 18:14:09.012216	2022-07-12 18:14:09.012216
+443	128	20	1	2022-09-08 15:37:36.94075	2022-09-08 15:37:36.94075
+444	128	28	1	2022-09-08 15:37:36.960267	2022-09-08 15:37:36.960267
+445	128	29	1	2022-09-08 15:38:03.559114	2022-09-08 15:38:03.559114
+446	130	29	2	2022-09-08 15:40:49.166807	2022-09-08 15:40:49.166807
+447	130	20	2	2022-09-08 15:40:49.183751	2022-09-08 15:40:49.183751
+448	130	19	1	2022-09-08 15:40:49.197238	2022-09-08 15:40:49.197238
+449	130	28	2	2022-09-08 15:40:49.212418	2022-09-08 15:40:49.212418
+450	118	29	3	2022-09-08 15:41:32.876813	2022-09-08 15:41:32.876813
+451	118	28	3	2022-09-08 15:41:32.893066	2022-09-08 15:41:32.893066
+452	118	18	1	2022-09-08 15:41:32.907083	2022-09-08 15:41:32.907083
+453	117	29	4	2022-09-08 15:42:11.641904	2022-09-08 15:42:11.641904
+454	117	28	4	2022-09-08 15:42:11.659588	2022-09-08 15:42:11.659588
+455	119	29	5	2022-09-08 15:42:47.535023	2022-09-08 15:42:47.535023
+456	119	19	2	2022-09-08 15:42:47.550984	2022-09-08 15:42:47.550984
+457	119	28	5	2022-09-08 15:42:47.5661	2022-09-08 15:42:47.5661
+458	120	28	6	2022-09-08 15:43:22.546437	2022-09-08 15:43:22.546437
+459	120	29	6	2022-09-08 15:43:22.561934	2022-09-08 15:43:22.561934
+460	120	19	3	2022-09-08 15:43:22.576769	2022-09-08 15:43:22.576769
+461	121	29	7	2022-09-08 15:45:34.769867	2022-09-08 15:45:34.769867
+462	121	28	7	2022-09-08 15:45:34.785124	2022-09-08 15:45:34.785124
+463	123	29	8	2022-09-08 15:46:12.569638	2022-09-08 15:46:12.569638
+464	123	28	8	2022-09-08 15:46:12.585329	2022-09-08 15:46:12.585329
+465	123	19	4	2022-09-08 15:46:12.601459	2022-09-08 15:46:12.601459
+466	122	28	9	2022-09-08 15:47:28.832643	2022-09-08 15:47:28.832643
+467	122	29	9	2022-09-08 15:47:28.850399	2022-09-08 15:47:28.850399
+468	124	29	10	2022-09-08 15:48:04.694272	2022-09-08 15:48:04.694272
+469	124	28	10	2022-09-08 15:48:04.714955	2022-09-08 15:48:04.714955
+470	124	19	5	2022-09-08 15:48:04.732727	2022-09-08 15:48:04.732727
+471	125	29	11	2022-09-08 15:50:11.593253	2022-09-08 15:50:11.593253
+472	125	18	2	2022-09-08 15:50:11.618906	2022-09-08 15:50:11.618906
+473	125	28	11	2022-09-08 15:50:11.636523	2022-09-08 15:50:11.636523
+474	127	29	12	2022-09-08 15:50:36.842369	2022-09-08 15:50:36.842369
+475	127	28	12	2022-09-08 15:50:36.858573	2022-09-08 15:50:36.858573
+476	126	28	13	2022-09-08 15:51:12.200937	2022-09-08 15:51:12.200937
+477	126	29	13	2022-09-08 15:51:12.216067	2022-09-08 15:51:12.216067
+478	126	18	3	2022-09-08 15:51:12.231002	2022-09-08 15:51:12.231002
+479	129	18	4	2022-09-08 15:52:54.916087	2022-09-08 15:52:54.916087
+480	129	29	14	2022-09-08 15:52:54.933648	2022-09-08 15:52:54.933648
+481	129	28	14	2022-09-08 15:52:54.954857	2022-09-08 15:52:54.954857
 \.
 
 
@@ -8792,22 +7133,22 @@ COPY public.spree_promotions_stores (id, promotion_id, store_id, created_at, upd
 --
 
 COPY public.spree_properties (id, name, presentation, created_at, updated_at, filterable, filter_param, public_metadata, private_metadata) FROM stdin;
-7	fit	Fit	2022-07-12 18:14:11.177046	2022-07-12 18:15:11.864342	f	fit	\N	\N
-8	gender	Gender	2022-07-12 18:14:11.220511	2022-07-12 18:15:11.9277	f	gender	\N	\N
-9	type	type	2022-07-12 18:14:18.692257	2022-07-12 18:15:12.065223	f	type	\N	\N
-10	collection	collection	2022-07-12 18:14:18.741137	2022-07-12 18:15:12.123284	f	collection	\N	\N
-6	material	Material	2022-07-12 18:14:11.131286	2022-07-12 18:15:12.283938	f	material	\N	\N
-3	model	Model	2022-07-12 18:14:10.990963	2022-07-12 18:15:12.367256	f	model	\N	\N
 11	made_from	Made from	2022-07-12 18:15:12.434047	2022-07-12 18:15:12.434047	f	made_from	\N	\N
 12	type	Type	2022-07-12 18:15:12.449715	2022-07-12 18:15:12.449715	f	type	\N	\N
 13	size	Size	2022-07-12 18:15:12.461444	2022-07-12 18:15:12.461444	f	size	\N	\N
 14	length	Lenght	2022-07-12 18:15:12.474625	2022-07-12 18:15:12.474625	f	length	\N	\N
 15	color	Color	2022-07-12 18:15:12.486094	2022-07-12 18:15:12.486094	f	color	\N	\N
 16	collection	Collection	2022-07-12 18:15:12.49772	2022-07-12 18:15:12.49772	f	collection	\N	\N
-1	manufacturer	Manufacturer	2022-07-12 18:14:10.879153	2022-07-12 18:15:12.508187	t	manufacturer	\N	\N
-2	brand	Brand	2022-07-12 18:14:10.947028	2022-07-12 18:15:12.52262	t	brand	\N	\N
-4	shirt_type	Shirt type	2022-07-12 18:14:11.035921	2022-07-12 18:14:18.406625	f	shirt_type	\N	\N
-5	sleeve_type	Sleeve type	2022-07-12 18:14:11.08378	2022-07-12 18:14:18.457435	f	sleeve_type	\N	\N
+9	type	type	2022-07-12 18:14:18.692257	2022-09-02 16:28:46.765699	f	type	\N	\N
+10	collection	collection	2022-07-12 18:14:18.741137	2022-09-02 16:28:46.774382	f	collection	\N	\N
+1	manufacturer	Manufacturer	2022-07-12 18:14:10.879153	2022-09-02 16:28:46.78273	t	manufacturer	\N	\N
+6	material	Material	2022-07-12 18:14:11.131286	2022-09-02 16:28:46.799385	f	material	\N	\N
+7	fit	Fit	2022-07-12 18:14:11.177046	2022-09-02 16:28:46.807727	f	fit	\N	\N
+8	gender	Gender	2022-07-12 18:14:11.220511	2022-09-02 16:28:46.81619	f	gender	\N	\N
+3	model	Model	2022-07-12 18:14:10.990963	2022-09-02 16:28:46.824642	f	model	\N	\N
+4	shirt_type	Shirt type	2022-07-12 18:14:11.035921	2022-09-02 16:28:44.922294	f	shirt_type	\N	\N
+5	sleeve_type	Sleeve type	2022-07-12 18:14:11.08378	2022-09-02 16:28:44.930706	f	sleeve_type	\N	\N
+2	brand	Brand	2022-07-12 18:14:10.947028	2022-09-02 19:03:22.795257	t	brand	\N	\N
 \.
 
 
@@ -8829,6 +7170,7 @@ COPY public.spree_property_prototypes (id, prototype_id, property_id, created_at
 11	2	6	2022-07-12 18:15:12.736991	2022-07-12 18:15:12.736991
 12	3	13	2022-07-12 18:15:12.765498	2022-07-12 18:15:12.765498
 13	3	12	2022-07-12 18:15:12.779121	2022-07-12 18:15:12.779121
+14	4	2	2022-09-02 16:33:05.851131	2022-09-02 16:33:05.851131
 \.
 
 
@@ -8848,6 +7190,7 @@ COPY public.spree_prototypes (id, name, created_at, updated_at, public_metadata,
 1	Shirt	2022-07-12 18:15:12.550256	2022-07-12 18:15:12.550256	\N	\N
 2	Bag	2022-07-12 18:15:12.691724	2022-07-12 18:15:12.691724	\N	\N
 3	Mugs	2022-07-12 18:15:12.744761	2022-07-12 18:15:12.744761	\N	\N
+4	Stickers	2022-09-02 16:33:05.840431	2022-09-02 16:33:05.840431	\N	\N
 \.
 
 
@@ -8932,6 +7275,7 @@ COPY public.spree_return_items (id, return_authorization_id, inventory_unit_id, 
 
 COPY public.spree_role_users (id, role_id, user_id, created_at, updated_at) FROM stdin;
 1	1	1	2022-07-12 18:10:57.986839	2022-07-12 18:10:57.986839
+2	1	2	2022-09-02 14:43:42.067732	2022-09-02 14:43:42.067732
 \.
 
 
@@ -8949,8 +7293,6 @@ COPY public.spree_roles (id, name, created_at, updated_at) FROM stdin;
 --
 
 COPY public.spree_shipments (id, tracking, number, cost, shipped_at, order_id, address_id, state, created_at, updated_at, stock_location_id, adjustment_total, additional_tax_total, promo_total, included_tax_total, pre_tax_amount, taxable_adjustment_total, non_taxable_adjustment_total, public_metadata, private_metadata) FROM stdin;
-1	\N	H74722885856	0.00	\N	1	\N	pending	2022-07-12 18:15:53.03655	2022-07-12 18:15:53.776378	1	0.00	0.00	0.00	0.00	0.0000	0.00	0.00	\N	\N
-2	\N	H15721246649	5.00	\N	2	1	pending	2022-07-12 18:15:53.227324	2022-07-12 18:15:54.330427	1	0.00	0.00	0.00	0.00	0.0000	0.00	0.00	\N	\N
 \.
 
 
@@ -9008,9 +7350,6 @@ COPY public.spree_shipping_methods (id, name, display_on, deleted_at, created_at
 --
 
 COPY public.spree_shipping_rates (id, shipment_id, shipping_method_id, selected, cost, created_at, updated_at, tax_rate_id) FROM stdin;
-8	2	2	f	10.00	2022-07-12 18:15:54.29679	2022-07-12 18:15:54.29679	\N
-9	2	3	f	15.00	2022-07-12 18:15:54.300032	2022-07-12 18:15:54.300032	\N
-7	2	1	t	5.00	2022-07-12 18:15:54.29292	2022-07-12 18:15:54.312818	\N
 \.
 
 
@@ -9023,6 +7362,14 @@ COPY public.spree_state_changes (id, name, previous_state, stateful_id, user_id,
 2	shipment	\N	1	\N	Spree::Order	pending	2022-07-12 18:15:53.685851	2022-07-12 18:15:53.685851
 3	payment	\N	2	\N	Spree::Order	balance_due	2022-07-12 18:15:53.868839	2022-07-12 18:15:53.868839
 4	shipment	\N	2	\N	Spree::Order	pending	2022-07-12 18:15:54.099286	2022-07-12 18:15:54.099286
+5	payment	balance_due	2	\N	Spree::Order	paid	2022-09-02 16:12:47.175572	2022-09-02 16:12:47.175572
+6	shipment	pending	2	\N	Spree::Order	\N	2022-09-02 16:12:47.18535	2022-09-02 16:12:47.18535
+7	order	complete	2	\N	Spree::Order	canceled	2022-09-02 16:14:11.102811	2022-09-02 16:14:11.102811
+8	payment	paid	2	\N	Spree::Order	void	2022-09-02 16:14:11.339501	2022-09-02 16:14:11.339501
+9	payment	balance_due	1	\N	Spree::Order	paid	2022-09-02 16:14:58.400409	2022-09-02 16:14:58.400409
+10	order	complete	1	\N	Spree::Order	canceled	2022-09-02 16:15:04.62049	2022-09-02 16:15:04.62049
+11	payment	paid	1	\N	Spree::Order	void	2022-09-02 16:15:04.791969	2022-09-02 16:15:04.791969
+12	shipment	pending	1	\N	Spree::Order	\N	2022-09-02 16:15:04.797297	2022-09-02 16:15:04.797297
 \.
 
 
@@ -9616,238 +7963,252 @@ COPY public.spree_states (id, name, abbr, country_id, updated_at, created_at) FR
 --
 
 COPY public.spree_stock_items (id, stock_location_id, variant_id, count_on_hand, created_at, updated_at, backorderable, deleted_at) FROM stdin;
-3	1	3	0	2022-07-12 18:15:32.452792	2022-07-12 18:15:32.452805	f	\N
-4	1	4	0	2022-07-12 18:15:32.452822	2022-07-12 18:15:32.452835	f	\N
-5	1	5	0	2022-07-12 18:15:32.452852	2022-07-12 18:15:32.452958	f	\N
-6	1	6	0	2022-07-12 18:15:32.452989	2022-07-12 18:15:32.452999	f	\N
-7	1	7	0	2022-07-12 18:15:32.453017	2022-07-12 18:15:32.453031	f	\N
-8	1	8	0	2022-07-12 18:15:32.453049	2022-07-12 18:15:32.453062	f	\N
-9	1	9	0	2022-07-12 18:15:32.453079	2022-07-12 18:15:32.453092	f	\N
-10	1	10	0	2022-07-12 18:15:32.453109	2022-07-12 18:15:32.453122	f	\N
-11	1	11	0	2022-07-12 18:15:32.453139	2022-07-12 18:15:32.453152	f	\N
-12	1	12	0	2022-07-12 18:15:32.453169	2022-07-12 18:15:32.453182	f	\N
-13	1	13	0	2022-07-12 18:15:32.453199	2022-07-12 18:15:32.453212	f	\N
-14	1	14	0	2022-07-12 18:15:32.45323	2022-07-12 18:15:32.453243	f	\N
-15	1	15	0	2022-07-12 18:15:32.45326	2022-07-12 18:15:32.453274	f	\N
-16	1	16	0	2022-07-12 18:15:32.45329	2022-07-12 18:15:32.453304	f	\N
-17	1	17	0	2022-07-12 18:15:32.453321	2022-07-12 18:15:32.453334	f	\N
-18	1	18	0	2022-07-12 18:15:32.453351	2022-07-12 18:15:32.453364	f	\N
-19	1	19	0	2022-07-12 18:15:32.453381	2022-07-12 18:15:32.453394	f	\N
-20	1	20	0	2022-07-12 18:15:32.453412	2022-07-12 18:15:32.453425	f	\N
-21	1	21	0	2022-07-12 18:15:32.453442	2022-07-12 18:15:32.453456	f	\N
-22	1	22	0	2022-07-12 18:15:32.453472	2022-07-12 18:15:32.453486	f	\N
-23	1	23	0	2022-07-12 18:15:32.453503	2022-07-12 18:15:32.453516	f	\N
-24	1	24	0	2022-07-12 18:15:32.453533	2022-07-12 18:15:32.453547	f	\N
-25	1	25	0	2022-07-12 18:15:32.453564	2022-07-12 18:15:32.453577	f	\N
-26	1	26	0	2022-07-12 18:15:32.453595	2022-07-12 18:15:32.453607	f	\N
-27	1	27	0	2022-07-12 18:15:32.453624	2022-07-12 18:15:32.453637	f	\N
-28	1	28	0	2022-07-12 18:15:32.453654	2022-07-12 18:15:32.453668	f	\N
-29	1	29	0	2022-07-12 18:15:32.453685	2022-07-12 18:15:32.453698	f	\N
-30	1	30	0	2022-07-12 18:15:32.453714	2022-07-12 18:15:32.453727	f	\N
-31	1	31	0	2022-07-12 18:15:32.453744	2022-07-12 18:15:32.453757	f	\N
-32	1	32	0	2022-07-12 18:15:32.453775	2022-07-12 18:15:32.453787	f	\N
-33	1	33	0	2022-07-12 18:15:32.453804	2022-07-12 18:15:32.453817	f	\N
-34	1	34	0	2022-07-12 18:15:32.453834	2022-07-12 18:15:32.453847	f	\N
-35	1	35	0	2022-07-12 18:15:32.453922	2022-07-12 18:15:32.453936	f	\N
-36	1	36	0	2022-07-12 18:15:32.453953	2022-07-12 18:15:32.453966	f	\N
-37	1	37	0	2022-07-12 18:15:32.453983	2022-07-12 18:15:32.453996	f	\N
-38	1	38	0	2022-07-12 18:15:32.454013	2022-07-12 18:15:32.454026	f	\N
-39	1	39	0	2022-07-12 18:15:32.454043	2022-07-12 18:15:32.454056	f	\N
-40	1	40	0	2022-07-12 18:15:32.454073	2022-07-12 18:15:32.454086	f	\N
-41	1	41	0	2022-07-12 18:15:32.454102	2022-07-12 18:15:32.454115	f	\N
-42	1	42	0	2022-07-12 18:15:32.454132	2022-07-12 18:15:32.454145	f	\N
-43	1	43	0	2022-07-12 18:15:32.454162	2022-07-12 18:15:32.454175	f	\N
-44	1	44	0	2022-07-12 18:15:32.454192	2022-07-12 18:15:32.454205	f	\N
-45	1	45	0	2022-07-12 18:15:32.454223	2022-07-12 18:15:32.454236	f	\N
-46	1	46	0	2022-07-12 18:15:32.454253	2022-07-12 18:15:32.454266	f	\N
-47	1	47	0	2022-07-12 18:15:32.454283	2022-07-12 18:15:32.454296	f	\N
-48	1	48	0	2022-07-12 18:15:32.454313	2022-07-12 18:15:32.454327	f	\N
-49	1	49	0	2022-07-12 18:15:32.454344	2022-07-12 18:15:32.454358	f	\N
-50	1	50	0	2022-07-12 18:15:32.454375	2022-07-12 18:15:32.454388	f	\N
-51	1	51	0	2022-07-12 18:15:32.454406	2022-07-12 18:15:32.454419	f	\N
-52	1	52	0	2022-07-12 18:15:32.454436	2022-07-12 18:15:32.454449	f	\N
-53	1	53	0	2022-07-12 18:15:32.454466	2022-07-12 18:15:32.454479	f	\N
-54	1	54	0	2022-07-12 18:15:32.454497	2022-07-12 18:15:32.45451	f	\N
-55	1	55	0	2022-07-12 18:15:32.454527	2022-07-12 18:15:32.45454	f	\N
-56	1	56	0	2022-07-12 18:15:32.454558	2022-07-12 18:15:32.454571	f	\N
-57	1	57	0	2022-07-12 18:15:32.454588	2022-07-12 18:15:32.454601	f	\N
-58	1	58	0	2022-07-12 18:15:32.454618	2022-07-12 18:15:32.454631	f	\N
-59	1	59	0	2022-07-12 18:15:32.454648	2022-07-12 18:15:32.454661	f	\N
-60	1	60	0	2022-07-12 18:15:32.454677	2022-07-12 18:15:32.45469	f	\N
-61	1	61	0	2022-07-12 18:15:32.454707	2022-07-12 18:15:32.45472	f	\N
-62	1	62	0	2022-07-12 18:15:32.454738	2022-07-12 18:15:32.454751	f	\N
-63	1	63	0	2022-07-12 18:15:32.454768	2022-07-12 18:15:32.454781	f	\N
-64	1	64	0	2022-07-12 18:15:32.454798	2022-07-12 18:15:32.454811	f	\N
-65	1	65	0	2022-07-12 18:15:32.454828	2022-07-12 18:15:32.454903	f	\N
-66	1	66	0	2022-07-12 18:15:32.454921	2022-07-12 18:15:32.454934	f	\N
-67	1	67	0	2022-07-12 18:15:32.454951	2022-07-12 18:15:32.454965	f	\N
-68	1	68	0	2022-07-12 18:15:32.454982	2022-07-12 18:15:32.454995	f	\N
-69	1	69	0	2022-07-12 18:15:32.455012	2022-07-12 18:15:32.455025	f	\N
-70	1	70	0	2022-07-12 18:15:32.455042	2022-07-12 18:15:32.455055	f	\N
-71	1	71	0	2022-07-12 18:15:32.455073	2022-07-12 18:15:32.455086	f	\N
-72	1	72	0	2022-07-12 18:15:32.455103	2022-07-12 18:15:32.455116	f	\N
-73	1	73	0	2022-07-12 18:15:32.455133	2022-07-12 18:15:32.455146	f	\N
-74	1	74	0	2022-07-12 18:15:32.455164	2022-07-12 18:15:32.455176	f	\N
-75	1	75	0	2022-07-12 18:15:32.455194	2022-07-12 18:15:32.455207	f	\N
-76	1	76	0	2022-07-12 18:15:32.455224	2022-07-12 18:15:32.455237	f	\N
-77	1	77	0	2022-07-12 18:15:32.455255	2022-07-12 18:15:32.455268	f	\N
-78	1	78	0	2022-07-12 18:15:32.455286	2022-07-12 18:15:32.455299	f	\N
-79	1	79	0	2022-07-12 18:15:32.455316	2022-07-12 18:15:32.455329	f	\N
-80	1	80	0	2022-07-12 18:15:32.455346	2022-07-12 18:15:32.455359	f	\N
-81	1	81	0	2022-07-12 18:15:32.455376	2022-07-12 18:15:32.455389	f	\N
-82	1	82	0	2022-07-12 18:15:32.455406	2022-07-12 18:15:32.455419	f	\N
-83	1	83	0	2022-07-12 18:15:32.455436	2022-07-12 18:15:32.455449	f	\N
-84	1	84	0	2022-07-12 18:15:32.455466	2022-07-12 18:15:32.455479	f	\N
-85	1	85	0	2022-07-12 18:15:32.455496	2022-07-12 18:15:32.455509	f	\N
-86	1	86	0	2022-07-12 18:15:32.455526	2022-07-12 18:15:32.455934	f	\N
-87	1	87	0	2022-07-12 18:15:32.455956	2022-07-12 18:15:32.455969	f	\N
-88	1	88	0	2022-07-12 18:15:32.455986	2022-07-12 18:15:32.455998	f	\N
-89	1	89	0	2022-07-12 18:15:32.456015	2022-07-12 18:15:32.456028	f	\N
-90	1	90	0	2022-07-12 18:15:32.456044	2022-07-12 18:15:32.456057	f	\N
-91	1	91	0	2022-07-12 18:15:32.456074	2022-07-12 18:15:32.456087	f	\N
-92	1	92	0	2022-07-12 18:15:32.456103	2022-07-12 18:15:32.456116	f	\N
-93	1	93	0	2022-07-12 18:15:32.456133	2022-07-12 18:15:32.456146	f	\N
-94	1	94	0	2022-07-12 18:15:32.456162	2022-07-12 18:15:32.456175	f	\N
-95	1	95	0	2022-07-12 18:15:32.456192	2022-07-12 18:15:32.456205	f	\N
-96	1	96	0	2022-07-12 18:15:32.456221	2022-07-12 18:15:32.456234	f	\N
-97	1	97	0	2022-07-12 18:15:32.45625	2022-07-12 18:15:32.456263	f	\N
-2	1	2	1	2022-07-12 18:15:32.452762	2022-07-12 18:15:32.670691	f	\N
-98	1	98	0	2022-07-12 18:15:32.45628	2022-07-12 18:15:32.456293	f	\N
-99	1	99	0	2022-07-12 18:15:32.456309	2022-07-12 18:15:32.456322	f	\N
-100	1	100	0	2022-07-12 18:15:32.456338	2022-07-12 18:15:32.456351	f	\N
-101	1	101	0	2022-07-12 18:15:32.456368	2022-07-12 18:15:32.45638	f	\N
-102	1	102	0	2022-07-12 18:15:32.456397	2022-07-12 18:15:32.456409	f	\N
-103	1	103	0	2022-07-12 18:15:32.456426	2022-07-12 18:15:32.456439	f	\N
-104	1	104	0	2022-07-12 18:15:32.456455	2022-07-12 18:15:32.456468	f	\N
-105	1	105	0	2022-07-12 18:15:32.456484	2022-07-12 18:15:32.456497	f	\N
-106	1	106	0	2022-07-12 18:15:32.456514	2022-07-12 18:15:32.456527	f	\N
-107	1	107	0	2022-07-12 18:15:32.456543	2022-07-12 18:15:32.456556	f	\N
-108	1	108	0	2022-07-12 18:15:32.456573	2022-07-12 18:15:32.456586	f	\N
-109	1	109	0	2022-07-12 18:15:32.456602	2022-07-12 18:15:32.456615	f	\N
-110	1	110	0	2022-07-12 18:15:32.456632	2022-07-12 18:15:32.456644	f	\N
-111	1	111	0	2022-07-12 18:15:32.456661	2022-07-12 18:15:32.456674	f	\N
-112	1	112	0	2022-07-12 18:15:32.45669	2022-07-12 18:15:32.456703	f	\N
-113	1	113	0	2022-07-12 18:15:32.456719	2022-07-12 18:15:32.456732	f	\N
-114	1	114	0	2022-07-12 18:15:32.456748	2022-07-12 18:15:32.456761	f	\N
-115	1	115	0	2022-07-12 18:15:32.456778	2022-07-12 18:15:32.456791	f	\N
-116	1	116	0	2022-07-12 18:15:32.456807	2022-07-12 18:15:32.456871	f	\N
-178	1	178	47	2022-07-12 18:15:32.458702	2022-07-12 18:15:33.011024	f	\N
-117	1	117	42	2022-07-12 18:15:32.456889	2022-07-12 18:15:34.49221	f	\N
-118	1	118	43	2022-07-12 18:15:32.45691	2022-07-12 18:15:34.629431	f	\N
-119	1	119	42	2022-07-12 18:15:32.456928	2022-07-12 18:15:34.771755	f	\N
-120	1	120	38	2022-07-12 18:15:32.456948	2022-07-12 18:15:34.919373	f	\N
-122	1	122	21	2022-07-12 18:15:32.457004	2022-07-12 18:15:35.212575	f	\N
-123	1	123	30	2022-07-12 18:15:32.457026	2022-07-12 18:15:35.355647	f	\N
-124	1	124	20	2022-07-12 18:15:32.457056	2022-07-12 18:15:35.498614	f	\N
-125	1	125	22	2022-07-12 18:15:32.457086	2022-07-12 18:15:35.645435	f	\N
-126	1	126	32	2022-07-12 18:15:32.457115	2022-07-12 18:15:35.789989	f	\N
-128	1	128	46	2022-07-12 18:15:32.457175	2022-07-12 18:15:35.937059	f	\N
-129	1	129	47	2022-07-12 18:15:32.457204	2022-07-12 18:15:36.089716	f	\N
-130	1	130	34	2022-07-12 18:15:32.457234	2022-07-12 18:15:36.265625	f	\N
-131	1	131	41	2022-07-12 18:15:32.457264	2022-07-12 18:15:36.423706	f	\N
-132	1	132	50	2022-07-12 18:15:32.457294	2022-07-12 18:15:36.5704	f	\N
-133	1	133	35	2022-07-12 18:15:32.457324	2022-07-12 18:15:36.709948	f	\N
-134	1	134	44	2022-07-12 18:15:32.457353	2022-07-12 18:15:36.846384	f	\N
-135	1	135	47	2022-07-12 18:15:32.457382	2022-07-12 18:15:36.984927	f	\N
-136	1	136	34	2022-07-12 18:15:32.457412	2022-07-12 18:15:37.123137	f	\N
-137	1	137	40	2022-07-12 18:15:32.457442	2022-07-12 18:15:37.269536	f	\N
-138	1	138	36	2022-07-12 18:15:32.457471	2022-07-12 18:15:37.40825	f	\N
-139	1	139	22	2022-07-12 18:15:32.457501	2022-07-12 18:15:37.554128	f	\N
-140	1	140	32	2022-07-12 18:15:32.457531	2022-07-12 18:15:37.690537	f	\N
-141	1	141	24	2022-07-12 18:15:32.457561	2022-07-12 18:15:37.826523	f	\N
-142	1	142	46	2022-07-12 18:15:32.457591	2022-07-12 18:15:37.970302	f	\N
-144	1	144	20	2022-07-12 18:15:32.45765	2022-07-12 18:15:38.292258	f	\N
-145	1	145	40	2022-07-12 18:15:32.457679	2022-07-12 18:15:38.463763	f	\N
-146	1	146	21	2022-07-12 18:15:32.457709	2022-07-12 18:15:38.746283	f	\N
-147	1	147	41	2022-07-12 18:15:32.457739	2022-07-12 18:15:38.979932	f	\N
-148	1	148	23	2022-07-12 18:15:32.457768	2022-07-12 18:15:39.152255	f	\N
-149	1	149	20	2022-07-12 18:15:32.457846	2022-07-12 18:15:39.309611	f	\N
-150	1	150	45	2022-07-12 18:15:32.457877	2022-07-12 18:15:39.586821	f	\N
-151	1	151	45	2022-07-12 18:15:32.457898	2022-07-12 18:15:39.761117	f	\N
-152	1	152	32	2022-07-12 18:15:32.457923	2022-07-12 18:15:39.925089	f	\N
-153	1	153	35	2022-07-12 18:15:32.457953	2022-07-12 18:15:40.08566	f	\N
-154	1	154	38	2022-07-12 18:15:32.457983	2022-07-12 18:15:40.248434	f	\N
-155	1	155	26	2022-07-12 18:15:32.458013	2022-07-12 18:15:40.421184	f	\N
-156	1	156	42	2022-07-12 18:15:32.458044	2022-07-12 18:15:40.586046	f	\N
-157	1	157	45	2022-07-12 18:15:32.458074	2022-07-12 18:15:40.757423	f	\N
-158	1	158	24	2022-07-12 18:15:32.458103	2022-07-12 18:15:40.910725	f	\N
-159	1	159	20	2022-07-12 18:15:32.458133	2022-07-12 18:15:41.058157	f	\N
-160	1	160	28	2022-07-12 18:15:32.458162	2022-07-12 18:15:41.202544	f	\N
-161	1	161	21	2022-07-12 18:15:32.458192	2022-07-12 18:15:41.360293	f	\N
-162	1	162	23	2022-07-12 18:15:32.458222	2022-07-12 18:15:41.514218	f	\N
-163	1	163	36	2022-07-12 18:15:32.458252	2022-07-12 18:15:41.693341	f	\N
-165	1	165	26	2022-07-12 18:15:32.458312	2022-07-12 18:15:42.020555	f	\N
-166	1	166	29	2022-07-12 18:15:32.458342	2022-07-12 18:15:42.206589	f	\N
-167	1	167	43	2022-07-12 18:15:32.458372	2022-07-12 18:15:42.379203	f	\N
-168	1	168	21	2022-07-12 18:15:32.458401	2022-07-12 18:15:42.527968	f	\N
-169	1	169	40	2022-07-12 18:15:32.458431	2022-07-12 18:15:42.684725	f	\N
-170	1	170	39	2022-07-12 18:15:32.458461	2022-07-12 18:15:42.849198	f	\N
-171	1	171	40	2022-07-12 18:15:32.458492	2022-07-12 18:15:43.009678	f	\N
-172	1	172	42	2022-07-12 18:15:32.458522	2022-07-12 18:15:43.212308	f	\N
-173	1	173	30	2022-07-12 18:15:32.458552	2022-07-12 18:15:43.38453	f	\N
-174	1	174	40	2022-07-12 18:15:32.458583	2022-07-12 18:15:43.641965	f	\N
-175	1	175	38	2022-07-12 18:15:32.458612	2022-07-12 18:15:43.990396	f	\N
-176	1	176	35	2022-07-12 18:15:32.458643	2022-07-12 18:15:44.197296	f	\N
-177	1	177	39	2022-07-12 18:15:32.458672	2022-07-12 18:15:44.349567	f	\N
-179	1	179	24	2022-07-12 18:15:32.458731	2022-07-12 18:15:44.494435	f	\N
-180	1	180	45	2022-07-12 18:15:32.458761	2022-07-12 18:15:44.646215	f	\N
-181	1	181	50	2022-07-12 18:15:32.45884	2022-07-12 18:15:44.809769	f	\N
-182	1	182	47	2022-07-12 18:15:32.45887	2022-07-12 18:15:44.968278	f	\N
-183	1	183	41	2022-07-12 18:15:32.4589	2022-07-12 18:15:45.127409	f	\N
-184	1	184	39	2022-07-12 18:15:32.45893	2022-07-12 18:15:45.272341	f	\N
-185	1	185	25	2022-07-12 18:15:32.45896	2022-07-12 18:15:45.427304	f	\N
-187	1	187	27	2022-07-12 18:15:32.45902	2022-07-12 18:15:45.796471	f	\N
-188	1	188	33	2022-07-12 18:15:32.45905	2022-07-12 18:15:45.991277	f	\N
-189	1	189	27	2022-07-12 18:15:32.45908	2022-07-12 18:15:46.191938	f	\N
-190	1	190	33	2022-07-12 18:15:32.45911	2022-07-12 18:15:46.369318	f	\N
-191	1	191	39	2022-07-12 18:15:32.45914	2022-07-12 18:15:46.596468	f	\N
-192	1	192	47	2022-07-12 18:15:32.45917	2022-07-12 18:15:46.813856	f	\N
-193	1	193	28	2022-07-12 18:15:32.4592	2022-07-12 18:15:46.976301	f	\N
-194	1	194	47	2022-07-12 18:15:32.459231	2022-07-12 18:15:47.181825	f	\N
-1	1	1	1	2022-07-12 18:15:32.45271	2022-07-12 18:15:32.58779	f	\N
-127	1	127	49	2022-07-12 18:15:32.457145	2022-07-12 18:15:32.853641	f	\N
-228	1	228	29	2022-07-12 18:15:32.460325	2022-07-12 18:15:33.506546	f	\N
-229	1	229	25	2022-07-12 18:15:32.460355	2022-07-12 18:15:33.671231	f	\N
-230	1	230	30	2022-07-12 18:15:32.460385	2022-07-12 18:15:33.814698	f	\N
-231	1	231	20	2022-07-12 18:15:32.460415	2022-07-12 18:15:33.997662	f	\N
-121	1	121	32	2022-07-12 18:15:32.456975	2022-07-12 18:15:35.059716	f	\N
-143	1	143	44	2022-07-12 18:15:32.45762	2022-07-12 18:15:38.123942	f	\N
-164	1	164	34	2022-07-12 18:15:32.458282	2022-07-12 18:15:41.857292	f	\N
-186	1	186	27	2022-07-12 18:15:32.45899	2022-07-12 18:15:45.582316	f	\N
-195	1	195	42	2022-07-12 18:15:32.45926	2022-07-12 18:15:47.340103	f	\N
-196	1	196	33	2022-07-12 18:15:32.45929	2022-07-12 18:15:47.49823	f	\N
-197	1	197	23	2022-07-12 18:15:32.45932	2022-07-12 18:15:47.655012	f	\N
-198	1	198	38	2022-07-12 18:15:32.45935	2022-07-12 18:15:47.807135	f	\N
-199	1	199	36	2022-07-12 18:15:32.45938	2022-07-12 18:15:47.961238	f	\N
-200	1	200	20	2022-07-12 18:15:32.45941	2022-07-12 18:15:48.120496	f	\N
-201	1	201	43	2022-07-12 18:15:32.459439	2022-07-12 18:15:48.272194	f	\N
-202	1	202	20	2022-07-12 18:15:32.45947	2022-07-12 18:15:48.426864	f	\N
-203	1	203	29	2022-07-12 18:15:32.459499	2022-07-12 18:15:48.600706	f	\N
-204	1	204	46	2022-07-12 18:15:32.459529	2022-07-12 18:15:48.751017	f	\N
-205	1	205	47	2022-07-12 18:15:32.459558	2022-07-12 18:15:48.896769	f	\N
-206	1	206	32	2022-07-12 18:15:32.459589	2022-07-12 18:15:49.059416	f	\N
-207	1	207	41	2022-07-12 18:15:32.459618	2022-07-12 18:15:49.221355	f	\N
-208	1	208	23	2022-07-12 18:15:32.459648	2022-07-12 18:15:49.373861	f	\N
-209	1	209	50	2022-07-12 18:15:32.459678	2022-07-12 18:15:49.528491	f	\N
-210	1	210	37	2022-07-12 18:15:32.459708	2022-07-12 18:15:49.680308	f	\N
-211	1	211	47	2022-07-12 18:15:32.459738	2022-07-12 18:15:49.82892	f	\N
-212	1	212	35	2022-07-12 18:15:32.459856	2022-07-12 18:15:49.983015	f	\N
-213	1	213	46	2022-07-12 18:15:32.459882	2022-07-12 18:15:50.127905	f	\N
-214	1	214	48	2022-07-12 18:15:32.459908	2022-07-12 18:15:50.297846	f	\N
-215	1	215	26	2022-07-12 18:15:32.459938	2022-07-12 18:15:50.449805	f	\N
-216	1	216	38	2022-07-12 18:15:32.459968	2022-07-12 18:15:50.601842	f	\N
-217	1	217	21	2022-07-12 18:15:32.459998	2022-07-12 18:15:50.769904	f	\N
-218	1	218	40	2022-07-12 18:15:32.460028	2022-07-12 18:15:50.924319	f	\N
-219	1	219	21	2022-07-12 18:15:32.460058	2022-07-12 18:15:51.07615	f	\N
-220	1	220	29	2022-07-12 18:15:32.460088	2022-07-12 18:15:51.220197	f	\N
-221	1	221	20	2022-07-12 18:15:32.460117	2022-07-12 18:15:51.375491	f	\N
-222	1	222	47	2022-07-12 18:15:32.460147	2022-07-12 18:15:51.532237	f	\N
-223	1	223	43	2022-07-12 18:15:32.460177	2022-07-12 18:15:51.686628	f	\N
-224	1	224	22	2022-07-12 18:15:32.460206	2022-07-12 18:15:51.837532	f	\N
-225	1	225	29	2022-07-12 18:15:32.460236	2022-07-12 18:15:51.987345	f	\N
-226	1	226	27	2022-07-12 18:15:32.460266	2022-07-12 18:15:52.133913	f	\N
-227	1	227	29	2022-07-12 18:15:32.460295	2022-07-12 18:15:52.290001	f	\N
-232	1	232	50	2022-07-12 18:15:32.460445	2022-07-12 18:15:52.444824	f	\N
+46	1	46	0	2022-07-12 18:15:32.454253	2022-09-02 16:27:24.019961	f	2022-09-02 16:27:24.019947
+11	1	11	0	2022-07-12 18:15:32.453139	2022-09-02 16:27:31.570566	f	2022-09-02 16:27:31.570553
+78	1	78	0	2022-07-12 18:15:32.455286	2022-09-02 16:27:34.737893	f	2022-09-02 16:27:34.737879
+67	1	67	0	2022-07-12 18:15:32.454951	2022-09-02 16:27:35.441065	f	2022-09-02 16:27:35.441052
+43	1	43	0	2022-07-12 18:15:32.454162	2022-09-02 16:27:36.619025	f	2022-09-02 16:27:36.619013
+83	1	83	0	2022-07-12 18:15:32.455436	2022-09-02 16:27:38.105099	f	2022-09-02 16:27:38.105086
+58	1	58	0	2022-07-12 18:15:32.454618	2022-09-02 16:27:41.39703	f	2022-09-02 16:27:41.397018
+5	1	5	0	2022-07-12 18:15:32.452852	2022-09-02 16:27:42.675794	f	2022-09-02 16:27:42.675778
+4	1	4	0	2022-07-12 18:15:32.452822	2022-09-02 16:27:43.251754	f	2022-09-02 16:27:43.251741
+15	1	15	0	2022-07-12 18:15:32.45326	2022-09-02 16:27:45.464357	f	2022-09-02 16:27:45.464345
+28	1	28	0	2022-07-12 18:15:32.453654	2022-09-02 16:27:46.073716	f	2022-09-02 16:27:46.073704
+21	1	21	0	2022-07-12 18:15:32.453442	2022-09-02 16:27:46.653112	f	2022-09-02 16:27:46.653101
+59	1	59	0	2022-07-12 18:15:32.454648	2022-09-02 16:27:48.058503	f	2022-09-02 16:27:48.058491
+97	1	97	0	2022-07-12 18:15:32.45625	2022-09-02 16:27:49.450415	f	2022-09-02 16:27:49.450378
+57	1	57	0	2022-07-12 18:15:32.454588	2022-09-02 16:27:53.420272	f	2022-09-02 16:27:53.420258
+42	1	42	0	2022-07-12 18:15:32.454132	2022-09-02 16:27:53.938835	f	2022-09-02 16:27:53.93882
+90	1	90	0	2022-07-12 18:15:32.456044	2022-09-02 16:28:00.453606	f	2022-09-02 16:28:00.453592
+26	1	26	0	2022-07-12 18:15:32.453595	2022-09-02 16:28:01.088267	f	2022-09-02 16:28:01.088253
+32	1	32	0	2022-07-12 18:15:32.453775	2022-09-02 16:28:01.703674	f	2022-09-02 16:28:01.703661
+94	1	94	0	2022-07-12 18:15:32.456162	2022-09-02 16:28:02.429425	f	2022-09-02 16:28:02.429412
+34	1	34	0	2022-07-12 18:15:32.453834	2022-09-02 16:28:03.011075	f	2022-09-02 16:28:03.01106
+60	1	60	0	2022-07-12 18:15:32.454677	2022-09-02 16:28:03.695084	f	2022-09-02 16:28:03.69507
+68	1	68	0	2022-07-12 18:15:32.454982	2022-09-02 16:28:04.928122	f	2022-09-02 16:28:04.928103
+47	1	47	0	2022-07-12 18:15:32.454283	2022-09-02 16:28:06.168054	f	2022-09-02 16:28:06.168042
+55	1	55	0	2022-07-12 18:15:32.454527	2022-09-02 16:28:06.864281	f	2022-09-02 16:28:06.864267
+18	1	18	0	2022-07-12 18:15:32.453351	2022-09-02 16:28:07.402119	f	2022-09-02 16:28:07.402107
+98	1	98	0	2022-07-12 18:15:32.45628	2022-09-02 16:28:19.235717	f	2022-09-02 16:28:19.235705
+86	1	86	0	2022-07-12 18:15:32.455526	2022-09-02 16:28:19.868778	f	2022-09-02 16:28:19.868767
+82	1	82	0	2022-07-12 18:15:32.455406	2022-09-02 16:28:20.459351	f	2022-09-02 16:28:20.459338
+91	1	91	0	2022-07-12 18:15:32.456074	2022-09-02 16:28:28.380636	f	2022-09-02 16:28:28.380624
+37	1	37	0	2022-07-12 18:15:32.453983	2022-09-02 16:28:29.203297	f	2022-09-02 16:28:29.203277
+99	1	99	0	2022-07-12 18:15:32.456309	2022-09-02 16:28:31.200246	f	2022-09-02 16:28:31.200235
+72	1	72	0	2022-07-12 18:15:32.455103	2022-09-02 16:28:32.304546	f	2022-09-02 16:28:32.304534
+45	1	45	0	2022-07-12 18:15:32.454223	2022-09-02 16:28:32.926192	f	2022-09-02 16:28:32.926178
+7	1	7	0	2022-07-12 18:15:32.453017	2022-09-02 16:28:35.411778	f	2022-09-02 16:28:35.411765
+16	1	16	0	2022-07-12 18:15:32.45329	2022-09-02 16:28:36.092967	f	2022-09-02 16:28:36.092953
+61	1	61	0	2022-07-12 18:15:32.454707	2022-09-02 16:28:36.779542	f	2022-09-02 16:28:36.77953
+77	1	77	0	2022-07-12 18:15:32.455255	2022-09-02 16:28:37.981238	f	2022-09-02 16:28:37.981226
+53	1	53	0	2022-07-12 18:15:32.454466	2022-09-02 16:28:38.594511	f	2022-09-02 16:28:38.59449
+6	1	6	0	2022-07-12 18:15:32.452989	2022-09-02 16:28:39.289226	f	2022-09-02 16:28:39.289214
+69	1	69	0	2022-07-12 18:15:32.455012	2022-09-02 16:28:40.011749	f	2022-09-02 16:28:40.011736
+52	1	52	0	2022-07-12 18:15:32.454436	2022-09-02 16:28:42.428028	f	2022-09-02 16:28:42.428015
+62	1	62	0	2022-07-12 18:15:32.454738	2022-09-02 16:28:44.308146	f	2022-09-02 16:28:44.308133
+79	1	79	0	2022-07-12 18:15:32.455316	2022-09-02 16:28:45.028216	f	2022-09-02 16:28:45.028204
+39	1	39	0	2022-07-12 18:15:32.454043	2022-09-02 14:33:31.99561	f	2022-09-02 14:33:31.995591
+87	1	87	0	2022-07-12 18:15:32.455956	2022-09-02 14:33:39.461703	f	2022-09-02 14:33:39.46169
+70	1	70	0	2022-07-12 18:15:32.455042	2022-09-02 14:33:48.948322	f	2022-09-02 14:33:48.948309
+84	1	84	0	2022-07-12 18:15:32.455466	2022-09-02 16:25:39.96182	f	2022-09-02 16:25:39.961782
+19	1	19	0	2022-07-12 18:15:32.453381	2022-09-02 16:25:41.924709	f	2022-09-02 16:25:41.924695
+64	1	64	0	2022-07-12 18:15:32.454798	2022-09-02 16:25:43.728361	f	2022-09-02 16:25:43.728337
+96	1	96	0	2022-07-12 18:15:32.456221	2022-09-02 16:25:45.396645	f	2022-09-02 16:25:45.396631
+8	1	8	0	2022-07-12 18:15:32.453049	2022-09-02 16:25:48.644336	f	2022-09-02 16:25:48.644323
+85	1	85	0	2022-07-12 18:15:32.455496	2022-09-02 16:25:50.375818	f	2022-09-02 16:25:50.375805
+3	1	3	0	2022-07-12 18:15:32.452792	2022-09-02 16:25:54.036291	f	2022-09-02 16:25:54.036277
+81	1	81	0	2022-07-12 18:15:32.455376	2022-09-02 16:25:56.000464	f	2022-09-02 16:25:56.00045
+76	1	76	0	2022-07-12 18:15:32.455224	2022-09-02 16:25:57.825866	f	2022-09-02 16:25:57.825853
+75	1	75	0	2022-07-12 18:15:32.455194	2022-09-02 16:25:59.467136	f	2022-09-02 16:25:59.46712
+95	1	95	0	2022-07-12 18:15:32.456192	2022-09-02 16:26:01.235231	f	2022-09-02 16:26:01.235218
+36	1	36	0	2022-07-12 18:15:32.453953	2022-09-02 16:26:03.313513	f	2022-09-02 16:26:03.313495
+48	1	48	0	2022-07-12 18:15:32.454313	2022-09-02 16:26:04.090663	f	2022-09-02 16:26:04.090649
+65	1	65	0	2022-07-12 18:15:32.454828	2022-09-02 16:26:05.717331	f	2022-09-02 16:26:05.717316
+54	1	54	0	2022-07-12 18:15:32.454497	2022-09-02 16:26:06.323312	f	2022-09-02 16:26:06.323299
+33	1	33	0	2022-07-12 18:15:32.453804	2022-09-02 16:26:06.999386	f	2022-09-02 16:26:06.999374
+89	1	89	0	2022-07-12 18:15:32.456015	2022-09-02 16:26:07.49175	f	2022-09-02 16:26:07.491737
+92	1	92	0	2022-07-12 18:15:32.456103	2022-09-02 16:26:08.112682	f	2022-09-02 16:26:08.11267
+9	1	9	0	2022-07-12 18:15:32.453079	2022-09-02 16:26:08.883414	f	2022-09-02 16:26:08.8834
+31	1	31	0	2022-07-12 18:15:32.453744	2022-09-02 16:26:10.248965	f	2022-09-02 16:26:10.248951
+41	1	41	0	2022-07-12 18:15:32.454102	2022-09-02 16:26:59.850938	f	2022-09-02 16:26:59.850924
+44	1	44	0	2022-07-12 18:15:32.454192	2022-09-02 16:27:01.168211	f	2022-09-02 16:27:01.168198
+66	1	66	0	2022-07-12 18:15:32.454921	2022-09-02 16:27:01.940992	f	2022-09-02 16:27:01.940979
+56	1	56	0	2022-07-12 18:15:32.454558	2022-09-02 16:27:02.613292	f	2022-09-02 16:27:02.613274
+29	1	29	0	2022-07-12 18:15:32.453685	2022-09-02 16:27:04.200624	f	2022-09-02 16:27:04.20061
+35	1	35	0	2022-07-12 18:15:32.453922	2022-09-02 16:27:05.2923	f	2022-09-02 16:27:05.292284
+40	1	40	0	2022-07-12 18:15:32.454073	2022-09-02 16:27:08.97791	f	2022-09-02 16:27:08.977896
+10	1	10	0	2022-07-12 18:15:32.453109	2022-09-02 16:27:09.815233	f	2022-09-02 16:27:09.81522
+27	1	27	0	2022-07-12 18:15:32.453624	2022-09-02 16:27:10.550866	f	2022-09-02 16:27:10.550852
+13	1	13	0	2022-07-12 18:15:32.453199	2022-09-02 16:27:12.88554	f	2022-09-02 16:27:12.885526
+24	1	24	0	2022-07-12 18:15:32.453533	2022-09-02 16:27:13.430246	f	2022-09-02 16:27:13.430232
+50	1	50	0	2022-07-12 18:15:32.454375	2022-09-02 16:27:14.105792	f	2022-09-02 16:27:14.105779
+22	1	22	0	2022-07-12 18:15:32.453472	2022-09-02 16:27:14.773079	f	2022-09-02 16:27:14.773053
+93	1	93	0	2022-07-12 18:15:32.456133	2022-09-02 16:27:16.889691	f	2022-09-02 16:27:16.889679
+73	1	73	0	2022-07-12 18:15:32.455133	2022-09-02 16:27:17.392204	f	2022-09-02 16:27:17.392191
+23	1	23	0	2022-07-12 18:15:32.453503	2022-09-02 16:27:18.369271	f	2022-09-02 16:27:18.369259
+25	1	25	0	2022-07-12 18:15:32.453564	2022-09-02 16:27:21.394012	f	2022-09-02 16:27:21.394
+20	1	20	0	2022-07-12 18:15:32.453412	2022-09-02 16:27:23.266981	f	2022-09-02 16:27:23.266966
+162	1	162	23	2022-07-12 18:15:32.458222	2022-09-02 16:27:24.09138	f	2022-09-02 16:27:24.091368
+127	1	127	49	2022-07-12 18:15:32.457145	2022-09-02 16:27:31.636924	f	2022-09-02 16:27:31.636911
+105	1	105	0	2022-07-12 18:15:32.456484	2022-09-02 16:27:33.629577	f	2022-09-02 16:27:33.629564
+80	1	80	0	2022-07-12 18:15:32.455346	2022-09-02 16:27:34.239865	f	2022-09-02 16:27:34.239842
+183	1	183	41	2022-07-12 18:15:32.4589	2022-09-02 16:27:35.511428	f	2022-09-02 16:27:35.511415
+111	1	111	0	2022-07-12 18:15:32.456661	2022-09-02 16:27:35.902273	f	2022-09-02 16:27:35.902259
+159	1	159	20	2022-07-12 18:15:32.458133	2022-09-02 16:27:36.691491	f	2022-09-02 16:27:36.69148
+174	1	174	40	2022-07-12 18:15:32.458583	2022-09-02 16:27:41.489032	f	2022-09-02 16:27:41.489018
+121	1	121	32	2022-07-12 18:15:32.456975	2022-09-02 16:27:42.76013	f	2022-09-02 16:27:42.760115
+120	1	120	38	2022-07-12 18:15:32.456948	2022-09-02 16:27:43.322495	f	2022-09-02 16:27:43.322479
+131	1	131	41	2022-07-12 18:15:32.457264	2022-09-02 16:27:45.536154	f	2022-09-02 16:27:45.536141
+144	1	144	20	2022-07-12 18:15:32.45765	2022-09-02 16:27:46.14154	f	2022-09-02 16:27:46.141528
+137	1	137	40	2022-07-12 18:15:32.457442	2022-09-02 16:27:46.718825	f	2022-09-02 16:27:46.718813
+51	1	51	0	2022-07-12 18:15:32.454406	2022-09-02 16:27:47.375107	f	2022-09-02 16:27:47.375093
+175	1	175	38	2022-07-12 18:15:32.458612	2022-09-02 16:27:48.125685	f	2022-09-02 16:27:48.125672
+102	1	102	0	2022-07-12 18:15:32.456397	2022-09-02 16:27:48.612009	f	2022-09-02 16:27:48.611996
+103	1	103	0	2022-07-12 18:15:32.456426	2022-09-02 16:27:49.941615	f	2022-09-02 16:27:49.941603
+108	1	108	0	2022-07-12 18:15:32.456573	2022-09-02 16:27:50.650999	f	2022-09-02 16:27:50.650986
+104	1	104	0	2022-07-12 18:15:32.456455	2022-09-02 16:27:52.709013	f	2022-09-02 16:27:52.709
+173	1	173	30	2022-07-12 18:15:32.458552	2022-09-02 16:27:53.497345	f	2022-09-02 16:27:53.497332
+158	1	158	24	2022-07-12 18:15:32.458103	2022-09-02 16:27:54.024454	f	2022-09-02 16:27:54.024436
+142	1	142	46	2022-07-12 18:15:32.457591	2022-09-02 16:28:01.156866	f	2022-09-02 16:28:01.156853
+148	1	148	23	2022-07-12 18:15:32.457768	2022-09-02 16:28:01.780678	f	2022-09-02 16:28:01.780657
+150	1	150	45	2022-07-12 18:15:32.457877	2022-09-02 16:28:03.084249	f	2022-09-02 16:28:03.084229
+176	1	176	35	2022-07-12 18:15:32.458643	2022-09-02 16:28:03.776437	f	2022-09-02 16:28:03.776423
+133	1	133	35	2022-07-12 18:15:32.457324	2022-09-02 16:28:04.458122	f	2022-09-02 16:28:04.45811
+184	1	184	39	2022-07-12 18:15:32.45893	2022-09-02 16:28:05.0246	f	2022-09-02 16:28:05.024585
+163	1	163	36	2022-07-12 18:15:32.458252	2022-09-02 16:28:06.264294	f	2022-09-02 16:28:06.264281
+134	1	134	44	2022-07-12 18:15:32.457353	2022-09-02 16:28:07.472912	f	2022-09-02 16:28:07.472892
+100	1	100	0	2022-07-12 18:15:32.456338	2022-09-02 16:28:18.655444	f	2022-09-02 16:28:18.655431
+107	1	107	0	2022-07-12 18:15:32.456543	2022-09-02 16:28:20.83485	f	2022-09-02 16:28:20.834835
+153	1	153	35	2022-07-12 18:15:32.457953	2022-09-02 16:28:29.268802	f	2022-09-02 16:28:29.26879
+187	1	187	27	2022-07-12 18:15:32.45902	2022-09-02 16:28:31.815192	f	2022-09-02 16:28:31.81518
+188	1	188	33	2022-07-12 18:15:32.45905	2022-09-02 16:28:32.370093	f	2022-09-02 16:28:32.37008
+161	1	161	21	2022-07-12 18:15:32.458192	2022-09-02 16:28:33.012565	f	2022-09-02 16:28:33.012551
+123	1	123	30	2022-07-12 18:15:32.457026	2022-09-02 16:28:35.504211	f	2022-09-02 16:28:35.504198
+132	1	132	50	2022-07-12 18:15:32.457294	2022-09-02 16:28:36.159615	f	2022-09-02 16:28:36.1596
+177	1	177	39	2022-07-12 18:15:32.458672	2022-09-02 16:28:36.848575	f	2022-09-02 16:28:36.848564
+169	1	169	40	2022-07-12 18:15:32.458431	2022-09-02 16:28:38.665538	f	2022-09-02 16:28:38.665524
+122	1	122	21	2022-07-12 18:15:32.457004	2022-09-02 16:28:39.350933	f	2022-09-02 16:28:39.350913
+155	1	155	26	2022-07-12 18:15:32.458013	2022-09-02 14:33:32.06254	f	2022-09-02 14:33:32.062524
+185	1	185	25	2022-07-12 18:15:32.45896	2022-09-02 16:28:40.077434	f	2022-09-02 16:28:40.077423
+112	1	112	0	2022-07-12 18:15:32.45669	2022-09-02 16:28:41.163238	f	2022-09-02 16:28:41.163225
+135	1	135	47	2022-07-12 18:15:32.457382	2022-09-02 16:25:42.010711	f	2022-09-02 16:25:42.010697
+118	1	118	43	2022-07-12 18:15:32.45691	2022-09-02 16:25:47.169893	f	2022-09-02 16:25:47.16988
+124	1	124	20	2022-07-12 18:15:32.457056	2022-09-02 16:25:48.711847	f	2022-09-02 16:25:48.711832
+179	1	179	24	2022-07-12 18:15:32.458731	2022-09-02 16:25:52.088405	f	2022-09-02 16:25:52.08839
+119	1	119	42	2022-07-12 18:15:32.456928	2022-09-02 16:25:54.105451	f	2022-09-02 16:25:54.105437
+192	1	192	47	2022-07-12 18:15:32.45917	2022-09-02 16:25:57.89224	f	2022-09-02 16:25:57.892227
+191	1	191	39	2022-07-12 18:15:32.45914	2022-09-02 16:25:59.534834	f	2022-09-02 16:25:59.53482
+164	1	164	34	2022-07-12 18:15:32.458282	2022-09-02 16:26:04.186057	f	2022-09-02 16:26:04.186043
+154	1	154	38	2022-07-12 18:15:32.457983	2022-09-02 16:26:04.785415	f	2022-09-02 16:26:04.785402
+165	1	165	26	2022-07-12 18:15:32.458312	2022-09-02 16:26:05.151722	f	2022-09-02 16:26:05.151708
+181	1	181	50	2022-07-12 18:15:32.45884	2022-09-02 16:26:05.789458	f	2022-09-02 16:26:05.789443
+170	1	170	39	2022-07-12 18:15:32.458461	2022-09-02 16:26:06.532684	f	2022-09-02 16:26:06.532671
+149	1	149	20	2022-07-12 18:15:32.457846	2022-09-02 16:26:07.080935	f	2022-09-02 16:26:07.080921
+125	1	125	22	2022-07-12 18:15:32.457086	2022-09-02 16:26:08.955984	f	2022-09-02 16:26:08.955972
+147	1	147	41	2022-07-12 18:15:32.457739	2022-09-02 16:26:10.352314	f	2022-09-02 16:26:10.352298
+157	1	157	45	2022-07-12 18:15:32.458074	2022-09-02 16:26:59.944185	f	2022-09-02 16:26:59.944172
+160	1	160	28	2022-07-12 18:15:32.458162	2022-09-02 16:27:01.239847	f	2022-09-02 16:27:01.239834
+182	1	182	47	2022-07-12 18:15:32.45887	2022-09-02 16:27:02.04214	f	2022-09-02 16:27:02.042126
+172	1	172	42	2022-07-12 18:15:32.458522	2022-09-02 16:27:02.693605	f	2022-09-02 16:27:02.69359
+116	1	116	0	2022-07-12 18:15:32.456807	2022-09-02 16:27:03.412793	f	2022-09-02 16:27:03.412778
+145	1	145	40	2022-07-12 18:15:32.457679	2022-09-02 16:27:04.27149	f	2022-09-02 16:27:04.271478
+190	1	190	33	2022-07-12 18:15:32.45911	2022-09-02 16:27:07.218789	f	2022-09-02 16:27:07.218775
+101	1	101	0	2022-07-12 18:15:32.456368	2022-09-02 16:27:08.009728	f	2022-09-02 16:27:08.009715
+156	1	156	42	2022-07-12 18:15:32.458044	2022-09-02 16:27:09.055651	f	2022-09-02 16:27:09.055639
+126	1	126	32	2022-07-12 18:15:32.457115	2022-09-02 16:27:09.883679	f	2022-09-02 16:27:09.883664
+143	1	143	44	2022-07-12 18:15:32.45762	2022-09-02 16:27:10.623313	f	2022-09-02 16:27:10.623299
+129	1	129	47	2022-07-12 18:15:32.457204	2022-09-02 16:27:12.964416	f	2022-09-02 16:27:12.964401
+166	1	166	29	2022-07-12 18:15:32.458342	2022-09-02 16:27:14.185729	f	2022-09-02 16:27:14.185717
+138	1	138	36	2022-07-12 18:15:32.457471	2022-09-02 16:27:14.848803	f	2022-09-02 16:27:14.848791
+106	1	106	0	2022-07-12 18:15:32.456514	2022-09-02 16:27:16.093855	f	2022-09-02 16:27:16.093841
+189	1	189	27	2022-07-12 18:15:32.45908	2022-09-02 16:27:17.476829	f	2022-09-02 16:27:17.476815
+139	1	139	22	2022-07-12 18:15:32.457501	2022-09-02 16:27:18.4375	f	2022-09-02 16:27:18.437489
+141	1	141	24	2022-07-12 18:15:32.457561	2022-09-02 16:27:21.455429	f	2022-09-02 16:27:21.455418
+115	1	115	0	2022-07-12 18:15:32.456778	2022-09-02 16:27:22.559326	f	2022-09-02 16:27:22.559312
+136	1	136	34	2022-07-12 18:15:32.457412	2022-09-02 16:27:23.334851	f	2022-09-02 16:27:23.334838
+114	1	114	0	2022-07-12 18:15:32.456748	2022-09-02 16:28:41.783177	f	2022-09-02 16:28:41.783165
+230	1	230	30	2022-07-12 18:15:32.460385	2022-09-02 16:28:41.849	f	2022-09-02 16:28:41.848988
+168	1	168	21	2022-07-12 18:15:32.458401	2022-09-02 16:28:42.50307	f	2022-09-02 16:28:42.503057
+128	1	128	46	2022-07-12 18:15:32.457175	2022-09-02 16:28:43.315766	f	2022-09-02 16:28:43.31575
+178	1	178	47	2022-07-12 18:15:32.458702	2022-09-02 16:28:44.401619	f	2022-09-02 16:28:44.401607
+113	1	113	0	2022-07-12 18:15:32.456719	2022-09-02 16:28:46.867569	f	2022-09-02 16:28:46.867559
+221	1	221	20	2022-07-12 18:15:32.460117	2022-09-02 16:27:33.728148	f	2022-09-02 16:27:33.728134
+196	1	196	33	2022-07-12 18:15:32.45929	2022-09-02 16:27:34.32223	f	2022-09-02 16:27:34.322217
+194	1	194	47	2022-07-12 18:15:32.459231	2022-09-02 16:27:34.818535	f	2022-09-02 16:27:34.818521
+227	1	227	29	2022-07-12 18:15:32.460295	2022-09-02 16:27:35.985601	f	2022-09-02 16:27:35.985587
+199	1	199	36	2022-07-12 18:15:32.45938	2022-09-02 16:27:38.171306	f	2022-09-02 16:27:38.171294
+110	1	110	0	2022-07-12 18:15:32.456632	2022-09-02 16:27:42.051143	f	2022-09-02 16:27:42.05113
+226	1	226	27	2022-07-12 18:15:32.460266	2022-09-02 16:27:42.121961	f	2022-09-02 16:27:42.121949
+167	1	167	43	2022-07-12 18:15:32.458372	2022-09-02 16:27:47.447553	f	2022-09-02 16:27:47.44754
+218	1	218	40	2022-07-12 18:15:32.460028	2022-09-02 16:27:48.69017	f	2022-09-02 16:27:48.690156
+213	1	213	46	2022-07-12 18:15:32.459882	2022-09-02 16:27:49.515355	f	2022-09-02 16:27:49.515343
+219	1	219	21	2022-07-12 18:15:32.460058	2022-09-02 16:27:50.005738	f	2022-09-02 16:27:50.005726
+224	1	224	22	2022-07-12 18:15:32.460206	2022-09-02 16:27:50.727244	f	2022-09-02 16:27:50.727231
+14	1	14	0	2022-07-12 18:15:32.45323	2022-09-02 14:33:28.802781	f	2022-09-02 14:33:28.802756
+130	1	130	34	2022-07-12 18:15:32.457234	2022-09-02 14:33:28.937655	f	2022-09-02 14:33:28.937633
+30	1	30	0	2022-07-12 18:15:32.453714	2022-09-02 14:33:34.238782	f	2022-09-02 14:33:34.238759
+146	1	146	21	2022-07-12 18:15:32.457709	2022-09-02 14:33:34.348566	f	2022-09-02 14:33:34.348552
+203	1	203	29	2022-07-12 18:15:32.459499	2022-09-02 14:33:39.524752	f	2022-09-02 14:33:39.52474
+186	1	186	27	2022-07-12 18:15:32.45899	2022-09-02 14:33:49.018458	f	2022-09-02 14:33:49.018444
+109	1	109	0	2022-07-12 18:15:32.456602	2022-09-02 16:27:51.236699	f	2022-09-02 16:27:51.236687
+225	1	225	29	2022-07-12 18:15:32.460236	2022-09-02 16:27:51.300871	f	2022-09-02 16:27:51.30086
+220	1	220	29	2022-07-12 18:15:32.460088	2022-09-02 16:27:52.804628	f	2022-09-02 16:27:52.804614
+206	1	206	32	2022-07-12 18:15:32.459589	2022-09-02 16:28:00.524532	f	2022-09-02 16:28:00.524518
+200	1	200	20	2022-07-12 18:15:32.45941	2022-09-02 16:25:40.048808	f	2022-09-02 16:25:40.048788
+180	1	180	45	2022-07-12 18:15:32.458761	2022-09-02 16:25:43.822316	f	2022-09-02 16:25:43.82229
+212	1	212	35	2022-07-12 18:15:32.459856	2022-09-02 16:25:45.465198	f	2022-09-02 16:25:45.465184
+2	1	2	2	2022-07-12 18:15:32.452762	2022-09-02 16:25:47.106959	f	2022-09-02 16:25:47.106946
+201	1	201	43	2022-07-12 18:15:32.459439	2022-09-02 16:25:50.444739	f	2022-09-02 16:25:50.444725
+63	1	63	0	2022-07-12 18:15:32.454768	2022-09-02 16:25:52.019705	f	2022-09-02 16:25:52.019692
+197	1	197	23	2022-07-12 18:15:32.45932	2022-09-02 16:25:56.091295	f	2022-09-02 16:25:56.091282
+211	1	211	47	2022-07-12 18:15:32.459738	2022-09-02 16:26:01.319181	f	2022-09-02 16:26:01.319168
+152	1	152	32	2022-07-12 18:15:32.457923	2022-09-02 16:26:03.411905	f	2022-09-02 16:26:03.411885
+38	1	38	0	2022-07-12 18:15:32.454013	2022-09-02 16:26:04.639243	f	2022-09-02 16:26:04.63923
+49	1	49	0	2022-07-12 18:15:32.454344	2022-09-02 16:26:05.03036	f	2022-09-02 16:26:05.030342
+205	1	205	47	2022-07-12 18:15:32.459558	2022-09-02 16:26:07.566824	f	2022-09-02 16:26:07.56681
+208	1	208	23	2022-07-12 18:15:32.459648	2022-09-02 16:26:08.18241	f	2022-09-02 16:26:08.182375
+1	1	1	2	2022-07-12 18:15:32.45271	2022-09-02 16:26:09.592784	f	2022-09-02 16:26:09.592771
+117	1	117	42	2022-07-12 18:15:32.456889	2022-09-02 16:26:09.660558	f	2022-09-02 16:26:09.660545
+232	1	232	50	2022-07-12 18:15:32.460445	2022-09-02 16:27:03.496286	f	2022-09-02 16:27:03.496272
+151	1	151	45	2022-07-12 18:15:32.457898	2022-09-02 16:27:05.364886	f	2022-09-02 16:27:05.364873
+74	1	74	0	2022-07-12 18:15:32.455164	2022-09-02 16:27:07.150518	f	2022-09-02 16:27:07.150504
+217	1	217	21	2022-07-12 18:15:32.459998	2022-09-02 16:27:08.089518	f	2022-09-02 16:27:08.089505
+140	1	140	32	2022-07-12 18:15:32.457531	2022-09-02 16:27:13.524712	f	2022-09-02 16:27:13.524698
+88	1	88	0	2022-07-12 18:15:32.455986	2022-09-02 16:27:15.366388	f	2022-09-02 16:27:15.366374
+204	1	204	46	2022-07-12 18:15:32.459529	2022-09-02 16:27:15.432868	f	2022-09-02 16:27:15.432854
+222	1	222	47	2022-07-12 18:15:32.460147	2022-09-02 16:27:16.166907	f	2022-09-02 16:27:16.166895
+209	1	209	50	2022-07-12 18:15:32.459678	2022-09-02 16:27:16.954073	f	2022-09-02 16:27:16.954061
+231	1	231	20	2022-07-12 18:15:32.460415	2022-09-02 16:27:22.633749	f	2022-09-02 16:27:22.633735
+210	1	210	37	2022-07-12 18:15:32.459708	2022-09-02 16:28:02.505692	f	2022-09-02 16:28:02.505679
+17	1	17	0	2022-07-12 18:15:32.453321	2022-09-02 16:28:04.391108	f	2022-09-02 16:28:04.391095
+171	1	171	40	2022-07-12 18:15:32.458492	2022-09-02 16:28:06.927793	f	2022-09-02 16:28:06.92778
+216	1	216	38	2022-07-12 18:15:32.459968	2022-09-02 16:28:18.719992	f	2022-09-02 16:28:18.719979
+214	1	214	48	2022-07-12 18:15:32.459908	2022-09-02 16:28:19.302187	f	2022-09-02 16:28:19.302175
+202	1	202	20	2022-07-12 18:15:32.45947	2022-09-02 16:28:19.933248	f	2022-09-02 16:28:19.933227
+198	1	198	38	2022-07-12 18:15:32.45935	2022-09-02 16:28:20.52437	f	2022-09-02 16:28:20.524357
+223	1	223	43	2022-07-12 18:15:32.460177	2022-09-02 16:28:20.906553	f	2022-09-02 16:28:20.906538
+207	1	207	41	2022-07-12 18:15:32.459618	2022-09-02 16:28:28.443834	f	2022-09-02 16:28:28.443823
+215	1	215	26	2022-07-12 18:15:32.459938	2022-09-02 16:28:31.260586	f	2022-09-02 16:28:31.260575
+71	1	71	0	2022-07-12 18:15:32.455073	2022-09-02 16:28:31.745062	f	2022-09-02 16:28:31.745049
+193	1	193	28	2022-07-12 18:15:32.4592	2022-09-02 16:28:38.047228	f	2022-09-02 16:28:38.047216
+228	1	228	29	2022-07-12 18:15:32.460325	2022-09-02 16:28:41.235068	f	2022-09-02 16:28:41.235055
+12	1	12	0	2022-07-12 18:15:32.453169	2022-09-02 16:28:43.230766	f	2022-09-02 16:28:43.230752
+195	1	195	42	2022-07-12 18:15:32.45926	2022-09-02 16:28:45.093339	f	2022-09-02 16:28:45.093327
+229	1	229	25	2022-07-12 18:15:32.460355	2022-09-02 16:28:46.935995	f	2022-09-02 16:28:46.935984
+233	1	233	30	2022-09-02 16:34:50.883227	2022-09-02 16:34:51.101388	f	\N
+234	1	234	40	2022-09-02 17:12:43.404498	2022-09-02 17:12:43.581191	f	\N
+235	1	235	100	2022-09-02 17:30:06.037723	2022-09-02 17:30:06.207863	f	\N
+236	1	236	300	2022-09-02 17:36:52.276273	2022-09-02 17:36:52.441014	f	\N
+237	1	237	65	2022-09-02 18:31:39.554729	2022-09-02 18:31:39.701076	f	\N
+238	1	238	58	2022-09-02 18:40:15.84499	2022-09-02 18:40:16.077402	f	\N
+239	1	239	500	2022-09-02 18:41:55.921383	2022-09-02 18:41:56.081309	f	\N
+240	1	240	250	2022-09-02 18:43:51.861678	2022-09-02 18:43:52.059694	f	\N
+241	1	241	67	2022-09-02 18:46:23.913179	2022-09-02 18:46:24.073674	f	\N
+242	1	242	125	2022-09-02 18:51:38.685733	2022-09-02 18:51:38.842586	f	\N
+243	1	243	1000	2022-09-02 18:54:26.562147	2022-09-02 18:54:26.699	f	\N
+244	1	244	89	2022-09-02 18:58:24.14416	2022-09-02 18:58:24.384185	f	\N
+245	1	245	300	2022-09-02 19:00:46.078642	2022-09-02 19:00:46.239815	f	\N
+246	1	246	1992	2022-09-02 19:03:48.978648	2022-09-02 19:03:49.129972	f	\N
 \.
 
 
@@ -9981,6 +8342,22 @@ COPY public.spree_stock_movements (id, stock_item_id, quantity, action, created_
 114	226	27	\N	2022-07-12 18:15:52.086709	2022-07-12 18:15:52.086709	\N	\N
 115	227	29	\N	2022-07-12 18:15:52.241894	2022-07-12 18:15:52.241894	\N	\N
 116	232	50	\N	2022-07-12 18:15:52.39771	2022-07-12 18:15:52.39771	\N	\N
+117	2	1	\N	2022-09-02 16:12:46.848476	2022-09-02 16:12:46.848476	Spree::Shipment	2
+118	1	1	\N	2022-09-02 16:14:58.106673	2022-09-02 16:14:58.106673	Spree::Shipment	1
+119	233	30	\N	2022-09-02 16:34:50.973374	2022-09-02 16:34:50.973374	\N	\N
+120	234	40	\N	2022-09-02 17:12:43.482311	2022-09-02 17:12:43.482311	\N	\N
+121	235	100	\N	2022-09-02 17:30:06.118911	2022-09-02 17:30:06.118911	\N	\N
+122	236	300	\N	2022-09-02 17:36:52.365209	2022-09-02 17:36:52.365209	\N	\N
+123	237	65	\N	2022-09-02 18:31:39.625706	2022-09-02 18:31:39.625706	\N	\N
+124	238	58	\N	2022-09-02 18:40:15.962931	2022-09-02 18:40:15.962931	\N	\N
+125	239	500	\N	2022-09-02 18:41:56.002909	2022-09-02 18:41:56.002909	\N	\N
+126	240	250	\N	2022-09-02 18:43:51.957096	2022-09-02 18:43:51.957096	\N	\N
+127	241	67	\N	2022-09-02 18:46:23.995711	2022-09-02 18:46:23.995711	\N	\N
+128	242	125	\N	2022-09-02 18:51:38.762738	2022-09-02 18:51:38.762738	\N	\N
+129	243	1000	\N	2022-09-02 18:54:26.634775	2022-09-02 18:54:26.634775	\N	\N
+130	244	89	\N	2022-09-02 18:58:24.294859	2022-09-02 18:58:24.294859	\N	\N
+131	245	300	\N	2022-09-02 19:00:46.164707	2022-09-02 19:00:46.164707	\N	\N
+132	246	1992	\N	2022-09-02 19:03:49.054546	2022-09-02 19:03:49.054546	\N	\N
 \.
 
 
@@ -10032,9 +8409,9 @@ COPY public.spree_store_credits (id, user_id, category_id, created_by_id, amount
 --
 
 COPY public.spree_stores (id, name, url, meta_description, meta_keywords, seo_title, mail_from_address, default_currency, code, "default", created_at, updated_at, supported_currencies, facebook, twitter, instagram, default_locale, customer_support_email, default_country_id, description, address, contact_phone, new_order_notifications_email, checkout_zone_id, seo_robots, supported_locales, deleted_at, settings) FROM stdin;
-1	Spree Demo Site	localhost:3000	This is the new Spree UX DEMO | OVERVIEW: http://bit.ly/new-spree-ux | DOCS: http://bit.ly/spree-ux-customization-docs | CONTACT: https://spreecommerce.org/contact/	\N	Spree Commerce Demo Shop	no-reply@example.com	USD	spree	t	2022-07-12 18:10:15.205657	2022-07-12 18:16:09.879988	CAD,USD	spreecommerce	spreecommerce	spreecommerce	en	support@example.com	224	\N	\N	\N	\N	3	\N	en,fr	\N	{"limit_digital_download_days": true, "limit_digital_download_count": true, "digital_asset_authorized_days": 7, "digital_asset_link_expire_time": 300, "digital_asset_authorized_clicks": 5}
 2	EU Store	eu.lvh.me:3000	\N	\N	\N	eustore@example.com	EUR	eustore	f	2022-07-12 18:13:09.659503	2022-07-12 18:16:24.666541	EUR	\N	\N	\N	de	\N	54	\N	\N	\N	\N	1	\N	de,fr,es	\N	{"limit_digital_download_days": true, "limit_digital_download_count": true, "digital_asset_authorized_days": 7, "digital_asset_link_expire_time": 300, "digital_asset_authorized_clicks": 5}
 3	UK Store	uk.lvh.me:3000	\N	\N	\N	ukstore@example.com	GBP	ukstore	f	2022-07-12 18:13:09.683842	2022-07-12 18:16:30.922302	GBP	\N	\N	\N	en	\N	73	\N	\N	\N	\N	2	\N	en	\N	{"limit_digital_download_days": true, "limit_digital_download_count": true, "digital_asset_authorized_days": 7, "digital_asset_link_expire_time": 300, "digital_asset_authorized_clicks": 5}
+1	Spree Demo Site	localhost:3000	This is the new Spree UX DEMO | OVERVIEW: http://bit.ly/new-spree-ux | DOCS: http://bit.ly/spree-ux-customization-docs | CONTACT: https://spreecommerce.org/contact/	\N	Spree Commerce Demo Shop	no-reply@example.com	USD	spree	t	2022-07-12 18:10:15.205657	2022-09-02 19:01:55.33074	CAD,USD	spreecommerce	spreecommerce	spreecommerce	en	support@example.com	224	\N	\N	\N	\N	3	\N	en,fr	\N	{"limit_digital_download_days": true, "limit_digital_download_count": true, "digital_asset_authorized_days": 7, "digital_asset_link_expire_time": 300, "digital_asset_authorized_clicks": 5}
 \.
 
 
@@ -10061,7 +8438,8 @@ COPY public.spree_tax_rates (id, amount, zone_id, tax_category_id, included_in_p
 --
 
 COPY public.spree_taxonomies (id, name, created_at, updated_at, "position", store_id, public_metadata, private_metadata) FROM stdin;
-1	Categories	2022-07-12 18:13:13.006568	2022-07-12 18:21:47.455889	1	1	\N	\N
+1	Categories	2022-07-12 18:13:13.006568	2022-09-13 20:59:13.239792	1	1	\N	\N
+2	Brands	2022-09-08 15:35:27.672175	2022-09-13 20:59:13.239792	2	1	\N	\N
 \.
 
 
@@ -10070,32 +8448,13 @@ COPY public.spree_taxonomies (id, name, created_at, updated_at, "position", stor
 --
 
 COPY public.spree_taxons (id, parent_id, "position", name, permalink, taxonomy_id, lft, rgt, description, created_at, updated_at, meta_title, meta_description, meta_keywords, depth, hide_from_nav, public_metadata, private_metadata) FROM stdin;
-19	1	0	Bestsellers	categories/bestsellers	1	36	37	\N	2022-07-12 18:13:16.160785	2022-07-12 18:15:52.1955	\N	\N	\N	1	f	\N	\N
-22	1	0	Summer Sale	categories/summer-sale	1	42	43	\N	2022-07-12 18:13:16.467229	2022-07-12 18:15:52.503735	\N	\N	\N	1	f	\N	\N
-6	2	0	T-shirts	categories/men/t-shirts	1	5	6	\N	2022-07-12 18:13:14.772583	2022-07-12 18:21:47.451992	\N	\N	\N	2	f	\N	\N
-2	1	0	Men	categories/men	1	2	11	\N	2022-07-12 18:13:14.066114	2022-07-12 18:21:47.451992	\N	\N	\N	1	f	\N	\N
-5	2	0	Shirts	categories/men/shirts	1	3	4	\N	2022-07-12 18:13:14.669299	2022-07-12 18:15:35.845786	\N	\N	\N	2	f	\N	\N
-14	3	0	Jackets and Coats	categories/women/jackets-and-coats	1	23	24	\N	2022-07-12 18:13:15.638544	2022-07-12 18:15:50.033833	\N	\N	\N	2	f	\N	\N
-16	4	0	Sweatshirts	categories/sportswear/sweatshirts	1	29	30	\N	2022-07-12 18:13:15.857299	2022-07-12 18:15:52.037445	\N	\N	\N	2	f	\N	\N
-8	2	0	Jackets and Coats	categories/men/jackets-and-coats	1	9	10	\N	2022-07-12 18:13:14.992576	2022-07-12 18:15:39.819639	\N	\N	\N	2	f	\N	\N
-12	3	0	Sweaters	categories/women/sweaters	1	19	20	\N	2022-07-12 18:13:15.426223	2022-07-12 18:15:46.679964	\N	\N	\N	2	f	\N	\N
-17	4	0	Pants	categories/sportswear/pants	1	31	32	\N	2022-07-12 18:13:15.965595	2022-07-12 18:15:52.503735	\N	\N	\N	2	f	\N	\N
-13	3	0	Tops and T-shirts	categories/women/tops-and-t-shirts	1	21	22	\N	2022-07-12 18:13:15.531105	2022-07-12 18:15:48.176793	\N	\N	\N	2	f	\N	\N
-15	4	0	Tops	categories/sportswear/tops	1	27	28	\N	2022-07-12 18:13:15.744995	2022-07-12 18:15:51.273441	\N	\N	\N	2	f	\N	\N
-7	2	0	Sweaters	categories/men/sweaters	1	7	8	\N	2022-07-12 18:13:14.88154	2022-07-12 18:15:38.186655	\N	\N	\N	2	f	\N	\N
-11	3	0	Shirts and Blouses	categories/women/shirts-and-blouses	1	17	18	\N	2022-07-12 18:13:15.31452	2022-07-12 18:15:45.485191	\N	\N	\N	2	f	\N	\N
-20	1	0	Trending	categories/trending	1	38	39	\N	2022-07-12 18:13:16.262337	2022-07-12 18:15:52.348914	\N	\N	\N	1	f	\N	\N
-4	1	0	Sportswear	categories/sportswear	1	26	33	\N	2022-07-12 18:13:14.507804	2022-07-12 18:15:52.503735	\N	\N	\N	1	f	\N	\N
-23	1	0	New Collection	categories/new-collection	1	44	47	\N	2022-07-12 18:13:16.563205	2022-07-12 18:21:47.451992	\N	\N	\N	1	f	\N	\N
-24	23	0	Summer 2022	categories/new-collection/summer-2022	1	45	46	\N	2022-07-12 18:13:16.662554	2022-07-12 18:21:47.451992	\N	\N	\N	2	f	\N	\N
-26	25	0	30% Off	categories/special-offers/30-percent-off	1	49	50	\N	2022-07-12 18:13:16.870063	2022-07-12 18:21:47.451992	\N	\N	\N	2	f	\N	\N
-25	1	0	Special Offers	categories/special-offers	1	48	51	\N	2022-07-12 18:13:16.768627	2022-07-12 18:21:47.451992	\N	\N	\N	1	f	\N	\N
-21	1	0	Streetstyle	categories/streetstyle	1	40	41	\N	2022-07-12 18:13:16.366224	2022-07-12 18:21:47.451992	\N	\N	\N	1	f	\N	\N
-1	\N	0	Categories	categories	1	1	52	\N	2022-07-12 18:13:13.056398	2022-07-12 18:21:47.451992	\N	\N	\N	0	f	\N	\N
-18	1	0	New	categories/new	1	34	35	\N	2022-07-12 18:13:16.06433	2022-07-12 18:15:51.742681	\N	\N	\N	1	f	\N	\N
-3	1	0	Women	categories/women	1	12	25	\N	2022-07-12 18:13:14.257896	2022-07-12 18:15:50.033833	\N	\N	\N	1	f	\N	\N
-9	3	0	Skirts	categories/women/skirts	1	13	14	\N	2022-07-12 18:13:15.099371	2022-07-12 18:15:41.418587	\N	\N	\N	2	f	\N	\N
-10	3	0	Dresses	categories/women/dresses	1	15	16	\N	2022-07-12 18:13:15.206905	2022-07-12 18:15:43.444713	\N	\N	\N	2	f	\N	\N
+18	1	0	New	categories/new	1	2	3	\N	2022-07-12 18:13:16.06433	2022-09-13 20:58:36.728265	\N	\N	\N	1	f	\N	\N
+19	1	0	Bestsellers	categories/bestsellers	1	4	5	\N	2022-07-12 18:13:16.160785	2022-09-13 20:59:13.235444	\N	\N	\N	1	f	\N	\N
+20	1	0	Events	categories/events	1	6	7		2022-07-12 18:13:16.262337	2022-09-13 20:59:13.235444				1	f	\N	\N
+29	1	0	Stickers	categories/stickers	1	8	9	\N	2022-09-08 15:37:54.624775	2022-09-13 20:59:13.235444	\N	\N	\N	1	f	\N	\N
+1	\N	0	Categories	categories	1	1	10	\N	2022-07-12 18:13:13.056398	2022-09-13 20:59:13.235444	\N	\N	\N	0	f	\N	\N
+28	27	0	Datadog	brands/datadog	2	12	13		2022-09-08 15:35:33.979137	2022-09-13 20:59:13.235444				1	f	\N	\N
+27	\N	0	Brands	brands	2	11	14	\N	2022-09-08 15:35:27.70656	2022-09-13 20:59:13.235444	\N	\N	\N	0	f	\N	\N
 \.
 
 
@@ -10112,7 +8471,8 @@ COPY public.spree_trackers (id, analytics_id, active, created_at, updated_at, en
 --
 
 COPY public.spree_users (id, encrypted_password, password_salt, email, remember_token, persistence_token, reset_password_token, perishable_token, sign_in_count, failed_attempts, last_request_at, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, login, ship_address_id, bill_address_id, authentication_token, unlock_token, locked_at, reset_password_sent_at, created_at, updated_at, public_metadata, private_metadata, spree_api_key, remember_created_at, deleted_at, confirmation_token, confirmed_at, confirmation_sent_at) FROM stdin;
-1	017c17daa9432dadaa5e366efec930442e224fa0bce40875d2abbb4c646ad49634b75e54e463d7d8eb7b5589f34f4bb441eb23a93c9595fea90f77ccbc0187db	Z_xHp1AnU2Pym9r9i6Eo	spree@example.com	\N	\N	\N	\N	1	0	\N	2022-07-12 18:19:30.851865	2022-07-12 18:19:30.851865	192.168.112.1	192.168.112.1	spree@example.com	\N	\N	\N	\N	\N	\N	2022-07-12 18:10:57.963932	2022-07-12 18:19:30.852511	\N	\N	f1482a3e59937d82768703f510481ce883ee7a147ecee0f7	\N	\N	\N	\N	\N
+1	017c17daa9432dadaa5e366efec930442e224fa0bce40875d2abbb4c646ad49634b75e54e463d7d8eb7b5589f34f4bb441eb23a93c9595fea90f77ccbc0187db	Z_xHp1AnU2Pym9r9i6Eo	spree@example.com	\N	\N	\N	\N	2	0	\N	2022-09-02 18:32:11.429383	2022-07-12 18:19:30.851865	130.211.45.14	192.168.112.1	spree@example.com	\N	\N	\N	\N	\N	\N	2022-07-12 18:10:57.963932	2022-09-02 18:32:11.42984	\N	\N	f1482a3e59937d82768703f510481ce883ee7a147ecee0f7	\N	\N	\N	\N	\N
+2	1cf82576bc3b69691fbb42eb91c9aef961eeb2a387aa8a095c7fc4f2899a85ccd9ce35e69c06ef5db597d08b48a4fc341183b9fc647acd1c5491247ffe9dc007	gu9U4KcwmLgNf1y3ySZ6	admin@storedog.com	\N	\N	\N	\N	3	0	\N	2022-09-13 20:48:56.222491	2022-09-02 18:25:40.435296	130.211.45.14	130.211.45.14	admin@storedog.com	\N	\N	\N	\N	\N	\N	2022-09-02 14:43:42.061842	2022-09-13 20:48:56.223394	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -10121,238 +8481,252 @@ COPY public.spree_users (id, encrypted_password, password_salt, email, remember_
 --
 
 COPY public.spree_variants (id, sku, weight, height, width, depth, deleted_at, is_master, product_id, cost_price, "position", cost_currency, track_inventory, tax_category_id, updated_at, discontinue_on, created_at, public_metadata, private_metadata) FROM stdin;
-66	ShirtsandBlouses_floralshirt_72.99	0.00	\N	\N	\N	\N	t	66	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:41.464928	\N	\N
-127	Shirts_regularshirtwithrolledupsleeves_98.99_light_blue_xs	0.00	\N	\N	\N	\N	f	11	98.99	2	USD	t	1	2022-07-12 18:15:32.868502	\N	2022-07-12 18:15:14.492009	\N	\N
-178	ShirtsandBlouses_pleatedsleevev-neckshirt_28.99_orange_xs	0.00	\N	\N	\N	\N	f	62	28.99	2	USD	t	1	2022-07-12 18:15:33.024774	\N	2022-07-12 18:15:24.188046	\N	\N
-1	Shirts_denimshirt_24.99	0.00	\N	\N	\N	\N	t	1	\N	1	USD	t	\N	2022-07-12 18:15:32.600999	\N	2022-07-12 18:13:17.278307	\N	\N
-2	Shirts_checkedshirt_65.99	0.00	\N	\N	\N	\N	t	2	\N	1	USD	t	\N	2022-07-12 18:15:32.685801	\N	2022-07-12 18:13:17.702715	\N	\N
-228	Pants_printedpantswithholes_45.99_black_xs	0.00	\N	\N	\N	\N	f	112	45.99	2	USD	t	1	2022-07-12 18:15:33.521478	\N	2022-07-12 18:15:31.757608	\N	\N
-14	T-shirts_3_4sleevet-shirt_18.99	0.00	\N	\N	\N	\N	t	14	\N	1	USD	t	\N	2022-07-12 18:21:47.417387	\N	2022-07-12 18:13:21.818352	\N	\N
-229	Pants_pants_50.99_black_xs	0.00	\N	\N	\N	\N	f	113	50.99	2	USD	t	1	2022-07-12 18:15:33.684406	\N	2022-07-12 18:15:31.905511	\N	\N
-3	Shirts_coveredplacketshirt_99.99	0.00	\N	\N	\N	\N	t	3	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:18.106026	\N	\N
-4	Shirts_slimfitshirt_17.99	0.00	\N	\N	\N	\N	t	4	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:18.445029	\N	\N
-5	Shirts_shortsleeveshirt_55.99	0.00	\N	\N	\N	\N	t	5	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:18.775253	\N	\N
-6	Shirts_printedshortsleeveshirt_74.99	0.00	\N	\N	\N	\N	t	6	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:19.118316	\N	\N
-7	Shirts_regularshirt_94.99	0.00	\N	\N	\N	\N	t	7	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:19.457637	\N	\N
-8	Shirts_checkedslimfitshirt_27.99	0.00	\N	\N	\N	\N	t	8	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:19.795682	\N	\N
-9	Shirts_dottedshirt_33.99	0.00	\N	\N	\N	\N	t	9	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:20.142839	\N	\N
-10	Shirts_linenshirt_87.99	0.00	\N	\N	\N	\N	t	10	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:20.488531	\N	\N
-11	Shirts_regularshirtwithrolledupsleeves_98.99	0.00	\N	\N	\N	\N	t	11	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:20.818637	\N	\N
-12	T-shirts_polot-shirt_52.99	0.00	\N	\N	\N	\N	t	12	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:21.153267	\N	\N
-13	T-shirts_longsleevet-shirt_28.99	0.00	\N	\N	\N	\N	t	13	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:21.489469	\N	\N
-15	T-shirts_t-shirtwithholes_34.99	0.00	\N	\N	\N	\N	t	15	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:22.174284	\N	\N
-16	T-shirts_raw-edget-shirt_84.99	0.00	\N	\N	\N	\N	t	16	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:22.528645	\N	\N
-17	T-shirts_v-neckt-shirt_47.99	0.00	\N	\N	\N	\N	t	17	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:23.018076	\N	\N
-18	T-shirts_tanktop_10.99	0.00	\N	\N	\N	\N	t	18	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:23.365655	\N	\N
-19	T-shirts_basict-shirt_23.99	0.00	\N	\N	\N	\N	t	19	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:23.722793	\N	\N
-20	Sweaters_highnecksweater_45.99	0.00	\N	\N	\N	\N	t	20	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:24.097249	\N	\N
-21	Sweaters_strippedjumper_88.99	0.00	\N	\N	\N	\N	t	21	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:24.451456	\N	\N
-22	Sweaters_longsleevejumperwithpocket_93.99	0.00	\N	\N	\N	\N	t	22	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:24.81014	\N	\N
-23	Sweaters_jumper_61.99	0.00	\N	\N	\N	\N	t	23	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:25.155502	\N	\N
-24	Sweaters_longsleevesweatshirt_73.99	0.00	\N	\N	\N	\N	t	24	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:25.511834	\N	\N
-25	Sweaters_hoodie_24.99	0.00	\N	\N	\N	\N	t	25	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:25.873591	\N	\N
-26	Sweaters_zippedhighnecksweater_67.99	0.00	\N	\N	\N	\N	t	26	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:26.314655	\N	\N
-27	Sweaters_longsleevejumper_64.99	0.00	\N	\N	\N	\N	t	27	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:26.680535	\N	\N
-28	JacketsandCoats_suedebikerjacket_33.99	0.00	\N	\N	\N	\N	t	28	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:27.111087	\N	\N
-29	JacketsandCoats_hoodedjacket_11.99	0.00	\N	\N	\N	\N	t	29	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:27.519287	\N	\N
-30	JacketsandCoats_anorakwithhood_44.99	0.00	\N	\N	\N	\N	t	30	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:27.9051	\N	\N
-31	JacketsandCoats_denimjacket_76.99	0.00	\N	\N	\N	\N	t	31	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:28.368403	\N	\N
-32	JacketsandCoats_wool-blendshortcoat_27.99	0.00	\N	\N	\N	\N	t	32	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:28.883618	\N	\N
-33	JacketsandCoats_downjacketwithhood_64.99	0.00	\N	\N	\N	\N	t	33	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:29.251612	\N	\N
-34	JacketsandCoats_wool-blendcoat_35.99	0.00	\N	\N	\N	\N	t	34	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:29.611553	\N	\N
-35	JacketsandCoats_jacketwithliner_73.99	0.00	\N	\N	\N	\N	t	35	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:29.981032	\N	\N
-36	Skirts_flaredmidiskirt_21.99	0.00	\N	\N	\N	\N	t	36	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:30.344098	\N	\N
-37	Skirts_midiskirtwithbottoms_40.99	0.00	\N	\N	\N	\N	t	37	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:30.711966	\N	\N
-38	Skirts_fittedskirt_62.99	0.00	\N	\N	\N	\N	t	38	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:31.079813	\N	\N
-39	Skirts_a-linesuedeskirt_30.99	0.00	\N	\N	\N	\N	t	39	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:31.445057	\N	\N
-40	Skirts_leatherskirtwithlacing_46.99	0.00	\N	\N	\N	\N	t	40	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:31.803298	\N	\N
-41	Skirts_flaredskirt_74.99	0.00	\N	\N	\N	\N	t	41	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:32.160666	\N	\N
-42	Skirts_skaterskirt_17.99	0.00	\N	\N	\N	\N	t	42	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:32.524376	\N	\N
-43	Skirts_skatershortskirt_67.99	0.00	\N	\N	\N	\N	t	43	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:32.882839	\N	\N
-44	Skirts_floralflaredskirt_10.99	0.00	\N	\N	\N	\N	t	44	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:33.256328	\N	\N
-45	Skirts_pleatedskirt2_17.99	0.00	\N	\N	\N	\N	t	45	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:33.627405	\N	\N
-46	Dresses_floralwrapdress_14.99	0.00	\N	\N	\N	\N	t	46	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:34.149084	\N	\N
-47	Dresses_v-neckfloralmaxidress_31.99	0.00	\N	\N	\N	\N	t	47	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:34.52817	\N	\N
-48	Dresses_flareddress_81.99	0.00	\N	\N	\N	\N	t	48	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:34.899604	\N	\N
-49	Dresses_elegantflareddress_55.99	0.00	\N	\N	\N	\N	t	49	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:35.255036	\N	\N
-50	Dresses_longsleeveknitteddress_23.99	0.00	\N	\N	\N	\N	t	50	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:35.611949	\N	\N
-51	Dresses_stripedshirtdress_87.99	0.00	\N	\N	\N	\N	t	51	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:35.993896	\N	\N
-52	Dresses_printeddress_83.99	0.00	\N	\N	\N	\N	t	52	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:36.361534	\N	\N
-53	Dresses_printedslit-sleevesdress_76.99	0.00	\N	\N	\N	\N	t	53	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:36.725263	\N	\N
-54	Dresses_dresswithbelt_36.99	0.00	\N	\N	\N	\N	t	54	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:37.096464	\N	\N
-55	Dresses_v-neckfloraldress_73.99	0.00	\N	\N	\N	\N	t	55	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:37.452035	\N	\N
-230	Pants_printedpants_45.99_grey_xs	0.00	\N	\N	\N	\N	f	114	45.99	2	USD	t	1	2022-07-12 18:15:33.828243	\N	2022-07-12 18:15:32.033717	\N	\N
-231	Pants_highwaistpantswithpockets_92.99_pink_xs	0.00	\N	\N	\N	\N	f	115	92.99	2	USD	t	1	2022-07-12 18:15:34.012428	\N	2022-07-12 18:15:32.161467	\N	\N
-56	Dresses_flounceddress_32.99	0.00	\N	\N	\N	\N	t	56	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:37.833355	\N	\N
-57	Dresses_slitmaxidress_26.99	0.00	\N	\N	\N	\N	t	57	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:38.185924	\N	\N
-58	ShirtsandBlouses_semi-sheershirtwithfloralcuffs_91.99	0.00	\N	\N	\N	\N	t	58	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:38.530682	\N	\N
-59	ShirtsandBlouses_stripedshirt_60.99	0.00	\N	\N	\N	\N	t	59	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:38.87686	\N	\N
-60	ShirtsandBlouses_v-neckwideshirt_68.99	0.00	\N	\N	\N	\N	t	60	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:39.3651	\N	\N
-61	ShirtsandBlouses_printedwrappedblouse_15.99	0.00	\N	\N	\N	\N	t	61	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:39.721106	\N	\N
-62	ShirtsandBlouses_pleatedsleevev-neckshirt_28.99	0.00	\N	\N	\N	\N	t	62	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:40.07126	\N	\N
-63	ShirtsandBlouses_cottonshirt_17.99	0.00	\N	\N	\N	\N	t	63	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:40.404525	\N	\N
-64	ShirtsandBlouses_blousewithwideflouncedsleeve_90.99	0.00	\N	\N	\N	\N	t	64	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:40.75357	\N	\N
-65	ShirtsandBlouses_elegantblousewithchocker_19.99	0.00	\N	\N	\N	\N	t	65	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:41.093327	\N	\N
-67	ShirtsandBlouses_semi-sheershirtwithpockets_36.99	0.00	\N	\N	\N	\N	t	67	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:41.825593	\N	\N
-68	ShirtsandBlouses_v-neckshirt_87.99	0.00	\N	\N	\N	\N	t	68	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:42.212788	\N	\N
-69	ShirtsandBlouses_printedshirt_46.99	0.00	\N	\N	\N	\N	t	69	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:42.598927	\N	\N
-70	Sweaters_asymmetricsweaterwithwidesleeves_34.99	0.00	\N	\N	\N	\N	t	70	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:42.970167	\N	\N
-71	Sweaters_oversizedknittedsweater_24.99	0.00	\N	\N	\N	\N	t	71	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:43.3256	\N	\N
-72	Sweaters_oversizedsweatshirt_86.99	0.00	\N	\N	\N	\N	t	72	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:43.676766	\N	\N
-73	Sweaters_knittedhighnecksweater_86.99	0.00	\N	\N	\N	\N	t	73	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:44.049227	\N	\N
-74	Sweaters_knittedv-necksweater_17.99	0.00	\N	\N	\N	\N	t	74	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:44.438445	\N	\N
-75	Sweaters_croppedfittedsweater_92.99	0.00	\N	\N	\N	\N	t	75	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:44.985947	\N	\N
-76	TopsandT-shirts_croptopwithtie_96.99	0.00	\N	\N	\N	\N	t	76	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:45.362221	\N	\N
-77	TopsandT-shirts_printedt-shirt_30.99	0.00	\N	\N	\N	\N	t	77	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:45.768345	\N	\N
-78	TopsandT-shirts_scrappytop_40.99	0.00	\N	\N	\N	\N	t	78	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:46.53476	\N	\N
-79	TopsandT-shirts_pleatedsleevet-shirt_83.99	0.00	\N	\N	\N	\N	t	79	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:46.976331	\N	\N
-80	TopsandT-shirts_scrappycroptopwithtie_46.99	0.00	\N	\N	\N	\N	t	80	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:47.372456	\N	\N
-81	TopsandT-shirts_croptop_60.99	0.00	\N	\N	\N	\N	t	81	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:47.726298	\N	\N
-82	TopsandT-shirts_looset-shirtwithpocketimitation_37.99	0.00	\N	\N	\N	\N	t	82	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:48.073782	\N	\N
-83	TopsandT-shirts_sleevelessloosetop_58.99	0.00	\N	\N	\N	\N	t	83	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:48.448016	\N	\N
-84	TopsandT-shirts_basiclooset-shirt_25.99	0.00	\N	\N	\N	\N	t	84	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:48.839371	\N	\N
-85	JacketsandCoats_coatwithpockets_27.99	0.00	\N	\N	\N	\N	t	85	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:49.209388	\N	\N
-86	JacketsandCoats_longwool-blendcoatwithbelt_43.99	0.00	\N	\N	\N	\N	t	86	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:49.570722	\N	\N
-87	JacketsandCoats_asymmetriccoat_19.99	0.00	\N	\N	\N	\N	t	87	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:49.948975	\N	\N
-88	JacketsandCoats_longcoatwithbelt_47.99	0.00	\N	\N	\N	\N	t	88	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:50.318911	\N	\N
-89	JacketsandCoats_downjacket_59.99	0.00	\N	\N	\N	\N	t	89	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:50.867977	\N	\N
-90	JacketsandCoats_zippedjacket_28.99	0.00	\N	\N	\N	\N	t	90	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:51.278269	\N	\N
-91	JacketsandCoats_loose-fittedjacket_43.99	0.00	\N	\N	\N	\N	t	91	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:51.733944	\N	\N
-92	JacketsandCoats_double-breastedjacket_50.99	0.00	\N	\N	\N	\N	t	92	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:52.214767	\N	\N
-93	JacketsandCoats_leatherbikerjacket_26.99	0.00	\N	\N	\N	\N	t	93	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:52.596401	\N	\N
-94	JacketsandCoats_wool-blendcoatwithbelt_13.99	0.00	\N	\N	\N	\N	t	94	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:52.987407	\N	\N
-95	JacketsandCoats_denimhoodedjacket_88.99	0.00	\N	\N	\N	\N	t	95	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:53.349777	\N	\N
-96	JacketsandCoats_bomberjacket_30.99	0.00	\N	\N	\N	\N	t	96	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:53.785087	\N	\N
-97	Tops_sportsbralowsupport_41.99	0.00	\N	\N	\N	\N	t	97	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:54.146383	\N	\N
-98	Tops_longsleevesyogacroptop_37.99	0.00	\N	\N	\N	\N	t	98	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:54.491579	\N	\N
-99	Tops_oversizet-shirtwrappedonback_76.99	0.00	\N	\N	\N	\N	t	99	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:54.846809	\N	\N
-100	Tops_longsleevescroptop_34.99	0.00	\N	\N	\N	\N	t	100	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:55.201393	\N	\N
-101	Tops_lacedcroptop_11.99	0.00	\N	\N	\N	\N	t	101	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:55.55447	\N	\N
-102	Tops_sportsbramediumsupport_29.99	0.00	\N	\N	\N	\N	t	102	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:55.941681	\N	\N
-103	Tops_sportsbra_79.99	0.00	\N	\N	\N	\N	t	103	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:56.364974	\N	\N
-104	Tops_sportcropptop_47.99	0.00	\N	\N	\N	\N	t	104	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:56.85845	\N	\N
-105	Sweatshirts_runningsweatshirt_17.99	0.00	\N	\N	\N	\N	t	105	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:57.216205	\N	\N
-106	Sweatshirts_lightweightrunningjacket_52.99	0.00	\N	\N	\N	\N	t	106	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:57.602507	\N	\N
-107	Sweatshirts_oversizesweatshirt_67.99	0.00	\N	\N	\N	\N	t	107	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:57.977045	\N	\N
-108	Sweatshirts_sportwindproofjacket_54.99	0.00	\N	\N	\N	\N	t	108	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:58.33504	\N	\N
-109	Sweatshirts_sportwaistcoat_71.99	0.00	\N	\N	\N	\N	t	109	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:58.734436	\N	\N
-110	Pants_shinedpants_73.99	0.00	\N	\N	\N	\N	t	110	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:59.082328	\N	\N
-111	Pants_shortpants_14.99	0.00	\N	\N	\N	\N	t	111	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:59.435193	\N	\N
-112	Pants_printedpantswithholes_45.99	0.00	\N	\N	\N	\N	t	112	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:13:59.786966	\N	\N
-113	Pants_pants_50.99	0.00	\N	\N	\N	\N	t	113	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:14:00.22087	\N	\N
-114	Pants_printedpants_45.99	0.00	\N	\N	\N	\N	t	114	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:14:00.662845	\N	\N
-115	Pants_highwaistpantswithpockets_92.99	0.00	\N	\N	\N	\N	t	115	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:14:01.016981	\N	\N
-116	Pants_highwaistpants_20.99	0.00	\N	\N	\N	\N	t	116	\N	1	USD	t	\N	2022-07-12 18:15:32.533432	\N	2022-07-12 18:14:01.365089	\N	\N
-118	Shirts_checkedshirt_65.99_red_xs	0.00	\N	\N	\N	\N	f	2	65.99	2	USD	t	1	2022-07-12 18:15:34.637356	\N	2022-07-12 18:15:13.177339	\N	\N
-119	Shirts_coveredplacketshirt_99.99_dark_blue_xs	0.00	\N	\N	\N	\N	f	3	99.99	2	USD	t	1	2022-07-12 18:15:34.784664	\N	2022-07-12 18:15:13.339516	\N	\N
-122	Shirts_printedshortsleeveshirt_74.99_brown_xs	0.00	\N	\N	\N	\N	f	6	74.99	2	USD	t	1	2022-07-12 18:15:35.226474	\N	2022-07-12 18:15:13.800204	\N	\N
-123	Shirts_regularshirt_94.99_blue_xs	0.00	\N	\N	\N	\N	f	7	94.99	2	USD	t	1	2022-07-12 18:15:35.368513	\N	2022-07-12 18:15:13.927919	\N	\N
-124	Shirts_checkedslimfitshirt_27.99_black_xs	0.00	\N	\N	\N	\N	f	8	27.99	2	USD	t	1	2022-07-12 18:15:35.511831	\N	2022-07-12 18:15:14.059946	\N	\N
-125	Shirts_dottedshirt_33.99_white_xs	0.00	\N	\N	\N	\N	f	9	33.99	2	USD	t	1	2022-07-12 18:15:35.659039	\N	2022-07-12 18:15:14.198049	\N	\N
-126	Shirts_linenshirt_87.99_light_blue_xs	0.00	\N	\N	\N	\N	f	10	87.99	2	USD	t	1	2022-07-12 18:15:35.803641	\N	2022-07-12 18:15:14.338667	\N	\N
-128	T-shirts_polot-shirt_52.99_light_blue_xs	0.00	\N	\N	\N	\N	f	12	52.99	2	USD	t	1	2022-07-12 18:15:35.9505	\N	2022-07-12 18:15:14.629967	\N	\N
-129	T-shirts_longsleevet-shirt_28.99_grey_xs	0.00	\N	\N	\N	\N	f	13	28.99	2	USD	t	1	2022-07-12 18:15:36.103404	\N	2022-07-12 18:15:14.819033	\N	\N
-130	T-shirts_3_4sleevet-shirt_18.99_white_xs	0.00	\N	\N	\N	\N	f	14	18.99	2	USD	t	1	2022-07-12 18:15:36.279689	\N	2022-07-12 18:15:14.952579	\N	\N
-131	T-shirts_t-shirtwithholes_34.99_grey_xs	0.00	\N	\N	\N	\N	f	15	34.99	2	USD	t	1	2022-07-12 18:15:36.437805	\N	2022-07-12 18:15:15.088686	\N	\N
-132	T-shirts_raw-edget-shirt_84.99_brown_xs	0.00	\N	\N	\N	\N	f	16	84.99	2	USD	t	1	2022-07-12 18:15:36.583259	\N	2022-07-12 18:15:15.226759	\N	\N
-133	T-shirts_v-neckt-shirt_47.99_grey_xs	0.00	\N	\N	\N	\N	f	17	47.99	2	USD	t	1	2022-07-12 18:15:36.72265	\N	2022-07-12 18:15:15.402611	\N	\N
-134	T-shirts_tanktop_10.99_pink_xs	0.00	\N	\N	\N	\N	f	18	10.99	2	USD	t	1	2022-07-12 18:15:36.859356	\N	2022-07-12 18:15:15.552987	\N	\N
-135	T-shirts_basict-shirt_23.99_grey_xs	0.00	\N	\N	\N	\N	f	19	23.99	2	USD	t	1	2022-07-12 18:15:36.998474	\N	2022-07-12 18:15:15.685832	\N	\N
-136	Sweaters_highnecksweater_45.99_black_xs	0.00	\N	\N	\N	\N	f	20	45.99	2	USD	t	1	2022-07-12 18:15:37.135817	\N	2022-07-12 18:15:15.868786	\N	\N
-137	Sweaters_strippedjumper_88.99_brown_xs	0.00	\N	\N	\N	\N	f	21	88.99	2	USD	t	1	2022-07-12 18:15:37.284358	\N	2022-07-12 18:15:16.011332	\N	\N
-138	Sweaters_longsleevejumperwithpocket_93.99_ecru_xs	0.00	\N	\N	\N	\N	f	22	93.99	2	USD	t	1	2022-07-12 18:15:37.421061	\N	2022-07-12 18:15:16.14429	\N	\N
-139	Sweaters_jumper_61.99_grey_xs	0.00	\N	\N	\N	\N	f	23	61.99	2	USD	t	1	2022-07-12 18:15:37.566932	\N	2022-07-12 18:15:16.278994	\N	\N
-140	Sweaters_longsleevesweatshirt_73.99_mint_xs	0.00	\N	\N	\N	\N	f	24	73.99	2	USD	t	1	2022-07-12 18:15:37.702971	\N	2022-07-12 18:15:16.42043	\N	\N
-141	Sweaters_hoodie_24.99_grey_xs	0.00	\N	\N	\N	\N	f	25	24.99	2	USD	t	1	2022-07-12 18:15:37.839132	\N	2022-07-12 18:15:16.61067	\N	\N
-142	Sweaters_zippedhighnecksweater_67.99_green_xs	0.00	\N	\N	\N	\N	f	26	67.99	2	USD	t	1	2022-07-12 18:15:37.9833	\N	2022-07-12 18:15:16.73958	\N	\N
-143	Sweaters_longsleevejumper_64.99_dark_blue_xs	0.00	\N	\N	\N	\N	f	27	64.99	2	USD	t	1	2022-07-12 18:15:38.139614	\N	2022-07-12 18:15:16.86765	\N	\N
-144	JacketsandCoats_suedebikerjacket_33.99_brown_xs	0.00	\N	\N	\N	\N	f	28	33.99	2	USD	t	1	2022-07-12 18:15:38.30754	\N	2022-07-12 18:15:17.027655	\N	\N
-145	JacketsandCoats_hoodedjacket_11.99_beige_xs	0.00	\N	\N	\N	\N	f	29	11.99	2	USD	t	1	2022-07-12 18:15:38.478262	\N	2022-07-12 18:15:17.233116	\N	\N
-146	JacketsandCoats_anorakwithhood_44.99_yellow_xs	0.00	\N	\N	\N	\N	f	30	44.99	2	USD	t	1	2022-07-12 18:15:38.832603	\N	2022-07-12 18:15:17.35957	\N	\N
-147	JacketsandCoats_denimjacket_76.99_light_blue_xs	0.00	\N	\N	\N	\N	f	31	76.99	2	USD	t	1	2022-07-12 18:15:38.995044	\N	2022-07-12 18:15:17.519267	\N	\N
-148	JacketsandCoats_wool-blendshortcoat_27.99_brown_xs	0.00	\N	\N	\N	\N	f	32	27.99	2	USD	t	1	2022-07-12 18:15:39.166893	\N	2022-07-12 18:15:17.656374	\N	\N
-149	JacketsandCoats_downjacketwithhood_64.99_dark_blue_xs	0.00	\N	\N	\N	\N	f	33	64.99	2	USD	t	1	2022-07-12 18:15:39.32796	\N	2022-07-12 18:15:17.792208	\N	\N
-150	JacketsandCoats_wool-blendcoat_35.99_beige_xs	0.00	\N	\N	\N	\N	f	34	35.99	2	USD	t	1	2022-07-12 18:15:39.603807	\N	2022-07-12 18:15:18.022671	\N	\N
-151	JacketsandCoats_jacketwithliner_73.99_black_xs	0.00	\N	\N	\N	\N	f	35	73.99	2	USD	t	1	2022-07-12 18:15:39.775346	\N	2022-07-12 18:15:18.155236	\N	\N
-152	Skirts_flaredmidiskirt_21.99_burgundy_mini_xs	0.00	\N	\N	\N	\N	f	36	21.99	2	USD	t	1	2022-07-12 18:15:39.940049	\N	2022-07-12 18:15:18.302424	\N	\N
-153	Skirts_midiskirtwithbottoms_40.99_green_mini_xs	0.00	\N	\N	\N	\N	f	37	40.99	2	USD	t	1	2022-07-12 18:15:40.100282	\N	2022-07-12 18:15:18.46425	\N	\N
-154	Skirts_fittedskirt_62.99_orange_mini_xs	0.00	\N	\N	\N	\N	f	38	62.99	2	USD	t	1	2022-07-12 18:15:40.263901	\N	2022-07-12 18:15:18.730967	\N	\N
-155	Skirts_a-linesuedeskirt_30.99_dark_blue_mini_xs	0.00	\N	\N	\N	\N	f	39	30.99	2	USD	t	1	2022-07-12 18:15:40.436028	\N	2022-07-12 18:15:18.907441	\N	\N
-156	Skirts_leatherskirtwithlacing_46.99_black_mini_xs	0.00	\N	\N	\N	\N	f	40	46.99	2	USD	t	1	2022-07-12 18:15:40.601779	\N	2022-07-12 18:15:19.12211	\N	\N
-157	Skirts_flaredskirt_74.99_orange_mini_xs	0.00	\N	\N	\N	\N	f	41	74.99	2	USD	t	1	2022-07-12 18:15:40.773523	\N	2022-07-12 18:15:19.291507	\N	\N
-158	Skirts_skaterskirt_17.99_brown_mini_xs	0.00	\N	\N	\N	\N	f	42	17.99	2	USD	t	1	2022-07-12 18:15:40.925428	\N	2022-07-12 18:15:19.469858	\N	\N
-160	Skirts_floralflaredskirt_10.99_light_blue_mini_xs	0.00	\N	\N	\N	\N	f	44	10.99	2	USD	t	1	2022-07-12 18:15:41.216828	\N	2022-07-12 18:15:19.830645	\N	\N
-161	Skirts_pleatedskirt2_17.99_green_mini_xs	0.00	\N	\N	\N	\N	f	45	17.99	2	USD	t	1	2022-07-12 18:15:41.374992	\N	2022-07-12 18:15:20.036528	\N	\N
-162	Dresses_floralwrapdress_14.99_black_mini_xs	0.00	\N	\N	\N	\N	f	46	14.99	2	USD	t	1	2022-07-12 18:15:41.527779	\N	2022-07-12 18:15:20.424697	\N	\N
-163	Dresses_v-neckfloralmaxidress_31.99_pink_mini_xs	0.00	\N	\N	\N	\N	f	47	31.99	2	USD	t	1	2022-07-12 18:15:41.706651	\N	2022-07-12 18:15:20.59315	\N	\N
-164	Dresses_flareddress_81.99_red_mini_xs	0.00	\N	\N	\N	\N	f	48	81.99	2	USD	t	1	2022-07-12 18:15:41.871663	\N	2022-07-12 18:15:20.838618	\N	\N
-165	Dresses_elegantflareddress_55.99_black_mini_xs	0.00	\N	\N	\N	\N	f	49	55.99	2	USD	t	1	2022-07-12 18:15:42.036727	\N	2022-07-12 18:15:21.047071	\N	\N
-166	Dresses_longsleeveknitteddress_23.99_grey_mini_xs	0.00	\N	\N	\N	\N	f	50	23.99	2	USD	t	1	2022-07-12 18:15:42.221919	\N	2022-07-12 18:15:21.246726	\N	\N
-167	Dresses_stripedshirtdress_87.99_light_blue_mini_xs	0.00	\N	\N	\N	\N	f	51	87.99	2	USD	t	1	2022-07-12 18:15:42.393487	\N	2022-07-12 18:15:21.503862	\N	\N
-168	Dresses_printeddress_83.99_light_blue_mini_xs	0.00	\N	\N	\N	\N	f	52	83.99	2	USD	t	1	2022-07-12 18:15:42.541262	\N	2022-07-12 18:15:21.714444	\N	\N
-169	Dresses_printedslit-sleevesdress_76.99_light_blue_mini_xs	0.00	\N	\N	\N	\N	f	53	76.99	2	USD	t	1	2022-07-12 18:15:42.700399	\N	2022-07-12 18:15:21.921309	\N	\N
-170	Dresses_dresswithbelt_36.99_red_mini_xs	0.00	\N	\N	\N	\N	f	54	36.99	2	USD	t	1	2022-07-12 18:15:42.863299	\N	2022-07-12 18:15:22.197143	\N	\N
-171	Dresses_v-neckfloraldress_73.99_light_blue_mini_xs	0.00	\N	\N	\N	\N	f	55	73.99	2	USD	t	1	2022-07-12 18:15:43.027001	\N	2022-07-12 18:15:22.625338	\N	\N
-172	Dresses_flounceddress_32.99_beige_mini_xs	0.00	\N	\N	\N	\N	f	56	32.99	2	USD	t	1	2022-07-12 18:15:43.227236	\N	2022-07-12 18:15:23.201184	\N	\N
-173	Dresses_slitmaxidress_26.99_red_mini_xs	0.00	\N	\N	\N	\N	f	57	26.99	2	USD	t	1	2022-07-12 18:15:43.400209	\N	2022-07-12 18:15:23.391595	\N	\N
-174	ShirtsandBlouses_semi-sheershirtwithfloralcuffs_91.99_brown_xs	0.00	\N	\N	\N	\N	f	58	91.99	2	USD	t	1	2022-07-12 18:15:43.662439	\N	2022-07-12 18:15:23.560416	\N	\N
-176	ShirtsandBlouses_v-neckwideshirt_68.99_dark_blue_xs	0.00	\N	\N	\N	\N	f	60	68.99	2	USD	t	1	2022-07-12 18:15:44.216356	\N	2022-07-12 18:15:23.86542	\N	\N
-179	ShirtsandBlouses_cottonshirt_17.99_light_blue_xs	0.00	\N	\N	\N	\N	f	63	17.99	2	USD	t	1	2022-07-12 18:15:44.508371	\N	2022-07-12 18:15:24.320987	\N	\N
-180	ShirtsandBlouses_blousewithwideflouncedsleeve_90.99_pink_xs	0.00	\N	\N	\N	\N	f	64	90.99	2	USD	t	1	2022-07-12 18:15:44.662089	\N	2022-07-12 18:15:24.447025	\N	\N
-181	ShirtsandBlouses_elegantblousewithchocker_19.99_mint_xs	0.00	\N	\N	\N	\N	f	65	19.99	2	USD	t	1	2022-07-12 18:15:44.833223	\N	2022-07-12 18:15:24.582466	\N	\N
-182	ShirtsandBlouses_floralshirt_72.99_pink_xs	0.00	\N	\N	\N	\N	f	66	72.99	2	USD	t	1	2022-07-12 18:15:44.982167	\N	2022-07-12 18:15:24.754232	\N	\N
-183	ShirtsandBlouses_semi-sheershirtwithpockets_36.99_white_xs	0.00	\N	\N	\N	\N	f	67	36.99	2	USD	t	1	2022-07-12 18:15:45.140817	\N	2022-07-12 18:15:24.923064	\N	\N
-184	ShirtsandBlouses_v-neckshirt_87.99_pink_xs	0.00	\N	\N	\N	\N	f	68	87.99	2	USD	t	1	2022-07-12 18:15:45.285815	\N	2022-07-12 18:15:25.057849	\N	\N
-185	ShirtsandBlouses_printedshirt_46.99_green_xs	0.00	\N	\N	\N	\N	f	69	46.99	2	USD	t	1	2022-07-12 18:15:45.441699	\N	2022-07-12 18:15:25.217615	\N	\N
-186	Sweaters_asymmetricsweaterwithwidesleeves_34.99_blue_xs	0.00	\N	\N	\N	\N	f	70	34.99	2	USD	t	1	2022-07-12 18:15:45.59734	\N	2022-07-12 18:15:25.364416	\N	\N
-187	Sweaters_oversizedknittedsweater_24.99_red_xs	0.00	\N	\N	\N	\N	f	71	24.99	2	USD	t	1	2022-07-12 18:15:45.811453	\N	2022-07-12 18:15:25.582655	\N	\N
-188	Sweaters_oversizedsweatshirt_86.99_brown_xs	0.00	\N	\N	\N	\N	f	72	86.99	2	USD	t	1	2022-07-12 18:15:46.007612	\N	2022-07-12 18:15:25.720664	\N	\N
-189	Sweaters_knittedhighnecksweater_86.99_blue_xs	0.00	\N	\N	\N	\N	f	73	86.99	2	USD	t	1	2022-07-12 18:15:46.205421	\N	2022-07-12 18:15:25.850981	\N	\N
-190	Sweaters_knittedv-necksweater_17.99_blue_xs	0.00	\N	\N	\N	\N	f	74	17.99	2	USD	t	1	2022-07-12 18:15:46.389317	\N	2022-07-12 18:15:26.03684	\N	\N
-191	Sweaters_croppedfittedsweater_92.99_red_xs	0.00	\N	\N	\N	\N	f	75	92.99	2	USD	t	1	2022-07-12 18:15:46.615237	\N	2022-07-12 18:15:26.27123	\N	\N
-192	TopsandT-shirts_croptopwithtie_96.99_red_xs	0.00	\N	\N	\N	\N	f	76	96.99	2	USD	t	1	2022-07-12 18:15:46.830632	\N	2022-07-12 18:15:26.423508	\N	\N
-193	TopsandT-shirts_printedt-shirt_30.99_white_xs	0.00	\N	\N	\N	\N	f	77	30.99	2	USD	t	1	2022-07-12 18:15:46.991314	\N	2022-07-12 18:15:26.551833	\N	\N
-194	TopsandT-shirts_scrappytop_40.99_black_xs	0.00	\N	\N	\N	\N	f	78	40.99	2	USD	t	1	2022-07-12 18:15:47.196975	\N	2022-07-12 18:15:26.713421	\N	\N
-195	TopsandT-shirts_pleatedsleevet-shirt_83.99_beige_xs	0.00	\N	\N	\N	\N	f	79	83.99	2	USD	t	1	2022-07-12 18:15:47.354702	\N	2022-07-12 18:15:26.839638	\N	\N
-196	TopsandT-shirts_scrappycroptopwithtie_46.99_grey_xs	0.00	\N	\N	\N	\N	f	80	46.99	2	USD	t	1	2022-07-12 18:15:47.513255	\N	2022-07-12 18:15:26.986256	\N	\N
-197	TopsandT-shirts_croptop_60.99_black_xs	0.00	\N	\N	\N	\N	f	81	60.99	2	USD	t	1	2022-07-12 18:15:47.6681	\N	2022-07-12 18:15:27.113257	\N	\N
-198	TopsandT-shirts_looset-shirtwithpocketimitation_37.99_white_xs	0.00	\N	\N	\N	\N	f	82	37.99	2	USD	t	1	2022-07-12 18:15:47.821106	\N	2022-07-12 18:15:27.265611	\N	\N
-199	TopsandT-shirts_sleevelessloosetop_58.99_white_xs	0.00	\N	\N	\N	\N	f	83	58.99	2	USD	t	1	2022-07-12 18:15:47.978064	\N	2022-07-12 18:15:27.41567	\N	\N
-200	TopsandT-shirts_basiclooset-shirt_25.99_green_xs	0.00	\N	\N	\N	\N	f	84	25.99	2	USD	t	1	2022-07-12 18:15:48.134726	\N	2022-07-12 18:15:27.543138	\N	\N
-201	JacketsandCoats_coatwithpockets_27.99_pink_xs	0.00	\N	\N	\N	\N	f	85	27.99	2	USD	t	1	2022-07-12 18:15:48.286732	\N	2022-07-12 18:15:27.805748	\N	\N
-202	JacketsandCoats_longwool-blendcoatwithbelt_43.99_dark_blue_xs	0.00	\N	\N	\N	\N	f	86	43.99	2	USD	t	1	2022-07-12 18:15:48.440241	\N	2022-07-12 18:15:27.992448	\N	\N
-203	JacketsandCoats_asymmetriccoat_19.99_white_xs	0.00	\N	\N	\N	\N	f	87	19.99	2	USD	t	1	2022-07-12 18:15:48.614998	\N	2022-07-12 18:15:28.155011	\N	\N
-204	JacketsandCoats_longcoatwithbelt_47.99_beige_xs	0.00	\N	\N	\N	\N	f	88	47.99	2	USD	t	1	2022-07-12 18:15:48.764793	\N	2022-07-12 18:15:28.284299	\N	\N
-205	JacketsandCoats_downjacket_59.99_white_xs	0.00	\N	\N	\N	\N	f	89	59.99	2	USD	t	1	2022-07-12 18:15:48.910564	\N	2022-07-12 18:15:28.409217	\N	\N
-206	JacketsandCoats_zippedjacket_28.99_blue_xs	0.00	\N	\N	\N	\N	f	90	28.99	2	USD	t	1	2022-07-12 18:15:49.074419	\N	2022-07-12 18:15:28.53186	\N	\N
-207	JacketsandCoats_loose-fittedjacket_43.99_light_blue_xs	0.00	\N	\N	\N	\N	f	91	43.99	2	USD	t	1	2022-07-12 18:15:49.235316	\N	2022-07-12 18:15:28.666324	\N	\N
-208	JacketsandCoats_double-breastedjacket_50.99_white_xs	0.00	\N	\N	\N	\N	f	92	50.99	2	USD	t	1	2022-07-12 18:15:49.387602	\N	2022-07-12 18:15:28.813987	\N	\N
-209	JacketsandCoats_leatherbikerjacket_26.99_black_xs	0.00	\N	\N	\N	\N	f	93	26.99	2	USD	t	1	2022-07-12 18:15:49.542229	\N	2022-07-12 18:15:28.952222	\N	\N
-210	JacketsandCoats_wool-blendcoatwithbelt_13.99_burgundy_xs	0.00	\N	\N	\N	\N	f	94	13.99	2	USD	t	1	2022-07-12 18:15:49.693701	\N	2022-07-12 18:15:29.084726	\N	\N
-211	JacketsandCoats_denimhoodedjacket_88.99_blue_xs	0.00	\N	\N	\N	\N	f	95	88.99	2	USD	t	1	2022-07-12 18:15:49.843132	\N	2022-07-12 18:15:29.250644	\N	\N
-212	JacketsandCoats_bomberjacket_30.99_khaki_xs	0.00	\N	\N	\N	\N	f	96	30.99	2	USD	t	1	2022-07-12 18:15:49.996352	\N	2022-07-12 18:15:29.390578	\N	\N
-213	Tops_sportsbralowsupport_41.99_grey_xs	0.00	\N	\N	\N	\N	f	97	41.99	2	USD	t	1	2022-07-12 18:15:50.146985	\N	2022-07-12 18:15:29.519133	\N	\N
-214	Tops_longsleevesyogacroptop_37.99_mint_xs	0.00	\N	\N	\N	\N	f	98	37.99	2	USD	t	1	2022-07-12 18:15:50.312462	\N	2022-07-12 18:15:29.679163	\N	\N
-215	Tops_oversizet-shirtwrappedonback_76.99_pink_xs	0.00	\N	\N	\N	\N	f	99	76.99	2	USD	t	1	2022-07-12 18:15:50.463604	\N	2022-07-12 18:15:29.852532	\N	\N
-216	Tops_longsleevescroptop_34.99_black_xs	0.00	\N	\N	\N	\N	f	100	34.99	2	USD	t	1	2022-07-12 18:15:50.615991	\N	2022-07-12 18:15:30.018305	\N	\N
-217	Tops_lacedcroptop_11.99_black_xs	0.00	\N	\N	\N	\N	f	101	11.99	2	USD	t	1	2022-07-12 18:15:50.783428	\N	2022-07-12 18:15:30.159613	\N	\N
-218	Tops_sportsbramediumsupport_29.99_black_xs	0.00	\N	\N	\N	\N	f	102	29.99	2	USD	t	1	2022-07-12 18:15:50.938174	\N	2022-07-12 18:15:30.289117	\N	\N
-219	Tops_sportsbra_79.99_green_xs	0.00	\N	\N	\N	\N	f	103	79.99	2	USD	t	1	2022-07-12 18:15:51.089956	\N	2022-07-12 18:15:30.42087	\N	\N
-220	Tops_sportcropptop_47.99_burgundy_xs	0.00	\N	\N	\N	\N	f	104	47.99	2	USD	t	1	2022-07-12 18:15:51.234153	\N	2022-07-12 18:15:30.598815	\N	\N
-222	Sweatshirts_lightweightrunningjacket_52.99_grey_xs	0.00	\N	\N	\N	\N	f	106	52.99	2	USD	t	1	2022-07-12 18:15:51.547321	\N	2022-07-12 18:15:30.890381	\N	\N
-223	Sweatshirts_oversizesweatshirt_67.99_pink_xs	0.00	\N	\N	\N	\N	f	107	67.99	2	USD	t	1	2022-07-12 18:15:51.70041	\N	2022-07-12 18:15:31.019412	\N	\N
-224	Sweatshirts_sportwindproofjacket_54.99_blue_xs	0.00	\N	\N	\N	\N	f	108	54.99	2	USD	t	1	2022-07-12 18:15:51.851257	\N	2022-07-12 18:15:31.15113	\N	\N
-225	Sweatshirts_sportwaistcoat_71.99_purple_xs	0.00	\N	\N	\N	\N	f	109	71.99	2	USD	t	1	2022-07-12 18:15:52.001689	\N	2022-07-12 18:15:31.299067	\N	\N
-226	Pants_shinedpants_73.99_light_blue_xs	0.00	\N	\N	\N	\N	f	110	73.99	2	USD	t	1	2022-07-12 18:15:52.147133	\N	2022-07-12 18:15:31.432742	\N	\N
-227	Pants_shortpants_14.99_black_xs	0.00	\N	\N	\N	\N	f	111	14.99	2	USD	t	1	2022-07-12 18:15:52.304437	\N	2022-07-12 18:15:31.61544	\N	\N
-232	Pants_highwaistpants_20.99_blue_xs	0.00	\N	\N	\N	\N	f	116	20.99	2	USD	t	1	2022-07-12 18:15:52.459064	\N	2022-07-12 18:15:32.316211	\N	\N
-117	Shirts_denimshirt_24.99_blue_xs	0.00	\N	\N	\N	\N	f	1	24.99	2	USD	t	1	2022-07-12 18:15:34.500283	\N	2022-07-12 18:15:12.939404	\N	\N
-120	Shirts_slimfitshirt_17.99_dark_blue_xs	0.00	\N	\N	\N	\N	f	4	17.99	2	USD	t	1	2022-07-12 18:15:34.933966	\N	2022-07-12 18:15:13.500055	\N	\N
-121	Shirts_shortsleeveshirt_55.99_burgundy_xs	0.00	\N	\N	\N	\N	f	5	55.99	2	USD	t	1	2022-07-12 18:15:35.072749	\N	2022-07-12 18:15:13.6705	\N	\N
-159	Skirts_skatershortskirt_67.99_white_mini_xs	0.00	\N	\N	\N	\N	f	43	67.99	2	USD	t	1	2022-07-12 18:15:41.07166	\N	2022-07-12 18:15:19.637771	\N	\N
-175	ShirtsandBlouses_stripedshirt_60.99_blue_xs	0.00	\N	\N	\N	\N	f	59	60.99	2	USD	t	1	2022-07-12 18:15:44.007589	\N	2022-07-12 18:15:23.708805	\N	\N
-177	ShirtsandBlouses_printedwrappedblouse_15.99_white_xs	0.00	\N	\N	\N	\N	f	61	15.99	2	USD	t	1	2022-07-12 18:15:44.364232	\N	2022-07-12 18:15:24.041195	\N	\N
-221	Sweatshirts_runningsweatshirt_17.99_light_blue_xs	0.00	\N	\N	\N	\N	f	105	17.99	2	USD	t	1	2022-07-12 18:15:51.389932	\N	2022-07-12 18:15:30.763151	\N	\N
+46	Dresses_floralwrapdress_14.99	0.00	\N	\N	\N	2022-09-02 16:27:24.051667	t	46	\N	1	USD	t	\N	2022-09-02 16:27:24.005391	\N	2022-07-12 18:13:34.149084	\N	\N
+37	Skirts_midiskirtwithbottoms_40.99	0.00	\N	\N	\N	2022-09-02 16:28:29.23276	t	37	\N	1	USD	t	\N	2022-09-02 16:28:29.17789	\N	2022-07-12 18:13:30.711966	\N	\N
+45	Skirts_pleatedskirt2_17.99	0.00	\N	\N	\N	2022-09-02 16:28:32.968005	t	45	\N	1	USD	t	\N	2022-09-02 16:28:32.909776	\N	2022-07-12 18:13:33.627405	\N	\N
+43	Skirts_skatershortskirt_67.99	0.00	\N	\N	\N	2022-09-02 16:27:36.645343	t	43	\N	1	USD	t	\N	2022-09-02 16:27:36.60744	\N	2022-07-12 18:13:32.882839	\N	\N
+58	ShirtsandBlouses_semi-sheershirtwithfloralcuffs_91.99	0.00	\N	\N	\N	2022-09-02 16:27:41.438657	t	58	\N	1	USD	t	\N	2022-09-02 16:27:41.38346	\N	2022-07-12 18:13:38.530682	\N	\N
+7	Shirts_regularshirt_94.99	0.00	\N	\N	\N	2022-09-02 16:28:35.445368	t	7	\N	1	USD	t	\N	2022-09-02 16:28:35.39854	\N	2022-07-12 18:13:19.457637	\N	\N
+16	T-shirts_raw-edget-shirt_84.99	0.00	\N	\N	\N	2022-09-02 16:28:36.121348	t	16	\N	1	USD	t	\N	2022-09-02 16:28:36.079628	\N	2022-07-12 18:13:22.528645	\N	\N
+5	Shirts_shortsleeveshirt_55.99	0.00	\N	\N	\N	2022-09-02 16:27:42.714303	t	5	\N	1	USD	t	\N	2022-09-02 16:27:42.657976	\N	2022-07-12 18:13:18.775253	\N	\N
+4	Shirts_slimfitshirt_17.99	0.00	\N	\N	\N	2022-09-02 16:27:43.281653	t	4	\N	1	USD	t	\N	2022-09-02 16:27:43.238032	\N	2022-07-12 18:13:18.445029	\N	\N
+15	T-shirts_t-shirtwithholes_34.99	0.00	\N	\N	\N	2022-09-02 16:27:45.493878	t	15	\N	1	USD	t	\N	2022-09-02 16:27:45.451147	\N	2022-07-12 18:13:22.174284	\N	\N
+53	Dresses_printedslit-sleevesdress_76.99	0.00	\N	\N	\N	2022-09-02 16:28:38.625874	t	53	\N	1	USD	t	\N	2022-09-02 16:28:38.581324	\N	2022-07-12 18:13:36.725263	\N	\N
+28	JacketsandCoats_suedebikerjacket_33.99	0.00	\N	\N	\N	2022-09-02 16:27:46.100771	t	28	\N	1	USD	t	\N	2022-09-02 16:27:46.061841	\N	2022-07-12 18:13:27.111087	\N	\N
+6	Shirts_printedshortsleeveshirt_74.99	0.00	\N	\N	\N	2022-09-02 16:28:39.314498	t	6	\N	1	USD	t	\N	2022-09-02 16:28:39.277684	\N	2022-07-12 18:13:19.118316	\N	\N
+21	Sweaters_strippedjumper_88.99	0.00	\N	\N	\N	2022-09-02 16:27:46.680785	t	21	\N	1	USD	t	\N	2022-09-02 16:27:46.641971	\N	2022-07-12 18:13:24.451456	\N	\N
+51	Dresses_stripedshirtdress_87.99	0.00	\N	\N	\N	2022-09-02 16:27:47.404072	t	51	\N	1	USD	t	\N	2022-09-02 16:27:47.362162	\N	2022-07-12 18:13:35.993896	\N	\N
+59	ShirtsandBlouses_stripedshirt_60.99	0.00	\N	\N	\N	2022-09-02 16:27:48.087057	t	59	\N	1	USD	t	\N	2022-09-02 16:27:48.046063	\N	2022-07-12 18:13:38.87686	\N	\N
+230	Pants_printedpants_45.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:28:41.890146	f	114	45.99	2	USD	t	1	2022-09-02 16:28:41.837277	\N	2022-07-12 18:15:32.033717	\N	\N
+57	Dresses_slitmaxidress_26.99	0.00	\N	\N	\N	2022-09-02 16:27:53.451263	t	57	\N	1	USD	t	\N	2022-09-02 16:27:53.405892	\N	2022-07-12 18:13:38.185924	\N	\N
+52	Dresses_printeddress_83.99	0.00	\N	\N	\N	2022-09-02 16:28:42.460959	t	52	\N	1	USD	t	\N	2022-09-02 16:28:42.41562	\N	2022-07-12 18:13:36.361534	\N	\N
+42	Skirts_skaterskirt_17.99	0.00	\N	\N	\N	2022-09-02 16:27:53.98248	t	42	\N	1	USD	t	\N	2022-09-02 16:27:53.92359	\N	2022-07-12 18:13:32.524376	\N	\N
+26	Sweaters_zippedhighnecksweater_67.99	0.00	\N	\N	\N	2022-09-02 16:28:01.115989	t	26	\N	1	USD	t	\N	2022-09-02 16:28:01.075717	\N	2022-07-12 18:13:26.314655	\N	\N
+12	T-shirts_polot-shirt_52.99	0.00	\N	\N	\N	2022-09-02 16:28:43.263043	t	12	\N	1	USD	t	\N	2022-09-02 16:28:43.218479	\N	2022-07-12 18:13:21.153267	\N	\N
+32	JacketsandCoats_wool-blendshortcoat_27.99	0.00	\N	\N	\N	2022-09-02 16:28:01.733546	t	32	\N	1	USD	t	\N	2022-09-02 16:28:01.690755	\N	2022-07-12 18:13:28.883618	\N	\N
+178	ShirtsandBlouses_pleatedsleevev-neckshirt_28.99_orange_xs	0.00	\N	\N	\N	2022-09-02 16:28:44.447988	f	62	28.99	2	USD	t	1	2022-09-02 16:28:44.388545	\N	2022-07-12 18:15:24.188046	\N	\N
+229	Pants_pants_50.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:28:46.977167	f	113	50.99	2	USD	t	1	2022-09-02 16:28:46.924925	\N	2022-07-12 18:15:31.905511	\N	\N
+34	JacketsandCoats_wool-blendcoat_35.99	0.00	\N	\N	\N	2022-09-02 16:28:03.039371	t	34	\N	1	USD	t	\N	2022-09-02 16:28:02.997621	\N	2022-07-12 18:13:29.611553	\N	\N
+3	Shirts_coveredplacketshirt_99.99	0.00	\N	\N	\N	2022-09-02 16:25:54.065104	t	3	\N	1	USD	t	\N	2022-09-02 16:25:54.02392	\N	2022-07-12 18:13:18.106026	\N	\N
+36	Skirts_flaredmidiskirt_21.99	0.00	\N	\N	\N	2022-09-02 16:26:03.353912	t	36	\N	1	USD	t	\N	2022-09-02 16:26:03.297544	\N	2022-07-12 18:13:30.344098	\N	\N
+48	Dresses_flareddress_81.99	0.00	\N	\N	\N	2022-09-02 16:26:04.139052	t	48	\N	1	USD	t	\N	2022-09-02 16:26:04.07464	\N	2022-07-12 18:13:34.899604	\N	\N
+60	ShirtsandBlouses_v-neckwideshirt_68.99	0.00	\N	\N	\N	2022-09-02 16:28:03.732031	t	60	\N	1	USD	t	\N	2022-09-02 16:28:03.680404	\N	2022-07-12 18:13:39.3651	\N	\N
+49	Dresses_elegantflareddress_55.99	0.00	\N	\N	\N	2022-09-02 16:26:05.072422	t	49	\N	1	USD	t	\N	2022-09-02 16:26:05.014675	\N	2022-07-12 18:13:35.255036	\N	\N
+54	Dresses_dresswithbelt_36.99	0.00	\N	\N	\N	2022-09-02 16:26:06.355821	t	54	\N	1	USD	t	\N	2022-09-02 16:26:06.308444	\N	2022-07-12 18:13:37.096464	\N	\N
+33	JacketsandCoats_downjacketwithhood_64.99	0.00	\N	\N	\N	2022-09-02 16:26:07.037549	t	33	\N	1	USD	t	\N	2022-09-02 16:26:06.981809	\N	2022-07-12 18:13:29.251612	\N	\N
+9	Shirts_dottedshirt_33.99	0.00	\N	\N	\N	2022-09-02 16:26:08.915185	t	9	\N	1	USD	t	\N	2022-09-02 16:26:08.869418	\N	2022-07-12 18:13:20.142839	\N	\N
+1	Shirts_denimshirt_24.99	0.00	\N	\N	\N	2022-09-02 16:26:09.621482	t	1	\N	1	USD	t	\N	2022-09-02 16:26:09.580526	\N	2022-07-12 18:13:17.278307	\N	\N
+41	Skirts_flaredskirt_74.99	0.00	\N	\N	\N	2022-09-02 16:26:59.899398	t	41	\N	1	USD	t	\N	2022-09-02 16:26:59.837831	\N	2022-07-12 18:13:32.160666	\N	\N
+44	Skirts_floralflaredskirt_10.99	0.00	\N	\N	\N	2022-09-02 16:27:01.199664	t	44	\N	1	USD	t	\N	2022-09-02 16:27:01.154861	\N	2022-07-12 18:13:33.256328	\N	\N
+66	ShirtsandBlouses_floralshirt_72.99	0.00	\N	\N	\N	2022-09-02 16:27:01.996118	t	66	\N	1	USD	t	\N	2022-09-02 16:27:01.928484	\N	2022-07-12 18:13:41.464928	\N	\N
+56	Dresses_flounceddress_32.99	0.00	\N	\N	\N	2022-09-02 16:27:02.64798	t	56	\N	1	USD	t	\N	2022-09-02 16:27:02.59889	\N	2022-07-12 18:13:37.833355	\N	\N
+17	T-shirts_v-neckt-shirt_47.99	0.00	\N	\N	\N	2022-09-02 16:28:04.419913	t	17	\N	1	USD	t	\N	2022-09-02 16:28:04.378221	\N	2022-07-12 18:13:23.018076	\N	\N
+35	JacketsandCoats_jacketwithliner_73.99	0.00	\N	\N	\N	2022-09-02 16:27:05.323416	t	35	\N	1	USD	t	\N	2022-09-02 16:27:05.279356	\N	2022-07-12 18:13:29.981032	\N	\N
+40	Skirts_leatherskirtwithlacing_46.99	0.00	\N	\N	\N	2022-09-02 16:27:09.011798	t	40	\N	1	USD	t	\N	2022-09-02 16:27:08.963317	\N	2022-07-12 18:13:31.803298	\N	\N
+10	Shirts_linenshirt_87.99	0.00	\N	\N	\N	2022-09-02 16:27:09.843474	t	10	\N	1	USD	t	\N	2022-09-02 16:27:09.8027	\N	2022-07-12 18:13:20.488531	\N	\N
+27	Sweaters_longsleevejumper_64.99	0.00	\N	\N	\N	2022-09-02 16:27:10.582728	t	27	\N	1	USD	t	\N	2022-09-02 16:27:10.538459	\N	2022-07-12 18:13:26.680535	\N	\N
+13	T-shirts_longsleevet-shirt_28.99	0.00	\N	\N	\N	2022-09-02 16:27:12.917893	t	13	\N	1	USD	t	\N	2022-09-02 16:27:12.873076	\N	2022-07-12 18:13:21.489469	\N	\N
+50	Dresses_longsleeveknitteddress_23.99	0.00	\N	\N	\N	2022-09-02 16:27:14.139573	t	50	\N	1	USD	t	\N	2022-09-02 16:27:14.087941	\N	2022-07-12 18:13:35.611949	\N	\N
+22	Sweaters_longsleevejumperwithpocket_93.99	0.00	\N	\N	\N	2022-09-02 16:27:14.803899	t	22	\N	1	USD	t	\N	2022-09-02 16:27:14.75998	\N	2022-07-12 18:13:24.81014	\N	\N
+23	Sweaters_jumper_61.99	0.00	\N	\N	\N	2022-09-02 16:27:18.400015	t	23	\N	1	USD	t	\N	2022-09-02 16:27:18.355994	\N	2022-07-12 18:13:25.155502	\N	\N
+25	Sweaters_hoodie_24.99	0.00	\N	\N	\N	2022-09-02 16:27:21.420616	t	25	\N	1	USD	t	\N	2022-09-02 16:27:21.381553	\N	2022-07-12 18:13:25.873591	\N	\N
+47	Dresses_v-neckfloralmaxidress_31.99	0.00	\N	\N	\N	2022-09-02 16:28:06.212788	t	47	\N	1	USD	t	\N	2022-09-02 16:28:06.155188	\N	2022-07-12 18:13:34.52817	\N	\N
+20	Sweaters_highnecksweater_45.99	0.00	\N	\N	\N	2022-09-02 16:27:23.296418	t	20	\N	1	USD	t	\N	2022-09-02 16:27:23.252862	\N	2022-07-12 18:13:24.097249	\N	\N
+55	Dresses_v-neckfloraldress_73.99	0.00	\N	\N	\N	2022-09-02 16:28:06.891602	t	55	\N	1	USD	t	\N	2022-09-02 16:28:06.852374	\N	2022-07-12 18:13:37.452035	\N	\N
+18	T-shirts_tanktop_10.99	0.00	\N	\N	\N	2022-09-02 16:28:07.431801	t	18	\N	1	USD	t	\N	2022-09-02 16:28:07.389363	\N	2022-07-12 18:13:23.365655	\N	\N
+162	Dresses_floralwrapdress_14.99_black_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:24.14378	f	46	14.99	2	USD	t	1	2022-09-02 16:27:24.078791	\N	2022-07-12 18:15:20.424697	\N	\N
+91	JacketsandCoats_loose-fittedjacket_43.99	0.00	\N	\N	\N	2022-09-02 16:28:28.408865	t	91	\N	1	USD	t	\N	2022-09-02 16:28:28.367695	\N	2022-07-12 18:13:51.733944	\N	\N
+80	TopsandT-shirts_scrappycroptopwithtie_46.99	0.00	\N	\N	\N	2022-09-02 16:27:34.280149	t	80	\N	1	USD	t	\N	2022-09-02 16:27:34.221845	\N	2022-07-12 18:13:47.372456	\N	\N
+78	TopsandT-shirts_scrappytop_40.99	0.00	\N	\N	\N	2022-09-02 16:27:34.774698	t	78	\N	1	USD	t	\N	2022-09-02 16:27:34.724551	\N	2022-07-12 18:13:46.53476	\N	\N
+99	Tops_oversizet-shirtwrappedonback_76.99	0.00	\N	\N	\N	2022-09-02 16:28:31.22779	t	99	\N	1	USD	t	\N	2022-09-02 16:28:31.189501	\N	2022-07-12 18:13:54.846809	\N	\N
+71	Sweaters_oversizedknittedsweater_24.99	0.00	\N	\N	\N	2022-09-02 16:28:31.774534	t	71	\N	1	USD	t	\N	2022-09-02 16:28:31.725479	\N	2022-07-12 18:13:43.3256	\N	\N
+72	Sweaters_oversizedsweatshirt_86.99	0.00	\N	\N	\N	2022-09-02 16:28:32.333955	t	72	\N	1	USD	t	\N	2022-09-02 16:28:32.29144	\N	2022-07-12 18:13:43.676766	\N	\N
+111	Pants_shortpants_14.99	0.00	\N	\N	\N	2022-09-02 16:27:35.933236	t	111	\N	1	USD	t	\N	2022-09-02 16:27:35.888896	\N	2022-07-12 18:13:59.435193	\N	\N
+227	Pants_shortpants_14.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:36.029665	f	111	14.99	2	USD	t	1	2022-09-02 16:27:35.971936	\N	2022-07-12 18:15:31.61544	\N	\N
+123	Shirts_regularshirt_94.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:28:35.552512	f	7	94.99	2	USD	t	1	2022-09-02 16:28:35.489896	\N	2022-07-12 18:15:13.927919	\N	\N
+110	Pants_shinedpants_73.99	0.00	\N	\N	\N	2022-09-02 16:27:42.082222	t	110	\N	1	USD	t	\N	2022-09-02 16:27:42.035375	\N	2022-07-12 18:13:59.082328	\N	\N
+61	ShirtsandBlouses_printedwrappedblouse_15.99	0.00	\N	\N	\N	2022-09-02 16:28:36.810688	t	61	\N	1	USD	t	\N	2022-09-02 16:28:36.767736	\N	2022-07-12 18:13:39.721106	\N	\N
+102	Tops_sportsbramediumsupport_29.99	0.00	\N	\N	\N	2022-09-02 16:27:48.643156	t	102	\N	1	USD	t	\N	2022-09-02 16:27:48.598303	\N	2022-07-12 18:13:55.941681	\N	\N
+77	TopsandT-shirts_printedt-shirt_30.99	0.00	\N	\N	\N	2022-09-02 16:28:38.011934	t	77	\N	1	USD	t	\N	2022-09-02 16:28:37.967601	\N	2022-07-12 18:13:45.768345	\N	\N
+69	ShirtsandBlouses_printedshirt_46.99	0.00	\N	\N	\N	2022-09-02 16:28:40.039826	t	69	\N	1	USD	t	\N	2022-09-02 16:28:39.998653	\N	2022-07-12 18:13:42.598927	\N	\N
+112	Pants_printedpantswithholes_45.99	0.00	\N	\N	\N	2022-09-02 16:28:41.194112	t	112	\N	1	USD	t	\N	2022-09-02 16:28:41.150016	\N	2022-07-12 18:13:59.786966	\N	\N
+97	Tops_sportsbralowsupport_41.99	0.00	\N	\N	\N	2022-09-02 16:27:49.476773	t	97	\N	1	USD	t	\N	2022-09-02 16:27:49.437841	\N	2022-07-12 18:13:54.146383	\N	\N
+114	Pants_printedpants_45.99	0.00	\N	\N	\N	2022-09-02 16:28:41.811248	t	114	\N	1	USD	t	\N	2022-09-02 16:28:41.770356	\N	2022-07-12 18:14:00.662845	\N	\N
+128	T-shirts_polot-shirt_52.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:28:43.364421	f	12	52.99	2	USD	t	1	2022-09-02 16:28:43.299573	\N	2022-07-12 18:15:14.629967	\N	\N
+103	Tops_sportsbra_79.99	0.00	\N	\N	\N	2022-09-02 16:27:49.967555	t	103	\N	1	USD	t	\N	2022-09-02 16:27:49.929603	\N	2022-07-12 18:13:56.364974	\N	\N
+108	Sweatshirts_sportwindproofjacket_54.99	0.00	\N	\N	\N	2022-09-02 16:27:50.68162	t	108	\N	1	USD	t	\N	2022-09-02 16:27:50.638146	\N	2022-07-12 18:13:58.33504	\N	\N
+109	Sweatshirts_sportwaistcoat_71.99	0.00	\N	\N	\N	2022-09-02 16:27:51.264163	t	109	\N	1	USD	t	\N	2022-09-02 16:27:51.22469	\N	2022-07-12 18:13:58.734436	\N	\N
+104	Tops_sportcropptop_47.99	0.00	\N	\N	\N	2022-09-02 16:27:52.750756	t	104	\N	1	USD	t	\N	2022-09-02 16:27:52.69484	\N	2022-07-12 18:13:56.85845	\N	\N
+90	JacketsandCoats_zippedjacket_28.99	0.00	\N	\N	\N	2022-09-02 16:28:00.482561	t	90	\N	1	USD	t	\N	2022-09-02 16:28:00.441982	\N	2022-07-12 18:13:51.278269	\N	\N
+62	ShirtsandBlouses_pleatedsleevev-neckshirt_28.99	0.00	\N	\N	\N	2022-09-02 16:28:44.353569	t	62	\N	1	USD	t	\N	2022-09-02 16:28:44.296019	\N	2022-07-12 18:13:40.07126	\N	\N
+124	Shirts_checkedslimfitshirt_27.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:25:48.76213	f	8	27.99	2	USD	t	1	2022-09-02 16:25:48.699256	\N	2022-07-12 18:15:14.059946	\N	\N
+85	JacketsandCoats_coatwithpockets_27.99	0.00	\N	\N	\N	2022-09-02 16:25:50.404762	t	85	\N	1	USD	t	\N	2022-09-02 16:25:50.363476	\N	2022-07-12 18:13:49.209388	\N	\N
+63	ShirtsandBlouses_cottonshirt_17.99	0.00	\N	\N	\N	2022-09-02 16:25:52.048839	t	63	\N	1	USD	t	\N	2022-09-02 16:25:52.006234	\N	2022-07-12 18:13:40.404525	\N	\N
+119	Shirts_coveredplacketshirt_99.99_dark_blue_xs	0.00	\N	\N	\N	2022-09-02 16:25:54.15683	f	3	99.99	2	USD	t	1	2022-09-02 16:25:54.092854	\N	2022-07-12 18:15:13.339516	\N	\N
+81	TopsandT-shirts_croptop_60.99	0.00	\N	\N	\N	2022-09-02 16:25:56.046161	t	81	\N	1	USD	t	\N	2022-09-02 16:25:55.98781	\N	2022-07-12 18:13:47.726298	\N	\N
+76	TopsandT-shirts_croptopwithtie_96.99	0.00	\N	\N	\N	2022-09-02 16:25:57.854051	t	76	\N	1	USD	t	\N	2022-09-02 16:25:57.810885	\N	2022-07-12 18:13:45.362221	\N	\N
+75	Sweaters_croppedfittedsweater_92.99	0.00	\N	\N	\N	2022-09-02 16:25:59.495627	t	75	\N	1	USD	t	\N	2022-09-02 16:25:59.455168	\N	2022-07-12 18:13:44.985947	\N	\N
+65	ShirtsandBlouses_elegantblousewithchocker_19.99	0.00	\N	\N	\N	2022-09-02 16:26:05.74851	t	65	\N	1	USD	t	\N	2022-09-02 16:26:05.703803	\N	2022-07-12 18:13:41.093327	\N	\N
+89	JacketsandCoats_downjacket_59.99	0.00	\N	\N	\N	2022-09-02 16:26:07.523043	t	89	\N	1	USD	t	\N	2022-09-02 16:26:07.47837	\N	2022-07-12 18:13:50.867977	\N	\N
+92	JacketsandCoats_double-breastedjacket_50.99	0.00	\N	\N	\N	2022-09-02 16:26:08.142966	t	92	\N	1	USD	t	\N	2022-09-02 16:26:08.099574	\N	2022-07-12 18:13:52.214767	\N	\N
+125	Shirts_dottedshirt_33.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:26:09.002988	f	9	33.99	2	USD	t	1	2022-09-02 16:26:08.944393	\N	2022-07-12 18:15:14.198049	\N	\N
+116	Pants_highwaistpants_20.99	0.00	\N	\N	\N	2022-09-02 16:27:03.450137	t	116	\N	1	USD	t	\N	2022-09-02 16:27:03.399484	\N	2022-07-12 18:14:01.365089	\N	\N
+74	Sweaters_knittedv-necksweater_17.99	0.00	\N	\N	\N	2022-09-02 16:27:07.179876	t	74	\N	1	USD	t	\N	2022-09-02 16:27:07.138688	\N	2022-07-12 18:13:44.438445	\N	\N
+101	Tops_lacedcroptop_11.99	0.00	\N	\N	\N	2022-09-02 16:27:08.048753	t	101	\N	1	USD	t	\N	2022-09-02 16:27:07.996964	\N	2022-07-12 18:13:55.55447	\N	\N
+68	ShirtsandBlouses_v-neckshirt_87.99	0.00	\N	\N	\N	2022-09-02 16:28:04.977989	t	68	\N	1	USD	t	\N	2022-09-02 16:28:04.905895	\N	2022-07-12 18:13:42.212788	\N	\N
+129	T-shirts_longsleevet-shirt_28.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:13.020644	f	13	28.99	2	USD	t	1	2022-09-02 16:27:12.95165	\N	2022-07-12 18:15:14.819033	\N	\N
+88	JacketsandCoats_longcoatwithbelt_47.99	0.00	\N	\N	\N	2022-09-02 16:27:15.39564	t	88	\N	1	USD	t	\N	2022-09-02 16:27:15.353977	\N	2022-07-12 18:13:50.318911	\N	\N
+106	Sweatshirts_lightweightrunningjacket_52.99	0.00	\N	\N	\N	2022-09-02 16:27:16.124865	t	106	\N	1	USD	t	\N	2022-09-02 16:27:16.079378	\N	2022-07-12 18:13:57.602507	\N	\N
+93	JacketsandCoats_leatherbikerjacket_26.99	0.00	\N	\N	\N	2022-09-02 16:27:16.91678	t	93	\N	1	USD	t	\N	2022-09-02 16:27:16.877391	\N	2022-07-12 18:13:52.596401	\N	\N
+115	Pants_highwaistpantswithpockets_92.99	0.00	\N	\N	\N	2022-09-02 16:27:22.589577	t	115	\N	1	USD	t	\N	2022-09-02 16:27:22.545781	\N	2022-07-12 18:14:01.016981	\N	\N
+100	Tops_longsleevescroptop_34.99	0.00	\N	\N	\N	2022-09-02 16:28:18.683841	t	100	\N	1	USD	t	\N	2022-09-02 16:28:18.644172	\N	2022-07-12 18:13:55.201393	\N	\N
+98	Tops_longsleevesyogacroptop_37.99	0.00	\N	\N	\N	2022-09-02 16:28:19.262344	t	98	\N	1	USD	t	\N	2022-09-02 16:28:19.223875	\N	2022-07-12 18:13:54.491579	\N	\N
+86	JacketsandCoats_longwool-blendcoatwithbelt_43.99	0.00	\N	\N	\N	2022-09-02 16:28:19.895498	t	86	\N	1	USD	t	\N	2022-09-02 16:28:19.857404	\N	2022-07-12 18:13:49.570722	\N	\N
+107	Sweatshirts_oversizesweatshirt_67.99	0.00	\N	\N	\N	2022-09-02 16:28:20.863512	t	107	\N	1	USD	t	\N	2022-09-02 16:28:20.822905	\N	2022-07-12 18:13:57.977045	\N	\N
+79	TopsandT-shirts_pleatedsleevet-shirt_83.99	0.00	\N	\N	\N	2022-09-02 16:28:45.056474	t	79	\N	1	USD	t	\N	2022-09-02 16:28:45.015383	\N	2022-07-12 18:13:46.976331	\N	\N
+113	Pants_pants_50.99	0.00	\N	\N	\N	2022-09-02 16:28:46.897303	t	113	\N	1	USD	t	\N	2022-09-02 16:28:46.856165	\N	2022-07-12 18:14:00.22087	\N	\N
+228	Pants_printedpantswithholes_45.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:28:41.286039	f	112	45.99	2	USD	t	1	2022-09-02 16:28:41.220897	\N	2022-07-12 18:15:31.757608	\N	\N
+187	Sweaters_oversizedknittedsweater_24.99_red_xs	0.00	\N	\N	\N	2022-09-02 16:28:31.858241	f	71	24.99	2	USD	t	1	2022-09-02 16:28:31.800983	\N	2022-07-12 18:15:25.582655	\N	\N
+11	Shirts_regularshirtwithrolledupsleeves_98.99	0.00	\N	\N	\N	2022-09-02 16:27:31.599052	t	11	\N	1	USD	t	\N	2022-09-02 16:27:31.556833	\N	2022-07-12 18:13:20.818637	\N	\N
+127	Shirts_regularshirtwithrolledupsleeves_98.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:31.679903	f	11	98.99	2	USD	t	1	2022-09-02 16:27:31.625013	\N	2022-07-12 18:15:14.492009	\N	\N
+105	Sweatshirts_runningsweatshirt_17.99	0.00	\N	\N	\N	2022-09-02 16:27:33.662114	t	105	\N	1	USD	t	\N	2022-09-02 16:27:33.615893	\N	2022-07-12 18:13:57.216205	\N	\N
+224	Sweatshirts_sportwindproofjacket_54.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:50.772401	f	108	54.99	2	USD	t	1	2022-09-02 16:27:50.713407	\N	2022-07-12 18:15:31.15113	\N	\N
+188	Sweaters_oversizedsweatshirt_86.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:28:32.412223	f	72	86.99	2	USD	t	1	2022-09-02 16:28:32.35847	\N	2022-07-12 18:15:25.720664	\N	\N
+161	Skirts_pleatedskirt2_17.99_green_mini_xs	0.00	\N	\N	\N	2022-09-02 16:28:33.068674	f	45	17.99	2	USD	t	1	2022-09-02 16:28:32.998685	\N	2022-07-12 18:15:20.036528	\N	\N
+144	JacketsandCoats_suedebikerjacket_33.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:27:46.194178	f	28	33.99	2	USD	t	1	2022-09-02 16:27:46.130439	\N	2022-07-12 18:15:17.027655	\N	\N
+132	T-shirts_raw-edget-shirt_84.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:28:36.205487	f	16	84.99	2	USD	t	1	2022-09-02 16:28:36.147856	\N	2022-07-12 18:15:15.226759	\N	\N
+137	Sweaters_strippedjumper_88.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:27:46.763092	f	21	88.99	2	USD	t	1	2022-09-02 16:27:46.707109	\N	2022-07-12 18:15:16.011332	\N	\N
+167	Dresses_stripedshirtdress_87.99_light_blue_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:47.495932	f	51	87.99	2	USD	t	1	2022-09-02 16:27:47.433788	\N	2022-07-12 18:15:21.503862	\N	\N
+94	JacketsandCoats_wool-blendcoatwithbelt_13.99	0.00	\N	\N	\N	2022-09-02 16:28:02.464498	t	94	\N	1	USD	t	\N	2022-09-02 16:28:02.416184	\N	2022-07-12 18:13:52.987407	\N	\N
+185	ShirtsandBlouses_printedshirt_46.99_green_xs	0.00	\N	\N	\N	2022-09-02 16:28:40.118126	f	69	46.99	2	USD	t	1	2022-09-02 16:28:40.066667	\N	2022-07-12 18:15:25.217615	\N	\N
+158	Skirts_skaterskirt_17.99_brown_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:54.073185	f	42	17.99	2	USD	t	1	2022-09-02 16:27:54.011765	\N	2022-07-12 18:15:19.469858	\N	\N
+142	Sweaters_zippedhighnecksweater_67.99_green_xs	0.00	\N	\N	\N	2022-09-02 16:28:01.222573	f	26	67.99	2	USD	t	1	2022-09-02 16:28:01.144397	\N	2022-07-12 18:15:16.73958	\N	\N
+148	JacketsandCoats_wool-blendshortcoat_27.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:28:01.829392	f	32	27.99	2	USD	t	1	2022-09-02 16:28:01.766574	\N	2022-07-12 18:15:17.656374	\N	\N
+202	JacketsandCoats_longwool-blendcoatwithbelt_43.99_dark_blue_xs	0.00	\N	\N	\N	2022-09-02 16:28:19.978618	f	86	43.99	2	USD	t	1	2022-09-02 16:28:19.920506	\N	2022-07-12 18:15:27.992448	\N	\N
+176	ShirtsandBlouses_v-neckwideshirt_68.99_dark_blue_xs	0.00	\N	\N	\N	2022-09-02 16:28:03.829578	f	60	68.99	2	USD	t	1	2022-09-02 16:28:03.763336	\N	2022-07-12 18:15:23.86542	\N	\N
+133	T-shirts_v-neckt-shirt_47.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:28:04.507918	f	17	47.99	2	USD	t	1	2022-09-02 16:28:04.446266	\N	2022-07-12 18:15:15.402611	\N	\N
+184	ShirtsandBlouses_v-neckshirt_87.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:28:05.07162	f	68	87.99	2	USD	t	1	2022-09-02 16:28:05.011298	\N	2022-07-12 18:15:25.057849	\N	\N
+152	Skirts_flaredmidiskirt_21.99_burgundy_mini_xs	0.00	\N	\N	\N	2022-09-02 16:26:03.473466	f	36	21.99	2	USD	t	1	2022-09-02 16:26:03.396119	\N	2022-07-12 18:15:18.302424	\N	\N
+164	Dresses_flareddress_81.99_red_mini_xs	0.00	\N	\N	\N	2022-09-02 16:26:04.253403	f	48	81.99	2	USD	t	1	2022-09-02 16:26:04.173309	\N	2022-07-12 18:15:20.838618	\N	\N
+165	Dresses_elegantflareddress_55.99_black_mini_xs	0.00	\N	\N	\N	2022-09-02 16:26:05.217296	f	49	55.99	2	USD	t	1	2022-09-02 16:26:05.136073	\N	2022-07-12 18:15:21.047071	\N	\N
+181	ShirtsandBlouses_elegantblousewithchocker_19.99_mint_xs	0.00	\N	\N	\N	2022-09-02 16:26:05.835473	f	65	19.99	2	USD	t	1	2022-09-02 16:26:05.776838	\N	2022-07-12 18:15:24.582466	\N	\N
+170	Dresses_dresswithbelt_36.99_red_mini_xs	0.00	\N	\N	\N	2022-09-02 16:26:06.715579	f	54	36.99	2	USD	t	1	2022-09-02 16:26:06.471029	\N	2022-07-12 18:15:22.197143	\N	\N
+149	JacketsandCoats_downjacketwithhood_64.99_dark_blue_xs	0.00	\N	\N	\N	2022-09-02 16:26:07.127135	f	33	64.99	2	USD	t	1	2022-09-02 16:26:07.068328	\N	2022-07-12 18:15:17.792208	\N	\N
+147	JacketsandCoats_denimjacket_76.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:26:10.408016	f	31	76.99	2	USD	t	1	2022-09-02 16:26:10.338523	\N	2022-07-12 18:15:17.519267	\N	\N
+157	Skirts_flaredskirt_74.99_orange_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:00.000501	f	41	74.99	2	USD	t	1	2022-09-02 16:26:59.930591	\N	2022-07-12 18:15:19.291507	\N	\N
+182	ShirtsandBlouses_floralshirt_72.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:27:02.092458	f	66	72.99	2	USD	t	1	2022-09-02 16:27:02.027517	\N	2022-07-12 18:15:24.754232	\N	\N
+172	Dresses_flounceddress_32.99_beige_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:02.752623	f	56	32.99	2	USD	t	1	2022-09-02 16:27:02.678681	\N	2022-07-12 18:15:23.201184	\N	\N
+145	JacketsandCoats_hoodedjacket_11.99_beige_xs	0.00	\N	\N	\N	2022-09-02 16:27:04.317928	f	29	11.99	2	USD	t	1	2022-09-02 16:27:04.259871	\N	2022-07-12 18:15:17.233116	\N	\N
+151	JacketsandCoats_jacketwithliner_73.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:05.409868	f	35	73.99	2	USD	t	1	2022-09-02 16:27:05.35208	\N	2022-07-12 18:15:18.155236	\N	\N
+190	Sweaters_knittedv-necksweater_17.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:07.262829	f	74	17.99	2	USD	t	1	2022-09-02 16:27:07.207052	\N	2022-07-12 18:15:26.03684	\N	\N
+171	Dresses_v-neckfloraldress_73.99_light_blue_mini_xs	0.00	\N	\N	\N	2022-09-02 16:28:06.975571	f	55	73.99	2	USD	t	1	2022-09-02 16:28:06.915753	\N	2022-07-12 18:15:22.625338	\N	\N
+143	Sweaters_longsleevejumper_64.99_dark_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:10.668359	f	27	64.99	2	USD	t	1	2022-09-02 16:27:10.610874	\N	2022-07-12 18:15:16.86765	\N	\N
+140	Sweaters_longsleevesweatshirt_73.99_mint_xs	0.00	\N	\N	\N	2022-09-02 16:27:13.594964	f	24	73.99	2	USD	t	1	2022-09-02 16:27:13.509798	\N	2022-07-12 18:15:16.42043	\N	\N
+166	Dresses_longsleeveknitteddress_23.99_grey_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:14.23831	f	50	23.99	2	USD	t	1	2022-09-02 16:27:14.172502	\N	2022-07-12 18:15:21.246726	\N	\N
+138	Sweaters_longsleevejumperwithpocket_93.99_ecru_xs	0.00	\N	\N	\N	2022-09-02 16:27:14.894952	f	22	93.99	2	USD	t	1	2022-09-02 16:27:14.8367	\N	2022-07-12 18:15:16.14429	\N	\N
+189	Sweaters_knittedhighnecksweater_86.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:17.522917	f	73	86.99	2	USD	t	1	2022-09-02 16:27:17.46347	\N	2022-07-12 18:15:25.850981	\N	\N
+139	Sweaters_jumper_61.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:18.480182	f	23	61.99	2	USD	t	1	2022-09-02 16:27:18.425627	\N	2022-07-12 18:15:16.278994	\N	\N
+141	Sweaters_hoodie_24.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:21.495281	f	25	24.99	2	USD	t	1	2022-09-02 16:27:21.444867	\N	2022-07-12 18:15:16.61067	\N	\N
+136	Sweaters_highnecksweater_45.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:23.380948	f	20	45.99	2	USD	t	1	2022-09-02 16:27:23.321559	\N	2022-07-12 18:15:15.868786	\N	\N
+134	T-shirts_tanktop_10.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:28:07.522773	f	18	10.99	2	USD	t	1	2022-09-02 16:28:07.457783	\N	2022-07-12 18:15:15.552987	\N	\N
+207	JacketsandCoats_loose-fittedjacket_43.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:28:28.49236	f	91	43.99	2	USD	t	1	2022-09-02 16:28:28.433109	\N	2022-07-12 18:15:28.666324	\N	\N
+221	Sweatshirts_runningsweatshirt_17.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:33.778162	f	105	17.99	2	USD	t	1	2022-09-02 16:27:33.697093	\N	2022-07-12 18:15:30.763151	\N	\N
+215	Tops_oversizet-shirtwrappedonback_76.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:28:31.300318	f	99	76.99	2	USD	t	1	2022-09-02 16:28:31.250523	\N	2022-07-12 18:15:29.852532	\N	\N
+196	TopsandT-shirts_scrappycroptopwithtie_46.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:34.370142	f	80	46.99	2	USD	t	1	2022-09-02 16:27:34.309639	\N	2022-07-12 18:15:26.986256	\N	\N
+194	TopsandT-shirts_scrappytop_40.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:34.861676	f	78	40.99	2	USD	t	1	2022-09-02 16:27:34.806622	\N	2022-07-12 18:15:26.713421	\N	\N
+177	ShirtsandBlouses_printedwrappedblouse_15.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:28:36.892985	f	61	15.99	2	USD	t	1	2022-09-02 16:28:36.83716	\N	2022-07-12 18:15:24.041195	\N	\N
+67	ShirtsandBlouses_semi-sheershirtwithpockets_36.99	0.00	\N	\N	\N	2022-09-02 16:27:35.471903	t	67	\N	1	USD	t	\N	2022-09-02 16:27:35.425615	\N	2022-07-12 18:13:41.825593	\N	\N
+193	TopsandT-shirts_printedt-shirt_30.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:28:38.088413	f	77	30.99	2	USD	t	1	2022-09-02 16:28:38.036415	\N	2022-07-12 18:15:26.551833	\N	\N
+195	TopsandT-shirts_pleatedsleevet-shirt_83.99_beige_xs	0.00	\N	\N	\N	2022-09-02 16:28:45.135444	f	79	83.99	2	USD	t	1	2022-09-02 16:28:45.081557	\N	2022-07-12 18:15:26.839638	\N	\N
+159	Skirts_skatershortskirt_67.99_white_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:36.74416	f	43	67.99	2	USD	t	1	2022-09-02 16:27:36.679284	\N	2022-07-12 18:15:19.637771	\N	\N
+14	T-shirts_3_4sleevet-shirt_18.99	0.00	\N	\N	\N	2022-09-02 14:33:28.898515	t	14	\N	1	USD	t	\N	2022-09-02 14:33:28.772603	\N	2022-07-12 18:13:21.818352	\N	\N
+130	T-shirts_3_4sleevet-shirt_18.99_white_xs	0.00	\N	\N	\N	2022-09-02 14:33:29.005907	f	14	18.99	2	USD	t	1	2022-09-02 14:33:28.925684	\N	2022-07-12 18:15:14.952579	\N	\N
+39	Skirts_a-linesuedeskirt_30.99	0.00	\N	\N	\N	2022-09-02 14:33:32.024959	t	39	\N	1	USD	t	\N	2022-09-02 14:33:31.984026	\N	2022-07-12 18:13:31.445057	\N	\N
+155	Skirts_a-linesuedeskirt_30.99_dark_blue_mini_xs	0.00	\N	\N	\N	2022-09-02 14:33:32.141078	f	39	30.99	2	USD	t	1	2022-09-02 14:33:32.050632	\N	2022-07-12 18:15:18.907441	\N	\N
+30	JacketsandCoats_anorakwithhood_44.99	0.00	\N	\N	\N	2022-09-02 14:33:34.310546	t	30	\N	1	USD	t	\N	2022-09-02 14:33:34.206932	\N	2022-07-12 18:13:27.9051	\N	\N
+146	JacketsandCoats_anorakwithhood_44.99_yellow_xs	0.00	\N	\N	\N	2022-09-02 14:33:34.462213	f	30	44.99	2	USD	t	1	2022-09-02 14:33:34.336567	\N	2022-07-12 18:15:17.35957	\N	\N
+87	JacketsandCoats_asymmetriccoat_19.99	0.00	\N	\N	\N	2022-09-02 14:33:39.48791	t	87	\N	1	USD	t	\N	2022-09-02 14:33:39.450141	\N	2022-07-12 18:13:49.948975	\N	\N
+203	JacketsandCoats_asymmetriccoat_19.99_white_xs	0.00	\N	\N	\N	2022-09-02 14:33:39.575761	f	87	19.99	2	USD	t	1	2022-09-02 14:33:39.512639	\N	2022-07-12 18:15:28.155011	\N	\N
+70	Sweaters_asymmetricsweaterwithwidesleeves_34.99	0.00	\N	\N	\N	2022-09-02 14:33:48.981418	t	70	\N	1	USD	t	\N	2022-09-02 14:33:48.93574	\N	2022-07-12 18:13:42.970167	\N	\N
+186	Sweaters_asymmetricsweaterwithwidesleeves_34.99_blue_xs	0.00	\N	\N	\N	2022-09-02 14:33:49.061903	f	70	34.99	2	USD	t	1	2022-09-02 14:33:49.006784	\N	2022-07-12 18:15:25.364416	\N	\N
+226	Pants_shinedpants_73.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:42.184394	f	110	73.99	2	USD	t	1	2022-09-02 16:27:42.109367	\N	2022-07-12 18:15:31.432742	\N	\N
+197	TopsandT-shirts_croptop_60.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:25:56.139756	f	81	60.99	2	USD	t	1	2022-09-02 16:25:56.076108	\N	2022-07-12 18:15:27.113257	\N	\N
+121	Shirts_shortsleeveshirt_55.99_burgundy_xs	0.00	\N	\N	\N	2022-09-02 16:27:42.807222	f	5	55.99	2	USD	t	1	2022-09-02 16:27:42.747101	\N	2022-07-12 18:15:13.6705	\N	\N
+191	Sweaters_croppedfittedsweater_92.99_red_xs	0.00	\N	\N	\N	2022-09-02 16:25:59.581124	f	75	92.99	2	USD	t	1	2022-09-02 16:25:59.522251	\N	2022-07-12 18:15:26.27123	\N	\N
+211	JacketsandCoats_denimhoodedjacket_88.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:26:01.371345	f	95	88.99	2	USD	t	1	2022-09-02 16:26:01.302463	\N	2022-07-12 18:15:29.250644	\N	\N
+205	JacketsandCoats_downjacket_59.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:26:07.619489	f	89	59.99	2	USD	t	1	2022-09-02 16:26:07.552574	\N	2022-07-12 18:15:28.409217	\N	\N
+208	JacketsandCoats_double-breastedjacket_50.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:26:08.229462	f	92	50.99	2	USD	t	1	2022-09-02 16:26:08.169198	\N	2022-07-12 18:15:28.813987	\N	\N
+117	Shirts_denimshirt_24.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:26:09.715666	f	1	24.99	2	USD	t	1	2022-09-02 16:26:09.648484	\N	2022-07-12 18:15:12.939404	\N	\N
+232	Pants_highwaistpants_20.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:03.549862	f	116	20.99	2	USD	t	1	2022-09-02 16:27:03.482606	\N	2022-07-12 18:15:32.316211	\N	\N
+217	Tops_lacedcroptop_11.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:08.13341	f	101	11.99	2	USD	t	1	2022-09-02 16:27:08.076538	\N	2022-07-12 18:15:30.159613	\N	\N
+222	Sweatshirts_lightweightrunningjacket_52.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:16.21087	f	106	52.99	2	USD	t	1	2022-09-02 16:27:16.153781	\N	2022-07-12 18:15:30.890381	\N	\N
+209	JacketsandCoats_leatherbikerjacket_26.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:17.014767	f	93	26.99	2	USD	t	1	2022-09-02 16:27:16.942628	\N	2022-07-12 18:15:28.952222	\N	\N
+120	Shirts_slimfitshirt_17.99_dark_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:43.368734	f	4	17.99	2	USD	t	1	2022-09-02 16:27:43.308535	\N	2022-07-12 18:15:13.500055	\N	\N
+175	ShirtsandBlouses_stripedshirt_60.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:48.168551	f	59	60.99	2	USD	t	1	2022-09-02 16:27:48.113535	\N	2022-07-12 18:15:23.708805	\N	\N
+218	Tops_sportsbramediumsupport_29.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:27:48.735519	f	102	29.99	2	USD	t	1	2022-09-02 16:27:48.677137	\N	2022-07-12 18:15:30.289117	\N	\N
+213	Tops_sportsbralowsupport_41.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:49.555999	f	97	41.99	2	USD	t	1	2022-09-02 16:27:49.503108	\N	2022-07-12 18:15:29.519133	\N	\N
+219	Tops_sportsbra_79.99_green_xs	0.00	\N	\N	\N	2022-09-02 16:27:50.047501	f	103	79.99	2	USD	t	1	2022-09-02 16:27:49.994521	\N	2022-07-12 18:15:30.42087	\N	\N
+225	Sweatshirts_sportwaistcoat_71.99_purple_xs	0.00	\N	\N	\N	2022-09-02 16:27:51.34261	f	109	71.99	2	USD	t	1	2022-09-02 16:27:51.290019	\N	2022-07-12 18:15:31.299067	\N	\N
+220	Tops_sportcropptop_47.99_burgundy_xs	0.00	\N	\N	\N	2022-09-02 16:27:52.859754	f	104	47.99	2	USD	t	1	2022-09-02 16:27:52.789695	\N	2022-07-12 18:15:30.598815	\N	\N
+206	JacketsandCoats_zippedjacket_28.99_blue_xs	0.00	\N	\N	\N	2022-09-02 16:28:00.572621	f	90	28.99	2	USD	t	1	2022-09-02 16:28:00.512441	\N	2022-07-12 18:15:28.53186	\N	\N
+210	JacketsandCoats_wool-blendcoatwithbelt_13.99_burgundy_xs	0.00	\N	\N	\N	2022-09-02 16:28:02.554324	f	94	13.99	2	USD	t	1	2022-09-02 16:28:02.493165	\N	2022-07-12 18:15:29.084726	\N	\N
+216	Tops_longsleevescroptop_34.99_black_xs	0.00	\N	\N	\N	2022-09-02 16:28:18.773442	f	100	34.99	2	USD	t	1	2022-09-02 16:28:18.708649	\N	2022-07-12 18:15:30.018305	\N	\N
+214	Tops_longsleevesyogacroptop_37.99_mint_xs	0.00	\N	\N	\N	2022-09-02 16:28:19.351743	f	98	37.99	2	USD	t	1	2022-09-02 16:28:19.290562	\N	2022-07-12 18:15:29.679163	\N	\N
+198	TopsandT-shirts_looset-shirtwithpocketimitation_37.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:28:20.565687	f	82	37.99	2	USD	t	1	2022-09-02 16:28:20.51303	\N	2022-07-12 18:15:27.265611	\N	\N
+223	Sweatshirts_oversizesweatshirt_67.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:28:20.951534	f	107	67.99	2	USD	t	1	2022-09-02 16:28:20.893354	\N	2022-07-12 18:15:31.019412	\N	\N
+183	ShirtsandBlouses_semi-sheershirtwithpockets_36.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:27:35.555549	f	67	36.99	2	USD	t	1	2022-09-02 16:27:35.498337	\N	2022-07-12 18:15:24.923064	\N	\N
+83	TopsandT-shirts_sleevelessloosetop_58.99	0.00	\N	\N	\N	2022-09-02 16:27:38.13385	t	83	\N	1	USD	t	\N	2022-09-02 16:27:38.092844	\N	2022-07-12 18:13:48.448016	\N	\N
+199	TopsandT-shirts_sleevelessloosetop_58.99_white_xs	0.00	\N	\N	\N	2022-09-02 16:27:38.21357	f	83	58.99	2	USD	t	1	2022-09-02 16:27:38.160546	\N	2022-07-12 18:15:27.41567	\N	\N
+84	TopsandT-shirts_basiclooset-shirt_25.99	0.00	\N	\N	\N	2022-09-02 16:25:40.005269	t	84	\N	1	USD	t	\N	2022-09-02 16:25:39.93034	\N	2022-07-12 18:13:48.839371	\N	\N
+200	TopsandT-shirts_basiclooset-shirt_25.99_green_xs	0.00	\N	\N	\N	2022-09-02 16:25:40.111976	f	84	25.99	2	USD	t	1	2022-09-02 16:25:40.035731	\N	2022-07-12 18:15:27.543138	\N	\N
+19	T-shirts_basict-shirt_23.99	0.00	\N	\N	\N	2022-09-02 16:25:41.966985	t	19	\N	1	USD	t	\N	2022-09-02 16:25:41.908098	\N	2022-07-12 18:13:23.722793	\N	\N
+135	T-shirts_basict-shirt_23.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:25:42.057416	f	19	23.99	2	USD	t	1	2022-09-02 16:25:41.99729	\N	2022-07-12 18:15:15.685832	\N	\N
+64	ShirtsandBlouses_blousewithwideflouncedsleeve_90.99	0.00	\N	\N	\N	2022-09-02 16:25:43.768924	t	64	\N	1	USD	t	\N	2022-09-02 16:25:43.71097	\N	2022-07-12 18:13:40.75357	\N	\N
+180	ShirtsandBlouses_blousewithwideflouncedsleeve_90.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:25:43.876697	f	64	90.99	2	USD	t	1	2022-09-02 16:25:43.806219	\N	2022-07-12 18:15:24.447025	\N	\N
+96	JacketsandCoats_bomberjacket_30.99	0.00	\N	\N	\N	2022-09-02 16:25:45.426838	t	96	\N	1	USD	t	\N	2022-09-02 16:25:45.384073	\N	2022-07-12 18:13:53.785087	\N	\N
+212	JacketsandCoats_bomberjacket_30.99_khaki_xs	0.00	\N	\N	\N	2022-09-02 16:25:45.511489	f	96	30.99	2	USD	t	1	2022-09-02 16:25:45.452976	\N	2022-07-12 18:15:29.390578	\N	\N
+174	ShirtsandBlouses_semi-sheershirtwithfloralcuffs_91.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:27:41.537355	f	58	91.99	2	USD	t	1	2022-09-02 16:27:41.475488	\N	2022-07-12 18:15:23.560416	\N	\N
+2	Shirts_checkedshirt_65.99	0.00	\N	\N	\N	2022-09-02 16:25:47.133408	t	2	\N	1	USD	t	\N	2022-09-02 16:25:47.095883	\N	2022-07-12 18:13:17.702715	\N	\N
+118	Shirts_checkedshirt_65.99_red_xs	0.00	\N	\N	\N	2022-09-02 16:25:47.213706	f	2	65.99	2	USD	t	1	2022-09-02 16:25:47.158292	\N	2022-07-12 18:15:13.177339	\N	\N
+8	Shirts_checkedslimfitshirt_27.99	0.00	\N	\N	\N	2022-09-02 16:25:48.671876	t	8	\N	1	USD	t	\N	2022-09-02 16:25:48.631983	\N	2022-07-12 18:13:19.795682	\N	\N
+201	JacketsandCoats_coatwithpockets_27.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:25:50.49159	f	85	27.99	2	USD	t	1	2022-09-02 16:25:50.431949	\N	2022-07-12 18:15:27.805748	\N	\N
+179	ShirtsandBlouses_cottonshirt_17.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:25:52.13818	f	63	17.99	2	USD	t	1	2022-09-02 16:25:52.075004	\N	2022-07-12 18:15:24.320987	\N	\N
+192	TopsandT-shirts_croptopwithtie_96.99_red_xs	0.00	\N	\N	\N	2022-09-02 16:25:57.93975	f	76	96.99	2	USD	t	1	2022-09-02 16:25:57.880278	\N	2022-07-12 18:15:26.423508	\N	\N
+95	JacketsandCoats_denimhoodedjacket_88.99	0.00	\N	\N	\N	2022-09-02 16:26:01.265264	t	95	\N	1	USD	t	\N	2022-09-02 16:26:01.222311	\N	2022-07-12 18:13:53.349777	\N	\N
+38	Skirts_fittedskirt_62.99	0.00	\N	\N	\N	2022-09-02 16:26:04.73456	t	38	\N	1	USD	t	\N	2022-09-02 16:26:04.61839	\N	2022-07-12 18:13:31.079813	\N	\N
+154	Skirts_fittedskirt_62.99_orange_mini_xs	0.00	\N	\N	\N	2022-09-02 16:26:04.84182	f	38	62.99	2	USD	t	1	2022-09-02 16:26:04.772042	\N	2022-07-12 18:15:18.730967	\N	\N
+31	JacketsandCoats_denimjacket_76.99	0.00	\N	\N	\N	2022-09-02 16:26:10.286488	t	31	\N	1	USD	t	\N	2022-09-02 16:26:10.233395	\N	2022-07-12 18:13:28.368403	\N	\N
+160	Skirts_floralflaredskirt_10.99_light_blue_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:01.291461	f	44	10.99	2	USD	t	1	2022-09-02 16:27:01.227411	\N	2022-07-12 18:15:19.830645	\N	\N
+29	JacketsandCoats_hoodedjacket_11.99	0.00	\N	\N	\N	2022-09-02 16:27:04.231108	t	29	\N	1	USD	t	\N	2022-09-02 16:27:04.187959	\N	2022-07-12 18:13:27.519287	\N	\N
+156	Skirts_leatherskirtwithlacing_46.99_black_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:09.104723	f	40	46.99	2	USD	t	1	2022-09-02 16:27:09.042237	\N	2022-07-12 18:15:19.12211	\N	\N
+126	Shirts_linenshirt_87.99_light_blue_xs	0.00	\N	\N	\N	2022-09-02 16:27:09.926999	f	10	87.99	2	USD	t	1	2022-09-02 16:27:09.871383	\N	2022-07-12 18:15:14.338667	\N	\N
+24	Sweaters_longsleevesweatshirt_73.99	0.00	\N	\N	\N	2022-09-02 16:27:13.47202	t	24	\N	1	USD	t	\N	2022-09-02 16:27:13.411378	\N	2022-07-12 18:13:25.511834	\N	\N
+204	JacketsandCoats_longcoatwithbelt_47.99_beige_xs	0.00	\N	\N	\N	2022-09-02 16:27:15.479352	f	88	47.99	2	USD	t	1	2022-09-02 16:27:15.420583	\N	2022-07-12 18:15:28.284299	\N	\N
+73	Sweaters_knittedhighnecksweater_86.99	0.00	\N	\N	\N	2022-09-02 16:27:17.421617	t	73	\N	1	USD	t	\N	2022-09-02 16:27:17.37991	\N	2022-07-12 18:13:44.049227	\N	\N
+231	Pants_highwaistpantswithpockets_92.99_pink_xs	0.00	\N	\N	\N	2022-09-02 16:27:22.680055	f	115	92.99	2	USD	t	1	2022-09-02 16:27:22.620303	\N	2022-07-12 18:15:32.161467	\N	\N
+131	T-shirts_t-shirtwithholes_34.99_grey_xs	0.00	\N	\N	\N	2022-09-02 16:27:45.584417	f	15	34.99	2	USD	t	1	2022-09-02 16:27:45.522075	\N	2022-07-12 18:15:15.088686	\N	\N
+173	Dresses_slitmaxidress_26.99_red_mini_xs	0.00	\N	\N	\N	2022-09-02 16:27:53.548333	f	57	26.99	2	USD	t	1	2022-09-02 16:27:53.483332	\N	2022-07-12 18:15:23.391595	\N	\N
+150	JacketsandCoats_wool-blendcoat_35.99_beige_xs	0.00	\N	\N	\N	2022-09-02 16:28:03.136773	f	34	35.99	2	USD	t	1	2022-09-02 16:28:03.068998	\N	2022-07-12 18:15:18.022671	\N	\N
+163	Dresses_v-neckfloralmaxidress_31.99_pink_mini_xs	0.00	\N	\N	\N	2022-09-02 16:28:06.31637	f	47	31.99	2	USD	t	1	2022-09-02 16:28:06.249263	\N	2022-07-12 18:15:20.59315	\N	\N
+82	TopsandT-shirts_looset-shirtwithpocketimitation_37.99	0.00	\N	\N	\N	2022-09-02 16:28:20.487671	t	82	\N	1	USD	t	\N	2022-09-02 16:28:20.445797	\N	2022-07-12 18:13:48.073782	\N	\N
+153	Skirts_midiskirtwithbottoms_40.99_green_mini_xs	0.00	\N	\N	\N	2022-09-02 16:28:29.313947	f	37	40.99	2	USD	t	1	2022-09-02 16:28:29.257813	\N	2022-07-12 18:15:18.46425	\N	\N
+169	Dresses_printedslit-sleevesdress_76.99_light_blue_mini_xs	0.00	\N	\N	\N	2022-09-02 16:28:38.713672	f	53	76.99	2	USD	t	1	2022-09-02 16:28:38.652981	\N	2022-07-12 18:15:21.921309	\N	\N
+122	Shirts_printedshortsleeveshirt_74.99_brown_xs	0.00	\N	\N	\N	2022-09-02 16:28:39.410274	f	6	74.99	2	USD	t	1	2022-09-02 16:28:39.340227	\N	2022-07-12 18:15:13.800204	\N	\N
+168	Dresses_printeddress_83.99_light_blue_mini_xs	0.00	\N	\N	\N	2022-09-02 16:28:42.561033	f	52	83.99	2	USD	t	1	2022-09-02 16:28:42.490251	\N	2022-07-12 18:15:21.714444	\N	\N
+234	dd_100_03	0.00	\N	\N	\N	\N	t	118	1.14	1	USD	t	\N	2022-09-08 15:41:32.974036	\N	2022-09-02 17:09:21.55014	\N	\N
+233	dd_100_04	0.00	\N	\N	\N	\N	t	117	2.75	1	USD	t	\N	2022-09-08 15:42:11.748562	\N	2022-09-02 16:33:37.722029	\N	\N
+235	dd_100_05	0.00	\N	\N	\N	\N	t	119	0.99	1	USD	t	\N	2022-09-08 15:42:47.623985	\N	2022-09-02 17:19:13.887876	\N	\N
+236	dd_100_06	0.00	\N	\N	\N	\N	t	120	1.10	1	USD	t	\N	2022-09-08 15:43:22.640705	\N	2022-09-02 17:31:19.718131	\N	\N
+237	dd_100_07	0.00	\N	\N	\N	\N	t	121	1.60	1	USD	t	\N	2022-09-08 15:45:34.863362	\N	2022-09-02 18:30:30.901574	\N	\N
+238	dd_100_09	0.00	\N	\N	\N	\N	t	122	1.99	1	USD	t	\N	2022-09-08 15:47:28.932664	\N	2022-09-02 18:38:46.417233	\N	\N
+239	dd_100_08	0.00	\N	\N	\N	\N	t	123	0.49	1	USD	t	\N	2022-09-13 20:55:14.219926	\N	2022-09-02 18:41:05.37736	\N	\N
+240	dd_100_10	0.00	\N	\N	\N	\N	t	124	0.99	1	USD	t	\N	2022-09-13 20:56:26.354157	\N	2022-09-02 18:42:26.500871	\N	\N
+241	dd_100_11	0.00	\N	\N	\N	\N	t	125	1.30	1	USD	t	\N	2022-09-13 20:57:51.359577	\N	2022-09-02 18:44:36.12419	\N	\N
+243	dd_100_12	0.00	\N	\N	\N	\N	t	127	3.10	1	USD	t	\N	2022-09-13 20:58:02.754162	\N	2022-09-02 18:52:56.264637	\N	\N
+242	dd_100_13	0.00	\N	\N	\N	\N	t	126	1.22	1	USD	t	\N	2022-09-13 20:58:22.814647	\N	2022-09-02 18:50:49.231267	\N	\N
+245	dd_100_14	0.00	\N	\N	\N	\N	t	129	0.99	1	USD	t	\N	2022-09-13 20:58:36.680604	\N	2022-09-02 18:59:14.658464	\N	\N
+244	dd_100_01	0.00	\N	\N	\N	\N	t	128	1.10	1	USD	t	\N	2022-09-13 20:58:51.567057	\N	2022-09-02 18:57:21.592453	\N	\N
+246	dd_100_02	0.00	\N	\N	\N	\N	t	130	1.36	1	USD	t	\N	2022-09-13 20:59:13.198541	\N	2022-09-02 19:01:55.290267	\N	\N
 \.
 
 
@@ -10541,28 +8915,28 @@ SELECT pg_catalog.setval('public.action_text_rich_texts_id_seq', 1, false);
 -- Name: active_storage_attachments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.active_storage_attachments_id_seq', 2, true);
+SELECT pg_catalog.setval('public.active_storage_attachments_id_seq', 106, true);
 
 
 --
 -- Name: active_storage_blobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.active_storage_blobs_id_seq', 2, true);
+SELECT pg_catalog.setval('public.active_storage_blobs_id_seq', 106, true);
 
 
 --
 -- Name: active_storage_variant_records_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.active_storage_variant_records_id_seq', 1, true);
+SELECT pg_catalog.setval('public.active_storage_variant_records_id_seq', 81, true);
 
 
 --
 -- Name: friendly_id_slugs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.friendly_id_slugs_id_seq', 142, true);
+SELECT pg_catalog.setval('public.friendly_id_slugs_id_seq', 161, true);
 
 
 --
@@ -10583,7 +8957,7 @@ SELECT pg_catalog.setval('public.spree_adjustments_id_seq', 2, true);
 -- Name: spree_assets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_assets_id_seq', 1, true);
+SELECT pg_catalog.setval('public.spree_assets_id_seq', 15, true);
 
 
 --
@@ -10667,7 +9041,7 @@ SELECT pg_catalog.setval('public.spree_inventory_units_id_seq', 2, true);
 -- Name: spree_line_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_line_items_id_seq', 2, true);
+SELECT pg_catalog.setval('public.spree_line_items_id_seq', 85, true);
 
 
 --
@@ -10702,7 +9076,7 @@ SELECT pg_catalog.setval('public.spree_oauth_access_grants_id_seq', 1, false);
 -- Name: spree_oauth_access_tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_oauth_access_tokens_id_seq', 1, true);
+SELECT pg_catalog.setval('public.spree_oauth_access_tokens_id_seq', 2, true);
 
 
 --
@@ -10751,7 +9125,7 @@ SELECT pg_catalog.setval('public.spree_order_promotions_id_seq', 1, false);
 -- Name: spree_orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_orders_id_seq', 2, true);
+SELECT pg_catalog.setval('public.spree_orders_id_seq', 62, true);
 
 
 --
@@ -10786,7 +9160,7 @@ SELECT pg_catalog.setval('public.spree_preferences_id_seq', 1, true);
 -- Name: spree_prices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_prices_id_seq', 232, true);
+SELECT pg_catalog.setval('public.spree_prices_id_seq', 246, true);
 
 
 --
@@ -10807,28 +9181,28 @@ SELECT pg_catalog.setval('public.spree_product_promotion_rules_id_seq', 1, false
 -- Name: spree_product_properties_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_product_properties_id_seq', 962, true);
+SELECT pg_catalog.setval('public.spree_product_properties_id_seq', 974, true);
 
 
 --
 -- Name: spree_products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_products_id_seq', 116, true);
+SELECT pg_catalog.setval('public.spree_products_id_seq', 130, true);
 
 
 --
 -- Name: spree_products_stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_products_stores_id_seq', 348, true);
+SELECT pg_catalog.setval('public.spree_products_stores_id_seq', 362, true);
 
 
 --
 -- Name: spree_products_taxons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_products_taxons_id_seq', 442, true);
+SELECT pg_catalog.setval('public.spree_products_taxons_id_seq', 481, true);
 
 
 --
@@ -10898,7 +9272,7 @@ SELECT pg_catalog.setval('public.spree_properties_id_seq', 16, true);
 -- Name: spree_property_prototypes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_property_prototypes_id_seq', 13, true);
+SELECT pg_catalog.setval('public.spree_property_prototypes_id_seq', 14, true);
 
 
 --
@@ -10912,7 +9286,7 @@ SELECT pg_catalog.setval('public.spree_prototype_taxons_id_seq', 1, false);
 -- Name: spree_prototypes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_prototypes_id_seq', 3, true);
+SELECT pg_catalog.setval('public.spree_prototypes_id_seq', 4, true);
 
 
 --
@@ -10975,7 +9349,7 @@ SELECT pg_catalog.setval('public.spree_return_items_id_seq', 1, false);
 -- Name: spree_role_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_role_users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.spree_role_users_id_seq', 2, true);
 
 
 --
@@ -11031,7 +9405,7 @@ SELECT pg_catalog.setval('public.spree_shipping_rates_id_seq', 9, true);
 -- Name: spree_state_changes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_state_changes_id_seq', 4, true);
+SELECT pg_catalog.setval('public.spree_state_changes_id_seq', 12, true);
 
 
 --
@@ -11045,7 +9419,7 @@ SELECT pg_catalog.setval('public.spree_states_id_seq', 577, true);
 -- Name: spree_stock_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_stock_items_id_seq', 232, true);
+SELECT pg_catalog.setval('public.spree_stock_items_id_seq', 246, true);
 
 
 --
@@ -11059,7 +9433,7 @@ SELECT pg_catalog.setval('public.spree_stock_locations_id_seq', 1, true);
 -- Name: spree_stock_movements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_stock_movements_id_seq', 116, true);
+SELECT pg_catalog.setval('public.spree_stock_movements_id_seq', 132, true);
 
 
 --
@@ -11122,14 +9496,14 @@ SELECT pg_catalog.setval('public.spree_tax_rates_id_seq', 1, true);
 -- Name: spree_taxonomies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_taxonomies_id_seq', 1, true);
+SELECT pg_catalog.setval('public.spree_taxonomies_id_seq', 2, true);
 
 
 --
 -- Name: spree_taxons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_taxons_id_seq', 26, true);
+SELECT pg_catalog.setval('public.spree_taxons_id_seq', 29, true);
 
 
 --
@@ -11143,14 +9517,14 @@ SELECT pg_catalog.setval('public.spree_trackers_id_seq', 1, false);
 -- Name: spree_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.spree_users_id_seq', 2, true);
 
 
 --
 -- Name: spree_variants_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.spree_variants_id_seq', 232, true);
+SELECT pg_catalog.setval('public.spree_variants_id_seq', 246, true);
 
 
 --
@@ -14134,57 +12508,5 @@ ALTER TABLE ONLY public.spree_oauth_access_tokens
 
 --
 -- PostgreSQL database dump complete
---
-
---
--- Database "spree_starter_test" dump
---
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 13.7
--- Dumped by pg_dump version 13.7
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: spree_starter_test; Type: DATABASE; Schema: -; Owner: postgres
---
-
-CREATE DATABASE spree_starter_test WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE spree_starter_test OWNER TO postgres;
-
-\connect spree_starter_test
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- PostgreSQL database dump complete
---
-
---
--- PostgreSQL database cluster dump complete
 --
 
