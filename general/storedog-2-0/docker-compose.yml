@@ -85,9 +85,7 @@ services:
     ports:
       - '${ADMIN_PORT:-4000}:${ADMIN_PORT:-4000}'
     volumes:
-      # - '/root/bundle_cache:/bundle'
       - '/root/database.yml:/app/config/database.yml'
-      # - /root/lab/storedog-backend/services/backend/storage:/app/storage
     environment:
       - REDIS_URL
       - DB_HOST=db
@@ -117,7 +115,6 @@ services:
       - backend
       - datadog
     volumes:
-      # - '/root/bundle_cache:/bundle'
       - '/root/database.yml:/app/config/database.yml'
     environment:
       - REDIS_URL
@@ -155,8 +152,8 @@ services:
       - DD_PROFILING_ENABLED=true
     ports:
       - '${ADS_PORT}:${ADS_PORT}'
-    volumes:
-      - /root/lab/storedog-backend/services/ads/ads.py:/app/ads.py
+    # volumes:
+    #   - /root/lab/storedog-backend/services/ads/ads.py:/app/ads.py
     depends_on:
       - datadog
       - db
