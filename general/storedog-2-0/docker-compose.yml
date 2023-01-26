@@ -179,7 +179,7 @@ services:
       com.datadog.tags.version: '1.21.4'
       com.datadoghq.ad.logs: '[{"source": "nginx", "service": "webserver"}]'
       com.datadoghq.ad.check_names: '["nginx"]'
-      com.datadoghq.ad.init_configs': '[{}]'
+      com.datadoghq.ad.init_configs: '[{}]'
       com.datadoghq.ad.instances: '[{"nginx_status_url": "http://%%host%%:81/nginx_status/"}]'
   db:
     image: postgres:13-alpine
@@ -211,7 +211,7 @@ services:
       my.custom.label.team: 'database'
       com.datadoghq.ad.check_names: '["redisdb"]'
       com.datadoghq.ad.init_configs: '[{}]'
-      com.datadoghq.ad.instances: '[{"host":"%%host%%", "port":6379}}]'
+      com.datadoghq.ad.instances: '[{"host":"%%host%%", "port":6379}]'
       com.datadoghq.ad.logs: '[{"source": "redis", "service": "redis"}]'
   puppeteer:
     image: buildkite/puppeteer:10.0.0
